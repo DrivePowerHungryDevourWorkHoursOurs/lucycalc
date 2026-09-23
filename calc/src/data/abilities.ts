@@ -337,6 +337,7 @@ const SV = SS.concat([
   'Wind Power',
   'Wind Rider',
   'Zero to Hero',
+  'Adrenaline'
   // Champions exclusive
   'Aura Guard',
   'Dragonize',
