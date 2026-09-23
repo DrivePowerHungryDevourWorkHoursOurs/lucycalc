@@ -1407,15 +1407,12 @@ export function calculateAtModsSMSSSV(
        (attacker.hasAbility('Swarm') && move.hasType('Bug')))) ||
     (move.category === 'Special' && attacker.abilityOn && attacker.hasAbility('Plus', 'Minus'))
   ) {
-
-    else if ((attacker.hasAbility('Adrenaline') && attacker.curHP() <= attacker.maxHP() / 3)) {
-        atMods.push(8192);
-        desc.attackerAbility = attacker.ability;
-    }
-
     atMods.push(6144);
     desc.attackerAbility = attacker.ability;
-  } else if (attacker.hasAbility('Flash Fire') && attacker.abilityOn && move.hasType('Fire')) {
+  } else if ((attacker.hasAbility('Adrenaline') && attacker.curHP() <= attacker.maxHP() / 3)) {
+        atMods.push(8192);
+        desc.attackerAbility = attacker.ability;
+    } else if (attacker.hasAbility('Flash Fire') && attacker.abilityOn && move.hasType('Fire')) {
     atMods.push(6144);
     desc.attackerAbility = 'Flash Fire';
   } else if (
