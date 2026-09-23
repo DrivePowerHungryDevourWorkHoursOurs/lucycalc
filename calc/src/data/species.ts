@@ -5239,7 +5239,7 @@ const XY_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   Togetic: {types: ['Fairy', 'Flying']},
   Tyranitar: {otherFormes: ['Tyranitar-Mega']},
   Unfezant: {bs: {at: 115}},
-  Venusaur: {otherFormes: ['Venusaur-Mega']},
+  Venusaur: {otherFormes: ['Venusaur-Mega', 'Venusaur-Gmax']},
   Victreebel: {bs: {sd: 70}},
   Vileplume: {bs: {sa: 110}},
   Whimsicott: {types: ['Grass', 'Fairy']},
@@ -6313,9 +6313,16 @@ const XY_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Venusaur-Mega': {
     types: ['Grass', 'Poison'],
-    bs: {hp: 80, at: 100, df: 123, sa: 122, sd: 120, sp: 80},
+    bs: {hp: 95, at: 82, df: 118, sa: 125, sd: 130, sp: 85},
     weightkg: 155.5,
     abilities: {0: 'Thick Fat'},
+    baseSpecies: 'Venusaur',
+  },
+  'Venusaur-Gmax': {
+    types: ['Grass', 'Poison'],
+    bs: {hp: 115, at: 80, df: 140, sa: 155, sd: 170, sp: 125},
+    weightkg: 155.5,
+    abilities: {0: 'Regenerator'},
     baseSpecies: 'Venusaur',
   },
 };
