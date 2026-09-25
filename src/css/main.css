@@ -714,3 +714,9 @@ table.field {
 .flex-parent {
 	display: flex;
 }
+
+#exportL,
+#exportR {
+    font-family: "Iosevka Term Web", monospace;
+    font-weight: 700;
+}
