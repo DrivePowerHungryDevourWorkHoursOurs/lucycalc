@@ -544,7 +544,7 @@ th {
 input {
     font-family: 'Iosevka Term Web', monospace;
     font-size: 11pt;
-    font-weight: 700;
+    font-weight: 450;
 }
 .poke-info input[type="number"] {
     display: inline-block;
