@@ -541,6 +541,11 @@ th {
     display: inline-block;
     width: 2.5em;
 }
+input {
+    font-family: 'Iosevka Term Web', monospace;
+    font-size: 11pt;
+    font-weight: 700;
+}
 .poke-info input[type="number"] {
     display: inline-block;
     width: auto;
