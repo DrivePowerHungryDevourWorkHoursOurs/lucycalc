@@ -1,7 +1,7 @@
 /*********************************************************
  * Layout
  *********************************************************/
-
+@import url("https://iosevka-webfonts.github.io/iosevka-term/iosevka-term.css");
 html, body {
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@ html, body {
 
 html {
     color: white;
-    font-family: Verdana,Helvetica,sans-serif;
+    font-family: "Iosevka Term Web", monospace;
     font-size: 11pt;
     background: #f0f0f0;
     color: #333333;
@@ -200,7 +200,7 @@ footer a.cur, footer a.cur:hover {
     border-radius: 10px;
     text-decoration: none;
     display: inline-block;
-    font-family: Verdana,Helvetica,sans-serif;
+    font-family: "Iosevka Term Web", monospace;
     font-size: 11pt;
     cursor: pointer;
 }
@@ -221,7 +221,7 @@ footer a.cur, footer a.cur:hover {
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2), inset 0 -1px 2px rgba(255,255,255,1);
 	box-shadow: 0 1px 2px rgba(0,0,0,.2), inset 0 -1px 2px rgba(255,255,255,1);
 	border-radius: 5px;
-	font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-family: "Iosevka Term Web", monospace;
 	display: inline-block;
 
 	/* default colors */
@@ -277,7 +277,7 @@ select {
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2), inset 0 -1px 2px rgba(255,255,255,1);
 	box-shadow: 0 1px 2px rgba(0,0,0,.2), inset 0 -1px 2px rgba(255,255,255,1);
 	border-radius: 5px;
-	font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-family: "Iosevka Term Web", monospace;
 	display: inline-block;
 
 	/* default colors */
