@@ -13,6 +13,7 @@ html, body {
 html {
     color: white;
     font-family: "Iosevka Term Web", monospace;
+    font-weight: 700;
     font-size: 11pt;
     background: #f0f0f0;
     color: #333333;
