@@ -3,7 +3,7 @@
 :root {
     /* Should make it easier to change colors in the future */
     --text: #e4e4e4;
-    --background: #1b1b1b;
+    --background: #494549;
 
     --button-color: #353535;
     --button-hover: var(--background);
