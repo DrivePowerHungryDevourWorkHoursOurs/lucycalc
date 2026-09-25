@@ -3,12 +3,6 @@
  *********************************************************/
 @import url("https://iosevka-webfonts.github.io/iosevka-term/iosevka-term.css");
 
-@font-face {
-  font-family: "Iosevka Term Web";
-  src: url('path/to/iosevka-term-bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-}
 
 html, body {
     margin: 0;
@@ -209,6 +203,7 @@ footer a.cur, footer a.cur:hover {
     text-decoration: none;
     display: inline-block;
     font-family: "Iosevka Term Web", monospace;
+    font-weight: 700;
     font-size: 11pt;
     cursor: pointer;
 }
