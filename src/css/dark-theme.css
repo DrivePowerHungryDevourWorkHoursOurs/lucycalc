@@ -18,10 +18,6 @@ html, body {
     background-color: var(--background);
     color-scheme: dark;
 
-    font-family: "Iosevka Term Web", monospace;
-    font-size: 10pt;
-    font-weight: 700;
-    line-height: normal;
 }
 
 a {
