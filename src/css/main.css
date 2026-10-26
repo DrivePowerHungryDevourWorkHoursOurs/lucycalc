@@ -8,7 +8,6 @@ html, body {
 html {
     color: white;
     font-family: Verdana,Helvetica,sans-serif;
-    font-weight: 700;
     font-size: 11pt;
     background: #f0f0f0;
     color: #333333;
@@ -199,7 +198,6 @@ footer a.cur, footer a.cur:hover {
     text-decoration: none;
     display: inline-block;
     font-family: Verdana,Helvetica,sans-serif;
-    font-weight: 700;
     font-size: 11pt;
     cursor: pointer;
 }
@@ -536,11 +534,6 @@ th {
     display: inline-block;
     width: 2.5em;
 }
-input {
-    font-family: Verdana,Helvetica,sans-serif;
-    font-size: 11pt;
-    font-weight: 450;
-}
 .poke-info input[type="number"] {
     display: inline-block;
     width: auto;
@@ -708,10 +701,4 @@ table.field {
 
 .flex-parent {
 	display: flex;
-}
-
-#exportL,
-#exportR {
-    font-family: Verdana,Helvetica,sans-serif;
-    font-weight: 700;
 }
