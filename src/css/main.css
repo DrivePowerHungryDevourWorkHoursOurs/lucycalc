@@ -12,7 +12,7 @@ html, body {
 
 html {
     color: white;
-    font-family: "Iosevka Term Web", monospace;
+    font-family: Verdana,Helvetica,sans-serif;
     font-weight: 700;
     font-size: 11pt;
     background: #f0f0f0;
@@ -203,7 +203,7 @@ footer a.cur, footer a.cur:hover {
     border-radius: 10px;
     text-decoration: none;
     display: inline-block;
-    font-family: "Iosevka Term Web", monospace;
+    font-family: Verdana,Helvetica,sans-serif;
     font-weight: 700;
     font-size: 11pt;
     cursor: pointer;
@@ -542,7 +542,7 @@ th {
     width: 2.5em;
 }
 input {
-    font-family: 'Iosevka Term Web', monospace;
+    font-family: Verdana,Helvetica,sans-serif;
     font-size: 11pt;
     font-weight: 450;
 }
@@ -717,6 +717,6 @@ table.field {
 
 #exportL,
 #exportR {
-    font-family: "Iosevka Term Web", monospace;
+    font-family: Verdana,Helvetica,sans-serif;
     font-weight: 700;
 }
