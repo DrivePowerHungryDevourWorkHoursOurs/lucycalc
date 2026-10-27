@@ -80,7 +80,23 @@ $(function () {
     if (!$box.length || !$selector.length) { console.warn("trainer-party: #" + sideId + " not found"); return; }
 
     var $sprite = $('<img class="tp-sprite" alt="">').css("visibility", "hidden").appendTo($box);
+    var $item = $('<img class="tp-item" alt="">').css({
+      position: "absolute", top: "128px", right: "38px", width: "48px", height: "48px",
+      objectFit: "contain", imageRendering: "pixelated", pointerEvents: "none", visibility: "hidden"
+    }).appendTo($box);
     var $panel = $('<div class="trainer-party" hidden></div>').appendTo($box);
+
+    // Item sprites from github.com/PokeAPI/sprites ("Focus Sash" -> focus-sash.png)
+    var ITEM_BASE = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/";
+    var lastItem = null;
+    function updateItem() {
+      var item = ($box.find("select.item").first().val() || "").trim();
+      if (item === lastItem) return;
+      lastItem = item;
+      if (!item || /^\(?none\)?$/i.test(item)) { $item.css("visibility", "hidden"); return; }
+      var slug = item.toLowerCase().replace(/['’.]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+      loadSprite($item, [ITEM_BASE + slug + ".png"]);
+    }
 
     function parseSelected() {
       var full = $selector.val() || "";
@@ -155,9 +171,11 @@ $(function () {
       var sel = parseSelected();
       var key = ($selector.val() || "") + "|" + (currentSpecies(sel) || "");
       if (key !== lastKey) { lastKey = key; render(); }
+      updateItem();
     }
     $selector.on("change", check);
     $box.on("change", "select.forme", check);
+    $box.on("change", "select.item", check);
     setInterval(check, 300); // fallback if the dropdown doesn't fire change events
     check();
   }
