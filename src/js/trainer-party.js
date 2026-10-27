@@ -88,7 +88,7 @@ $(function () {
 
     // Item sprites: local folder first (ALLCAPS, no spaces/hyphens: "Focus Sash" -> FOCUSSASH.png),
     // then PokeAPI/sprites. Z-Crystals use the "<name>-z--bag" icons on PokeAPI.
-    var LOCAL_ITEM_BASE = "src/img/Items/"; // relative to the calc's page; change if needed
+    var LOCAL_ITEM_BASE = "lucycalc/src/img/Items/"; // relative to the calc's page; change if needed
     var ITEM_BASE = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/";
     var lastItem = null;
     function itemUrls(item) {
