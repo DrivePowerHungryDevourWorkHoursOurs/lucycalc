@@ -53,7 +53,46 @@ var TRAINER_SETS_SV = {
       "moves": ["Stealth Rock", "Spikes", "Taunt", "Magic Coat"] 
     }
   },
-    
+     "Miraidon": {
+    "Lvl 100 Champion": {
+      "slot": 1, "level": 100, "ability": "Hadron Engine", "item": "Heavy Duty Boots", "nature": "Timid",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:0,at:0,df:4,sa:252,sd:0,sp:252},
+      "moves": ["Electro Drift", "Draco Meteor", "Overheat", "Taunt"],
+    }
+  },   
+       "Zacian-Crowned": {
+    "Lvl 100 Champion": {
+      "slot": 2, "level": 100, "ability": "Intrepid Sword", "item": "Rusted Sword", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:4,at:252,df:0,sa:0,sd:0,sp:252},
+      "moves": ["Swords Dance", "Behemoth Blade", "Close Combat", "Play Rough"],
+    }
+  },
+     "Arceus": {
+    "Lvl 100 Champion": {
+      "slot": 3, "level": 100, "ability": "Multitype", "item": "Leftovers", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:252,at:252,df:0,sa:0,sd:4,sp:0},
+      "moves": ["Swords Dance", "Extreme Speed", "Shadow Claw", "Recover"],
+    }
+  },           
+      "Necrozma-Dusk-Mane": {
+    "Lvl 100 Champion": {
+      "slot": 4, "level": 100, "ability": "Prism Armor", "item": "Ultranecrozium Z", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:0,at:252,df:0,sa:0,sd:4,sp:252},
+      "moves": ["Dragon Dance", "Outrage", "Photon Geyser", "Earthquake"],
+    }
+  },      
+      "Rayquaza-Mega": {
+    "Lvl 100 Champion": {
+      "slot": 6, "level": 100, "ability": "Delta Stream", "item": "Zygardite", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:0,at:252,df:0,sa:0,sd:4,sp:252},
+      "moves": ["Dragon Dance", "Extreme Speed", "Dragon Ascent", "Earthquake"],
+    }
+  }    
 };
 
 // Optional: base experience yield per species (lowercase id, no spaces/punctuation).
