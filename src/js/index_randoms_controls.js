@@ -20,6 +20,15 @@ for (var i = 0; i < 4; i++) {
 	});
 }
 
+// Colors each side's final speed: red = faster, blue = slower, yellow = tied.
+function colorSpeedStats(p1Spe, p2Spe) {
+	var colors = {faster: "#e53935", slower: "#1e88e5", tie: "#f5b800"};
+	var c1 = p1Spe === p2Spe ? colors.tie : (p1Spe > p2Spe ? colors.faster : colors.slower);
+	var c2 = p1Spe === p2Spe ? colors.tie : (p2Spe > p1Spe ? colors.faster : colors.slower);
+	$("#p1 .sp .totalMod").css({"color": c1, "font-weight": "bold"});
+	$("#p2 .sp .totalMod").css({"color": c2, "font-weight": "bold"});
+}
+
 function performCalculations() {
 	var p1info = $("#p1");
 	var p2info = $("#p2");
@@ -36,6 +45,7 @@ function performCalculations() {
 	p2.maxDamages = [];
 	p1info.find(".sp .totalMod").text(p1.stats.spe);
 	p2info.find(".sp .totalMod").text(p2.stats.spe);
+	colorSpeedStats(p1.stats.spe, p2.stats.spe);
 	var fastestSide = p1.stats.spe > p2.stats.spe ? 0 : p1.stats.spe === p2.stats.spe ? "tie" : 1;
 
 	var result, maxDamage;

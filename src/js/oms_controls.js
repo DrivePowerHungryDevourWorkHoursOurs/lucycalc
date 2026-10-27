@@ -256,6 +256,7 @@ function performCalculationsOM() {
 
 	p1info.find(".sp .totalMod").text(p1.stats.spe);
 	p2info.find(".sp .totalMod").text(p2.stats.spe);
+	colorSpeedStats(p1.stats.spe, p2.stats.spe);
 	var fastestSide = p1.stats.spe > p2.stats.spe ? 0 : p1.stats.spe === p2.stats.spe ? "tie" : 1;
 
 	var result, maxDamage;
