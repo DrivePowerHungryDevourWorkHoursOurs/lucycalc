@@ -42,6 +42,30 @@ $(function () {
     return Math.floor((cfg.trainerMultiplier * b * L) / 5 * Math.pow((2 * L + 10) / (L + Lp + 10), 2.5) + 1);
   }
 
+  // Sprite file names: regional forms are hyphenated ("geodude-alola"), base species are not
+  // ("hooh"), so try both, in the pixel set first and the dex set (covers newer forms) second.
+  function spriteUrls(species) {
+    var hyphen = String(species).toLowerCase().replace(/[^a-z0-9-]/g, "");
+    var plain = toID(species);
+    var ids = hyphen === plain ? [plain] : [hyphen, plain];
+    var urls = [];
+    ["gen5", "dex"].forEach(function (set) {
+      ids.forEach(function (id) {
+        urls.push("https://play.pokemonshowdown.com/sprites/" + set + "/" + id + ".png");
+      });
+    });
+    return urls;
+  }
+  function loadSprite($img, species) {
+    var urls = spriteUrls(species), i = 0;
+    $img.on("error", function () {
+      i++;
+      if (i < urls.length) $img.attr("src", urls[i]);
+      else $img.css("visibility", "hidden");
+    });
+    $img.attr("src", urls[0]);
+  }
+
   function parseSelected() {
     var full = $selector.val() || "";
     var i = full.indexOf(" (");
@@ -83,10 +107,8 @@ $(function () {
       var $card = $('<div class="tp-card"></div>')
         .toggleClass("tp-active", e.species === sel.species && e.setName === sel.setName)
         .attr("title", e.species + " — " + e.setName);
-      $('<img class="tp-icon" alt="">')
-        .attr("src", "https://play.pokemonshowdown.com/sprites/gen5/" + toID(e.species) + ".png")
-        .on("error", function () { $(this).hide(); })
-        .appendTo($card);
+      var $img = $('<img class="tp-icon" alt="">').appendTo($card);
+      loadSprite($img, e.species);
       $('<div class="tp-name"></div>').text(e.species).appendTo($card);
       $('<div class="tp-moves"></div>').html((e.set.moves || []).map(function (mv) {
         return $("<div>").text(mv).html();
