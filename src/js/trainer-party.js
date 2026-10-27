@@ -1,7 +1,6 @@
 
-// trainer-party.js — for BOTH Pokémon boxes (#p1 and #p2):
-// Compact single-row team display, without moves.
-// Load AFTER jQuery, gen9.js, trainers.js and the calculator scripts.
+// trainer-party.js — 3 Pokémon per row, 2 rows.
+// Load AFTER jQuery, gen9.js, trainers.js and calculator scripts.
 
 $(function () {
   var TRAINER_RE = /^Lvl (\d+) (.+)$/;
@@ -63,7 +62,7 @@ $(function () {
     );
   }
 
-  // Sprite URLs: try regional form IDs and base IDs.
+  // Sprite URLs.
   function spriteUrls(species) {
     var hyphen = String(species)
       .toLowerCase()
@@ -121,15 +120,16 @@ $(function () {
     var $panel = $('<div class="trainer-party" hidden></div>')
       .appendTo($box);
 
-    // Inline panel styles prevent external CSS from forcing wrapping.
+    // Panel sizing.
     $panel.css({
       "box-sizing": "border-box",
       "display": "block",
       "width": "100%",
       "max-width": "100%",
       "min-width": "0",
-      "overflow-x": "auto",
-      "overflow-y": "hidden"
+      "overflow-x": "hidden",
+      "overflow-y": "hidden",
+      "padding": "6px"
     });
 
     function parseSelected() {
@@ -175,7 +175,7 @@ $(function () {
     function render() {
       var sel = parseSelected();
 
-      // Selected species sprite.
+      // Selected Pokémon sprite.
       if (sel && sel.species !== lastSpecies) {
         lastSpecies = sel.species;
         loadSprite($sprite, sel.species);
@@ -186,7 +186,7 @@ $(function () {
         $sprite.css("visibility", "hidden");
       }
 
-      // Only display teams belonging to trainer sets.
+      // Show teams belonging to trainer sets.
       var m = sel && TRAINER_RE.exec(sel.setName);
 
       if (!m || !index[m[2]]) {
@@ -200,16 +200,17 @@ $(function () {
 
       $panel.empty().removeAttr("hidden");
 
-      // Force every Pokémon into the same horizontal row.
+      // Three cards per row.
       var $row = $('<div class="tp-row"></div>').css({
         "display": "flex",
         "flex-direction": "row",
-        "flex-wrap": "nowrap",
+        "flex-wrap": "wrap",
         "justify-content": "flex-start",
         "align-items": "stretch",
-        "gap": "2px",
-        "width": "max-content",
+        "gap": "4px",
+        "width": "100%",
         "min-width": "0",
+        "box-sizing": "border-box",
         "margin": "0",
         "padding": "0"
       }).appendTo($panel);
@@ -222,23 +223,23 @@ $(function () {
           anyExp = true;
         }
 
-        // Fixed-width card: prevents flex items from wrapping.
+        // Each card takes one third of the available row width.
         var $card = $('<div class="tp-card"></div>').css({
           "display": "block",
-          "flex": "0 0 63px",
-          "width": "63px",
-          "min-width": "63px",
-          "max-width": "63px",
+          "flex": "0 0 calc((100% - 8px) / 3)",
+          "width": "calc((100% - 8px) / 3)",
+          "min-width": "0",
+          "max-width": "calc((100% - 8px) / 3)",
           "box-sizing": "border-box",
           "margin": "0",
-          "padding": "3px 1px",
+          "padding": "8px 4px",
           "text-align": "center",
           "overflow-wrap": "anywhere",
           "cursor": "pointer",
-          "font-size": "10px",
-          "line-height": "1.15",
+          "font-size": "12px",
+          "line-height": "1.2",
           "border": "1px solid transparent",
-          "border-radius": "5px"
+          "border-radius": "6px"
         })
           .toggleClass(
             "tp-active",
@@ -247,41 +248,41 @@ $(function () {
           )
           .attr("title", e.species + " — " + e.setName);
 
-        // Pokémon sprite.
+        // Larger sprites.
         var $icon = $('<img class="tp-icon" alt="">').css({
           "display": "block",
-          "width": "36px",
-          "height": "30px",
+          "width": "64px",
+          "height": "54px",
           "object-fit": "contain",
           "image-rendering": "pixelated",
-          "margin": "0 auto 3px"
+          "margin": "0 auto 5px"
         }).appendTo($card);
 
         loadSprite($icon, e.species);
 
-        // Pokémon name only. Moves are intentionally omitted.
+        // Pokémon name; moves are removed.
         $('<div class="tp-name"></div>')
           .text(e.species)
           .css({
             "font-weight": "bold",
-            "font-size": "10px",
-            "line-height": "1.1",
+            "font-size": "12px",
+            "line-height": "1.2",
             "overflow-wrap": "anywhere"
           })
           .appendTo($card);
 
-        // EXP remains available if configured.
+        // EXP display, if configured.
         if (exp !== null) {
           $('<div class="tp-exp"></div>')
             .text("+" + exp + " EXP")
             .css({
-              "font-size": "9px",
-              "margin-top": "3px"
+              "font-size": "10px",
+              "margin-top": "4px"
             })
             .appendTo($card);
         }
 
-        // Click a team member to load its set.
+        // Click a Pokémon to load its set.
         $card.on("click", function () {
           loadIntoSide(e);
         });
