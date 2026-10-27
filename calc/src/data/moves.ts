@@ -4918,6 +4918,13 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     isWind: true,
     target: 'allAdjacentFoes',
   },
+  'Zippy Zap': {
+    bp: 80,
+    type: 'Electric',
+    category: 'Physical',
+    zp: 160,
+    maxPower: 130,
+  },  
 };
 
 const ZA_PATCH: {[name: string]: DeepPartial<MoveData>} = {
