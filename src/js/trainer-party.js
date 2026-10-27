@@ -88,14 +88,18 @@ $(function () {
 
     // Item sprites: local folder first (ALLCAPS, no spaces/hyphens: "Focus Sash" -> FOCUSSASH.png),
     // then PokeAPI/sprites. Z-Crystals use the "<name>-z--bag" icons on PokeAPI.
-    var LOCAL_ITEM_BASE = "lucycalc/src/img/Items/"; // relative to the calc's page; change if needed
+    // Tried in order: relative to the page, then the repo's raw files (works wherever the page is hosted).
+    var LOCAL_ITEM_BASES = [
+      "src/img/Items/",
+      "https://raw.githubusercontent.com/DrivePowerHungryDevourWorkHoursOurs/lucycalc/main/src/img/Items/"
+    ];
     var ITEM_BASE = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/";
     var lastItem = null;
     function itemUrls(item) {
       var clean = item.replace(/['’.]/g, "");
       var local = clean.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
       var slug = clean.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-      var urls = [LOCAL_ITEM_BASE + local + ".png"];
+      var urls = LOCAL_ITEM_BASES.map(function (b) { return b + local + ".png"; });
       if (/ium[ -]z$/i.test(clean)) {
         urls.push(ITEM_BASE + slug + "--bag.png", ITEM_BASE + slug + "-bag.png");
       }
@@ -107,7 +111,12 @@ $(function () {
       if (item === lastItem) return;
       lastItem = item;
       if (!item || /^\(?none\)?$/i.test(item)) { $item.css("visibility", "hidden"); return; }
-      loadSprite($item, itemUrls(item));
+      var urls = itemUrls(item);
+      loadSprite($item, urls);
+      // debug: shows in the browser console which source actually loaded
+      $item.off("load.tp").on("load.tp", function () {
+        console.log("trainer-party item:", item, "->", $item.attr("src"), "(source #" + (urls.indexOf($item.attr("src")) + 1) + " of " + urls.length + ")");
+      });
     }
 
     function parseSelected() {
