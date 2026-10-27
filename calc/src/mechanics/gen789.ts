@@ -1251,8 +1251,7 @@ export function calculateBPModsSMSSSV(
     bpMods.push(4915);
   }
 
-  if ((attacker.hasAbility('Reckless') && (move.recoil || move.hasCrashDamage)) ||
-      (attacker.hasAbility('Iron Fist') && move.flags.punch)
+  if ((attacker.hasAbility('Reckless') && (move.recoil || move.hasCrashDamage))
   ) {
     bpMods.push(4915);
     desc.attackerAbility = attacker.ability;
@@ -1271,8 +1270,10 @@ export function calculateBPModsSMSSSV(
     bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
     desc.attackerAbility = attacker.ability;
     desc.alliesFainted = attacker.alliesFainted;
+  } else if (attacker.hasAbility('Iron Fist') && move.flags.punch) {
+  bpMods.push(5325); // 1.3x
+  desc.attackerAbility = attacker.ability;
   }
-
   // Items
 
   if (attacker.hasItem(`${move.type} Gem`)) {
