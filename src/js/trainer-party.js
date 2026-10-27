@@ -52,9 +52,20 @@ $(function () {
   function loadIntoP2(entry) {
     var full = entry.species + " (" + entry.setName + ")";
     // select2("val", ...) makes this calc fall back to its default set, so set the data directly.
-    if ($selector.data("select2")) $selector.select2("data", { id: full, text: full });
+    var hasSelect2 = !!$selector.data("select2");
+    if (hasSelect2) $selector.select2("data", { id: full, text: full });
     $selector.val(full);
+    // Select2 re-runs the calc's default-selection function on every change event, which
+    // resets the label to the default set. Its own flag tells it to skip that.
+    $selector.data("select2-change-triggered", true);
     $selector.trigger("change");
+    $selector.data("select2-change-triggered", false);
+    if (hasSelect2) {
+      // safety net: make sure the label shows the loaded set
+      setTimeout(function () {
+        $selector.select2("container").find(".select2-chosen").text(full);
+      }, 0);
+    }
   }
 
   function render() {
