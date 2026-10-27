@@ -51,8 +51,9 @@ $(function () {
 
   function loadIntoP2(entry) {
     var full = entry.species + " (" + entry.setName + ")";
-    if ($selector.data("select2")) $selector.select2("val", full);
-    else $selector.val(full);
+    // select2("val", ...) makes this calc fall back to its default set, so set the data directly.
+    if ($selector.data("select2")) $selector.select2("data", { id: full, text: full });
+    $selector.val(full);
     $selector.trigger("change");
   }
 
