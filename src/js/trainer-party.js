@@ -180,14 +180,13 @@ $(function () {
           .toggleClass("tp-active", e.species === sel.species && e.setName === sel.setName)
           .attr("title", e.species + " (" + e.setName + ")" + ((e.set.moves || []).length ? "\n" + e.set.moves.join(", ") : ""));
         loadSprite($('<img class="tp-icon" alt="">').appendTo($card), partySpriteUrls(e.species));
+        $('<div class="tp-name"></div>').text(e.species).appendTo($card);
         if (e.set.item) {
-          $card.css("position", "relative");
           loadSprite($('<img class="tp-card-item" alt="">').css({
-            position: "absolute", top: "28px", left: "50%", marginLeft: "2px", width: "22px", height: "22px",
+            display: "block", margin: "2px auto 0", width: "22px", height: "22px",
             objectFit: "contain", imageRendering: "pixelated", pointerEvents: "none"
           }).appendTo($card), itemUrls(e.set.item));
         }
-        $('<div class="tp-name"></div>').text(e.species).appendTo($card);
         if (exp != null) $('<div class="tp-exp"></div>').text("+" + exp + " EXP").appendTo($card);
         $card.on("click", function () { loadIntoSide(e); });
         $row.append($card);

@@ -42,12 +42,36 @@ var TRAINER_SETS_SV = {
       "slot": 0, "level": 22, "ability": "Drought", "item": "Heat Rock", "nature": "Bold",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {hp:244,at:248,df:0,sa:16,sd:0,sp:0},
-      "moves": ["Stealth Rock", "Zippy Zap", "Grass Knot", "Fake Out"] 
+      "moves": ["Stealth Rock", "Rapid Spin", "Lava Plume ", "Body Press"] 
+    }
+  },
+      "Fletchinder": {
+    "Lvl 23 Gym Leader Sebastian": {
+      "slot": 1, "level": 23, "ability": "Gale Wings", "item": "Heavy-Duty Boots", "nature": "Modest",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:248,at:0,df:0,sa:252,sd:8,sp:0},
+      "moves": ["Will-o-Wisp", "Roost", "Wing Attack", "Overheat"] 
+    }
+  },
+      "Numel": {
+    "Lvl 24 Gym Leader Sebastian": {
+      "slot": 2, "level": 24, "ability": "Solar Power", "item": "Eviolite", "nature": "Modest",
+      "ivs": {"hp":31,"at":1,"df":30,"sa":30,"sd":31,"sp":31},
+      "evs": {hp:252,at:0,df:0,sa:252,sd:4,sp:0},
+      "moves": ["Overheat", "Mud Bomb", "Lava Plume", "Hidden Power Grass"] 
+    }
+  },
+      "Quilava": {
+    "Lvl 25 Gym Leader Sebastian": {
+      "slot": 3, "level": 25, "ability": "Blaze", "item": "Charcoal", "nature": "Timid",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:0,at:0,df:0,sa:252,sd:4,sp:252},
+      "moves": ["Overheat", "Energy Ball", "Extrasensory", "Incinerate"] 
     }
   },
       "Deoxys-Speed": {
     "Lvl 100 Champion": {
-      "slot": 0, "level": 100, "ability": "Pressure", "item": " Focus Sash", "nature": "Timid ",
+      "slot": 0, "level": 100, "ability": "Pressure", "item": "Focus Sash", "nature": "Timid ",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {hp:248,at:0,df:164,sa:0,sd:0,sp:96},
       "moves": ["Stealth Rock", "Spikes", "Taunt", "Magic Coat"] 
@@ -55,7 +79,7 @@ var TRAINER_SETS_SV = {
   },
      "Miraidon": {
     "Lvl 100 Champion": {
-      "slot": 1, "level": 100, "ability": "Hadron Engine", "item": "Heavy Duty Boots", "nature": "Timid",
+      "slot": 1, "level": 100, "ability": "Hadron Engine", "item": "Heavy-Duty Boots", "nature": "Timid",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {hp:0,at:0,df:4,sa:252,sd:0,sp:252},
       "moves": ["Electro Drift", "Draco Meteor", "Overheat", "Taunt"],
