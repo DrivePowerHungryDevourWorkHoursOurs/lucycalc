@@ -36,7 +36,71 @@ var TRAINER_SETS_SV = {
       "evs": {hp:0,at:236,df:0,sa:28,sd:0,sp:232},
       "moves": ["Charge Beam", "Zippy Zap", "Grass Knot", "Fake Out"] 
     }
+  },
+     "Torkoal": {
+    "Lvl 22 Gym Leader Sebastian": {
+      "slot": 0, "level": 22, "ability": "Drought", "item": "Heat Rock", "nature": "Bold",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:244,at:248,df:0,sa:16,sd:0,sp:0},
+      "moves": ["Stealth Rock", "Zippy Zap", "Grass Knot", "Fake Out"] 
+    }
+  },
+    
+  "Deoxys-Speed": {
+    "Lvl 100 Champion Lucy": {
+      "slot": 1, "level": 100, "ability": "Pressure", "item": "Focus Sash", "nature": "Timid",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":248,"at":0,"df":164,"sa":0,"sd":0,"sp":96},
+      "moves": ["Stealth Rock", "Spikes", "Taunt", "Magic Coat"],
+      "shiny": true
+    }
+  },
+  "Miraidon": {
+    "Lvl 100 Champion Lucy": {
+      "slot": 2, "level": 100, "ability": "Hadron Engine", "item": "Heavy-Duty Boots", "nature": "Timid",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
+      "moves": ["Electro Drift", "Draco Meteor", "Overheat", "Taunt"],
+      "shiny": true
+    }
+  },
+  "Zacian-Crowned": {
+    "Lvl 100 Champion Lucy": {
+      "slot": 3, "level": 100, "ability": "Intrepid Sword", "item": "Rusted Sword", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":4,"at":252,"df":0,"sa":0,"sd":0,"sp":252},
+      "moves": ["Swords Dance", "Behemoth Blade", "Close Combat", "Play Rough"],
+      "shiny": true
+    }
+  },
+  "Arceus": {
+    "Lvl 100 Champion Lucy": {
+      "slot": 4, "level": 100, "ability": "Multitype", "item": "Leftovers", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":252,"df":0,"sa":0,"sd":4,"sp":0},
+      "moves": ["Swords Dance", "Extreme Speed", "Shadow Claw", "Recover"],
+      "shiny": true
+    }
+  },
+  "Necrozma-Dusk-Mane": {
+    "Lvl 100 Champion Lucy": {
+      "slot": 5, "level": 100, "ability": "Prism Armor", "item": "Ultranecrozium Z", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Dragon Dance", "Outrage", "Photon Geyser", "Earthquake"],
+      "shiny": true
+    }
+  },
+  "Rayquaza-Mega": {
+    "Lvl 100 Champion Lucy": {
+      "slot": 6, "level": 100, "ability": "Delta Stream", "item": "Zygardite", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Dragon Dance", "Extreme Speed", "Dragon Ascent", "Earthquake"],
+      "shiny": true
+    }
   }
+}
 };
 
 // Optional: base experience yield per species (lowercase id, no spaces/punctuation).
