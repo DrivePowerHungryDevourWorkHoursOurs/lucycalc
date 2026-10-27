@@ -39,9 +39,15 @@ $(function () {
   // Regional forms are hyphenated ("geodude-alola"), base species are not ("hooh"), so try both,
   // in the pixel set first and the dex set (covers newer forms) second.
   function spriteUrls(species) {
-    var hyphen = String(species).toLowerCase().replace(/[^a-z0-9-]/g, "");
-    var plain = toID(species);
-    var ids = hyphen === plain ? [plain] : [hyphen, plain];
+    var name = String(species);
+    var plain = toID(name);
+    var ids = [];
+    var h = name.indexOf("-");
+    // Showdown only hyphenates the first split: "Necrozma-Dusk-Mane" -> "necrozma-duskmane",
+    // "Mr. Mime-Galar" -> "mrmime-galar". Names like "Ho-Oh" / "Porygon-Z" have no hyphen
+    // in the file name, so the plain id is the fallback.
+    if (h > 0) ids.push(toID(name.substring(0, h)) + "-" + toID(name.substring(h + 1)));
+    ids.push(plain);
     var urls = [];
     ["gen5", "dex"].forEach(function (set) {
       ids.forEach(function (id) {
@@ -105,7 +111,9 @@ $(function () {
     function currentSpecies(sel) {
       var $forme = $box.find("select.forme").first();
       var f = $forme.val();
-      if ($forme.length && f && !$forme.closest("div").hasClass("hide")) return f;
+      // The calc shows/hides this row with jQuery show()/hide() and leaves the "hide" class on it,
+      // so check whether it is actually displayed rather than looking at the class.
+      if ($forme.length && f && $forme.closest("div").css("display") !== "none") return f;
       return sel ? sel.species : null;
     }
 
