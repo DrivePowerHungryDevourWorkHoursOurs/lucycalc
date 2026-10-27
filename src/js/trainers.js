@@ -116,7 +116,47 @@ var TRAINER_SETS_SV = {
       "evs": {hp:0,at:252,df:0,sa:0,sd:4,sp:252},
       "moves": ["Dragon Dance", "Extreme Speed", "Dragon Ascent", "Earthquake"],
     }
-  }    
+  },
+  "Pelipper": {
+    "Lvl 35 Gym Leader Quentin": {
+      "slot": 0, "level": 35, "ability": "Drizzle", "item": "Damp Rock", "nature": "Bold",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:248,at:0,df:252,sa:8,sd:0,sp:0},
+      "moves": ["Scald", "Air Cutter", "U-turn", "Roost"]
+    }
+  },
+  "Tentacruel": {
+    "Lvl 35 Gym Leader Quentin": {
+      "slot": 1, "level": 35, "ability": "Rain Dish", "item": "Black Sludge", "nature": "Bold",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:248,at:0,df:244,sa:0,sd:0,sp:16},
+      "moves": ["Scald", "Rapid Spin", "Knock Off", "Toxic Spikes"]
+    }
+  },
+  "Bibarel": {
+    "Lvl 36 Gym Leader Quentin": {
+      "slot": 2, "level": 36, "ability": "Unaware", "item": "Life Orb", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:0,at:252,df:0,sa:0,sd:8,sp:244},
+      "moves": ["Swords Dance", "Liquidation", "Aqua Jet", "Frustration"]
+    }
+  },
+  "Ludicolo": {
+    "Lvl 36 Gym Leader Quentin": {
+      "slot": 3, "level": 36, "ability": "Swift Swim", "item": "Coba Berry", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:0,at:0,df:0,sa:244,sd:16,sp:244},
+      "moves": ["Giga Drain", "Ice Beam", "Scald", "Rain Dance"]
+    }
+  },
+  "Swampert": {
+    "Lvl 37 Gym Leader Quentin": {
+      "slot": 4, "level": 37, "ability": "Swift Swim", "item": "Rindo Berry", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:0,at:252,df:0,sa:0,sd:4,sp:252},
+      "moves": ["Waterfall", "Earthquake", "Ice Punch", "Rock Slide"]
+    }
+  }
 };
 
 // Optional: base experience yield per species (lowercase id, no spaces/punctuation).
