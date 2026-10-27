@@ -1,105 +1,105 @@
 
-/* trainer-party.css
- * Compact trainer party layout.
- * Hides moves and keeps all Pokémon on a single horizontal row.
- * Load after main.css and dark-theme.css.
- */
+/* Trainer party — 3 Pokémon per row, 2 rows for a full team.
+   Load after main.css and dark-theme.css. */
 
 .trainer-party {
   clear: both !important;
   display: block !important;
   box-sizing: border-box !important;
   width: 100% !important;
-  max-width: 32em !important;
+  max-width: 100% !important;
   min-width: 0 !important;
-  padding: 5px !important;
+  padding: 6px !important;
   margin-top: 8px !important;
   border: 1px solid #777;
   border-radius: 6px;
-  background: var(--fieldset-color, #F1F4F9);
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
+  background: var(--fieldset-color, #292929);
+  overflow: hidden !important;
 }
 
-/* Keep every Pokémon on the same row */
+/* Three cards per row */
 .trainer-party .tp-row {
   display: flex !important;
   flex-direction: row !important;
-  flex-wrap: nowrap !important;
+  flex-wrap: wrap !important;
   justify-content: flex-start !important;
   align-items: stretch !important;
-  gap: 2px !important;
-  width: max-content !important;
-  min-width: 0 !important;
-  margin: 0 !important;
-}
-
-/* Compact Pokémon cards */
-.trainer-party .tp-card {
-  display: block !important;
-  flex: 0 0 63px !important;
-  width: 63px !important;
-  min-width: 63px !important;
-  max-width: 63px !important;
+  gap: 4px !important;
+  width: 100% !important;
   box-sizing: border-box !important;
   margin: 0 !important;
-  padding: 3px 1px !important;
+  padding: 0 !important;
+}
+
+/* Pokémon cards */
+.trainer-party .tp-card {
+  display: block !important;
+  flex: 0 0 calc((100% - 8px) / 3) !important;
+  width: calc((100% - 8px) / 3) !important;
+  min-width: 0 !important;
+  max-width: calc((100% - 8px) / 3) !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 8px 4px !important;
   border: 1px solid transparent;
-  border-radius: 5px;
-  font-size: 10px !important;
-  line-height: 1.15;
+  border-radius: 6px;
+  font-size: 12px !important;
+  line-height: 1.2;
   text-align: center;
   cursor: pointer;
   overflow-wrap: anywhere;
 }
 
-/* Hover highlight */
 .trainer-party .tp-card:hover {
   border-color: #5897fb;
 }
 
-/* Selected Pokémon */
 .trainer-party .tp-card.tp-active {
   border-color: #5897fb;
-  background: rgba(88, 151, 251, .15);
+  background: rgba(88, 151, 251, 0.15);
 }
 
-/* Pokémon sprites */
+/* BIG sprites — !important prevents old styles overriding them */
 .trainer-party .tp-icon {
   display: block !important;
-  width: 36px !important;
-  height: 30px !important;
-  object-fit: contain;
-  image-rendering: pixelated;
-  margin: 0 auto 3px !important;
+  width: 100px !important;
+  height: 85px !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  image-rendering: auto !important;
+  margin: 0 auto 5px !important;
 }
 
 /* Pokémon names */
 .trainer-party .tp-name {
-  font-weight: bold;
-  font-size: 10px !important;
-  line-height: 1.1 !important;
+  font-weight: bold !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
   overflow-wrap: anywhere;
   word-break: normal;
 }
 
-/* Hide moves */
+/* Never show moves */
 .trainer-party .tp-moves {
   display: none !important;
 }
 
-/* EXP per Pokémon */
+/* EXP */
 .trainer-party .tp-exp {
-  margin-top: 3px;
-  padding-top: 2px;
+  margin-top: 4px;
+  padding-top: 3px;
   border-top: 1px solid #777;
-  font-size: 9px;
+  font-size: 10px;
 }
 
-/* Total EXP */
 .trainer-party .tp-total {
   text-align: right;
   font-weight: bold;
-  margin-top: 4px;
-  font-size: 10px;
+  margin-top: 5px;
+  font-size: 11px;
+}
+
+/* Remove the extra selected-Pokémon image element */
+.tp-sprite {
+  display: none !important;
 }

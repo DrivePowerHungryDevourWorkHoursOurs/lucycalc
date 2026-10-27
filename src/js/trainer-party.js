@@ -1,6 +1,7 @@
 
-// trainer-party.js — 3 Pokémon per row, 2 rows.
-// Load AFTER jQuery, gen9.js, trainers.js and calculator scripts.
+// trainer-party.js
+// Three Pokémon per row, larger sprites, no extra sprite element.
+// Load after jQuery, gen9.js, trainers.js and calculator scripts.
 
 $(function () {
   var TRAINER_RE = /^Lvl (\d+) (.+)$/;
@@ -9,17 +10,23 @@ $(function () {
     return String(s).toLowerCase().replace(/[^a-z0-9]/g, "");
   }
 
+  if (typeof SETDEX_SV === "undefined") {
+    console.warn("trainer-party: SETDEX_SV was not found.");
+    return;
+  }
+
   // Build trainer index.
   var index = {};
 
   Object.keys(SETDEX_SV).forEach(function (species) {
     Object.keys(SETDEX_SV[species]).forEach(function (setName) {
-      var m = TRAINER_RE.exec(setName);
-      if (!m) return;
+      var match = TRAINER_RE.exec(setName);
+      if (!match) return;
 
       var set = SETDEX_SV[species][setName];
+      var trainer = match[2];
 
-      (index[m[2]] = index[m[2]] || []).push({
+      (index[trainer] = index[trainer] || []).push({
         species: species,
         setName: setName,
         set: set,
@@ -29,36 +36,40 @@ $(function () {
   });
 
   Object.keys(index).forEach(function (trainer) {
-    index[trainer].forEach(function (e, i) {
-      e._order = i;
+    index[trainer].forEach(function (entry, i) {
+      entry._order = i;
     });
 
     index[trainer].sort(function (a, b) {
-      var sa = a.slot == null ? 99 : a.slot;
-      var sb = b.slot == null ? 99 : b.slot;
-      return sa - sb || a._order - b._order;
+      var aSlot = a.slot == null ? 99 : a.slot;
+      var bSlot = b.slot == null ? 99 : b.slot;
+      return aSlot - bSlot || a._order - b._order;
     });
   });
 
-  // EXP calculation.
+  // Calculate EXP.
   function expGain(entry) {
     var table = typeof BASE_EXP_YIELD !== "undefined"
       ? BASE_EXP_YIELD
       : {};
 
-    var b = table[toID(entry.species)];
-    if (!b) return null;
+    var base = table[toID(entry.species)];
+    if (!base) return null;
 
-    var cfg = typeof TRAINER_EXP_CONFIG !== "undefined"
+    var config = typeof TRAINER_EXP_CONFIG !== "undefined"
       ? TRAINER_EXP_CONFIG
       : { playerLevel: 100, trainerMultiplier: 1.5 };
 
     var match = TRAINER_RE.exec(entry.setName);
-    var L = entry.set.level || (match ? +match[1] : 100);
+    var level = entry.set.level || (match ? Number(match[1]) : 100);
 
     return Math.floor(
-      (cfg.trainerMultiplier * b * L) / 5 *
-      Math.pow((2 * L + 10) / (L + cfg.playerLevel + 10), 2.5) + 1
+      (config.trainerMultiplier * base * level) / 5 *
+      Math.pow(
+        (2 * level + 10) /
+        (level + config.playerLevel + 10),
+        2.5
+      ) + 1
     );
   }
 
@@ -72,11 +83,11 @@ $(function () {
     var ids = hyphen === plain ? [plain] : [hyphen, plain];
     var urls = [];
 
-    ["gen5", "dex"].forEach(function (set) {
+    ["gen5", "dex"].forEach(function (spriteSet) {
       ids.forEach(function (id) {
         urls.push(
           "https://play.pokemonshowdown.com/sprites/" +
-          set + "/" + id + ".png"
+          spriteSet + "/" + id + ".png"
         );
       });
     });
@@ -86,15 +97,15 @@ $(function () {
 
   function loadSprite($img, species) {
     var urls = spriteUrls(species);
-    var i = 0;
+    var position = 0;
 
     $img.off("error").css("visibility", "visible");
 
     $img.on("error", function () {
-      i++;
+      position++;
 
-      if (i < urls.length) {
-        $img.attr("src", urls[i]);
+      if (position < urls.length) {
+        $img.attr("src", urls[position]);
       } else {
         $img.css("visibility", "hidden");
       }
@@ -103,44 +114,31 @@ $(function () {
     $img.attr("src", urls[0]);
   }
 
-  // Set up one Pokémon side.
   function setupSide(sideId) {
     var $box = $("#" + sideId);
     var $selector = $("#" + sideId + " input.set-selector").first();
 
     if (!$box.length || !$selector.length) {
-      console.warn("trainer-party: #" + sideId + " not found");
+      console.warn("trainer-party: could not find side", sideId);
       return;
     }
 
-    var $sprite = $('<img class="tp-sprite" alt="">')
-      .css("visibility", "hidden")
-      .appendTo($box);
+    // Remove any old extra sprite created by this script.
+    $box.children(".tp-sprite").remove();
 
+    // Create only the party panel. No extra sprite placeholder.
     var $panel = $('<div class="trainer-party" hidden></div>')
       .appendTo($box);
 
-    // Panel sizing.
-    $panel.css({
-      "box-sizing": "border-box",
-      "display": "block",
-      "width": "100%",
-      "max-width": "100%",
-      "min-width": "0",
-      "overflow-x": "hidden",
-      "overflow-y": "hidden",
-      "padding": "6px"
-    });
-
     function parseSelected() {
       var full = $selector.val() || "";
-      var i = full.indexOf(" (");
+      var splitAt = full.indexOf(" (");
 
-      if (i < 0) return null;
+      if (splitAt < 0) return null;
 
       return {
-        species: full.substring(0, i),
-        setName: full.substring(i + 2, full.length - 1)
+        species: full.substring(0, splitAt),
+        setName: full.substring(splitAt + 2, full.length - 1)
       };
     }
 
@@ -156,7 +154,6 @@ $(function () {
       }
 
       $selector.val(full);
-
       $selector.data("select2-change-triggered", true);
       $selector.trigger("change");
       $selector.data("select2-change-triggered", false);
@@ -170,121 +167,58 @@ $(function () {
       }
     }
 
-    var lastSpecies = null;
-
     function render() {
-      var sel = parseSelected();
+      var selected = parseSelected();
+      var match = selected && TRAINER_RE.exec(selected.setName);
 
-      // Selected Pokémon sprite.
-      if (sel && sel.species !== lastSpecies) {
-        lastSpecies = sel.species;
-        loadSprite($sprite, sel.species);
-      }
-
-      if (!sel) {
-        lastSpecies = null;
-        $sprite.css("visibility", "hidden");
-      }
-
-      // Show teams belonging to trainer sets.
-      var m = sel && TRAINER_RE.exec(sel.setName);
-
-      if (!m || !index[m[2]]) {
+      if (!match || !index[match[2]]) {
         $panel.attr("hidden", true).empty();
         return;
       }
 
-      var party = index[m[2]];
+      var party = index[match[2]];
       var total = 0;
       var anyExp = false;
 
       $panel.empty().removeAttr("hidden");
 
-      // Three cards per row.
-      var $row = $('<div class="tp-row"></div>').css({
-        "display": "flex",
-        "flex-direction": "row",
-        "flex-wrap": "wrap",
-        "justify-content": "flex-start",
-        "align-items": "stretch",
-        "gap": "4px",
-        "width": "100%",
-        "min-width": "0",
-        "box-sizing": "border-box",
-        "margin": "0",
-        "padding": "0"
-      }).appendTo($panel);
+      var $row = $('<div class="tp-row"></div>').appendTo($panel);
 
-      party.forEach(function (e) {
-        var exp = expGain(e);
+      party.forEach(function (entry) {
+        var exp = expGain(entry);
 
         if (exp !== null) {
           total += exp;
           anyExp = true;
         }
 
-        // Each card takes one third of the available row width.
-        var $card = $('<div class="tp-card"></div>').css({
-          "display": "block",
-          "flex": "0 0 calc((100% - 8px) / 3)",
-          "width": "calc((100% - 8px) / 3)",
-          "min-width": "0",
-          "max-width": "calc((100% - 8px) / 3)",
-          "box-sizing": "border-box",
-          "margin": "0",
-          "padding": "8px 4px",
-          "text-align": "center",
-          "overflow-wrap": "anywhere",
-          "cursor": "pointer",
-          "font-size": "12px",
-          "line-height": "1.2",
-          "border": "1px solid transparent",
-          "border-radius": "6px"
-        })
+        var $card = $('<div class="tp-card"></div>')
           .toggleClass(
             "tp-active",
-            e.species === sel.species &&
-            e.setName === sel.setName
+            entry.species === selected.species &&
+            entry.setName === selected.setName
           )
-          .attr("title", e.species + " — " + e.setName);
+          .attr("title", entry.species + " — " + entry.setName);
 
-        // Larger sprites.
-        var $icon = $('<img class="tp-icon" alt="">').css({
-          "display": "block",
-          "width": "64px",
-          "height": "54px",
-          "object-fit": "contain",
-          "image-rendering": "pixelated",
-          "margin": "0 auto 5px"
-        }).appendTo($card);
-
-        loadSprite($icon, e.species);
-
-        // Pokémon name; moves are removed.
-        $('<div class="tp-name"></div>')
-          .text(e.species)
-          .css({
-            "font-weight": "bold",
-            "font-size": "12px",
-            "line-height": "1.2",
-            "overflow-wrap": "anywhere"
-          })
+        // Large sprite; size is controlled by trainer-party.css.
+        var $icon = $('<img class="tp-icon" alt="">')
           .appendTo($card);
 
-        // EXP display, if configured.
+        loadSprite($icon, entry.species);
+
+        // Name only — no move list.
+        $('<div class="tp-name"></div>')
+          .text(entry.species)
+          .appendTo($card);
+
         if (exp !== null) {
           $('<div class="tp-exp"></div>')
             .text("+" + exp + " EXP")
-            .css({
-              "font-size": "10px",
-              "margin-top": "4px"
-            })
             .appendTo($card);
         }
 
-        // Click a Pokémon to load its set.
         $card.on("click", function () {
-          loadIntoSide(e);
+          loadIntoSide(entry);
         });
 
         $row.append($card);
@@ -293,12 +227,6 @@ $(function () {
       if (anyExp) {
         $('<div class="tp-total"></div>')
           .text("Total: " + total + " EXP")
-          .css({
-            "text-align": "right",
-            "font-weight": "bold",
-            "margin-top": "4px",
-            "font-size": "10px"
-          })
           .appendTo($panel);
       }
     }
@@ -306,10 +234,10 @@ $(function () {
     var lastValue = null;
 
     function check() {
-      var v = $selector.val();
+      var value = $selector.val();
 
-      if (v !== lastValue) {
-        lastValue = v;
+      if (value !== lastValue) {
+        lastValue = value;
         render();
       }
     }
