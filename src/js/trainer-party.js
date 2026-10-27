@@ -3,7 +3,7 @@
 $(function () {
   var TRAINER_RE = /^Lvl (\d+) (.+)$/;
   var $p2 = $("#p2");
-  var $selector = $("#p2 .set-selector");
+  var $selector = $("#p2 input.set-selector").first();
   if (!$p2.length || !$selector.length) { console.warn("trainer-party: #p2 / .set-selector not found"); return; }
 
   var $panel = $('<div id="trainer-party" class="trainer-party" hidden></div>');
@@ -86,6 +86,13 @@ $(function () {
     if (anyExp) $('<div class="tp-total"></div>').text("Total: " + total + " EXP").appendTo($panel);
   }
 
-  $selector.on("change", render);
-  render();
+  var lastValue = null;
+  function check() {
+    var v = $selector.val();
+    if (v !== lastValue) { lastValue = v; render(); }
+  }
+  $selector.on("change", check);
+  setInterval(check, 300); // fallback if the dropdown doesn't fire change events
+  check();
+  console.log("trainer-party: ready,", Object.keys(index).length, "trainer(s) indexed");
 });
