@@ -117,9 +117,6 @@ $(function () {
           .attr("title", e.species + " — " + e.setName);
         loadSprite($('<img class="tp-icon" alt="">').appendTo($card), e.species);
         $('<div class="tp-name"></div>').text(e.species).appendTo($card);
-        $('<div class="tp-moves"></div>').html((e.set.moves || []).map(function (mv) {
-          return $("<div>").text(mv).html();
-        }).join("<br>")).appendTo($card);
         if (exp != null) $('<div class="tp-exp"></div>').text("+" + exp + " EXP").appendTo($card);
         $card.on("click", function () { loadIntoSide(e); });
         $row.append($card);

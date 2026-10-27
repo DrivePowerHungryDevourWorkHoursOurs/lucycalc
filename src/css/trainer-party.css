@@ -1,13 +1,84 @@
-/* Append to css/main.css. Uses the CSS variables from dark-theme.css when present. */
-.trainer-party { clear: both; padding: 6px; margin-top: 8px; border-radius: 6px;
-  background: var(--fieldset-color, #F1F4F9); border: 1px solid #777; max-width: 32em; }
-.tp-row { display: flex; gap: 6px; flex-wrap: wrap; }
-.tp-card { flex: 1 1 0; min-width: 5.5em; max-width: 6.5em; text-align: center; cursor: pointer;
-  padding: 4px 2px; border: 1px solid transparent; border-radius: 6px; font-size: 0.8em; }
-.tp-card:hover { border-color: #5897fb; }
-.tp-card.tp-active { border-color: #5897fb; background: rgba(88,151,251,.15); }
-.tp-icon { width: 40px; height: 30px; object-fit: contain; image-rendering: pixelated; }
-.tp-name { font-weight: bold; }
-.tp-moves { opacity: .85; margin-top: 2px; }
-.tp-exp { margin-top: 3px; padding-top: 2px; border-top: 1px solid #777; font-size: .9em; }
-.tp-total { text-align: right; font-weight: bold; margin-top: 4px; font-size: .85em; }
+
+/* trainer-party.css — compact single-row trainer party */
+
+.trainer-party {
+  clear: both;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 32em;
+  padding: 5px;
+  margin-top: 8px;
+  border-radius: 6px;
+  background: var(--fieldset-color, #F1F4F9);
+  border: 1px solid #777;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.tp-row {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 3px;
+  width: max-content;
+  min-width: 100%;
+}
+
+.tp-card {
+  flex: 0 0 64px;
+  width: 64px;
+  min-width: 0;
+  max-width: 64px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  padding: 4px 2px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+.tp-card:hover {
+  border-color: #5897fb;
+}
+
+.tp-card.tp-active {
+  border-color: #5897fb;
+  background: rgba(88, 151, 251, .15);
+}
+
+.tp-icon {
+  display: block;
+  width: 38px;
+  height: 32px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin: 0 auto 3px;
+}
+
+.tp-name {
+  font-weight: bold;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+/* Hide moves even if the JavaScript still generates them */
+.tp-moves {
+  display: none !important;
+}
+
+.tp-exp {
+  margin-top: 3px;
+  padding-top: 2px;
+  border-top: 1px solid #777;
+  font-size: 9px;
+}
+
+.tp-total {
+  text-align: right;
+  font-weight: bold;
+  margin-top: 4px;
+  font-size: 10px;
+}
