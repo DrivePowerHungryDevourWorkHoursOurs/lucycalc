@@ -1401,15 +1401,17 @@ export function calculateAtModsSMSSSV(
     desc.attackerAbility = attacker.ability;
   } else if (
     (attacker.hasAbility('Guts') && attacker.status && move.category === 'Physical') ||
-    (attacker.curHP() <= attacker.maxHP() / 3 &&
-      ((attacker.hasAbility('Overgrow') && move.hasType('Grass')) ||
-       (attacker.hasAbility('Blaze') && move.hasType('Fire')) ||
-       (attacker.hasAbility('Torrent') && move.hasType('Water')) ||
-       (attacker.hasAbility('Swarm') && move.hasType('Bug')))) ||
     (move.category === 'Special' && attacker.abilityOn && attacker.hasAbility('Plus', 'Minus'))
   ) {
     atMods.push(6144);
     desc.attackerAbility = attacker.ability;
+   } else if (
+    (attacker.hasAbility('Overgrow') && move.hasType('Grass')) ||
+    (attacker.hasAbility('Blaze') && move.hasType('Fire')) ||
+    (attacker.hasAbility('Torrent') && move.hasType('Water')) ||
+    (attacker.hasAbility('Swarm') && move.hasType('Bug'))
+  ) {
+    atMods.push(4915);
   } else if ((attacker.hasAbility('Adrenaline') && attacker.curHP() <= attacker.maxHP() / 3)) {
         atMods.push(8192);
         desc.attackerAbility = attacker.ability;
