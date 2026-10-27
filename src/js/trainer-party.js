@@ -93,6 +93,16 @@ $(function () {
     $img.attr("src", urls[0]);
   }
 
+  // Shrink a name's font until its longest unbreakable chunk fits inside the card.
+  function fitName($el) {
+    var el = $el[0];
+    var size = parseFloat($el.css("font-size"));
+    while (el.scrollWidth > el.clientWidth && size > 6) {
+      size -= 0.5;
+      $el.css("font-size", size + "px");
+    }
+  }
+
   // ---- one side (#p1 or #p2) ----
   function setupSide(sideId) {
     var $box = $("#" + sideId);
@@ -180,7 +190,9 @@ $(function () {
           .toggleClass("tp-active", e.species === sel.species && e.setName === sel.setName)
           .attr("title", e.species + " (" + e.setName + ")" + ((e.set.moves || []).length ? "\n" + e.set.moves.join(", ") : ""));
         loadSprite($('<img class="tp-icon" alt="">').appendTo($card), partySpriteUrls(e.species));
-        $('<div class="tp-name"></div>').text(e.species).appendTo($card);
+        var $name = $('<div class="tp-name"></div>').text(e.species)
+          .css({ wordBreak: "normal", overflowWrap: "normal" }) // only wrap at hyphens/spaces, never mid-word
+          .appendTo($card);
         if (e.set.item) {
           loadSprite($('<img class="tp-card-item" alt="">').css({
             display: "block", margin: "2px auto 0", width: "22px", height: "22px",
@@ -190,6 +202,7 @@ $(function () {
         if (exp != null) $('<div class="tp-exp"></div>').text("+" + exp + " EXP").appendTo($card);
         $card.on("click", function () { loadIntoSide(e); });
         $row.append($card);
+        fitName($name); // needs to be in the DOM to measure
       });
       if (anyExp) $('<div class="tp-total"></div>').text("Total: " + total + " EXP").appendTo($panel);
     }
