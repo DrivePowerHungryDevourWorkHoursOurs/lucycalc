@@ -62,8 +62,8 @@
 /* BIG sprites — !important prevents old styles overriding them */
 .trainer-party .tp-icon {
   display: block !important;
-  width: 100px !important;
-  height: 85px !important;
+  width: 70px !important;
+  height: 60px !important;
   max-width: 100% !important;
   object-fit: contain !important;
   image-rendering: auto !important;
