@@ -729,3 +729,18 @@ table.field {
     font-size: 0.85em;
     font-weight: bold;
 }
+
+/* Sprite in the top-right corner of each Pokémon box (see trainer-party.js) */
+.poke-info {
+    position: relative;
+}
+.tp-sprite {
+    position: absolute;
+    top: 30px;
+    right: 14px;
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    pointer-events: none;
+}
