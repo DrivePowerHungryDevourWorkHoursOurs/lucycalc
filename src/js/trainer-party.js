@@ -7,6 +7,26 @@ $(function () {
 
   function toID(s) { return String(s).toLowerCase().replace(/[^a-z0-9]/g, ""); }
 
+  // Item sprites: local folder first (ALLCAPS, no spaces/hyphens: "Focus Sash" -> FOCUSSASH.png),
+  // then PokeAPI/sprites. Z-Crystals use the "<name>-z--bag" icons on PokeAPI.
+  // Tried in order: relative to the page, then the repo's raw files (works wherever the page is hosted).
+  var LOCAL_ITEM_BASES = [
+    "src/img/Items/",
+    "https://raw.githubusercontent.com/DrivePowerHungryDevourWorkHoursOurs/lucycalc/main/src/img/Items/"
+  ];
+  var ITEM_BASE = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/";
+  function itemUrls(item) {
+    var clean = item.replace(/['’.]/g, "");
+    var local = clean.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+    var slug = clean.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    var urls = LOCAL_ITEM_BASES.map(function (b) { return b + local + ".png"; });
+    if (/ium[ -]z$/i.test(clean)) {
+      urls.push(ITEM_BASE + slug + "--bag.png", ITEM_BASE + slug + "-bag.png");
+    }
+    urls.push(ITEM_BASE + slug + ".png");
+    return urls;
+  }
+
   // ---- trainer index: trainer name -> [{species, setName, set, slot}] ----
   var index = {};
   Object.keys(SETDEX_SV).forEach(function (species) {
@@ -86,26 +106,7 @@ $(function () {
     }).appendTo($box);
     var $panel = $('<div class="trainer-party" hidden></div>').appendTo($box);
 
-    // Item sprites: local folder first (ALLCAPS, no spaces/hyphens: "Focus Sash" -> FOCUSSASH.png),
-    // then PokeAPI/sprites. Z-Crystals use the "<name>-z--bag" icons on PokeAPI.
-    // Tried in order: relative to the page, then the repo's raw files (works wherever the page is hosted).
-    var LOCAL_ITEM_BASES = [
-      "src/img/Items/",
-      "https://raw.githubusercontent.com/DrivePowerHungryDevourWorkHoursOurs/lucycalc/main/src/img/Items/"
-    ];
-    var ITEM_BASE = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/";
     var lastItem = null;
-    function itemUrls(item) {
-      var clean = item.replace(/['’.]/g, "");
-      var local = clean.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
-      var slug = clean.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-      var urls = LOCAL_ITEM_BASES.map(function (b) { return b + local + ".png"; });
-      if (/ium[ -]z$/i.test(clean)) {
-        urls.push(ITEM_BASE + slug + "--bag.png", ITEM_BASE + slug + "-bag.png");
-      }
-      urls.push(ITEM_BASE + slug + ".png");
-      return urls;
-    }
     function updateItem() {
       var item = ($box.find("select.item").first().val() || "").trim();
       if (item === lastItem) return;
@@ -179,6 +180,13 @@ $(function () {
           .toggleClass("tp-active", e.species === sel.species && e.setName === sel.setName)
           .attr("title", e.species + " (" + e.setName + ")" + ((e.set.moves || []).length ? "\n" + e.set.moves.join(", ") : ""));
         loadSprite($('<img class="tp-icon" alt="">').appendTo($card), partySpriteUrls(e.species));
+        if (e.set.item) {
+          $card.css("position", "relative");
+          loadSprite($('<img class="tp-card-item" alt="">').css({
+            position: "absolute", top: "28px", left: "50%", marginLeft: "2px", width: "22px", height: "22px",
+            objectFit: "contain", imageRendering: "pixelated", pointerEvents: "none"
+          }).appendTo($card), itemUrls(e.set.item));
+        }
         $('<div class="tp-name"></div>').text(e.species).appendTo($card);
         if (exp != null) $('<div class="tp-exp"></div>').text("+" + exp + " EXP").appendTo($card);
         $card.on("click", function () { loadIntoSide(e); });
