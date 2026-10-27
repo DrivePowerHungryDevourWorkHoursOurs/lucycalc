@@ -683,18 +683,17 @@ table.field {
 .tp-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 4px;
 }
 .tp-card {
-    flex: 1 1 0;
-    min-width: 6.5em;
-    max-width: 8em;
+    flex: 0 0 auto;
+    width: 60px;
     box-sizing: border-box;
-    padding: 6px 3px;
+    padding: 3px 2px;
     border: 1px solid transparent;
     border-radius: 6px;
     text-align: center;
-    font-size: 0.85em;
+    font-size: 0.75em;
     cursor: pointer;
 }
 .tp-card:hover {
@@ -705,17 +704,16 @@ table.field {
     background: rgba(88, 151, 251, 0.15);
 }
 .tp-icon {
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    max-width: 52px;
+    max-height: 44px;
     image-rendering: pixelated;
 }
 .tp-name {
-    font-weight: bold;
-}
-.tp-moves {
-    margin-top: 2px;
-    opacity: 0.85;
+    margin-top: 1px;
+    line-height: 1.1;
+    word-break: break-word;
 }
 .tp-exp {
     margin-top: 3px;

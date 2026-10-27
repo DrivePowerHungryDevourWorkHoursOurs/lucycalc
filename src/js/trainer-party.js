@@ -50,8 +50,14 @@ $(function () {
     });
     return urls;
   }
-  function loadSprite($img, species) {
-    var urls = spriteUrls(species), i = 0;
+  // Party cards use the small sprites from github.com/May8th1995/sprites (flat folder,
+  // files named exactly like the species, e.g. "Geodude-Alola.png"), then fall back to Showdown.
+  var MINISPRITE_BASE = "https://raw.githubusercontent.com/May8th1995/sprites/master/";
+  function partySpriteUrls(species) {
+    return [MINISPRITE_BASE + encodeURIComponent(species) + ".png"].concat(spriteUrls(species));
+  }
+  function loadSprite($img, urls) {
+    var i = 0;
     $img.off("error").css("visibility", "visible");
     $img.on("error", function () {
       i++;
@@ -94,13 +100,25 @@ $(function () {
       }
     }
 
+    // The Forme dropdown changes the actual species without changing the set label,
+    // so prefer it when it is showing.
+    function currentSpecies(sel) {
+      var $forme = $box.find("select.forme").first();
+      var f = $forme.val();
+      if ($forme.length && f && !$forme.closest("div").hasClass("hide")) return f;
+      return sel ? sel.species : null;
+    }
+
     var lastSpecies = null;
+    function updateSprite(sel) {
+      var sp = currentSpecies(sel);
+      if (!sp) { lastSpecies = null; $sprite.css("visibility", "hidden"); return; }
+      if (sp !== lastSpecies) { lastSpecies = sp; loadSprite($sprite, spriteUrls(sp)); }
+    }
+
     function render() {
       var sel = parseSelected();
-
-      // sprite (any set, trainer or not)
-      if (sel && sel.species !== lastSpecies) { lastSpecies = sel.species; loadSprite($sprite, sel.species); }
-      if (!sel) { lastSpecies = null; $sprite.css("visibility", "hidden"); }
+      updateSprite(sel);
 
       // team panel (trainer sets only)
       var m = sel && TRAINER_RE.exec(sel.setName);
@@ -114,12 +132,9 @@ $(function () {
         if (exp != null) { total += exp; anyExp = true; }
         var $card = $('<div class="tp-card"></div>')
           .toggleClass("tp-active", e.species === sel.species && e.setName === sel.setName)
-          .attr("title", e.species + " — " + e.setName);
-        loadSprite($('<img class="tp-icon" alt="">').appendTo($card), e.species);
+          .attr("title", e.species + " (" + e.setName + ")" + ((e.set.moves || []).length ? "\n" + e.set.moves.join(", ") : ""));
+        loadSprite($('<img class="tp-icon" alt="">').appendTo($card), partySpriteUrls(e.species));
         $('<div class="tp-name"></div>').text(e.species).appendTo($card);
-        $('<div class="tp-moves"></div>').html((e.set.moves || []).map(function (mv) {
-          return $("<div>").text(mv).html();
-        }).join("<br>")).appendTo($card);
         if (exp != null) $('<div class="tp-exp"></div>').text("+" + exp + " EXP").appendTo($card);
         $card.on("click", function () { loadIntoSide(e); });
         $row.append($card);
@@ -127,12 +142,14 @@ $(function () {
       if (anyExp) $('<div class="tp-total"></div>').text("Total: " + total + " EXP").appendTo($panel);
     }
 
-    var lastValue = null;
+    var lastKey = null;
     function check() {
-      var v = $selector.val();
-      if (v !== lastValue) { lastValue = v; render(); }
+      var sel = parseSelected();
+      var key = ($selector.val() || "") + "|" + (currentSpecies(sel) || "");
+      if (key !== lastKey) { lastKey = key; render(); }
     }
     $selector.on("change", check);
+    $box.on("change", "select.forme", check);
     setInterval(check, 300); // fallback if the dropdown doesn't fire change events
     check();
   }
