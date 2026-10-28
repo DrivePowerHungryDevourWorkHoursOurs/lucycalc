@@ -1250,8 +1250,8 @@ export function calculateBPModsSMSSSV(
       bpMods.push(5120);
       desc.rivalry = 'buffed';
     } else {
-      bpMods.push(3072);
-      desc.rivalry = 'nerfed';
+      bpMods.push(4096);
+      desc.rivalry = 'neutral';
     }
     desc.attackerAbility = attacker.ability;
   }
@@ -1285,7 +1285,7 @@ export function calculateBPModsSMSSSV(
     const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
     bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
     desc.attackerAbility = attacker.ability;
-    desc.alliesFainted = attacker.alliesFainted
+    desc.alliesFainted = attacker.alliesFainted;
   } else if (attacker.hasAbility('Iron Fist') && move.flags.punch) {
   bpMods.push(5325); // 1.3x
   desc.attackerAbility = attacker.ability;
@@ -1444,7 +1444,7 @@ export function calculateAtModsSMSSSV(
     atMods.push(6144);
     desc.attackerAbility = attacker.ability;
   } else if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {
-    atMods.push(gen.num >= 9 ? 5325 : 6144);
+    atMods.push(6144);
     desc.attackerAbility = attacker.ability;
   } else if (attacker.hasAbility('Stakeout') && attacker.abilityOn) {
     atMods.push(8192);

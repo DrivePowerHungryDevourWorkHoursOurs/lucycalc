@@ -542,7 +542,7 @@ function getHazards(gen: Generation, defender: Pokemon, defenderSide: Side) {
   }
 
   if (!defender.hasType('Flying') &&
-      !defender.hasAbility('Magic Guard', 'Levitate', 'Eelevate') &&
+      !defender.hasAbility('Magic Guard', 'Levitate', 'Eelevate', 'Tangled Feet') &&
       !defender.hasItem('Air Balloon')
   ) {
     if (defenderSide.spikes === 1) {
@@ -589,10 +589,16 @@ function getEndOfTurn(
     );
 
   if (field.hasWeather('Sun', 'Harsh Sunshine')) {
-    if (defender.hasAbility('Dry Skin', 'Solar Power')) {
+    if (defender.hasAbility('Dry Skin')) {
       damage -= Math.floor(defender.maxHP() / 8);
       texts.push(defender.ability + ' damage');
     }
+
+    if (defender.hasAbility('Solar Power')) {
+      damage -= Math.floor(defender.maxHP() / 10);
+      texts.push(defender.ability + ' damage');
+    }
+
   } else if (field.hasWeather('Rain', 'Heavy Rain') && !healBlock) {
     if (defender.hasAbility('Dry Skin')) {
       damage += Math.floor(defender.maxHP() / 8);
