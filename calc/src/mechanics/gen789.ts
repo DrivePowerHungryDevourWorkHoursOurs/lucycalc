@@ -648,6 +648,7 @@ export function calculateSMSSSV(
     attacker.hasStatus('brn') &&
     move.category === 'Physical' &&
     !attacker.hasAbility('Guts') &&
+    !attacker.hasAbility('Flare Boost') &&
     !move.named('Facade');
   desc.isBurned = applyBurn;
   const finalMods = calculateFinalModsSMSSSV(
@@ -1401,7 +1402,7 @@ export function calculateAtModsSMSSSV(
     (attacker.hasAbility('Solar Power') &&
      field.hasWeather('Sun', 'Harsh Sunshine') &&
      move.category === 'Special') ||
-    (attacker.named('Cherrim') &&
+    (attacker.named('Cherrim', 'Cherrim-Sunshine')  &&
      attacker.hasAbility('Flower Gift') &&
      field.hasWeather('Sun', 'Harsh Sunshine') &&
      move.category === 'Special')) {

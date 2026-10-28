@@ -609,17 +609,6 @@ function getEndOfTurn(
     }
   } else if (field.hasWeather('Hail', 'Snow')) {
     if (
-      defender.hasAbility('Ice Body') &&
-      !healBlock &&
-      field.hasWeather('Hail', 'Snow')
-    ) {
-      damage += Math.floor(
-        defender.maxHP() / (field.hasWeather('Snow') ? 8 : 16)
-      );
-      texts.push('Ice Body recovery');
-    }
-
-    if (
       !defender.hasType('Ice') &&
       !defender.hasAbility('Magic Guard', 'Overcoat', 'Snow Cloak') &&
       !defender.hasItem('Safety Goggles') &&
@@ -634,6 +623,11 @@ function getEndOfTurn(
   if (defender.hasAbility('Rain Dish') && !healBlock) {
     damage += Math.floor(defender.maxHP() / (field.hasWeather('Rain', 'Heavy Rain') ? 8 : 16));
     texts.push('Rain Dish recovery');
+  }
+
+ if (defender.hasAbility('Ice Body') && !healBlock) {
+    damage += Math.floor(defender.maxHP() / (field.hasWeather('Hail', 'Snow') ? 8 : 16));
+    texts.push('Ice Body recovery');
   }
 
   if (defender.hasItem('Leftovers') && !loseItem && !healBlock) {
