@@ -4207,7 +4207,6 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Trop Kick': {isKick: true},
   'Wicked Blow': {bp: 75, zp: 140},
   'X-Scissor': {isSlicing: true},
-  'Bouncy Bubble':,
   'Aqua Cutter': {
     bp: 70,
     type: 'Water',
