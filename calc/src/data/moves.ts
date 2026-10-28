@@ -41,6 +41,7 @@ export interface MoveData {
   readonly isPulse?: boolean;
   readonly isSlicing?: boolean;
   readonly isWind?: boolean;
+  readonly isKick?: boolean;
 }
 
 const RBY: {[name: string]: MoveData} = {
@@ -4190,6 +4191,21 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   Tailwind: {isWind: true},
   Twister: {isWind: true},
   Whirlwind: {isWind: true},
+  'Axe Kick': {isKick: true},
+  'Blaze Kick': {isKick: true},
+  'Double Kick': {isKick: true},
+  'High Horsepower': {isKick: true},
+  'High Jump Kick': {isKick: true},
+  'Jump Kick': {isKick: true},
+  'Low Kick': {isKick: true},
+  'Mega Kick': {isKick: true},
+  'Pyro Ball': {isKick: true},
+  'Rolling Kick': {isKick: true},
+  'Stomp': {isKick: true},
+  'Thunderous Kick': {isKick: true},
+  'Triple Axel': {isKick: true},
+  'Triple Kick': {isKick: true},
+  'Trop Kick': {isKick: true},
   'Wicked Blow': {bp: 75, zp: 140},
   'X-Scissor': {isSlicing: true},
   'Aqua Cutter': {
@@ -5494,7 +5510,7 @@ const CHAMPIONS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Snipe Shot': {bp: 85},
   'Spirit Shackle': {bp: 90},
   'Triple Dive': {bp: 35},
-  'Trop Kick': {bp: 85},
+  'Trop Kick': {isKick: true, bp: 85},
 };
 
 const CHAMPIONS: {[name: string]: MoveData} = extend(
@@ -5574,6 +5590,7 @@ class Move implements I.Move {
     'maxPower',
     'isSlicing',
     'isWind',
+    'isKick',
   ]);
 
   constructor(name: string, data: MoveData, gen: number) {
@@ -5591,6 +5608,7 @@ class Move implements I.Move {
     if (data.isPulse) this.flags.pulse = 1;
     if (data.isSlicing) this.flags.slicing = 1;
     if (data.isWind) this.flags.wind = 1;
+    if (data.isKick) this.flags.kick = 1;
 
     assignWithout(this, data, Move.FLAGS);
 

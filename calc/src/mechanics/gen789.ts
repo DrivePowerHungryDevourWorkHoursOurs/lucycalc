@@ -650,6 +650,7 @@ export function calculateSMSSSV(
     move.category === 'Physical' &&
     !attacker.hasAbility('Guts') &&
     !attacker.hasAbility('Flare Boost') &&
+    !attacker.hasAbility('Inflate') &&
     !move.named('Facade');
   desc.isBurned = applyBurn;
   const finalMods = calculateFinalModsSMSSSV(
@@ -1011,6 +1012,11 @@ export function calculateBasePowerSMSSSV(
   if (basePower === 0) {
     return 0;
   }
+  if (attacker.hasAbility('Long Reach') && move.flags.contact) {
+    basePower = Math.round(basePower * 1.2);
+    desc.moveBP = basePower;
+    desc.attackerAbility = attacker.ability;
+  }
   if (move.named(
     'Breakneck Blitz', 'Bloom Doom', 'Inferno Overdrive', 'Hydro Vortex', 'Gigavolt Havoc',
     'Subzero Slammer', 'Supersonic Skystrike', 'Savage Spin-Out', 'Acid Downpour', 'Tectonic Rage',
@@ -1234,7 +1240,6 @@ export function calculateBPModsSMSSSV(
     bpMods.push(5325);
     desc.attackerAbility = attacker.ability;
   }
-
   if (field.attackerSide.isBattery && move.category === 'Special') {
     bpMods.push(4915);
     desc.isBattery = true;
@@ -1250,8 +1255,8 @@ export function calculateBPModsSMSSSV(
       bpMods.push(5120);
       desc.rivalry = 'buffed';
     } else {
-      bpMods.push(4096);
-      desc.rivalry = undefined;
+      bpMods.push(3072);
+      desc.rivalry = 'nerfed';
     }
     desc.attackerAbility = attacker.ability;
   }
@@ -1285,8 +1290,11 @@ export function calculateBPModsSMSSSV(
     const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
     bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
     desc.attackerAbility = attacker.ability;
-    desc.alliesFainted = attacker.alliesFainted;
+    desc.alliesFainted = attacker.alliesFainted
   } else if (attacker.hasAbility('Iron Fist') && move.flags.punch) {
+  bpMods.push(5325); // 1.3x
+  desc.attackerAbility = attacker.ability;
+  } else if (attacker.hasAbility('Striker') && move.flags.kick) {
   bpMods.push(5325); // 1.3x
   desc.attackerAbility = attacker.ability;
   }
@@ -1423,9 +1431,12 @@ export function calculateAtModsSMSSSV(
     atMods.push(6144);
     desc.attackerAbility = attacker.ability;
    } else if (
-    (attacker.hasAbility('Overgrow') && move.hasType('Grass')) ||
-    (attacker.hasAbility('Blaze') && move.hasType('Fire')) ||
-    (attacker.hasAbility('Torrent') && move.hasType('Water')) ||
+    (attacker.hasAbility('Overgrow') && move.hasType('Grass') &&
+      !field.hasTerrain('Grassy')) ||
+    (attacker.hasAbility('Blaze') && move.hasType('Fire') &&
+      !(field.hasWeather('Sun', 'Harsh Sunshine') && !defender.hasItem('Utility Umbrella'))) ||
+    (attacker.hasAbility('Torrent') && move.hasType('Water') &&
+      !(field.hasWeather('Rain', 'Heavy Rain') && !defender.hasItem('Utility Umbrella'))) ||
     (attacker.hasAbility('Swarm') && move.hasType('Bug'))
   ) {
     atMods.push(4915);
@@ -1444,7 +1455,7 @@ export function calculateAtModsSMSSSV(
     atMods.push(6144);
     desc.attackerAbility = attacker.ability;
   } else if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {
-    atMods.push(6144);
+    atMods.push(gen.num >= 9 ? 5325 : 6144);
     desc.attackerAbility = attacker.ability;
   } else if (attacker.hasAbility('Stakeout') && attacker.abilityOn) {
     atMods.push(8192);

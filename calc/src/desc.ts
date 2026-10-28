@@ -520,7 +520,7 @@ function getHazards(gen: Generation, defender: Pokemon, defenderSide: Side) {
   if (defender.hasItem('Heavy-Duty Boots')) {
     return {damage, texts};
   }
-  if (defenderSide.isSR && !defender.hasAbility('Magic Guard', 'Mountaineer')) {
+  if (defenderSide.isSR && !defender.hasAbility('Magic Guard', 'Mountaineer', 'Tangled Feet')) {
     const rockType = gen.types.get('rock' as ID)!;
     const effectiveness =
       defender.teraType && defender.teraType !== 'Stellar'
@@ -705,7 +705,7 @@ function getEndOfTurn(
         damage += Math.floor(defender.maxHP() / 8);
         texts.push('Poison Heal');
       }
-    } else if (!defender.hasAbility('Magic Guard')) {
+    } else if (!defender.hasAbility('Magic Guard', 'Toxic Boost')) {
       texts.push('toxic damage');
     }
   } else if (defender.hasStatus('brn')) {
