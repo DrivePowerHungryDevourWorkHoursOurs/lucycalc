@@ -273,7 +273,7 @@ $(".ability").bind("keyup change", function () {
 	}
 
 	var TOGGLE_ABILITIES = {
-		on: ['Intimidate', 'Slow Start', 'Teraform Zero'],
+		on: ['Intimidate', 'Slow Start', 'Teraform Zero', 'Anticipation'],
 		off: ['Flash Fire', 'Minus', 'Plus', 'Unburden', 'Analytic', 'Stakeout', 'Electromorphosis'],
 	};
 
@@ -306,17 +306,14 @@ $(".ability").bind("keyup change", function () {
 	var HIT_LABELS = ["Hit 0 times", "Hit 1 time", "Hit 2 times", "Hit 3 times", "Hit 4 times", "Hit 5+ times"];
 	var $af = $(this).closest(".poke-info").find(".alliesFainted");
 	if (ability === "Supreme Overlord" || ability === "Anger Point") {
-		var isAnger = ability === "Anger Point";
-		var labels = isAnger ? HIT_LABELS : ALLY_LABELS;
+		var labels = ability === "Anger Point" ? HIT_LABELS : ALLY_LABELS;
 		$af.find("option").each(function (i) { $(this).text(labels[i]); });
-		$af.attr("aria-label", isAnger ? "Times hit" : "Allies fainted");
+		$af.attr("aria-label", ability === "Anger Point" ? "Times hit" : "Allies fainted");
 		$af.show();
 	} else {
 		$af.val('0');
 		$af.hide();
 	}
-
-});
 
 function autosetQP(pokemon) {
 	var currentWeather = $("input:radio[name='weather']:checked").val();
