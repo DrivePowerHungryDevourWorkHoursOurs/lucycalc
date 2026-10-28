@@ -1256,7 +1256,7 @@ export function calculateBPModsSMSSSV(
       desc.rivalry = 'buffed';
     } else {
       bpMods.push(3072);
-      desc.rivalry = 'nerfed';
+      desc.rivalry = undefined;
     }
     desc.attackerAbility = attacker.ability;
   }
@@ -1455,7 +1455,7 @@ export function calculateAtModsSMSSSV(
     atMods.push(6144);
     desc.attackerAbility = attacker.ability;
   } else if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {
-    atMods.push(gen.num >= 9 ? 5325 : 6144);
+    atMods.push(6144);
     desc.attackerAbility = attacker.ability;
   } else if (attacker.hasAbility('Stakeout') && attacker.abilityOn) {
     atMods.push(8192);
