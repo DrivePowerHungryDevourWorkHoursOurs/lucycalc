@@ -129,7 +129,16 @@ export function calculateSMSSSV(
   if (move.category === 'Status' && !move.named('Nature Power')) {
     return result;
   }
-
+  if (move.named('U-turn', 'Volt Switch', 'Flip Turn') &&
+      (attacker.hasAbility('Coffin Seal') || defender.hasAbility('Coffin Seal'))) {
+    if (defender.hasAbility('Coffin Seal')) {
+      desc.defenderAbility = defender.ability;
+    } else {
+      desc.attackerAbility = attacker.ability;
+    }
+    return result;
+  } 
+  
   if (move.flags.punch && attacker.hasItem('Punching Glove')) {
     desc.attackerItem = attacker.item;
     move.flags.contact = 0;
