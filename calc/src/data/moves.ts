@@ -4137,15 +4137,6 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Zing Zap': {maxPower: 130},
 };
 
-const SS: {[name: string]: MoveData} = extend(true, {}, SM, SS_PATCH);
-
-const LGPE_MOVES = [
-
-];
-for (const m of LGPE_MOVES) {
-  delete SS[m];
-}
-
 const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Aerial Ace': {isSlicing: true},
   Aeroblast: {isWind: true},
