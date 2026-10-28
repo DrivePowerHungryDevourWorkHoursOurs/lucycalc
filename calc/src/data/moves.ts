@@ -4140,19 +4140,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
 const SS: {[name: string]: MoveData} = extend(true, {}, SM, SS_PATCH);
 
 const LGPE_MOVES = [
-  'Baddy Bad',
-  'Bouncy Bubble',
-  'Buzzy Buzz',
-  'Freezy Frost',
-  'Glitzy Glow',
-  'Sappy Seed',
-  'Sizzly Slide',
-  'Sparkly Swirl',
-  'Zippy Zap',
-  'Floaty Fall',
-  'Pika Papow',
-  'Splishy Splash',
-  'Veevee Volley',
+
 ];
 for (const m of LGPE_MOVES) {
   delete SS[m];
@@ -4207,19 +4195,6 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Trop Kick': {isKick: true},
   'Wicked Blow': {bp: 75, zp: 140},
   'X-Scissor': {isSlicing: true},
-  'Baddy Bad': {bp: 90, type: 'Dark', category: 'Special', zp: 175, maxPower: 130},
-  'Bouncy Bubble': {bp: 90, type: 'Water', category: 'Special', zp: 175, maxPower: 130},
-  'Buzzy Buzz': {bp: 90, type: 'Electric', category: 'Special', zp: 175, maxPower: 130},
-  'Freezy Frost': {bp: 90, type: 'Ice', category: 'Special', zp: 175, maxPower: 130},
-  'Glitzy Glow': {bp: 90, type: 'Fairy', category: 'Special', zp: 175, maxPower: 130},
-  'Sappy Seed': {bp: 90, type: 'Grass', category: 'Special', zp: 175, maxPower: 130},
-  'Sizzly Slide': {bp: 90, type: 'Fire', category: 'Physical', zp: 175, maxPower: 130},
-  'Sparkly Swirl': {bp: 90, type: 'Fairy', category: 'Special', zp: 175, maxPower: 130},
-  'Zippy Zap': {bp: 90, type: 'Electric', category: 'Special', zp: 175, maxPower: 130},
-  'Floaty Fall': {bp: 90, type: 'Flying', category: 'Special', zp: 175, maxPower: 130},
-  'Pika Papow': {bp: 90, type: 'Electric', category: 'Special', zp: 175, maxPower: 130},
-  'Splishy Splash': {bp: 90, type: 'Water', category: 'Special', zp: 175, maxPower: 130},
-  'Veevee Volley': {bp: 90, type: 'Normal', category: 'Physical', zp: 175, maxPower: 130},
   'Aqua Cutter': {
     bp: 70,
     type: 'Water',
