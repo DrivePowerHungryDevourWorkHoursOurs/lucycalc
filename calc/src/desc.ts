@@ -986,8 +986,12 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
     output += 'burned ';
   }
   if (description.alliesFainted) {
-    output += Math.min(5, description.alliesFainted) +
-      ` ${description.alliesFainted === 1 ? 'ally' : 'allies'} fainted `;
+    const n = Math.min(5, description.alliesFainted);
+    if (description.attackerAbility === 'Anger Point') {
+      output += `hit ${n} ${n === 1 ? 'time' : 'times'} `;
+    } else {
+      output += `${n} ${description.alliesFainted === 1 ? 'ally' : 'allies'} fainted `;
+    }
   }
   if (description.attackerTera) {
     output += `Tera ${description.attackerTera} `;
