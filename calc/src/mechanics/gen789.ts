@@ -1270,16 +1270,16 @@ export function calculateBPModsSMSSSV(
     bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
     desc.attackerAbility = attacker.ability;
     desc.alliesFainted = attacker.alliesFainted;
+  } else if (attacker.hasAbility('Anger Point') && attacker.alliesFainted) {
+    const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
+    bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
+    desc.attackerAbility = attacker.ability;
+    desc.alliesFainted = attacker.alliesFainted
   } else if (attacker.hasAbility('Iron Fist') && move.flags.punch) {
   bpMods.push(5325); // 1.3x
   desc.attackerAbility = attacker.ability;
   }
-  if (attacker.hasAbility('Anger Point') && attacker.alliesFainted) {
-    const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-    bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
-    desc.attackerAbility = attacker.ability;
-    desc.alliesFainted = attacker.alliesFainted;
-}
+
   // Items
 
   if (attacker.hasItem(`${move.type} Gem`)) {
@@ -1779,6 +1779,11 @@ export function calculateFinalModsSMSSSV(
       (!field.defenderSide.isSR && (!field.defenderSide.spikes || defender.hasType('Flying')) ||
       defender.hasItem('Heavy-Duty Boots')) && !attacker.hasAbility('Parental Bond (Child)')
   ) {
+    finalMods.push(2048);
+    desc.defenderAbility = defender.ability;
+  }
+  if (defender.hasAbility('Anticipation') && attacker.abilityOn && typeEffectiveness > 1) 
+    {
     finalMods.push(2048);
     desc.defenderAbility = defender.ability;
   }
