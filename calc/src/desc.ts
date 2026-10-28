@@ -598,14 +598,6 @@ function getEndOfTurn(
       damage += Math.floor(defender.maxHP() / 8);
       texts.push('Dry Skin recovery');
     }
-if (defender.hasAbility('Rain Dish') && !healBlock) {
-  if (field.hasWeather('Rain', 'Heavy Rain')) {
-    damage += Math.floor(defender.maxHP() / 8);
-  } else {
-    damage += Math.floor(defender.maxHP() / 16);
-  }
-  texts.push('Rain Dish recovery');
-}
   } else if (field.hasWeather('Sand')) {
     if (
       !defender.hasType('Rock', 'Ground', 'Steel') &&
@@ -628,6 +620,12 @@ if (defender.hasAbility('Rain Dish') && !healBlock) {
       damage -= Math.floor(defender.maxHP() / 16);
       texts.push('hail damage');
     }
+  }
+
+  // Rain Dish: 1/8 in rain, 1/16 otherwise (works in any weather, so it lives outside the chain above)
+  if (defender.hasAbility('Rain Dish') && !healBlock) {
+    damage += Math.floor(defender.maxHP() / (field.hasWeather('Rain', 'Heavy Rain') ? 8 : 16));
+    texts.push('Rain Dish recovery');
   }
 
   if (defender.hasItem('Leftovers') && !loseItem && !healBlock) {
