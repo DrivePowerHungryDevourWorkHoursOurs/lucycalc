@@ -1254,7 +1254,7 @@ export function calculateBPModsSMSSSV(
       bpMods.push(5120);
       desc.rivalry = 'buffed';
     } else {
-      bpMods.push(3072);
+      bpMods.push(4096);
       desc.rivalry = undefined;
     }
     desc.attackerAbility = attacker.ability;
