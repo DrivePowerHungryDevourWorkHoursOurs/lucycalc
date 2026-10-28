@@ -650,6 +650,7 @@ export function calculateSMSSSV(
     move.category === 'Physical' &&
     !attacker.hasAbility('Guts') &&
     !attacker.hasAbility('Flare Boost') &&
+    !attacker.hasAbility('Inflate') &&
     !move.named('Facade');
   desc.isBurned = applyBurn;
   const finalMods = calculateFinalModsSMSSSV(
@@ -1011,6 +1012,11 @@ export function calculateBasePowerSMSSSV(
   if (basePower === 0) {
     return 0;
   }
+  if (attacker.hasAbility('Long Reach') && move.flags.contact) {
+    basePower = Math.round(basePower * 1.2);
+    desc.moveBP = basePower;
+    desc.attackerAbility = attacker.ability;
+  }
   if (move.named(
     'Breakneck Blitz', 'Bloom Doom', 'Inferno Overdrive', 'Hydro Vortex', 'Gigavolt Havoc',
     'Subzero Slammer', 'Supersonic Skystrike', 'Savage Spin-Out', 'Acid Downpour', 'Tectonic Rage',
@@ -1232,10 +1238,6 @@ export function calculateBPModsSMSSSV(
     (attacker.hasAbility('Punk Rock') && move.flags.sound)
   ) {
     bpMods.push(5325);
-    desc.attackerAbility = attacker.ability;
-  }
-  if (attacker.hasAbility('Long Reach') && move.flags.contact) {
-    bpMods.push(4915);
     desc.attackerAbility = attacker.ability;
   }
   if (field.attackerSide.isBattery && move.category === 'Special') {
