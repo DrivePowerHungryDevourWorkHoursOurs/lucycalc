@@ -1253,11 +1253,12 @@ export function calculateBPModsSMSSSV(
     if (attacker.gender === defender.gender) {
       bpMods.push(5120);
       desc.rivalry = 'buffed';
+      desc.attackerAbility = attacker.ability;
     } else {
       bpMods.push(4096);
       desc.rivalry = undefined;
     }
-    desc.attackerAbility = attacker.ability;
+    
   }
 
   // The -ate abilities already changed move typing earlier, so most checks are done and desc is set
