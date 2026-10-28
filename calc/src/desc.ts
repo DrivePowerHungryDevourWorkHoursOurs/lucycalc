@@ -597,10 +597,15 @@ function getEndOfTurn(
     if (defender.hasAbility('Dry Skin')) {
       damage += Math.floor(defender.maxHP() / 8);
       texts.push('Dry Skin recovery');
-    } else if (defender.hasAbility('Rain Dish')) {
-      damage += Math.floor(defender.maxHP() / 16);
-      texts.push('Rain Dish recovery');
     }
+if (defender.hasAbility('Rain Dish') && !healBlock) {
+  if (field.hasWeather('Rain', 'Heavy Rain')) {
+    damage += Math.floor(defender.maxHP() / 8);
+  } else {
+    damage += Math.floor(defender.maxHP() / 16);
+  }
+  texts.push('Rain Dish recovery');
+}
   } else if (field.hasWeather('Sand')) {
     if (
       !defender.hasType('Rock', 'Ground', 'Steel') &&
