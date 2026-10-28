@@ -4140,10 +4140,13 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
 const SS: {[name: string]: MoveData} = extend(true, {}, SM, SS_PATCH);
 
 const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
-  'Aerial Ace': {isSlicing: true},
+  'Absorb': {bp: 40, zp: 100},
+  'Aerial Ace': {bp: 80, zp: 160, isSlicing: true},
   Aeroblast: {isWind: true},
   'Air Cutter': {isSlicing: true, isWind: true},
-  'Air Slash': {isSlicing: true},
+  'Air Slash': {bp: 80,isSlicing: true},
+  'Arm Thrust': {bp: 25, zp: 100},
+  'Barrage': {bp: 25, zp: 100, type: 'Grass', category: 'Special'},
   'Behemoth Blade': {isSlicing: true},
   Blizzard: {isWind: true},
   'Cross Poison': {isSlicing: true},
