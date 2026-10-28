@@ -650,7 +650,6 @@ export function calculateSMSSSV(
     move.category === 'Physical' &&
     !attacker.hasAbility('Guts') &&
     !attacker.hasAbility('Flare Boost') &&
-    !attacker.hasAbility('Inflate') &&
     !move.named('Facade');
   desc.isBurned = applyBurn;
   const finalMods = calculateFinalModsSMSSSV(
@@ -1440,7 +1439,7 @@ export function calculateAtModsSMSSSV(
     (attacker.hasAbility('Swarm') && move.hasType('Bug'))
   ) {
     atMods.push(4915);
-  } else if ((attacker.hasAbility('Adrenaline') && attacker.curHP() <= attacker.maxHP() / 3)) {
+  } else if ((attacker.hasAbility('Adrenaline') && attacker.curHP() <= attacker.maxHP() / 2)) {
         atMods.push(8192);
         desc.attackerAbility = attacker.ability;
     } else if (attacker.hasAbility('Flash Fire') && attacker.abilityOn && move.hasType('Fire')) {
