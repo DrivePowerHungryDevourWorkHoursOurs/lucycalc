@@ -1435,6 +1435,7 @@ export function calculateAtModsSMSSSV(
     (attacker.hasAbility('Swarm') && move.hasType('Bug'))
   ) {
     atMods.push(4915);
+    desc.attackerAbility = attacker.ability;
   } else if ((attacker.hasAbility('Adrenaline') && attacker.curHP() <= attacker.maxHP() / 2)) {
         atMods.push(8192);
         desc.attackerAbility = attacker.ability;
