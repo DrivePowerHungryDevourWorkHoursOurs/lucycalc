@@ -1225,7 +1225,7 @@ export function calculateBPModsSMSSSV(
   }
 
   if (field.attackerSide.isBattery && move.category === 'Special') {
-    bpMods.push(5325);
+    bpMods.push(4915);
     desc.isBattery = true;
   }
 
@@ -1444,7 +1444,10 @@ export function calculateAtModsSMSSSV(
   ) {
     atMods.push(8192);
     desc.attackerAbility = attacker.ability;
-  }
+  } else if (attacker.hasAbility('Big Pecks') && move.hasType('Flying')) {
+    atMods.push(4915);
+    desc.attackerAbility = attacker.ability;
+  } 
 
   if (
     field.attackerSide.isFlowerGift &&
