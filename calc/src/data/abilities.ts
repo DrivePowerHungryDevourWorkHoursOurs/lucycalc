@@ -341,6 +341,9 @@ const SV = SS.concat([
   'Striker',
   'Coffin Seal',
   'Hubris',
+  'Inflate',
+  'Luchadors\'s Pride',
+  'North Pole'
   // Champions exclusive
   'Aura Guard',
   'Dragonize',

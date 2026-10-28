@@ -188,7 +188,7 @@ export function calculateSMSSSV(
     'Tera Shell', 'Thermal Exchange', 'Thick Fat', 'Unaware',
     'Vital Spirit', 'Volt Absorb', 'Water Absorb', 'Water Bubble',
     'Water Veil', 'Well-Baked Body', 'White Smoke', 'Wind Rider',
-    'Wonder Guard', 'Wonder Skin'
+    'Wonder Guard', 'Wonder Skin', 'North Pole'
   );
 
   const attackerIgnoresAbility = attacker.hasAbility('Mold Breaker', 'Teravolt', 'Turboblaze');
@@ -494,6 +494,7 @@ export function calculateSMSSSV(
       (move.hasType('Grass') && defender.hasAbility('Sap Sipper')) ||
       (move.hasType('Fire') && defender.hasAbility('Flash Fire', 'Well-Baked Body')) ||
       (move.hasType('Water') && defender.hasAbility('Dry Skin', 'Storm Drain', 'Water Absorb')) ||
+      (move.hasType('Ice') && defender.hasAbility('North Pole')) ||
       (move.hasType('Electric') &&
         defender.hasAbility('Lightning Rod', 'Motor Drive', 'Volt Absorb')) ||
       (move.hasType('Ground') &&
@@ -1233,7 +1234,10 @@ export function calculateBPModsSMSSSV(
     bpMods.push(5325);
     desc.attackerAbility = attacker.ability;
   }
-
+  if (attacker.hasAbility('Long Reach') && move.flags.contact) {
+    bpMods.push(4915);
+    desc.attackerAbility = attacker.ability;
+  }
   if (field.attackerSide.isBattery && move.category === 'Special') {
     bpMods.push(4915);
     desc.isBattery = true;
@@ -1613,11 +1617,11 @@ export function calculateDfModsSMSSSV(
   hitsPhysical = false
 ) {
   const dfMods = [];
-  if (defender.hasAbility('Marvel Scale') && defender.status && hitsPhysical) {
+  if (defender.hasAbility('Marvel Scale', 'Inflate') && defender.status && hitsPhysical) {
     dfMods.push(6144);
     desc.defenderAbility = defender.ability;
   } else if (
-    defender.named('Cherrim') &&
+    defender.named('Cherrim', 'Cherrim-Sunshine') &&
     defender.hasAbility('Flower Gift') &&
     field.hasWeather('Sun', 'Harsh Sunshine') &&
     !hitsPhysical
