@@ -1274,14 +1274,12 @@ export function calculateBPModsSMSSSV(
   bpMods.push(5325); // 1.3x
   desc.attackerAbility = attacker.ability;
   }
-const damageTakenCount = attacker.damageTakenCount ?? 0;
-
-if (attacker.hasAbility('Anger Point') && damageTakenCount > 0) {
+if (attacker.hasAbility('Anger Point')) {
   const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
 
-  bpMods.push(powMod[Math.min(5, damageTakenCount)]);
+  bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
   desc.attackerAbility = attacker.ability;
-  desc.damageTakenCount = Math.min(5, damageTakenCount);
+  desc.attacker.alliesFainted = Math.min(5, attacker.alliesFainted);
 }
   // Items
 
