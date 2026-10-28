@@ -1180,7 +1180,7 @@ export function calculateBPModsSMSSSV(
   // Use BasePower after moves with custom BP to determine if Technician should boost
   if ((attacker.hasAbility('Technician') && basePower <= 60) ||
     (attacker.hasAbility('Flare Boost') &&
-      attacker.hasStatus('brn') && move.category === 'Special') ||
+      attacker.hasStatus('brn')) ||
     (attacker.hasAbility('Toxic Boost') &&
       attacker.hasStatus('psn', 'tox') && move.category === 'Physical') ||
     (attacker.hasAbility('Mega Launcher') && move.flags.pulse) ||
@@ -1404,7 +1404,7 @@ export function calculateAtModsSMSSSV(
     (attacker.named('Cherrim') &&
      attacker.hasAbility('Flower Gift') &&
      field.hasWeather('Sun', 'Harsh Sunshine') &&
-     move.category === 'Physical')) {
+     move.category === 'Special')) {
     atMods.push(6144);
     desc.attackerAbility = attacker.ability;
     desc.weather = field.weather;
@@ -1462,7 +1462,7 @@ export function calculateAtModsSMSSSV(
     field.attackerSide.isFlowerGift &&
     !attacker.hasAbility('Flower Gift') &&
     field.hasWeather('Sun', 'Harsh Sunshine') &&
-    move.category === 'Physical') {
+    move.category === 'Special') {
     atMods.push(6144);
     desc.weather = field.weather;
     desc.isFlowerGiftAttacker = true;

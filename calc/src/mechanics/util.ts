@@ -228,7 +228,7 @@ export function checkRawStatChanges(
 
 export function checkIntimidate(gen: Generation, source: Pokemon, target: Pokemon) {
   const blocked =
-    target.hasAbility('Clear Body', 'White Smoke', 'Hyper Cutter', 'Full Metal Body') ||
+    target.hasAbility('Clear Body', 'White Smoke', 'Hyper Cutter', 'Full Metal Body', 'Flower Veil') ||
     // More abilities now block Intimidate in Gen 8+ (DaWoblefet, Cloudy Mistral)
     ((gen.num >= 8 || gen.num === 0) &&
       target.hasAbility('Inner Focus', 'Own Tempo', 'Oblivious', 'Scrappy')) ||
