@@ -302,11 +302,18 @@ $(".ability").bind("keyup change", function () {
 		boostedStat.hide();
 	}
 
-	if (ability === "Supreme Overlord") {
-		$(this).closest(".poke-info").find(".alliesFainted").show();
+	var ALLY_LABELS = ["Zero allies fainted", "One ally fainted", "Two allies fainted", "Three allies fainted", "Four allies fainted", "Five allies fainted"];
+	var HIT_LABELS = ["Hit 0 times", "Hit 1 time", "Hit 2 times", "Hit 3 times", "Hit 4 times", "Hit 5+ times"];
+	var $af = $(this).closest(".poke-info").find(".alliesFainted");
+	if (ability === "Supreme Overlord" || ability === "Anger Point") {
+		var isAnger = ability === "Anger Point";
+		var labels = isAnger ? HIT_LABELS : ALLY_LABELS;
+		$af.find("option").each(function (i) { $(this).text(labels[i]); });
+		$af.attr("aria-label", isAnger ? "Times hit" : "Allies fainted");
+		$af.show();
 	} else {
-		$(this).closest(".poke-info").find(".alliesFainted").val('0');
-		$(this).closest(".poke-info").find(".alliesFainted").hide();
+		$af.val('0');
+		$af.hide();
 	}
 
 });
