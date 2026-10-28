@@ -1274,12 +1274,11 @@ export function calculateBPModsSMSSSV(
   bpMods.push(5325); // 1.3x
   desc.attackerAbility = attacker.ability;
   }
-if (attacker.hasAbility('Anger Point')) {
-  const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-
-  bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
-  desc.attackerAbility = attacker.ability;
-  desc.attacker.alliesFainted = Math.min(5, attacker.alliesFainted);
+  if (attacker.hasAbility('Anger Point') && attacker.alliesFainted) {
+    const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
+    bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
+    desc.attackerAbility = attacker.ability;
+    desc.alliesFainted = attacker.alliesFainted;
 }
   // Items
 
