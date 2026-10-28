@@ -273,7 +273,7 @@ $(".ability").bind("keyup change", function () {
 	}
 
 	var TOGGLE_ABILITIES = {
-		on: ['Intimidate', 'Slow Start', 'Teraform Zero'],
+		on: ['Intimidate', 'Slow Start', 'Teraform Zero', 'Anticipation'],
 		off: ['Flash Fire', 'Minus', 'Plus', 'Unburden', 'Analytic', 'Stakeout', 'Electromorphosis'],
 	};
 
@@ -314,7 +314,7 @@ $(".ability").bind("keyup change", function () {
 		$af.val('0');
 		$af.hide();
 	}
-
+});
 function autosetQP(pokemon) {
 	var currentWeather = $("input:radio[name='weather']:checked").val();
 	var currentTerrain = $("input:checkbox[name='terrain']:checked").val() || "No terrain";
