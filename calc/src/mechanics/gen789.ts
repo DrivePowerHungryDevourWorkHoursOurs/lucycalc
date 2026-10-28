@@ -1782,7 +1782,7 @@ export function calculateFinalModsSMSSSV(
     finalMods.push(2048);
     desc.defenderAbility = defender.ability;
   }
-  if (defender.hasAbility('Anticipation') && attacker.abilityOn) 
+  if (defender.hasAbility('Anticipation') && defender.abilityOn) 
     {
     finalMods.push(2048);
     desc.defenderAbility = defender.ability;
