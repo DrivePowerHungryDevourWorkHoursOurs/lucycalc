@@ -144,7 +144,7 @@ export function calculateSMSSSV(
     move.flags.contact = 0;
   }
 
-  if (move.named('Shell Side Arm') &&
+  if (move.named('Shell Side Arm', 'Mud Bomb', 'Mud Shot', 'Mud-Slap') &&
     getShellSideArmCategory(attacker, defender, field.isWonderRoom) === 'Physical') {
     move.category = 'Physical';
     move.flags.contact = 1;
