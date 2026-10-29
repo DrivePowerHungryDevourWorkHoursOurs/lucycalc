@@ -66,6 +66,31 @@ $(function () {
     return out;
   }
 
+  // Right-click a box card twice (within 3s) to remove it
+  var armedSpecies = null, armTimer = null;
+  function paintArmed() {
+    $(".box-party .tp-card").each(function () {
+      var on = $(this).data("species") === armedSpecies && armedSpecies !== null;
+      this.style.setProperty("border-color", on ? "#e5484d" : "", "important");
+      this.style.setProperty("background", on ? "rgba(229, 72, 77, 0.18)" : "", "important");
+    });
+  }
+  function disarm() { armedSpecies = null; clearTimeout(armTimer); paintArmed(); }
+  function removeFromBox(species) {
+    function strip(dex) {
+      if (!dex || !dex[species] || !(BOX_NAME in dex[species])) return;
+      delete dex[species][BOX_NAME];
+      if (!Object.keys(dex[species]).length) delete dex[species];
+    }
+    try { if (typeof SETDEX_CUSTOM !== "undefined") strip(SETDEX_CUSTOM); } catch (e) {}
+    try { if (typeof SETDEX_SV !== "undefined") strip(SETDEX_SV); } catch (e) {}
+    try {
+      var saved = JSON.parse(localStorage.customsets || "{}");
+      strip(saved);
+      localStorage.customsets = JSON.stringify(saved);
+    } catch (e) {}
+  }
+
   // Side toggle, placed right next to the "Box (n)" heading
   function makeBoxToggle() {
     var $sel = $('<select class="tp-box-side"><option value="p1">Left side</option><option value="p2">Right side</option></select>')
@@ -242,8 +267,9 @@ $(function () {
       var entries = readBox();
       $boxPanel.empty().removeAttr("hidden");
       var $title = $('<div class="tp-box-title"></div>').appendTo($boxPanel);
-      $('<span></span>').text("Box (" + entries.length + ")").appendTo($title);
-      makeBoxToggle().appendTo($title);
+      imp($title, { display: "flex", "align-items": "center", "justify-content": "space-between", gap: "8px" });
+      imp($('<span></span>').text("Box (" + entries.length + ")").appendTo($title), { "white-space": "nowrap" });
+      makeBoxToggle().css("marginLeft", "0").appendTo($title);
       if (!entries.length) {
         $('<div class="tp-box-empty"></div>').text('Import sets with the name "Box" to add them here.').appendTo($boxPanel);
         return;
@@ -252,7 +278,7 @@ $(function () {
       var $grid = $('<div class="tp-box-grid"></div>').appendTo($scroll);
       imp($grid, {
         display: "grid",
-        "grid-template-columns": "repeat(auto-fill, minmax(84px, 1fr))",
+        "grid-template-columns": "repeat(6, minmax(0, 1fr))",
         gap: "4px",
         width: "100%",
         "box-sizing": "border-box"
@@ -261,8 +287,24 @@ $(function () {
         var active = !!sel && sel.species === e.species && sel.setName === BOX_NAME;
         var $c = buildCard(e, null, active, false);
         imp($c, { flex: "none", width: "auto", "max-width": "none", "min-width": "0" });
+        $c.data("species", e.species)
+          .attr("title", $c.attr("title") + "\nRight-click twice to remove from box")
+          .on("contextmenu", function (ev) {
+            ev.preventDefault();
+            if (armedSpecies === e.species) {
+              disarm();
+              removeFromBox(e.species);
+              boxRefreshers.forEach(function (f) { f(); });
+            } else {
+              armedSpecies = e.species;
+              paintArmed();
+              clearTimeout(armTimer);
+              armTimer = setTimeout(disarm, 3000);
+            }
+          });
         $grid.append($c);
       });
+      paintArmed();
       $boxPanel.find(".tp-name").each(function () { fitName($(this)); });
     }
 
