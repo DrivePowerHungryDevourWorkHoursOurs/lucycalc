@@ -4150,7 +4150,6 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Brick Break': {bp:80, zp: 160},
   'Bulldoze': {bp: 80, zp: 160},
   'Chatter': {bp: 70, zp: 140},
-  'Combat Torque': {bp: 80, zp: 160},
   'Comet Punch': {bp: 25, zp: 100, type: 'Steel'},
   'Crush Claw': {bp:80, zp: 160, isSlicing: true},
   'Double Slap': {bp: 20, zp: 100},
@@ -4160,7 +4159,6 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Fury Swipes': {bp: 20, zp: 100},
   'Giga Drain': {bp: 80, zp: 160},
   'Glaciate': {bp: 100, zp: 180},
-  'Infernal Parade': {bp: 65, zp: 120},
   'Magnet Bomb': {bp: 90, zp: 120, category: 'Special'},
   'Mega Drain': {bp: 65, zp: 160},
   'Behemoth Blade': {isSlicing: true},
@@ -4189,7 +4187,6 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Steel Wing': {bp: 80, zp: 160},
   'Stomping Tantrum': {bp: 80, zp: 160},
   'Strength': {bp: 80, zp: 160, type: 'Rock', secondaries: true},
-  'Temper Flare': {bp: 80, zp: 160},
   'Twineedle': {bp: 50, zp: 100},
   'Volt Tackle': {bp: 130, zp: 195},
   'Wild Charge': {bp: 120, zp: 190, recoil: [33, 100], secondaries: true},
@@ -4370,7 +4367,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     makesContact: true, // Deals 1.3x on super effective
   },
   'Combat Torque': {
-    bp: 100,
+    bp: 80,
     type: 'Fighting',
     category: 'Physical',
     zp: 180,
@@ -4509,7 +4506,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     makesContact: true,
   },
   'Infernal Parade': {
-    bp: 60,
+    bp: 65,
     type: 'Ghost',
     category: 'Special',
     zp: 120,
@@ -4842,7 +4839,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     category: 'Status',
   },
   'Temper Flare': {
-    bp: 75,
+    bp: 80,
     type: 'Fire',
     category: 'Physical',
     zp: 140,
