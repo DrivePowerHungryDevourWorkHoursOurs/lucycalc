@@ -136,3 +136,19 @@
   margin-left: 12px;
   display: inline-block;
 }
+
+/* Box grid: cards stretch to fill the whole panel width */
+.trainer-party.box-party .tp-box-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)) !important;
+  gap: 4px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.trainer-party.box-party .tp-box-grid .tp-card {
+  flex: none !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+}

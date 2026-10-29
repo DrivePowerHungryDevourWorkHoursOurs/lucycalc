@@ -66,17 +66,32 @@ $(function () {
     return out;
   }
 
-  // Toggle next to the theme dropdown
+  // Toggle next to the theme dropdown (the dropdown may be created after this script runs, so retry)
   function setupBoxToggle() {
-    var $theme = $("select").filter(function () { return /dark/i.test($(this).text()); }).first();
-    var $wrap = $('<span id="box-side-wrap"><label>Box: <select id="box-side">' +
-      '<option value="p1">Left side</option><option value="p2">Right side</option></select></label></span>');
-    if ($theme.length) $wrap.insertAfter($theme); else $wrap.appendTo("body");
-    $wrap.find("select").val(boxSide).on("change", function () {
-      boxSide = this.value === "p2" ? "p2" : "p1";
-      try { localStorage.setItem(BOX_SIDE_KEY, boxSide); } catch (e) {}
-      boxRefreshers.forEach(function (f) { f(); });
-    });
+    if ($("#box-side-wrap").length) return;
+    function findTheme() {
+      return $("select").filter(function () {
+        var t = $(this).text() + " " + (this.id || "") + " " + (this.name || "");
+        return /dark|theme/i.test(t);
+      }).first();
+    }
+    function build($theme) {
+      var $wrap = $('<span id="box-side-wrap"><label>Box: <select id="box-side">' +
+        '<option value="p1">Left side</option><option value="p2">Right side</option></select></label></span>');
+      if ($theme && $theme.length) $wrap.insertAfter($theme); else $wrap.appendTo("body");
+      $wrap.find("select").val(boxSide).on("change", function () {
+        boxSide = this.value === "p2" ? "p2" : "p1";
+        try { localStorage.setItem(BOX_SIDE_KEY, boxSide); } catch (e) {}
+        boxRefreshers.forEach(function (f) { f(); });
+      });
+    }
+    var $t = findTheme();
+    if ($t.length) { build($t); return; }
+    var tries = 0;
+    var timer = setInterval(function () {
+      var $f = findTheme();
+      if ($f.length || ++tries > 20) { clearInterval(timer); build($f); }
+    }, 300);
   }
 
   // ---- EXP (hidden unless BASE_EXP_YIELD has data) ----
@@ -208,7 +223,7 @@ $(function () {
       if (sp !== lastSpecies) { lastSpecies = sp; loadSprite($sprite, spriteUrls(sp)); }
     }
 
-    function buildCard(e, exp, active) {
+    function buildCard(e, exp, active, showItem) {
       var $card = $('<div class="tp-card"></div>')
         .toggleClass("tp-active", active)
         .attr("title", e.species + " (" + e.setName + ")" + ((e.set.moves || []).length ? "\n" + e.set.moves.join(", ") : ""));
@@ -216,7 +231,7 @@ $(function () {
       $('<div class="tp-name"></div>').text(e.species)
         .css({ wordBreak: "normal", overflowWrap: "normal" })
         .appendTo($card);
-      if (e.set.item) {
+      if (showItem && e.set.item) {
         loadSprite($('<img class="tp-card-item" alt="">').css({
           display: "block", margin: "2px auto 0", width: "22px", height: "22px",
           objectFit: "contain", imageRendering: "pixelated", pointerEvents: "none"
@@ -238,11 +253,10 @@ $(function () {
         return;
       }
       var $scroll = $('<div class="tp-box-scroll"></div>').appendTo($boxPanel);
-      var $row = null;
-      entries.forEach(function (e, i) {
-        if (i % 3 === 0) $row = $('<div class="tp-row"></div>').appendTo($scroll);
+      var $grid = $('<div class="tp-box-grid"></div>').appendTo($scroll);
+      entries.forEach(function (e) {
         var active = !!sel && sel.species === e.species && sel.setName === BOX_NAME;
-        $row.append(buildCard(e, null, active));
+        $grid.append(buildCard(e, null, active, false));
       });
       $boxPanel.find(".tp-name").each(function () { fitName($(this)); });
     }
@@ -261,7 +275,7 @@ $(function () {
       party.forEach(function (e) {
         var exp = expGain(e);
         if (exp != null) { total += exp; anyExp = true; }
-        var $card = buildCard(e, exp, e.species === sel.species && e.setName === sel.setName);
+        var $card = buildCard(e, exp, e.species === sel.species && e.setName === sel.setName, true);
         var $name = $card.find(".tp-name");
         $row.append($card);
         fitName($name); // needs to be in the DOM to measure
