@@ -144,11 +144,17 @@ export function calculateSMSSSV(
     move.flags.contact = 0;
   }
 
-  if (move.named('Shell Side Arm', 'Mud Bomb', 'Mud Shot', 'Mud-Slap') &&
+  if (move.named('Shell Side Arm') &&
     getShellSideArmCategory(attacker, defender, field.isWonderRoom) === 'Physical') {
     move.category = 'Physical';
     move.flags.contact = 1;
   }
+
+if (move.named('Mud Bomb', 'Mud Shot', 'Mud-Slap')) {
+  if (pokemon.rawStats[atk] > pokemon.rawStats[spa]) {
+    move.category = 'Physical';
+  }
+}
 
   const breaksProtect = !defender.isDynamaxed &&
   (move.breaksProtect || move.isZ || attacker.isDynamaxed ||
