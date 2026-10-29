@@ -150,6 +150,8 @@ export function getMoveEffectiveness(
     return 1;
   } else if (move.named('Freeze-Dry') && type === 'Water') {
     return 2;
+  } else if (move.named('Tidebreaker') && type === 'Water') {
+    return 2;
   } else if (move.named('Nihil Light') && type === 'Fairy') {
     return 1;
   } else {

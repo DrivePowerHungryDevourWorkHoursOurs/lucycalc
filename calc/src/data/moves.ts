@@ -4973,7 +4973,41 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     maxPower: 130,
     isBite: true,
   },    
-
+  'Tag Out': {
+    bp: 0,
+    type: 'Normal',
+    category: 'Status',
+  },    
+  'Chilling Nibble': {
+    bp: 20,
+    type: 'Ice',
+    category: 'Physical',
+    zp: 100,
+    maxPower: 130,
+    secondaries: true,
+  },
+   'Verdant Relay': {
+    bp: 80,
+    type: 'Grass',
+    category: 'Special',
+    zp: 160,
+    maxPower: 130,
+  },    
+   'Rubble Rocket': {
+    bp: 95,
+    type: 'Rock',
+    category: 'Physical',
+    zp: 175,
+    maxPower: 130,
+  },    
+    'Tidebreaker': {
+    bp: 70,
+    type: 'Water',
+    category: 'Physical',
+    zp: 140,
+    maxPower: 130,
+    secondaries: true,
+  },    
 };
 
 const ZA_PATCH: {[name: string]: DeepPartial<MoveData>} = {
