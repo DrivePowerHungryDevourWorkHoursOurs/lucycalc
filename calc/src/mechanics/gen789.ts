@@ -151,7 +151,7 @@ export function calculateSMSSSV(
   }
 
 if (move.named('Mud Bomb', 'Mud Shot', 'Mud-Slap')) {
-  if (attacker.rawStats[atk] > attacker.rawStats[spa]) {
+  if (attacker.rawStats.atk > attacker.rawStats.spa) {
     move.category = 'Physical';
   }
 }
