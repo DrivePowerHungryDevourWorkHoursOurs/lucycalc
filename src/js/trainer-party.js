@@ -66,32 +66,26 @@ $(function () {
     return out;
   }
 
-  // Toggle next to the theme dropdown (the dropdown may be created after this script runs, so retry)
-  function setupBoxToggle() {
-    if ($("#box-side-wrap").length) return;
-    function findTheme() {
-      return $("select").filter(function () {
-        var t = $(this).text() + " " + (this.id || "") + " " + (this.name || "");
-        return /dark|theme/i.test(t);
-      }).first();
-    }
-    function build($theme) {
-      var $wrap = $('<span id="box-side-wrap"><label>Box: <select id="box-side">' +
-        '<option value="p1">Left side</option><option value="p2">Right side</option></select></label></span>');
-      if ($theme && $theme.length) $wrap.insertAfter($theme); else $wrap.appendTo("body");
-      $wrap.find("select").val(boxSide).on("change", function () {
+  // Side toggle, placed right next to the "Box (n)" heading
+  function makeBoxToggle() {
+    var $sel = $('<select class="tp-box-side"><option value="p1">Left side</option><option value="p2">Right side</option></select>')
+      .val(boxSide)
+      .css({ marginLeft: "10px", fontSize: "11px" })
+      .on("change", function () {
         boxSide = this.value === "p2" ? "p2" : "p1";
         try { localStorage.setItem(BOX_SIDE_KEY, boxSide); } catch (e) {}
         boxRefreshers.forEach(function (f) { f(); });
       });
-    }
-    var $t = findTheme();
-    if ($t.length) { build($t); return; }
-    var tries = 0;
-    var timer = setInterval(function () {
-      var $f = findTheme();
-      if ($f.length || ++tries > 20) { clearInterval(timer); build($f); }
-    }, 300);
+    return $sel;
+  }
+
+  // jQuery .css() can't set !important, which is needed to beat the stylesheet's own !important rules
+  function imp($el, props) {
+    $el.each(function () {
+      var el = this;
+      Object.keys(props).forEach(function (k) { el.style.setProperty(k, props[k], "important"); });
+    });
+    return $el;
   }
 
   // ---- EXP (hidden unless BASE_EXP_YIELD has data) ----
@@ -247,16 +241,27 @@ $(function () {
       var sel = parseSelected();
       var entries = readBox();
       $boxPanel.empty().removeAttr("hidden");
-      $('<div class="tp-box-title"></div>').text("Box (" + entries.length + ")").appendTo($boxPanel);
+      var $title = $('<div class="tp-box-title"></div>').appendTo($boxPanel);
+      $('<span></span>').text("Box (" + entries.length + ")").appendTo($title);
+      makeBoxToggle().appendTo($title);
       if (!entries.length) {
         $('<div class="tp-box-empty"></div>').text('Import sets with the name "Box" to add them here.').appendTo($boxPanel);
         return;
       }
       var $scroll = $('<div class="tp-box-scroll"></div>').appendTo($boxPanel);
       var $grid = $('<div class="tp-box-grid"></div>').appendTo($scroll);
+      imp($grid, {
+        display: "grid",
+        "grid-template-columns": "repeat(auto-fill, minmax(84px, 1fr))",
+        gap: "4px",
+        width: "100%",
+        "box-sizing": "border-box"
+      });
       entries.forEach(function (e) {
         var active = !!sel && sel.species === e.species && sel.setName === BOX_NAME;
-        $grid.append(buildCard(e, null, active, false));
+        var $c = buildCard(e, null, active, false);
+        imp($c, { flex: "none", width: "auto", "max-width": "none", "min-width": "0" });
+        $grid.append($c);
       });
       $boxPanel.find(".tp-name").each(function () { fitName($(this)); });
     }
@@ -303,6 +308,5 @@ $(function () {
 
   setupSide("p1");
   setupSide("p2");
-  setupBoxToggle();
   console.log("trainer-party: ready,", Object.keys(index).length, "trainer(s) indexed");
 });
