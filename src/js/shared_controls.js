@@ -1568,18 +1568,16 @@ $(".gen").change(function () {
 	$(".set-selector").val(getFirstValidSetOption().id);
 	$(".set-selector").change();
 });
-var DEFAULT_SET_ID = "Nihilego (National Dex RU Offensive Stealth Rock)"; // replace with the set you want
 
 function getFirstValidSetOption() {
 	var sets = getSetOptions();
-	for (var i = 1; i < sets.length; i++) {
-		if (sets[i].id === DEFAULT_SET_ID) return sets[i];
-	}
+	// NB: The first set is never valid, so we start searching after it.
 	for (var i = 1; i < sets.length; i++) {
 		if (sets[i].id && sets[i].id.indexOf('(Blank Set)') === -1) return sets[i];
 	}
 	return undefined;
 }
+
 $(".notation").change(function () {
 	notation = $(this).val();
 });
