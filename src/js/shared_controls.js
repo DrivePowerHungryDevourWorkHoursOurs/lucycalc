@@ -1541,6 +1541,9 @@ $(".gen").change(function () {
 	/* eslint-enable */
 	// declaring these variables with var here makes z moves not work; TODO
 	pokedex = calc.SPECIES[gen];
+	if (gen === 9) {
+		applyRCOverrides(pokedex);
+	}
 	setdex = SETDEX[gen];
 	randdex = RANDDEX[gen];
 	if ('Aegislash' in randdex) randdex['Aegislash-Shield'] = randdex['Aegislash'];
