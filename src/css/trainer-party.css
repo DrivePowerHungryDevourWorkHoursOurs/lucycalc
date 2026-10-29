@@ -103,3 +103,36 @@
 .tp-sprite {
   display: none !important;
 }
+
+/* ---- Box ---- */
+/* The rules above force display:block, which would defeat the hidden attribute */
+.trainer-party[hidden] {
+  display: none !important;
+}
+
+.trainer-party.box-party .tp-box-title {
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0 0 6px 2px;
+}
+
+.trainer-party.box-party .tp-box-empty {
+  font-size: 11px;
+  opacity: 0.7;
+  padding: 4px 2px;
+}
+
+/* Long boxes scroll instead of stretching the page */
+.trainer-party.box-party .tp-box-scroll {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.trainer-party.box-party .tp-row {
+  margin-bottom: 4px !important;
+}
+
+#box-side-wrap {
+  margin-left: 12px;
+  display: inline-block;
+}

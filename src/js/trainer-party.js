@@ -45,6 +45,40 @@ $(function () {
     });
   });
 
+  // ---- Box: every imported set named "Box" ----
+  var BOX_NAME = "Box";
+  var BOX_SIDE_KEY = "tp-box-side";
+  var boxSide = "p1"; // left by default
+  try { if (localStorage.getItem(BOX_SIDE_KEY) === "p2") boxSide = "p2"; } catch (e) {}
+  var boxRefreshers = [];
+
+  function readBox() {
+    var out = [], seen = {};
+    function scan(dex) {
+      if (!dex) return;
+      Object.keys(dex).forEach(function (species) {
+        var s = dex[species] && dex[species][BOX_NAME];
+        if (s && !seen[species]) { seen[species] = true; out.push({ species: species, setName: BOX_NAME, set: s }); }
+      });
+    }
+    try { if (typeof SETDEX_CUSTOM !== "undefined") scan(SETDEX_CUSTOM); } catch (e) {}
+    try { scan(JSON.parse(localStorage.customsets || "{}")); } catch (e) {}
+    return out;
+  }
+
+  // Toggle next to the theme dropdown
+  function setupBoxToggle() {
+    var $theme = $("select").filter(function () { return /dark/i.test($(this).text()); }).first();
+    var $wrap = $('<span id="box-side-wrap"><label>Box: <select id="box-side">' +
+      '<option value="p1">Left side</option><option value="p2">Right side</option></select></label></span>');
+    if ($theme.length) $wrap.insertAfter($theme); else $wrap.appendTo("body");
+    $wrap.find("select").val(boxSide).on("change", function () {
+      boxSide = this.value === "p2" ? "p2" : "p1";
+      try { localStorage.setItem(BOX_SIDE_KEY, boxSide); } catch (e) {}
+      boxRefreshers.forEach(function (f) { f(); });
+    });
+  }
+
   // ---- EXP (hidden unless BASE_EXP_YIELD has data) ----
   function expGain(entry) {
     var table = (typeof BASE_EXP_YIELD !== "undefined") ? BASE_EXP_YIELD : {};
@@ -115,6 +149,8 @@ $(function () {
       objectFit: "contain", imageRendering: "pixelated", pointerEvents: "none", visibility: "hidden"
     }).appendTo($box);
     var $panel = $('<div class="trainer-party" hidden></div>').appendTo($box);
+    // Appended after the trainer panel, so it automatically sits below the trainer team
+    var $boxPanel = $('<div class="trainer-party box-party" hidden></div>').appendTo($box);
 
     var lastItem = null;
     function updateItem() {
@@ -172,6 +208,45 @@ $(function () {
       if (sp !== lastSpecies) { lastSpecies = sp; loadSprite($sprite, spriteUrls(sp)); }
     }
 
+    function buildCard(e, exp, active) {
+      var $card = $('<div class="tp-card"></div>')
+        .toggleClass("tp-active", active)
+        .attr("title", e.species + " (" + e.setName + ")" + ((e.set.moves || []).length ? "\n" + e.set.moves.join(", ") : ""));
+      loadSprite($('<img class="tp-icon" alt="">').appendTo($card), partySpriteUrls(e.species));
+      $('<div class="tp-name"></div>').text(e.species)
+        .css({ wordBreak: "normal", overflowWrap: "normal" })
+        .appendTo($card);
+      if (e.set.item) {
+        loadSprite($('<img class="tp-card-item" alt="">').css({
+          display: "block", margin: "2px auto 0", width: "22px", height: "22px",
+          objectFit: "contain", imageRendering: "pixelated", pointerEvents: "none"
+        }).appendTo($card), itemUrls(e.set.item));
+      }
+      if (exp != null) $('<div class="tp-exp"></div>').text("+" + exp + " EXP").appendTo($card);
+      $card.on("click", function () { loadIntoSide(e); });
+      return $card;
+    }
+
+    function renderBox() {
+      if (boxSide !== sideId) { $boxPanel.attr("hidden", true).empty(); return; }
+      var sel = parseSelected();
+      var entries = readBox();
+      $boxPanel.empty().removeAttr("hidden");
+      $('<div class="tp-box-title"></div>').text("Box (" + entries.length + ")").appendTo($boxPanel);
+      if (!entries.length) {
+        $('<div class="tp-box-empty"></div>').text('Import sets with the name "Box" to add them here.').appendTo($boxPanel);
+        return;
+      }
+      var $scroll = $('<div class="tp-box-scroll"></div>').appendTo($boxPanel);
+      var $row = null;
+      entries.forEach(function (e, i) {
+        if (i % 3 === 0) $row = $('<div class="tp-row"></div>').appendTo($scroll);
+        var active = !!sel && sel.species === e.species && sel.setName === BOX_NAME;
+        $row.append(buildCard(e, null, active));
+      });
+      $boxPanel.find(".tp-name").each(function () { fitName($(this)); });
+    }
+
     function render() {
       var sel = parseSelected();
       updateSprite(sel);
@@ -186,34 +261,25 @@ $(function () {
       party.forEach(function (e) {
         var exp = expGain(e);
         if (exp != null) { total += exp; anyExp = true; }
-        var $card = $('<div class="tp-card"></div>')
-          .toggleClass("tp-active", e.species === sel.species && e.setName === sel.setName)
-          .attr("title", e.species + " (" + e.setName + ")" + ((e.set.moves || []).length ? "\n" + e.set.moves.join(", ") : ""));
-        loadSprite($('<img class="tp-icon" alt="">').appendTo($card), partySpriteUrls(e.species));
-        var $name = $('<div class="tp-name"></div>').text(e.species)
-          .css({ wordBreak: "normal", overflowWrap: "normal" }) // only wrap at hyphens/spaces, never mid-word
-          .appendTo($card);
-        if (e.set.item) {
-          loadSprite($('<img class="tp-card-item" alt="">').css({
-            display: "block", margin: "2px auto 0", width: "22px", height: "22px",
-            objectFit: "contain", imageRendering: "pixelated", pointerEvents: "none"
-          }).appendTo($card), itemUrls(e.set.item));
-        }
-        if (exp != null) $('<div class="tp-exp"></div>').text("+" + exp + " EXP").appendTo($card);
-        $card.on("click", function () { loadIntoSide(e); });
+        var $card = buildCard(e, exp, e.species === sel.species && e.setName === sel.setName);
+        var $name = $card.find(".tp-name");
         $row.append($card);
         fitName($name); // needs to be in the DOM to measure
       });
       if (anyExp) $('<div class="tp-total"></div>').text("Total: " + total + " EXP").appendTo($panel);
     }
 
-    var lastKey = null;
+    var lastKey = null, lastBoxKey = null;
     function check() {
       var sel = parseSelected();
       var key = ($selector.val() || "") + "|" + (currentSpecies(sel) || "");
       if (key !== lastKey) { lastKey = key; render(); }
+      var bKey = boxSide + "|" + ($selector.val() || "") + "|" +
+        (boxSide === sideId ? JSON.stringify(readBox()) : "");
+      if (bKey !== lastBoxKey) { lastBoxKey = bKey; renderBox(); }
       updateItem();
     }
+    boxRefreshers.push(function () { lastBoxKey = null; check(); });
     $selector.on("change", check);
     $box.on("change", "select.forme", check);
     $box.on("change", "select.item", check);
@@ -223,5 +289,6 @@ $(function () {
 
   setupSide("p1");
   setupSide("p2");
+  setupBoxToggle();
   console.log("trainer-party: ready,", Object.keys(index).length, "trainer(s) indexed");
 });
