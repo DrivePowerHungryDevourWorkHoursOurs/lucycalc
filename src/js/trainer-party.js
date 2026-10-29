@@ -82,12 +82,42 @@ $(function () {
       delete dex[species][BOX_NAME];
       if (!Object.keys(dex[species]).length) delete dex[species];
     }
-    try { if (typeof SETDEX_CUSTOM !== "undefined") strip(SETDEX_CUSTOM); } catch (e) {}
-    try { if (typeof SETDEX_SV !== "undefined") strip(SETDEX_SV); } catch (e) {}
+    allDexes().forEach(strip);
     try {
       var saved = JSON.parse(localStorage.customsets || "{}");
       strip(saved);
       localStorage.customsets = JSON.stringify(saved);
+    } catch (e) {}
+  }
+
+  // moveset_import.js copies every imported set into all of these, so edits/removals must hit all of them
+  function allDexes() {
+    var d = [];
+    try { if (typeof SETDEX_CHAMPIONS !== "undefined") d.push(SETDEX_CHAMPIONS); } catch (e) {}
+    try { if (typeof SETDEX_RBY !== "undefined") d.push(SETDEX_RBY); } catch (e) {}
+    try { if (typeof SETDEX_GSC !== "undefined") d.push(SETDEX_GSC); } catch (e) {}
+    try { if (typeof SETDEX_ADV !== "undefined") d.push(SETDEX_ADV); } catch (e) {}
+    try { if (typeof SETDEX_DPP !== "undefined") d.push(SETDEX_DPP); } catch (e) {}
+    try { if (typeof SETDEX_BW !== "undefined") d.push(SETDEX_BW); } catch (e) {}
+    try { if (typeof SETDEX_XY !== "undefined") d.push(SETDEX_XY); } catch (e) {}
+    try { if (typeof SETDEX_SM !== "undefined") d.push(SETDEX_SM); } catch (e) {}
+    try { if (typeof SETDEX_SS !== "undefined") d.push(SETDEX_SS); } catch (e) {}
+    try { if (typeof SETDEX_SV !== "undefined") d.push(SETDEX_SV); } catch (e) {}
+    return d;
+  }
+
+  // Write an edited set back into every place the calc / this script keeps "Box" sets
+  function saveBoxSet(species, set) {
+    function put(dex) {
+      if (dex && dex[species] && (BOX_NAME in dex[species])) dex[species][BOX_NAME] = set;
+    }
+    allDexes().forEach(put);
+    try {
+      var saved = JSON.parse(localStorage.customsets || "{}");
+      if (saved[species] && (BOX_NAME in saved[species])) {
+        saved[species][BOX_NAME] = set;
+        localStorage.customsets = JSON.stringify(saved);
+      }
     } catch (e) {}
   }
 
@@ -330,6 +360,54 @@ $(function () {
       if (anyExp) $('<div class="tp-total"></div>').text("Total: " + total + " EXP").appendTo($panel);
     }
 
+    // ---- auto-save edits made to a loaded Box set ----
+    var STATS = ["hp", "at", "df", "sa", "sd", "sp"];
+    function readEdits(old) {
+      var set = $.extend(true, {}, old);
+      var lv = parseInt($box.find("input.level").first().val(), 10);
+      if (lv) set.level = lv;
+      var ab = $box.find("select.ability").first().val();
+      if (ab) set.ability = ab;
+      var nat = $box.find("select.nature").first().val();
+      if (nat) set.nature = nat;
+      var item = ($box.find("select.item").first().val() || "").trim();
+      if (!item || /^\(?none\)?$/i.test(item)) delete set.item; else set.item = item;
+      var tera = $box.find("select.teraType").first().val();
+      if (tera) set.teraType = tera;
+      var evs = {}, ivs = {}, gotStats = false;
+      STATS.forEach(function (st) {
+        var e = parseInt($box.find("." + st + " input.evs").first().val(), 10);
+        var i = parseInt($box.find("." + st + " input.ivs").first().val(), 10);
+        if (!isNaN(e)) { evs[st] = e; gotStats = true; }
+        if (!isNaN(i)) ivs[st] = i;
+      });
+      if (gotStats) { set.evs = evs; set.ivs = ivs; }
+      var moves = [];
+      $box.find(".move-selector").each(function () {
+        var m = ($(this).val() || "").trim();
+        if (m && !/^\(no move\)$/i.test(m)) moves.push(m);
+      });
+      if (moves.length) set.moves = moves;
+      return set;
+    }
+    var syncBase = null, syncWait = 0, syncKey = null;
+    function syncBoxSet(key) {
+      var sel = parseSelected();
+      if (!sel || sel.setName !== BOX_NAME) { syncBase = null; syncKey = null; return; }
+      if (key !== syncKey) { syncKey = key; syncBase = null; syncWait = 2; return; } // let the calc finish filling in the fields
+      var stored = null;
+      readBox().forEach(function (e) { if (e.species === sel.species) stored = e.set; });
+      if (!stored) return;
+      var updated = readEdits(stored);
+      var fp = JSON.stringify(updated);
+      if (syncWait > 0) { syncWait--; syncBase = fp; return; }
+      if (fp !== syncBase) {
+        syncBase = fp;
+        saveBoxSet(sel.species, updated);
+        console.log("trainer-party: saved Box set for", sel.species, updated);
+      }
+    }
+
     var lastKey = null, lastBoxKey = null;
     function check() {
       var sel = parseSelected();
@@ -339,6 +417,7 @@ $(function () {
         (boxSide === sideId ? JSON.stringify(readBox()) : "");
       if (bKey !== lastBoxKey) { lastBoxKey = bKey; renderBox(); }
       updateItem();
+      syncBoxSet(key);
     }
     boxRefreshers.push(function () { lastBoxKey = null; check(); });
     $selector.on("change", check);
