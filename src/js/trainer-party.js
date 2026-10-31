@@ -45,6 +45,24 @@ $(function () {
     });
   });
 
+  // Trainer order = the order trainers first appear in trainers.js (TRAINER_SETS_SV),
+  // with any trainers from other sources appended after.
+  var trainerOrder = (function () {
+    var out = [], seen = {};
+    function add(dex) {
+      if (!dex) return;
+      Object.keys(dex).forEach(function (sp) {
+        Object.keys(dex[sp]).forEach(function (sn) {
+          var m = TRAINER_RE.exec(sn);
+          if (m && index[m[2]] && !seen[m[2]]) { seen[m[2]] = true; out.push(m[2]); }
+        });
+      });
+    }
+    try { if (typeof TRAINER_SETS_SV !== "undefined") add(TRAINER_SETS_SV); } catch (e) {}
+    Object.keys(index).forEach(function (t) { if (!seen[t]) { seen[t] = true; out.push(t); } });
+    return out;
+  })();
+
   // ---- Box: every imported set named "Box" ----
   var BOX_NAME = "Box";
   var BOX_SIDE_KEY = "tp-box-side";
@@ -358,6 +376,24 @@ $(function () {
         fitName($name); // needs to be in the DOM to measure
       });
       if (anyExp) $('<div class="tp-total"></div>').text("Total: " + total + " EXP").appendTo($panel);
+
+      // Previous / Next trainer, in trainers.js order
+      var pos = trainerOrder.indexOf(m[2]);
+      var $nav = $('<div class="tp-nav"></div>').appendTo($panel);
+      imp($nav, { display: "flex", "align-items": "center", "justify-content": "space-between", gap: "6px",
+        "margin-top": "6px", "padding-top": "6px", "border-top": "1px solid #777" });
+      function navBtn(label, target) {
+        var $b = $('<button type="button" class="tp-nav-btn"></button>').text(label);
+        if (target < 0 || target >= trainerOrder.length) {
+          $b.prop("disabled", true).css("opacity", 0.4);
+        } else {
+          $b.on("click", function () { loadIntoSide(index[trainerOrder[target]][0]); });
+        }
+        return $b;
+      }
+      $nav.append(navBtn("Previous Trainer", pos - 1));
+      imp($('<span class="tp-nav-pos"></span>').text((pos + 1) + " / " + trainerOrder.length).appendTo($nav), { "font-size": "11px", opacity: "0.7" });
+      $nav.append(navBtn("Next Trainer", pos + 1));
     }
 
     // ---- auto-save edits made to a loaded Box set ----
