@@ -317,7 +317,19 @@ $(function () {
       var $title = $('<div class="tp-box-title"></div>').appendTo($boxPanel);
       imp($title, { display: "flex", "align-items": "center", "justify-content": "space-between", gap: "8px" });
       imp($('<span></span>').text("Box (" + entries.length + ")").appendTo($title), { "white-space": "nowrap" });
-      makeBoxToggle().css("marginLeft", "0").appendTo($title);
+      var $right = $('<span class="tp-box-actions"></span>').appendTo($title);
+      imp($right, { display: "flex", "align-items": "center", gap: "6px" });
+      $('<button type="button" class="tp-box-clear" title="Clear all Box sets"></button>').text("\uD83D\uDECF\uFE0F")
+        .on("click", function () {
+          var all = readBox();
+          if (!all.length) { alert("The box is already empty."); return; }
+          if (!confirm("Are you SURE you want to clear the box?\n\nThis permanently deletes all " + all.length +
+            " set(s) labelled \"Box\". This cannot be undone.")) return;
+          disarm();
+          all.forEach(function (e) { removeFromBox(e.species); });
+          boxRefreshers.forEach(function (f) { f(); });
+        }).appendTo($right);
+      makeBoxToggle().css("marginLeft", "0").appendTo($right);
       if (!entries.length) {
         $('<div class="tp-box-empty"></div>').text('Import sets with the name "Box" to add them here.').appendTo($boxPanel);
         return;

@@ -2612,7 +2612,6 @@ const SM_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Zippy Zap': {
     bp: 50,
     type: 'Electric',
-    willCrit: true,
     priority: 2,
     makesContact: true,
     category: 'Physical',
@@ -4231,6 +4230,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Trop Kick': {isKick: true},
   'Wicked Blow': {bp: 75, zp: 140},
   'X-Scissor': {isSlicing: true},
+  'Zippy Zap': {bp: 80, zp: 160},
   'Aqua Cutter': {
     bp: 70,
     type: 'Water',
@@ -4958,13 +4958,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     isWind: true,
     target: 'allAdjacentFoes',
   },
-  'Zippy Zap': {
-    bp: 80,
-    type: 'Electric',
-    category: 'Physical',
-    zp: 160,
-    maxPower: 130,
-  },  
+ 
   'Aqua Jaws': {
     bp: 75,
     type: 'Water',
