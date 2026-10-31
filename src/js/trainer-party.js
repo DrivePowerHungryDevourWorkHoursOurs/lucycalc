@@ -367,7 +367,7 @@ $(function () {
       $boxPanel.empty().removeAttr("hidden");
       var $title = $('<div class="tp-box-title"></div>').appendTo($boxPanel);
       imp($title, { display: "flex", "flex-wrap": "nowrap", "align-items": "center", "justify-content": "space-between", gap: "8px", "min-width": "0" });
-      imp($('<span></span>').text("Box (" + entries.length + ")").appendTo($title), { "white-space": "nowrap" });
+      imp($('<span></span>').text("Box (" + entries.length + ")").appendTo($title), { width: "auto", "white-space": "nowrap" });
       var $right = $('<span class="tp-box-actions"></span>').appendTo($title);
       imp($right, { display: "flex", "align-items": "center", gap: "6px" });
       $('<button type="button" class="tp-box-clear" title="Clear all Box sets"></button>').text("\uD83D\uDECF\uFE0F")
@@ -381,7 +381,7 @@ $(function () {
           boxRefreshers.forEach(function (f) { f(); });
         }).appendTo($right);
       makeBoxToggle().css("marginLeft", "0").appendTo($right);
-      imp($right, { flex: "0 0 auto", "min-width": "0", "white-space": "nowrap" });
+      imp($right, { width: "auto", flex: "0 0 auto", "min-width": "0", "white-space": "nowrap" });
       imp($right.find("button"), { width: "auto", "min-width": "0", margin: "0", flex: "none", float: "none", position: "static" });
       imp($right.find("select"), { width: "92px", "min-width": "0", "max-width": "92px", margin: "0", flex: "none", float: "none", position: "static" });
       if (!entries.length) {
@@ -458,7 +458,7 @@ $(function () {
         return $b;
       }
       $nav.append(navBtn("Previous Trainer", pos - 1));
-      imp($('<span class="tp-nav-pos"></span>').text((pos + 1) + " / " + trainerOrder.length).appendTo($nav), { "font-size": "11px", opacity: "0.7" });
+      imp($('<span class="tp-nav-pos"></span>').text((pos + 1) + " / " + trainerOrder.length).appendTo($nav), { width: "auto", "font-size": "11px", opacity: "0.7" });
       $nav.append(navBtn("Next Trainer", pos + 1));
     }
 
