@@ -139,6 +139,56 @@ $(function () {
     } catch (e) {}
   }
 
+  // ---- Export Box -> pokepast.es ----
+  var STAT_LABEL = { hp: "HP", at: "Atk", df: "Def", sa: "SpA", sd: "SpD", sp: "Spe" };
+  var STAT_ORDER = ["hp", "at", "df", "sa", "sd", "sp"];
+  function setToShowdown(e) {
+    var s = e.set, l = [];
+    var head = e.species;
+    if (s.gender === "M" || s.gender === "F") head += " (" + s.gender + ")";
+    if (s.item) head += " @ " + s.item;
+    l.push(head);
+    if (s.ability) l.push("Ability: " + s.ability);
+    if (s.level && +s.level !== 100) l.push("Level: " + s.level);
+    if (s.teraType) l.push("Tera Type: " + s.teraType);
+    var evs = [], ivs = [];
+    STAT_ORDER.forEach(function (st) {
+      var ev = parseInt(s.evs && s.evs[st], 10);
+      if (ev > 0) evs.push(ev + " " + STAT_LABEL[st]);
+      var iv = parseInt(s.ivs && s.ivs[st], 10);
+      if (!isNaN(iv) && iv !== 31) ivs.push(iv + " " + STAT_LABEL[st]);
+    });
+    if (evs.length) l.push("EVs: " + evs.join(" / "));
+    if (s.nature) l.push(s.nature + " Nature");
+    if (ivs.length) l.push("IVs: " + ivs.join(" / "));
+    (s.moves || []).forEach(function (m) { if (m) l.push("- " + m); });
+    return l.join("\n");
+  }
+  function exportBoxToPokepaste() {
+    var entries = readBox();
+    if (!entries.length) { alert("The box is empty."); return; }
+    var text = entries.map(setToShowdown).join("\n\n");
+    var $f = $('<form method="POST" action="https://pokepast.es/create" target="_blank"></form>').css("display", "none");
+    [["title", "Box"], ["author", ""], ["notes", ""]].forEach(function (p) {
+      $('<input type="hidden">').attr("name", p[0]).val(p[1]).appendTo($f);
+    });
+    $('<textarea name="paste"></textarea>').val(text).appendTo($f);
+    $f.appendTo("body");
+    $f[0].submit();
+    $f.remove();
+  }
+  // "Export Box" button sits next to the Export button on the box's side
+  function placeExportBox() {
+    var $btn = $("#exportBox");
+    if (!$btn.length) {
+      $btn = $('<button type="button" id="exportBox" title="Open every Box Pok\u00e9mon as a PokePaste">Export Box</button>')
+        .on("click", exportBoxToPokepaste);
+    }
+    var $ref = $(boxSide === "p2" ? "#exportR" : "#exportL");
+    if (!$ref.length) return;
+    if (boxSide === "p2") $btn.insertBefore($ref); else $btn.insertAfter($ref);
+  }
+
   // Side toggle, placed right next to the "Box (n)" heading
   function makeBoxToggle() {
     var $sel = $('<select class="tp-box-side"><option value="p1">Left side</option><option value="p2">Right side</option></select>')
@@ -147,6 +197,7 @@ $(function () {
       .on("change", function () {
         boxSide = this.value === "p2" ? "p2" : "p1";
         try { localStorage.setItem(BOX_SIDE_KEY, boxSide); } catch (e) {}
+        placeExportBox();
         boxRefreshers.forEach(function (f) { f(); });
       });
     return $sel;
@@ -315,7 +366,7 @@ $(function () {
       var entries = readBox();
       $boxPanel.empty().removeAttr("hidden");
       var $title = $('<div class="tp-box-title"></div>').appendTo($boxPanel);
-      imp($title, { display: "flex", "align-items": "center", "justify-content": "space-between", gap: "8px" });
+      imp($title, { display: "flex", "flex-wrap": "nowrap", "align-items": "center", "justify-content": "space-between", gap: "8px", "min-width": "0" });
       imp($('<span></span>').text("Box (" + entries.length + ")").appendTo($title), { "white-space": "nowrap" });
       var $right = $('<span class="tp-box-actions"></span>').appendTo($title);
       imp($right, { display: "flex", "align-items": "center", gap: "6px" });
@@ -330,6 +381,9 @@ $(function () {
           boxRefreshers.forEach(function (f) { f(); });
         }).appendTo($right);
       makeBoxToggle().css("marginLeft", "0").appendTo($right);
+      imp($right, { flex: "0 0 auto", "min-width": "0", "white-space": "nowrap" });
+      imp($right.find("button"), { width: "auto", "min-width": "0", margin: "0", flex: "none", float: "none", position: "static" });
+      imp($right.find("select"), { width: "92px", "min-width": "0", "max-width": "92px", margin: "0", flex: "none", float: "none", position: "static" });
       if (!entries.length) {
         $('<div class="tp-box-empty"></div>').text('Import sets with the name "Box" to add them here.').appendTo($boxPanel);
         return;
@@ -477,5 +531,6 @@ $(function () {
 
   setupSide("p1");
   setupSide("p2");
+  placeExportBox();
   console.log("trainer-party: ready,", Object.keys(index).length, "trainer(s) indexed");
 });
