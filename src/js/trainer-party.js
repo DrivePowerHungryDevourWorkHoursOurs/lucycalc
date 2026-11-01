@@ -384,6 +384,15 @@ $(function () {
       }
     }
 
+    // Put this side back on the calc's default set for it (getFirstValidSetOption / DEFAULT_SET_IDS
+    // in shared_controls.js, so per-side defaults are respected)
+    function loadDefaultSet() {
+      var opt = (typeof getFirstValidSetOption === "function") ? getFirstValidSetOption(sideId) : null;
+      var id = opt && opt.id;
+      var i = id ? id.indexOf(" (") : -1;
+      if (i > 0) loadIntoSide({ species: id.substring(0, i), setName: id.substring(i + 2, id.length - 1) });
+    }
+
     // The Forme dropdown changes the actual species without changing the set label,
     // so prefer it when it is showing.
     function currentSpecies(sel) {
@@ -556,17 +565,16 @@ $(function () {
       $('<button type="button" class="tp-box-clear" title="Clear all Box sets"></button>').text("\uD83D\uDECF\uFE0F")
         .on("click", function () {
           var all = readBox();
-          if (!all.length) {
-            resetSavedTrainers();
-            alert("The box is already empty. The saved trainer was reset to the default.");
-            return;
-          }
-          if (!confirm("Are you SURE you want to clear the box?\n\nThis permanently deletes all " + all.length +
-            " set(s) labelled \"Box\", including any in the Player Party. This cannot be undone." +
-            "\n\nThe saved trainer will also be reset to the default.")) return;
-          resetSavedTrainers();
+          var msg = all.length
+            ? "Are you SURE you want to clear the box?\n\nThis permanently deletes all " + all.length +
+              " set(s) labelled \"Box\", including any in the Player Party. This cannot be undone." +
+              "\n\nThe saved trainer will also be reset, and this side will go back to its default set."
+            : "The box is already empty.\n\nReset the saved trainer, and put this side back to its default set?";
+          if (!confirm(msg)) return;
           disarm();
           all.forEach(function (e) { removeFromBox(e.species); });
+          loadDefaultSet();      // box side back to its default set
+          resetSavedTrainers();  // after the load, since loading a set re-saves it
           boxRefreshers.forEach(function (f) { f(); });
         }).appendTo($right);
       makeBoxToggle().css("marginLeft", "0").appendTo($right);
