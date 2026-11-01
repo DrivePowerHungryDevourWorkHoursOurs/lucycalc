@@ -5,6 +5,122 @@
 // Same shape as normal Showdown sets, plus an optional "slot" (0-5) to keep party order.
 // Replace this example block with your real data (or generate it from your ROM's files).
 var TRAINER_SETS_SV = {
+  "Eevee": {
+    "Lvl 5 Rival Jake (Lab)": {
+      "slot": 0, "level": 5, "ability": "Adaptability", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":0,"at":0,"df":0,"sa":0,"sd":0,"sp":0},
+      "evs": {hp:0,at:0,df:0,sa:0,sd:0,sp:0},
+      "moves": ["Tackle"]
+    }
+  },
+  "Wurmple": {
+    "Lvl 3 Bug Catcher Ralph": {
+      "slot": 1, "level": 3, "ability": "Shield Dust", "item": " ", "nature": "Adamant",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Tackle", "String Shot"]
+    }
+  },
+    "Wurmple": {
+    "Lvl 3 Bug Catcher Ralph": {
+      "slot": 0, "level": 3, "ability": "Shield Dust", "item": " ", "nature": "Adamant",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Tackle", "String Shot"]
+    }
+  },
+    "Bunnelby": {
+    "Lvl 3 Picnicker Susie": {
+      "slot": 0, "level": 3, "ability": "Guts", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Tackle", "Sand Attack", "Agility"]
+    }
+  },
+      "Pidgey": {
+    "Lvl 3 Picnicker Susie": {
+      "slot": 1, "level": 3, "ability": "Quick Feet", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Tackle"]
+    }
+  },
+    "Kakuna": {
+    "Lvl 6 Bug Catcher Ricky": {
+      "slot": 0, "level": 6, "ability": "Shed Skin", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Harden"]
+    }
+  },
+      "Metapod": {
+    "Lvl 6 Bug Catcher Ricky": {
+      "slot": 0, "level": 6, "ability": "Shed Skin", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":0,"at":0,"df":0,"sa":0,"sd":0,"sp":0},
+      "moves": ["Harden"]
+    }
+  },
+  "Poochyena": {
+    "Lvl 10 Eclipse Member Linda": {
+      "slot": 0, "level": 10, "ability": "Intimidate", "item": "Oran Berry", "nature": "Adamant",
+      "ivs": {"hp":17,"at":17,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Tackle", "Bite", "Howl", "Rock Smash"]
+    }
+  },
+  "Pancham": {
+    "Lvl 10 Eclipse Member Linda": {
+      "slot": 1, "level": 10, "ability": "Scrappy", "item": "Expert Belt", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":228,"df":0,"sa":0,"sd":252,"sp":28},
+      "moves": ["Knock Off", "Arm Thrust", "Work Up", "Cut"]
+    }
+  },
+  "Zigzagoon-Galar": {
+    "Lvl 12 Eclipse Member Linda": {
+      "slot": 2, "level": 12, "ability": "Quick Feet", "item": "Dread Plate", "nature": "Lonely",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":4,"sd":0,"sp":252},
+      "moves": ["Knock Off", "Headbutt", "Work Up", "Grass Knot"]
+    }
+  },
+    "Electrike": {
+    "Lvl 8 Student Chase": {
+      "slot": 0, "level": 8, "ability": "Static", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Tackle", "Thunder Wave", "Leer", "Howl"]
+    }
+  },
+      "Electrike": {
+    "Lvl 11 Bouncer David": {
+      "slot": 0, "level": 11, "ability": "Static", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Tackle", "Thunder Wave", "Leer", "Howl"]
+    }
+  },
+      "Shinx": {
+    "Lvl 12 Bouncer David": {
+      "slot": 1, "level": 12, "ability": "Static", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Tackle", "Leer", "Charge", "Baby-Doll Eyes"]
+    }
+  },
+      "Electrike": {
+    "Lvl 10 Bouncer Jed": {
+      "slot": 0, "level": 10, "ability": "Static", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Tackle", "Thunder Wave", "Leer", "Howl"]
+    }
+  },
+      "Mareep": {
+    "Lvl 11 Bouncer Jed": {
+      "slot": 1, "level": 11, "ability": "Static", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Tackle", "Thunder Wave", "Thunder Shock", "Growl"]
+    }
+  },
+      "Magnemite": {
+    "Lvl 12 Bouncer Jed": {
+      "slot": 2, "level": 12, "ability": "Magnet Pull", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Tackle", "Supersonic", "Thunder Shock", "Sonic Boom"]
+    }
+  },
   "Geodude-Alola": {
     "Lvl 14 Gym Leader Chad": {
       "slot": 0, "level": 14, "ability": "Galvanize", "item": "Focus Sash", "nature": "Adamant",
