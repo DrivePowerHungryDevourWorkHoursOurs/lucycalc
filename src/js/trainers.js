@@ -1009,7 +1009,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Quiver Dance", "Bug Buzz", "Fiery Dance", "Giga Drain"]
     }
   },
-  "Typhlosion#2": {
+  "Typhlosion#3": {
     "Lvl 89 Gym Leader Sebastian Rematch (Optional)": {
       "slot": 4, "level": 89, "ability": "Blaze", "item": "Choice Scarf", "nature": "Timid",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
@@ -1034,7 +1034,7 @@ var TRAINER_SETS_SV = {
     }
   },
     "Pelipper#2": {
-    "Lvl 85 Gym Leader Sebastian Rematch (Optional)": {
+    "Lvl 85 Gym Leader Quentin Rematch (Optional)": {
       "slot": 0, "level": 85, "ability": "Drizzle", "item": "Damp Rock", "nature": "Bold",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":248,"at":0,"df":252,"sa":8,"sd":0,"sp":0},
@@ -1042,7 +1042,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Tentacruel#2": {
-    "Lvl 86 Gym Leader Sebastian Rematch (Optional)": {
+    "Lvl 86 Gym Leader Quentin Rematch (Optional)": {
       "slot": 1, "level": 86, "ability": "Rain Dish", "item": "Black Sludge", "nature": "Bold",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":248,"at":0,"df":244,"sa":0,"sd":0,"sp":16},
@@ -1050,7 +1050,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Barraskewda": {
-    "Lvl 87 Gym Leader Sebastian Rematch (Optional)": {
+    "Lvl 87 Gym Leader Quentin Rematch (Optional)": {
       "slot": 2, "level": 87, "ability": "Swift Swim", "item": "Choice Band", "nature": "Adamant",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -1058,7 +1058,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Ludicolo#2": {
-    "Lvl 88 Gym Leader Sebastian Rematch (Optional)": {
+    "Lvl 88 Gym Leader Quentin Rematch (Optional)": {
       "slot": 3, "level": 88, "ability": "Swift Swim", "item": "Life Orb", "nature": "Modest",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":0,"df":0,"sa":244,"sd":16,"sp":244},
@@ -1066,7 +1066,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Poliwrath": {
-    "Lvl 89 Gym Leader Sebastian Rematch (Optional)": {
+    "Lvl 89 Gym Leader Quentin Rematch (Optional)": {
       "slot": 4, "level": 89, "ability": "Swift Swim", "item": "White Herb", "nature": "Adamant",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -1074,7 +1074,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Swampert#2": {
-    "Lvl 90 Gym Leader Sebastian Rematch (Optional)": {
+    "Lvl 90 Gym Leader Quentin Rematch (Optional)": {
       "slot": 5, "level": 90, "ability": "Swift Swim", "item": "Swampertite", "nature": "Adamant",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -1082,7 +1082,7 @@ var TRAINER_SETS_SV = {
     }
   },
     "Swampert-Mega": {
-    "Lvl 90 Gym Leader Sebastian Rematch (Optional)": {
+    "Lvl 90 Gym Leader Quentin Rematch (Optional)": {
       "slot": 5, "level": 90, "ability": "Swift Swim", "item": "Swampertite", "nature": "Adamant",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
