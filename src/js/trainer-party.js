@@ -66,6 +66,13 @@ $(function () {
 
   // ---- Box: every imported set named "Box" ----
   var BOX_NAME = "Box";
+  // Last set loaded on each side (a trainer set or a "Box" set) is remembered across refreshes
+  var LAST_KEY_PREFIX = "tp-last-trainer-";
+  function resetSavedTrainers() {
+    ["p1", "p2"].forEach(function (id) {
+      try { localStorage.removeItem(LAST_KEY_PREFIX + id); } catch (e) {}
+    });
+  }
   var BOX_SIDE_KEY = "tp-box-side";
   var boxSide = "p1"; // left by default
   try { if (localStorage.getItem(BOX_SIDE_KEY) === "p2") boxSide = "p2"; } catch (e) {}
@@ -323,10 +330,10 @@ $(function () {
     var $selector = $("#" + sideId + " input.set-selector").first();
     if (!$box.length || !$selector.length) { console.warn("trainer-party: #" + sideId + " not found"); return; }
 
-    // Remember the last trainer set loaded on this side, so a refresh brings it back
-    var LAST_KEY = "tp-last-trainer-" + sideId;
-    function saveLastTrainer(sel) {
-      if (!sel || !TRAINER_RE.test(sel.setName)) return;
+    // Remember the last trainer set or "Box" set loaded on this side, so a refresh brings it back
+    var LAST_KEY = LAST_KEY_PREFIX + sideId;
+    function saveLastSet(sel) {
+      if (!sel || !(TRAINER_RE.test(sel.setName) || sel.setName === BOX_NAME)) return;
       try { localStorage.setItem(LAST_KEY, sel.species + " (" + sel.setName + ")"); } catch (e) {}
     }
 
@@ -549,9 +556,15 @@ $(function () {
       $('<button type="button" class="tp-box-clear" title="Clear all Box sets"></button>').text("\uD83D\uDECF\uFE0F")
         .on("click", function () {
           var all = readBox();
-          if (!all.length) { alert("The box is already empty."); return; }
+          if (!all.length) {
+            resetSavedTrainers();
+            alert("The box is already empty. The saved trainer was reset to the default.");
+            return;
+          }
           if (!confirm("Are you SURE you want to clear the box?\n\nThis permanently deletes all " + all.length +
-            " set(s) labelled \"Box\", including any in the Player Party. This cannot be undone.")) return;
+            " set(s) labelled \"Box\", including any in the Player Party. This cannot be undone." +
+            "\n\nThe saved trainer will also be reset to the default.")) return;
+          resetSavedTrainers();
           disarm();
           all.forEach(function (e) { removeFromBox(e.species); });
           boxRefreshers.forEach(function (f) { f(); });
@@ -663,7 +676,7 @@ $(function () {
     function check() {
       var sel = parseSelected();
       var key = ($selector.val() || "") + "|" + (currentSpecies(sel) || "");
-      if (key !== lastKey) { lastKey = key; saveLastTrainer(sel); render(); }
+      if (key !== lastKey) { lastKey = key; saveLastSet(sel); render(); }
       var bKey = boxSide + "|" + ($selector.val() || "") + "|" +
         (boxSide === sideId ? JSON.stringify(readBox()) : "");
       if (bKey !== lastBoxKey) { lastBoxKey = bKey; renderBox(); }
@@ -676,13 +689,15 @@ $(function () {
     $box.on("change", "select.item", check);
     setInterval(check, 300); // fallback if the dropdown doesn't fire change events
 
-    // Restore this side's last trainer set (before the first check(), so a default set can't overwrite it)
+    // Restore this side's last trainer/Box set (before the first check(), so a default set can't overwrite it)
     var savedTrainer = null;
     try { savedTrainer = localStorage.getItem(LAST_KEY); } catch (e) {}
     if (savedTrainer) {
       var si = savedTrainer.indexOf(" (");
       var sp = savedTrainer.substring(0, si), sn = savedTrainer.substring(si + 2, savedTrainer.length - 1);
-      if (si > 0 && SETDEX_SV[sp] && SETDEX_SV[sp][sn]) loadIntoSide({ species: sp, setName: sn });
+      var okTrainer = TRAINER_RE.test(sn) && SETDEX_SV[sp] && SETDEX_SV[sp][sn];
+      var okBox = sn === BOX_NAME && readBox().some(function (e) { return e.species === sp; });
+      if (si > 0 && (okTrainer || okBox)) loadIntoSide({ species: sp, setName: sn });
     }
     check();
   }
