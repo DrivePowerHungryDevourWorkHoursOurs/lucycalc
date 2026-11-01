@@ -79,16 +79,19 @@ var TRAINER_SETS_SV = {
       "moves": ["Knock Off", "Headbutt", "Work Up", "Grass Knot"]
     }
   },
-    "Electrike": {
+  "Electrike": {
     "Lvl 8 Student Chase": {
       "slot": 0, "level": 8, "ability": "Static", "item": " ", "nature": "Hardy",
       "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
       "moves": ["Tackle", "Thunder Wave", "Leer", "Howl"]
-    }
-  },
-      "Electrike": {
+    },
     "Lvl 11 Bouncer David": {
       "slot": 0, "level": 11, "ability": "Static", "item": " ", "nature": "Hardy",
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
+      "moves": ["Tackle", "Thunder Wave", "Leer", "Howl"]
+    },
+    "Lvl 10 Bouncer Jed": {
+      "slot": 0, "level": 10, "ability": "Static", "item": " ", "nature": "Hardy",
       "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
       "moves": ["Tackle", "Thunder Wave", "Leer", "Howl"]
     }
@@ -98,13 +101,6 @@ var TRAINER_SETS_SV = {
       "slot": 1, "level": 12, "ability": "Static", "item": " ", "nature": "Hardy",
       "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
       "moves": ["Tackle", "Leer", "Charge", "Baby-Doll Eyes"]
-    }
-  },
-      "Electrike": {
-    "Lvl 10 Bouncer Jed": {
-      "slot": 0, "level": 10, "ability": "Static", "item": " ", "nature": "Hardy",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Tackle", "Thunder Wave", "Leer", "Howl"]
     }
   },
       "Mareep": {
