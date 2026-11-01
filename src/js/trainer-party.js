@@ -1,6 +1,7 @@
 // trainer-party.js — for BOTH Pokémon boxes (#p1 and #p2):
 //   * a sprite of the selected species in the top-right corner of the box
-//   * the selected trainer's whole team under the box (click a member to load it)
+//   * the selected trainer's whole team under the box (click a member to load it), titled "Trainer Party"
+//   * a "Player Party" section above the Box; drag Box Pok\u00e9mon between the two (or to re-order)
 // Load AFTER jQuery, gen9.js, trainers.js and the calc's own scripts.
 $(function () {
   var TRAINER_RE = /^Lvl (\d+) (.+)$/;
@@ -70,6 +71,50 @@ $(function () {
   try { if (localStorage.getItem(BOX_SIDE_KEY) === "p2") boxSide = "p2"; } catch (e) {}
   var boxRefreshers = [];
 
+  // ---- Player Party / Box layout ----
+  // Party membership and Box order are kept in localStorage. The sets themselves stay "Box" sets,
+  // so editing, exporting and removing work the same for both sections.
+  var PARTY_KEY = "tp-player-party";
+  var ORDER_KEY = "tp-box-order";
+  function loadList(key) {
+    try { var a = JSON.parse(localStorage.getItem(key) || "[]"); return Array.isArray(a) ? a : []; } catch (e) { return []; }
+  }
+  function saveList(key, list) {
+    try { localStorage.setItem(key, JSON.stringify(list)); } catch (e) {}
+  }
+  // -> { party: [entries, in party order], box: [the rest, in saved order] }
+  function splitBox() {
+    var entries = readBox(), by = Object.create(null);
+    entries.forEach(function (e) { by[e.species] = e; });
+    var inParty = Object.create(null), party = [];
+    loadList(PARTY_KEY).forEach(function (sp) {
+      if (by[sp] && !inParty[sp]) { inParty[sp] = true; party.push(by[sp]); }
+    });
+    var rank = Object.create(null);
+    loadList(ORDER_KEY).forEach(function (sp, i) { if (!(sp in rank)) rank[sp] = i; });
+    var box = entries.filter(function (e) { return !inParty[e.species]; });
+    box.forEach(function (e, i) { e._o = i; });
+    box.sort(function (a, b) {
+      var ra = (a.species in rank) ? rank[a.species] : 1e6;
+      var rb = (b.species in rank) ? rank[b.species] : 1e6;
+      return ra - rb || a._o - b._o;
+    });
+    return { party: party, box: box };
+  }
+  // Move one Pokémon into the party (toParty) or the Box, placed before `beforeSpecies` (or at the end).
+  function moveBoxEntry(species, toParty, beforeSpecies) {
+    if (beforeSpecies === species) return;
+    var layout = splitBox();
+    var party = layout.party.map(function (e) { return e.species; }).filter(function (s) { return s !== species; });
+    var box = layout.box.map(function (e) { return e.species; }).filter(function (s) { return s !== species; });
+    var list = toParty ? party : box;
+    var i = beforeSpecies ? list.indexOf(beforeSpecies) : -1;
+    if (i < 0) list.push(species); else list.splice(i, 0, species);
+    saveList(PARTY_KEY, party);
+    saveList(ORDER_KEY, box);
+    boxRefreshers.forEach(function (f) { f(); });
+  }
+
   function readBox() {
     var out = [], seen = {};
     function scan(dex) {
@@ -101,6 +146,8 @@ $(function () {
       if (!Object.keys(dex[species]).length) delete dex[species];
     }
     allDexes().forEach(strip);
+    saveList(PARTY_KEY, loadList(PARTY_KEY).filter(function (s) { return s !== species; }));
+    saveList(ORDER_KEY, loadList(ORDER_KEY).filter(function (s) { return s !== species; }));
     try {
       var saved = JSON.parse(localStorage.customsets || "{}");
       strip(saved);
@@ -360,14 +407,136 @@ $(function () {
       return $card;
     }
 
+    // Section heading used by Player Party, Box and Trainer Party
+    function addTitle($parent, text) {
+      var $t = $('<div class="tp-box-title"></div>').appendTo($parent);
+      imp($t, { display: "flex", "flex-wrap": "nowrap", "align-items": "center", "justify-content": "space-between", gap: "8px", "min-width": "0" });
+      imp($('<span></span>').text(text).appendTo($t), { width: "auto", "white-space": "nowrap" });
+      return $t;
+    }
+
+    // ---- drag and drop between Player Party and Box (and re-ordering inside each) ----
+    var dragSpecies = null;
+    function clearDropMarks() {
+      $boxPanel.find(".tp-card").each(function () { this.style.removeProperty("box-shadow"); });
+      $boxPanel.find(".tp-drop").each(function () { this.style.removeProperty("outline"); });
+    }
+    // Where would a drop land? Over a card: before it (left half) or after it (right half).
+    // Over empty space in a section: at the end of that section.
+    function dropSlot(ev, zoneEl) {
+      var $card = $(ev.target).closest(".tp-card", zoneEl);
+      if (!$card.length) return { before: null, $mark: null };
+      if ($card.data("species") === dragSpecies) return { self: true };
+      var r = $card[0].getBoundingClientRect();
+      var after = ev.originalEvent.clientX > r.left + r.width / 2;
+      return {
+        $mark: $card,
+        after: after,
+        before: after ? ($card.next(".tp-card").data("species") || null) : $card.data("species")
+      };
+    }
+    $boxPanel.on("dragover", ".tp-drop", function (ev) {
+      if (!dragSpecies) return;
+      ev.preventDefault();
+      ev.originalEvent.dataTransfer.dropEffect = "move";
+      clearDropMarks();
+      var slot = dropSlot(ev, this);
+      if (slot.$mark) {
+        slot.$mark[0].style.setProperty("box-shadow", (slot.after ? "inset -3px 0 0 " : "inset 3px 0 0 ") + "#4da3ff", "important");
+      } else {
+        this.style.setProperty("outline", "2px dashed #4da3ff", "important");
+      }
+    });
+    $boxPanel.on("dragleave", ".tp-drop", function (ev) {
+      var to = ev.originalEvent.relatedTarget;
+      if (!to || !this.contains(to)) clearDropMarks();
+    });
+    $boxPanel.on("drop", ".tp-drop", function (ev) {
+      if (!dragSpecies) return;
+      ev.preventDefault();
+      var sp = dragSpecies, slot = dropSlot(ev, this), toParty = $(this).data("zone") === "party";
+      dragSpecies = null;
+      clearDropMarks();
+      if (!slot.self) moveBoxEntry(sp, toParty, slot.before);
+    });
+
+    function makeGrid($parent) {
+      var $g = $('<div class="tp-box-grid"></div>').appendTo($parent);
+      imp($g, {
+        display: "grid",
+        "grid-template-columns": "repeat(6, minmax(0, 1fr))",
+        gap: "4px",
+        width: "100%",
+        "box-sizing": "border-box"
+      });
+      return $g;
+    }
+
+    // Cards in Player Party and Box are the same thing: draggable, right-click twice to remove
+    function decorateBoxCard($c, e) {
+      imp($c, { flex: "none", width: "auto", "max-width": "none", "min-width": "0", cursor: "grab" });
+      $c.find("img").attr("draggable", "false"); // so the card is dragged, not the sprite image
+      $c.data("species", e.species)
+        .attr("draggable", "true")
+        .attr("title", $c.attr("title") + "\nDrag to move between Player Party and Box\nRight-click twice to remove from box")
+        .on("dragstart", function (ev) {
+          dragSpecies = e.species;
+          var dt = ev.originalEvent.dataTransfer;
+          dt.effectAllowed = "move";
+          try { dt.setData("text/plain", e.species); } catch (x) {}
+          var el = this;
+          setTimeout(function () { el.style.setProperty("opacity", "0.4", "important"); }, 0);
+        })
+        .on("dragend", function () {
+          dragSpecies = null;
+          clearDropMarks();
+          this.style.removeProperty("opacity");
+        })
+        .on("contextmenu", function (ev) {
+          ev.preventDefault();
+          if (armedSpecies === e.species) {
+            disarm();
+            removeFromBox(e.species);
+            boxRefreshers.forEach(function (f) { f(); });
+          } else {
+            armedSpecies = e.species;
+            paintArmed();
+            clearTimeout(armTimer);
+            armTimer = setTimeout(disarm, 3000);
+          }
+        });
+    }
+
+    function fillGrid($grid, list, emptyMsg) {
+      if (!list.length) {
+        var $m = $('<div class="tp-box-empty"></div>').text(emptyMsg).appendTo($grid);
+        imp($m, { "grid-column": "1 / -1" });
+        return;
+      }
+      var sel = parseSelected();
+      list.forEach(function (e) {
+        var active = !!sel && sel.species === e.species && sel.setName === BOX_NAME;
+        var $c = buildCard(e, null, active, false);
+        decorateBoxCard($c, e);
+        $grid.append($c);
+      });
+    }
+
     function renderBox() {
       if (boxSide !== sideId) { $boxPanel.attr("hidden", true).empty(); return; }
-      var sel = parseSelected();
-      var entries = readBox();
+      var layout = splitBox();
+      var total = layout.party.length + layout.box.length;
       $boxPanel.empty().removeAttr("hidden");
-      var $title = $('<div class="tp-box-title"></div>').appendTo($boxPanel);
-      imp($title, { display: "flex", "flex-wrap": "nowrap", "align-items": "center", "justify-content": "space-between", gap: "8px", "min-width": "0" });
-      imp($('<span></span>').text("Box (" + entries.length + ")").appendTo($title), { width: "auto", "white-space": "nowrap" });
+
+      // Player Party: sits above the Box, empty until Pokémon are moved into it
+      addTitle($boxPanel, "Player Party");
+      var $pz = $('<div class="tp-drop tp-party-zone"></div>').data("zone", "party").appendTo($boxPanel);
+      imp($pz, { "min-height": "44px", padding: "3px", border: "1px dashed #777", "border-radius": "4px",
+        "box-sizing": "border-box", "margin-bottom": "8px" });
+      fillGrid(makeGrid($pz), layout.party, "Drag Pok\u00e9mon here from the Box.");
+
+      // Box
+      var $title = addTitle($boxPanel, "Box (" + layout.box.length + ")");
       var $right = $('<span class="tp-box-actions"></span>').appendTo($title);
       imp($right, { display: "flex", "align-items": "center", gap: "6px" });
       $('<button type="button" class="tp-box-clear" title="Clear all Box sets"></button>').text("\uD83D\uDECF\uFE0F")
@@ -375,7 +544,7 @@ $(function () {
           var all = readBox();
           if (!all.length) { alert("The box is already empty."); return; }
           if (!confirm("Are you SURE you want to clear the box?\n\nThis permanently deletes all " + all.length +
-            " set(s) labelled \"Box\". This cannot be undone.")) return;
+            " set(s) labelled \"Box\", including any in the Player Party. This cannot be undone.")) return;
           disarm();
           all.forEach(function (e) { removeFromBox(e.species); });
           boxRefreshers.forEach(function (f) { f(); });
@@ -384,40 +553,12 @@ $(function () {
       imp($right, { width: "auto", flex: "0 0 auto", "min-width": "0", "white-space": "nowrap" });
       imp($right.find("button"), { width: "auto", "min-width": "0", margin: "0", flex: "none", float: "none", position: "static" });
       imp($right.find("select"), { width: "92px", "min-width": "0", "max-width": "92px", margin: "0", flex: "none", float: "none", position: "static" });
-      if (!entries.length) {
-        $('<div class="tp-box-empty"></div>').text('Import sets with the name "Box" to add them here.').appendTo($boxPanel);
-        return;
-      }
-      var $scroll = $('<div class="tp-box-scroll"></div>').appendTo($boxPanel);
-      var $grid = $('<div class="tp-box-grid"></div>').appendTo($scroll);
-      imp($grid, {
-        display: "grid",
-        "grid-template-columns": "repeat(6, minmax(0, 1fr))",
-        gap: "4px",
-        width: "100%",
-        "box-sizing": "border-box"
-      });
-      entries.forEach(function (e) {
-        var active = !!sel && sel.species === e.species && sel.setName === BOX_NAME;
-        var $c = buildCard(e, null, active, false);
-        imp($c, { flex: "none", width: "auto", "max-width": "none", "min-width": "0" });
-        $c.data("species", e.species)
-          .attr("title", $c.attr("title") + "\nRight-click twice to remove from box")
-          .on("contextmenu", function (ev) {
-            ev.preventDefault();
-            if (armedSpecies === e.species) {
-              disarm();
-              removeFromBox(e.species);
-              boxRefreshers.forEach(function (f) { f(); });
-            } else {
-              armedSpecies = e.species;
-              paintArmed();
-              clearTimeout(armTimer);
-              armTimer = setTimeout(disarm, 3000);
-            }
-          });
-        $grid.append($c);
-      });
+
+      var $scroll = $('<div class="tp-box-scroll tp-drop"></div>').data("zone", "box").appendTo($boxPanel);
+      fillGrid(makeGrid($scroll), layout.box, total
+        ? "Drag Pok\u00e9mon here to move them back to the Box."
+        : 'Import sets with the name "Box" to add them here.');
+
       paintArmed();
       $boxPanel.find(".tp-name").each(function () { fitName($(this)); });
     }
@@ -432,6 +573,7 @@ $(function () {
 
       var party = index[m[2]], total = 0, anyExp = false;
       $panel.empty().removeAttr("hidden");
+      addTitle($panel, "Trainer Party");
       var $row = $('<div class="tp-row"></div>').appendTo($panel);
       party.forEach(function (e) {
         var exp = expGain(e);
