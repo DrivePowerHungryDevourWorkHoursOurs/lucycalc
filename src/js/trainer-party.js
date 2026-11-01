@@ -323,6 +323,13 @@ $(function () {
     var $selector = $("#" + sideId + " input.set-selector").first();
     if (!$box.length || !$selector.length) { console.warn("trainer-party: #" + sideId + " not found"); return; }
 
+    // Remember the last trainer set loaded on this side, so a refresh brings it back
+    var LAST_KEY = "tp-last-trainer-" + sideId;
+    function saveLastTrainer(sel) {
+      if (!sel || !TRAINER_RE.test(sel.setName)) return;
+      try { localStorage.setItem(LAST_KEY, sel.species + " (" + sel.setName + ")"); } catch (e) {}
+    }
+
     var $sprite = $('<img class="tp-sprite" alt="">').css("visibility", "hidden").appendTo($box);
     var $item = $('<img class="tp-item" alt="">').css({
       position: "absolute", top: "128px", right: "38px", width: "48px", height: "48px",
@@ -656,7 +663,7 @@ $(function () {
     function check() {
       var sel = parseSelected();
       var key = ($selector.val() || "") + "|" + (currentSpecies(sel) || "");
-      if (key !== lastKey) { lastKey = key; render(); }
+      if (key !== lastKey) { lastKey = key; saveLastTrainer(sel); render(); }
       var bKey = boxSide + "|" + ($selector.val() || "") + "|" +
         (boxSide === sideId ? JSON.stringify(readBox()) : "");
       if (bKey !== lastBoxKey) { lastBoxKey = bKey; renderBox(); }
@@ -668,6 +675,15 @@ $(function () {
     $box.on("change", "select.forme", check);
     $box.on("change", "select.item", check);
     setInterval(check, 300); // fallback if the dropdown doesn't fire change events
+
+    // Restore this side's last trainer set (before the first check(), so a default set can't overwrite it)
+    var savedTrainer = null;
+    try { savedTrainer = localStorage.getItem(LAST_KEY); } catch (e) {}
+    if (savedTrainer) {
+      var si = savedTrainer.indexOf(" (");
+      var sp = savedTrainer.substring(0, si), sn = savedTrainer.substring(si + 2, savedTrainer.length - 1);
+      if (si > 0 && SETDEX_SV[sp] && SETDEX_SV[sp][sn]) loadIntoSide({ species: sp, setName: sn });
+    }
     check();
   }
 
