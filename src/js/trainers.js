@@ -920,7 +920,175 @@ var TRAINER_SETS_SV = {
       "evs": {hp:0,at:0,df:0,sa:252,sd:4,sp:252},
       "moves": ["Shadow Ball", "Sludge Bomb", "Energy Ball", "Focus Blast"]
     }
-  }
+  },
+    "Tapu Koko": {
+    "Lvl 85 Gym Leader Chad Rematch (Optional)": {
+      "slot": 0, "level": 85, "ability": "Electric Surge", "item": "Light Clay", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Light Screen", "Reflect", "U-turn", "Wild Charge"]
+    }
+  },
+  "Rotom-Wash": {
+    "Lvl 86 Gym Leader Chad Rematch (Optional)": {
+      "slot": 1, "level": 86, "ability": "Levitate", "item": "Leftovers", "nature": "Bold",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":4,"sa":0,"sd":252,"sp":0},
+      "moves": ["Volt Switch", "Thunder Wave", "Hydro Pump", "Defog"]
+    }
+  },
+  "Zapdos": {
+    "Lvl 87 Gym Leader Chad Rematch (Optional)": {
+      "slot": 2, "level": 87, "ability": "Static", "item": "Rocky Helmet", "nature": "Bold",
+      "ivs": {"hp":31,"at":31,"df":30,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":184,"sa":0,"sd":0,"sp":72},
+      "moves": ["Discharge", "Heat Wave", "Hidden Power [Ice]", "Roost"]
+    }
+  },
+  "Electivire": {
+    "Lvl 88 Gym Leader Chad Rematch (Optional)": {
+      "slot": 3, "level": 88, "ability": "Iron Fist", "item": "Life Orb", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Swords Dance", "Thunder Punch", "Ice Punch", "Close Combat"]
+    }
+  },
+  "Luxray": {
+    "Lvl 89 Gym Leader Chad Rematch (Optional)": {
+      "slot": 4, "level": 89, "ability": "Rock Head", "item": "Choice Scarf", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Wild Charge", "Head Smash", "Flare Blitz", "Crunch"]
+    }
+  },
+  "Manectric": {
+    "Lvl 90 Gym Leader Chad Rematch (Optional)": {
+      "slot": 5, "level": 90, "ability": "Motor Drive", "item": "Manectite", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":30,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Volt Switch", "Flamethrower", "Thunderbolt", "Hidden Power [Ice]"]
+    }
+  },
+    "Manectric-Mega": {
+    "Lvl 90 Gym Leader Chad Rematch (Optional)": {
+      "slot": 5, "level": 90, "ability": "Intimidate", "item": "Manectite", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":30,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Volt Switch", "Flamethrower", "Thunderbolt", "Hidden Power [Ice]"]
+    }
+  },
+    "Torkoal#2": {
+    "Lvl 85 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 0, "level": 85, "ability": "Drought", "item": "Heat Rock", "nature": "Modest",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":248,"at":0,"df":0,"sa":252,"sd":8,"sp":0},
+      "moves": ["Stealth Rock", "Rapid Spin", "Lava Plume", "Solar Beam"]
+    }
+  },
+  "Incineroar#2": {
+    "Lvl 86 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 1, "level": 86, "ability": "Intimidate", "item": "Weakness Policy", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Bulk Up", "Flame Charge", "Power Trip", "Drain Punch"]
+    }
+  },
+  "Cinderace": {
+    "Lvl 87 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 2, "level": 87, "ability": "Libero", "item": "Heavy-Duty Boots", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Pyro Ball", "Sucker Punch", "Low Kick", "Gunk Shot"]
+    }
+  },
+  "Volcarona": {
+    "Lvl 88 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 3, "level": 88, "ability": "Flame Body", "item": "Heavy-Duty Boots", "nature": "Mild",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+      "moves": ["Quiver Dance", "Bug Buzz", "Fiery Dance", "Giga Drain"]
+    }
+  },
+  "Typhlosion#2": {
+    "Lvl 89 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 4, "level": 89, "ability": "Blaze", "item": "Choice Scarf", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Eruption", "Earth Power", "Energy Ball", "Flash Cannon"]
+    }
+  },
+  "Charizard#3": {
+    "Lvl 90 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 5, "level": 90, "ability": "Blaze", "item": "Charizardite Y", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+      "moves": ["Flamethrower", "Focus Blast", "Solar Beam", "Roost"]
+    }
+  },
+    "Charizard-Mega-Y": {
+    "Lvl 90 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 5, "level": 90, "ability": "Drought", "item": "Charizardite Y", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+      "moves": ["Flamethrower", "Focus Blast", "Solar Beam", "Roost"]
+    }
+  },
+    "Pelipper#2": {
+    "Lvl 85 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 0, "level": 85, "ability": "Drizzle", "item": "Damp Rock", "nature": "Bold",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":248,"at":0,"df":252,"sa":8,"sd":0,"sp":0},
+      "moves": ["Scald", "Hurricane", "U-turn", "Roost"]
+    }
+  },
+  "Tentacruel#2": {
+    "Lvl 86 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 1, "level": 86, "ability": "Rain Dish", "item": "Black Sludge", "nature": "Bold",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":248,"at":0,"df":244,"sa":0,"sd":0,"sp":16},
+      "moves": ["Scald", "Rapid Spin", "Haze", "Toxic Spikes"]
+    }
+  },
+  "Barraskewda": {
+    "Lvl 87 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 2, "level": 87, "ability": "Swift Swim", "item": "Choice Band", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Liquidation", "Close Combat", "Flip Turn", "Psychic Fangs"]
+    }
+  },
+  "Ludicolo#2": {
+    "Lvl 88 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 3, "level": 88, "ability": "Swift Swim", "item": "Life Orb", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":244,"sd":16,"sp":244},
+      "moves": ["Giga Drain", "Ice Beam", "Hydro Pump", "Rain Dance"]
+    }
+  },
+  "Poliwrath": {
+    "Lvl 89 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 4, "level": 89, "ability": "Swift Swim", "item": "White Herb", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Close Combat", "Wave Crash", "Sucker Punch", "Ice Punch"]
+    }
+  },
+  "Swampert#2": {
+    "Lvl 90 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 5, "level": 90, "ability": "Swift Swim", "item": "Swampertite", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Waterfall", "Earthquake", "Ice Punch", "Superpower"]
+    }
+  },
+    "Swampert-Mega": {
+    "Lvl 90 Gym Leader Sebastian Rematch (Optional)": {
+      "slot": 5, "level": 90, "ability": "Swift Swim", "item": "Swampertite", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Waterfall", "Earthquake", "Ice Punch", "Superpower"]
+    }
+  },
 };
 
 // Optional: base experience yield per species (lowercase id, no spaces/punctuation).
