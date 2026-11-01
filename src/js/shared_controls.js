@@ -1568,17 +1568,36 @@ $(".gen").change(function () {
 	var itemOptions = getSelectOptions(items, true);
 	$("select.item").find("option").remove().end().append("<option value=\"\">(none)</option>" + itemOptions);
 
-	$(".set-selector").val(getFirstValidSetOption().id);
-	$(".set-selector").change();
+	applyDefaultSets();
 });
 
-function getFirstValidSetOption() {
+// Per-side default sets. A side with no entry uses the original default (first valid set in the list).
+var DEFAULT_SET_IDS = {
+	p2: "Geodude-Alola (Lvl 14 Gym Leader Chad)"
+};
+
+function getFirstValidSetOption(side) {
 	var sets = getSetOptions();
+	var wanted = DEFAULT_SET_IDS[side];
+	var i;
+	if (wanted) {
+		for (i = 1; i < sets.length; i++) {
+			if (sets[i].id === wanted) return sets[i];
+		}
+	}
 	// NB: The first set is never valid, so we start searching after it.
-	for (var i = 1; i < sets.length; i++) {
+	for (i = 1; i < sets.length; i++) {
 		if (sets[i].id && sets[i].id.indexOf('(Blank Set)') === -1) return sets[i];
 	}
 	return undefined;
+}
+
+function applyDefaultSets() {
+	["p1", "p2"].forEach(function (side) {
+		var option = getFirstValidSetOption(side);
+		if (option) $("#" + side + " .set-selector").select2("data", option);
+	});
+	$(".set-selector").change();
 }
 
 $(".notation").change(function () {
@@ -1874,7 +1893,7 @@ function loadDefaultLists() {
 			});
 		},
 		initSelection: function (element, callback) {
-			callback(getFirstValidSetOption());
+			callback(getFirstValidSetOption($(element).closest(".poke-info").prop("id")));
 		}
 	});
 }
@@ -1950,8 +1969,7 @@ $(document).ready(function () {
 		var itemOptions = getSelectOptions(items, true);
 		$("select.item").find("option").remove().end().append("<option value=\"\">(none)</option>" + itemOptions);
 
-		$(".set-selector").val(getFirstValidSetOption().id);
-		$(".set-selector").change();
+		applyDefaultSets();
 	}
 	$("#gen" + g).prop("checked", true);
 	$("#gen" + g).change();
@@ -1969,8 +1987,7 @@ $(document).ready(function () {
 			return text.toUpperCase().indexOf(term.toUpperCase()) === 0 || text.toUpperCase().indexOf(" " + term.toUpperCase()) >= 0;
 		}
 	});
-	$(".set-selector").val(getFirstValidSetOption().id);
-	$(".set-selector").change();
+	applyDefaultSets();
 	$(".terrain-trigger").bind("change keyup", getTerrainEffects);
 });
 
