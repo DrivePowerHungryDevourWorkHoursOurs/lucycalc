@@ -465,9 +465,17 @@ var TRAINER_SETS_SV = {
       "moves": ["High Horsepower", "Icicle Crash", "Ice Shard", "Rock Slide"]
     }
   },
-  "Garchomp-Mega": {
+    "Garchomp": {
     "Lvl 57 Gym Leader Prince Ryan (Doubles)": {
       "slot": 5, "level": 57, "ability": "Rough Skin", "item": "Garchompite", "nature": "Naive",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:0,at:4,df:0,sa:252,sd:0,sp:252},
+      "moves": ["Draco Meteor", "Stomping Tantrum", "Dragon Rush", "Fire Blast"]
+    }
+  },
+  "Garchomp-Mega": {
+    "Lvl 57 Gym Leader Prince Ryan (Doubles)": {
+      "slot": 6, "level": 57, "ability": "Rough Skin", "item": "Garchompite", "nature": "Naive",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {hp:0,at:4,df:0,sa:252,sd:0,sp:252},
       "moves": ["Draco Meteor", "Stomping Tantrum", "Dragon Rush", "Fire Blast"]
@@ -513,7 +521,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Wood Hammer", "High Horsepower", "Body Press", "Rock Slide"]
     }
   },
-  "Scovillain-Mega": {
+    "Scovillain": {
     "Lvl 66 Gym Leader Fissy (Doubles)": {
       "slot": 5, "level": 66, "ability": "Chlorophyll", "item": "Scovillainite", "nature": "Naive",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -521,7 +529,15 @@ var TRAINER_SETS_SV = {
       "moves": ["Solar Beam", "Fire Blast", "Temper Flare", "Stomping Tantrum"]
     }
   },
-   "Garchomp": {
+  "Scovillain-Mega": {
+    "Lvl 66 Gym Leader Fissy (Doubles)": {
+      "slot": 6, "level": 66, "ability": "Chlorophyll", "item": "Scovillainite", "nature": "Naive",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:0,at:204,df:0,sa:252,sd:0,sp:52},
+      "moves": ["Solar Beam", "Fire Blast", "Temper Flare", "Stomping Tantrum"]
+    }
+  },
+   "Garchomp#2": {
     "Lvl 60 Jake (Route 14)": {
       "slot": 0, "level": 60, "ability": "Rough Skin", "item": "Rocky Helmet", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -609,9 +625,17 @@ var TRAINER_SETS_SV = {
       "moves": ["Poison Jab", "Crunch", "Brick Break", "Aqua Tail"]
     }
   },
+    "Absol": {
+    "Lvl 75 Gym Leader Zeek (Doubles)": {
+      "slot": 5, "level": 75, "ability": "Super Luck", "item": "Absolite Z", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:0,at:252,df:0,sa:0,sd:4,sp:252},
+      "moves": ["Knock Off", "Sucker Punch", "Shadow Claw", "Close Combat"]
+    }
+  },
   "Absol-Mega-Z": {
     "Lvl 75 Gym Leader Zeek (Doubles)": {
-      "slot": 5, "level": 75, "ability": "Tough Claws", "item": "Absolite Z", "nature": "Jolly",
+      "slot": 6, "level": 75, "ability": "Tough Claws", "item": "Absolite Z", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {hp:0,at:252,df:0,sa:0,sd:4,sp:252},
       "moves": ["Knock Off", "Sucker Punch", "Shadow Claw", "Close Combat"]
@@ -649,7 +673,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Quiver Dance", "Earth Power", "Dragon Pulse", "Bug Buzz"]
     }
   },
-  "Garchomp#2": {
+  "Garchomp#3": {
     "Lvl 70 Tess (Frostveil)": {
       "slot": 4, "level": 70, "ability": "Sand Veil", "item": "Leftovers", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -663,6 +687,182 @@ var TRAINER_SETS_SV = {
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
       "moves": ["Dragon Dance", "Facade", "Roost", "Earthquake"]
+    }
+  },
+    "Salamence-Mega": {
+    "Lvl 70 Tess (Frostveil)": {
+      "slot": 6, "level": 70, "ability": "Aerilate", "item": "Salamencite", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Dragon Dance", "Facade", "Roost", "Earthquake"]
+    }
+  },
+    "Terrakion": {
+    "Lvl 76 Boss Deven (Optional, Tinbell Tower)": {
+      "slot": 0, "level": 76, "ability": "Justified", "item": "Choice Band", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":4,"sa":0,"sd":0,"sp":252},
+      "moves": ["Close Combat", "Stone Edge", "Earthquake", "Iron Head"]
+    }
+  },
+  "Sneasler": {
+    "Lvl 76 Boss Deven (Optional, Tinbell Tower)": {
+      "slot": 1, "level": 76, "ability": "Unburden", "item": "White Herb", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":8,"sp":248},
+      "moves": ["Swords Dance", "Close Combat", "Dire Claw", "Acrobatics"]
+    }
+  },
+  "Blaziken": {
+    "Lvl 77 Boss Deven (Optional, Tinbell Tower)": {
+      "slot": 2, "level": 77, "ability": "Speed Boost", "item": "Fightinium Z", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":164,"at":252,"df":0,"sa":0,"sd":0,"sp":92},
+      "moves": ["Swords Dance", "Protect", "Flare Blitz", "High Jump Kick"]
+    }
+  },
+  "Keldeo": {
+    "Lvl 78 Boss Deven (Optional, Tinbell Tower)": {
+      "slot": 3, "level": 78, "ability": "Justified", "item": "Leftovers", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Calm Mind", "Scald", "Focus Blast", "Substitute"]
+    }
+  },
+  "Urshifu": {
+    "Lvl 79 Boss Deven (Optional, Tinbell Tower)": {
+      "slot": 4, "level": 79, "ability": "Unseen Fist", "item": "Choice Scarf", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Wicked Blow", "Close Combat", "U-turn", "Poison Jab"]
+    }
+  },
+    "Lucario#2": {
+    "Lvl 80 Boss Deven (Optional, Tinbell Tower)": {
+      "slot": 5, "level": 80, "ability": "Iron Fist", "item": "Lucarionite", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Nasty Plot", "Vacuum Wave", "Aura Sphere", "Flash Cannon"]
+    }
+  },
+  "Lucario-Mega": {
+    "Lvl 80 Boss Deven (Optional, Tinbell Tower)": {
+      "slot": 6, "level": 80, "ability": "Adaptability", "item": "Lucarionite", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Nasty Plot", "Vacuum Wave", "Aura Sphere", "Flash Cannon"]
+    }
+  },
+    "Garchomp#4": {
+    "Lvl 75 Jake (Eclipse Base)": {
+      "slot": 0, "level": 75, "ability": "Rough Skin", "item": "Rocky Helmet", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Stealth Rock", "Earthquake", "Toxic", "Dragon Tail"]
+    }
+  },
+  "Gogoat#3": {
+    "Lvl 76 Jake (Eclipse Base)": {
+      "slot": 1, "level": 76, "ability": "Sap Sipper", "item": "Life Orb", "nature": "Careful",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":4,"df":0,"sa":0,"sd":252,"sp":0},
+      "moves": ["Bulk Up", "Horn Leech", "Milk Drink", "Earthquake"]
+    }
+  },
+  "Talonflame#3": {
+    "Lvl 77 Jake (Eclipse Base)": {
+      "slot": 2, "level": 77, "ability": "Gale Wings", "item": "Heavy-Duty Boots", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Roost", "Flare Blitz", "Brave Bird", "U-turn"]
+    }
+  },
+  "Hatterene": {
+    "Lvl 78 Jake (Eclipse Base)": {
+      "slot": 3, "level": 78, "ability": "Magic Bounce", "item": "Leftovers", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":4,"sa":252,"sd":0,"sp":0},
+      "moves": ["Calm Mind", "Psyshock", "Draining Kiss", "Mystical Fire"]
+    }
+  },
+  "Vaporeon#3": {
+    "Lvl 79 Jake (Eclipse Base)": {
+      "slot": 4, "level": 79, "ability": "Water Absorb", "item": "Leftovers", "nature": "Modest",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
+      "moves": ["Scald", "Flip Turn", "Aurora Beam", "Heal Bell"]
+    }
+  },
+  "Lucario#3": {
+    "Lvl 80 Jake (Eclipse Base)": {
+      "slot": 5, "level": 80, "ability": "Iron Fist", "item": "Lucarionite", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Close Combat", "Bullet Punch", "Meteor Mash", "Swords Dance"]
+    }
+  },
+  "Lucario-Mega#2": {
+    "Lvl 80 Jake (Eclipse Base)": {
+      "slot": 6, "level": 80, "ability": "Adaptability", "item": "Lucarionite", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Close Combat", "Bullet Punch", "Meteor Mash", "Swords Dance"]
+    }
+  },
+    "Feraligatr#2": {
+    "Lvl 79 Professor Cypress (Demon's Tomb)": {
+      "slot": 0, "level": 79, "ability": "Sheer Force", "item": "Life Orb", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Dragon Dance", "Liquidation", "Ice Punch", "Crunch"]
+    }
+  },
+  "Venusaur#2": {
+    "Lvl 79 Professor Cypress (Demon's Tomb)": {
+      "slot": 1, "level": 79, "ability": "Overgrow", "item": "Black Sludge", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Leaf Storm", "Sludge Bomb", "Sleep Powder", "Synthesis"]
+    }
+  },
+  "Typhlosion#2": {
+    "Lvl 79 Professor Cypress (Demon's Tomb)": {
+      "slot": 2, "level": 79, "ability": "Blaze", "item": "Choice Scarf", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Eruption", "Energy Ball", "Earth Power", "Discharge"]
+    }
+  },
+  "Blastoise": {
+    "Lvl 79 Professor Cypress (Demon's Tomb)": {
+      "slot": 3, "level": 79, "ability": "Bulletproof", "item": "White Herb", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Shell Smash", "Scald", "Aura Sphere", "Ice Beam"]
+    }
+  },
+  "Meganium#2": {
+    "Lvl 79 Professor Cypress (Demon's Tomb)": {
+      "slot": 4, "level": 79, "ability": "Triage", "item": "Leftovers", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
+      "moves": ["Synthesis", "Giga Drain", "Draining Kiss", "Psychic"]
+    }
+  },
+  "Charizard#2": {
+    "Lvl 80 Professor Cypress (Demon's Tomb)": {
+      "slot": 5, "level": 80, "ability": "Blaze", "item": "Charizardite X", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Dragon Dance", "Dragon Claw", "Flare Blitz", "Earthquake"]
+    }
+  },
+    "Charizard-Mega-X": {
+    "Lvl 80 Professor Cypress (Demon's Tomb)": {
+      "slot": 6, "level": 80, "ability": "Tough Claws", "item": "Charizardite X", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Dragon Dance", "Dragon Claw", "Flare Blitz", "Earthquake"]
     }
   },
   "Mismagius": {
@@ -705,9 +905,17 @@ var TRAINER_SETS_SV = {
       "moves": ["Last Respects", "Body Press", "Crunch", "Play Rough"]
     }
   },
+    "Gengar": {
+    "Lvl 83 Gym Leader Captain B (Doubles)": {
+      "slot": 5, "level": 83, "ability": "Shadow Tag", "item": "Levitate", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {hp:0,at:0,df:0,sa:252,sd:4,sp:252},
+      "moves": ["Shadow Ball", "Sludge Bomb", "Energy Ball", "Focus Blast"]
+    }
+  },
   "Gengar-Mega": {
     "Lvl 83 Gym Leader Captain B (Doubles)": {
-      "slot": 5, "level": 83, "ability": "Shadow Tag", "item": "Gengarite", "nature": "Timid",
+      "slot": 6, "level": 83, "ability": "Shadow Tag", "item": "Gengarite", "nature": "Timid",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {hp:0,at:0,df:0,sa:252,sd:4,sp:252},
       "moves": ["Shadow Ball", "Sludge Bomb", "Energy Ball", "Focus Blast"]
