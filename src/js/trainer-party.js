@@ -68,6 +68,7 @@ $(function () {
   var BOX_NAME = "Box";
   // Last set loaded on each side (a trainer set or a "Box" set) is remembered across refreshes
   var LAST_KEY_PREFIX = "tp-last-trainer-";
+  var sideDefaultLoaders = []; // each side registers a function that puts it back on its default set
   function resetSavedTrainers() {
     ["p1", "p2"].forEach(function (id) {
       try { localStorage.removeItem(LAST_KEY_PREFIX + id); } catch (e) {}
@@ -393,6 +394,8 @@ $(function () {
       if (i > 0) loadIntoSide({ species: id.substring(0, i), setName: id.substring(i + 2, id.length - 1) });
     }
 
+    sideDefaultLoaders.push(loadDefaultSet);
+
     // The Forme dropdown changes the actual species without changing the set label,
     // so prefer it when it is showing.
     function currentSpecies(sel) {
@@ -568,12 +571,12 @@ $(function () {
           var msg = all.length
             ? "Are you SURE you want to clear the box?\n\nThis permanently deletes all " + all.length +
               " set(s) labelled \"Box\", including any in the Player Party. This cannot be undone." +
-              "\n\nThe saved trainer will also be reset, and this side will go back to its default set."
-            : "The box is already empty.\n\nReset the saved trainer, and put this side back to its default set?";
+              "\n\nThe current trainer will also be reset, and both sides will go back to their default sets."
+            : "The box is already empty.\n\nReset the saved trainer, and put both sides back to their default sets?";
           if (!confirm(msg)) return;
           disarm();
           all.forEach(function (e) { removeFromBox(e.species); });
-          loadDefaultSet();      // box side back to its default set
+          sideDefaultLoaders.forEach(function (f) { f(); }); // both sides (box and trainer) back to their default sets
           resetSavedTrainers();  // after the load, since loading a set re-saves it
           boxRefreshers.forEach(function (f) { f(); });
         }).appendTo($right);
