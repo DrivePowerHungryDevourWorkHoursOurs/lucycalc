@@ -4,7 +4,8 @@
 //   * a "Player Party" section above the Box; drag Box Pok\u00e9mon between the two (or to re-order)
 // Load AFTER jQuery, gen9.js, trainers.js and the calc's own scripts.
 $(function () {
-  var TRAINER_RE = /^Lvl (\d+) (.+)$/;
+  // An optional trailing " [2]", " [3]"... is ignored for grouping, so the same Pok\u00e9mon can be on one team twice
+  var TRAINER_RE = /^Lvl (\d+) (.+?)(?: \[\d+\])?$/;
 
   function toID(s) { return String(s).toLowerCase().replace(/[^a-z0-9]/g, ""); }
 

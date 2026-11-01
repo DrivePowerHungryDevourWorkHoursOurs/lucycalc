@@ -13,52 +13,10 @@ var TRAINER_SETS_SV = {
       "moves": ["Tackle"]
     }
   },
-  "Wurmple": {
-    "Lvl 3 Bug Catcher Ralph": {
-      "slot": 1, "level": 3, "ability": "Shield Dust", "item": " ", "nature": "Adamant",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Tackle", "String Shot"]
-    }
-  },
-    "Wurmple": {
-    "Lvl 3 Bug Catcher Ralph": {
-      "slot": 0, "level": 3, "ability": "Shield Dust", "item": " ", "nature": "Adamant",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Tackle", "String Shot"]
-    }
-  },
-    "Bunnelby": {
-    "Lvl 3 Picnicker Susie": {
-      "slot": 0, "level": 3, "ability": "Guts", "item": " ", "nature": "Hardy",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Tackle", "Sand Attack", "Agility"]
-    }
-  },
-      "Pidgey": {
-    "Lvl 3 Picnicker Susie": {
-      "slot": 1, "level": 3, "ability": "Quick Feet", "item": " ", "nature": "Hardy",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Tackle"]
-    }
-  },
-    "Kakuna": {
-    "Lvl 6 Bug Catcher Ricky": {
-      "slot": 0, "level": 6, "ability": "Shed Skin", "item": " ", "nature": "Hardy",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Harden"]
-    }
-  },
-      "Metapod": {
-    "Lvl 6 Bug Catcher Ricky": {
-      "slot": 0, "level": 6, "ability": "Shed Skin", "item": " ", "nature": "Hardy",
-      "ivs": {"hp":0,"at":0,"df":0,"sa":0,"sd":0,"sp":0},
-      "moves": ["Harden"]
-    }
-  },
   "Poochyena": {
     "Lvl 10 Eclipse Member Linda": {
       "slot": 0, "level": 10, "ability": "Intimidate", "item": "Oran Berry", "nature": "Adamant",
-      "ivs": {"hp":17,"at":17,"df":31,"sa":31,"sd":31,"sp":31},
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
       "moves": ["Tackle", "Bite", "Howl", "Rock Smash"]
     }
@@ -66,7 +24,7 @@ var TRAINER_SETS_SV = {
   "Pancham": {
     "Lvl 10 Eclipse Member Linda": {
       "slot": 1, "level": 10, "ability": "Scrappy", "item": "Expert Belt", "nature": "Adamant",
-      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
       "evs": {"hp":0,"at":228,"df":0,"sa":0,"sd":252,"sp":28},
       "moves": ["Knock Off", "Arm Thrust", "Work Up", "Cut"]
     }
@@ -74,53 +32,9 @@ var TRAINER_SETS_SV = {
   "Zigzagoon-Galar": {
     "Lvl 12 Eclipse Member Linda": {
       "slot": 2, "level": 12, "ability": "Quick Feet", "item": "Dread Plate", "nature": "Lonely",
-      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
       "evs": {"hp":0,"at":252,"df":0,"sa":4,"sd":0,"sp":252},
       "moves": ["Knock Off", "Headbutt", "Work Up", "Grass Knot"]
-    }
-  },
-  "Electrike": {
-    "Lvl 8 Student Chase": {
-      "slot": 0, "level": 8, "ability": "Static", "item": " ", "nature": "Hardy",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Tackle", "Thunder Wave", "Leer", "Howl"]
-    },
-    "Lvl 11 Bouncer David": {
-      "slot": 0, "level": 11, "ability": "Static", "item": " ", "nature": "Hardy",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Tackle", "Thunder Wave", "Leer", "Howl"]
-    },
-    "Lvl 10 Bouncer Jed": {
-      "slot": 0, "level": 10, "ability": "Static", "item": " ", "nature": "Hardy",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Tackle", "Thunder Wave", "Leer", "Howl"]
-    }
-  },
-      "Shinx": {
-    "Lvl 12 Bouncer David": {
-      "slot": 1, "level": 12, "ability": "Static", "item": " ", "nature": "Hardy",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Tackle", "Leer", "Charge", "Baby-Doll Eyes"]
-    }
-  },
-      "Mareep": {
-    "Lvl 11 Bouncer Jed": {
-      "slot": 1, "level": 11, "ability": "Static", "item": " ", "nature": "Hardy",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Tackle", "Thunder Wave", "Thunder Shock", "Growl"]
-    }
-  },
-  "Magnemite": {
-    "Lvl 12 Bouncer Jed": {
-      "slot": 2, "level": 12, "ability": "Magnet Pull", "item": " ", "nature": "Hardy",
-      "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
-      "moves": ["Tackle", "Supersonic", "Thunder Shock", "Sonic Boom"]
-    },
-    "Lvl 16 Gym Leader Chad": {
-      "slot": 1, "level": 16, "ability": "Levitate", "item": "Choice Scarf", "nature": "Timid",
-      "ivs": {"hp":17,"at":0,"df":17,"sa":18,"sd":17,"sp":18},
-      "evs": {hp:0,at:0,df:0,sa:248,sd:12,sp:248},
-      "moves": ["Shock Wave", "Charge Beam", "Swift", "Hidden Power Fire"]
     }
   },
   "Geodude-Alola": {
@@ -129,6 +43,14 @@ var TRAINER_SETS_SV = {
       "ivs": {"hp":17,"at":17,"df":17,"sa":17,"sd":17,"sp":17},
       "evs": {hp:252,at:252,df:0,sa:0,sd:4,sp:0},
       "moves": ["Rock Blast", "Fire Punch", "Stealth Rock", "Headbutt"]
+    }
+  },
+  "Magnemite": {
+    "Lvl 16 Gym Leader Chad": {
+      "slot": 1, "level": 16, "ability": "Levitate", "item": "Choice Scarf", "nature": "Timid",
+      "ivs": {"hp":17,"at":0,"df":17,"sa":18,"sd":17,"sp":18},
+      "evs": {hp:0,at:0,df:0,sa:248,sd:12,sp:248},
+      "moves": ["Shock Wave", "Charge Beam", "Swift", "Hidden Power Fire"]
     }
   },
     "Chinchou": {
@@ -147,6 +69,62 @@ var TRAINER_SETS_SV = {
       "moves": ["Charge Beam", "Zippy Zap", "Grass Knot", "Fake Out"] 
     }
   },
+    "Skiddo": {
+    "Lvl 16 Jake (Route 5)": {
+      "slot": 0, "level": 16, "ability": "Sap Sipper", "item": "Miracle Seed", "nature": "Careful",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":248,"at":8,"df":0,"sa":0,"sd":252,"sp":0},
+      "moves": ["Razor Leaf", "Leech Seed", "Milk Drink", "Rollout"]
+    }
+  },
+  "Eevee#2": {
+    "Lvl 17 Jake (Route 5)": {
+      "slot": 1, "level": 17, "ability": "Adaptability", "item": "Berry Juice", "nature": "Lonely",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":236,"df":0,"sa":12,"sd":252,"sp":4},
+      "moves": ["Quick Attack", "Swift", "Work Up", "Bite"]
+    }
+  },
+  "Fletchinder": {
+    "Lvl 17 Jake (Route 5)": {
+      "slot": 2, "level": 17, "ability": "Gale Wings", "item": "Charcoal", "nature": "Hasty",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":4,"sd":0,"sp":252},
+      "moves": ["Quick Attack", "Ember", "Peck", "Agility"]
+    }
+  },
+   "Honedge": {
+    "Lvl 17 Eclipse Admin Harry": {
+      "slot": 0, "level": 17, "ability": "No Guard", "item": "Life Orb", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":248,"df":20,"sa":0,"sd":240,"sp":0},
+      "moves": ["Swords Dance", "Fury Cutter", "Shadow Sneak", "Iron Head"]
+    }
+  },
+  "Vullaby": {
+    "Lvl 18 Eclipse Admin Harry": {
+      "slot": 1, "level": 18, "ability": "Pressure", "item": "Berry Juice", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":244,"df":12,"sa":0,"sd":252,"sp":0},
+      "moves": ["Knock Off", "Pluck", "Mean Look", "U-turn"]
+    }
+  },
+  "Sizzlipede": {
+    "Lvl 19 Eclipse Admin Harry": {
+      "slot": 2, "level": 19, "ability": "Flash Fire", "item": "Heavy-Duty Boots", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":248,"df":28,"sa":0,"sd":232,"sp":0},
+      "moves": ["Rollout", "Flame Wheel", "Leech Life", "Knock Off"]
+    }
+  },
+  "Lunatone": {
+    "Lvl 20 Eclipse Admin Harry": {
+      "slot": 3, "level": 20, "ability": "Levitate", "item": "Leftovers", "nature": "Mild",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Charge Beam", "Rock Polish", "Ancient Power", "Confusion"]
+    }
+  },
      "Torkoal": {
     "Lvl 22 Gym Leader Sebastian": {
       "slot": 0, "level": 22, "ability": "Drought", "item": "Heat Rock", "nature": "Bold",
@@ -155,7 +133,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Stealth Rock", "Rapid Spin", "Lava Plume ", "Body Press"] 
     }
   },
-      "Fletchinder": {
+      "Fletchinder#2": {
     "Lvl 23 Gym Leader Sebastian": {
       "slot": 1, "level": 23, "ability": "Gale Wings", "item": "Heavy-Duty Boots", "nature": "Modest",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -177,6 +155,38 @@ var TRAINER_SETS_SV = {
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {hp:0,at:0,df:0,sa:252,sd:4,sp:252},
       "moves": ["Overheat", "Energy Ball", "Extrasensory", "Incinerate"] 
+    }
+  },
+    "Sneasel": {
+    "Lvl 28 Eclipse Admin Gabe": {
+      "slot": 0, "level": 28, "ability": "Inner Focus", "item": "Life Orb", "nature": "Hasty",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":4,"sd":0,"sp":252},
+      "moves": ["Icy Wind", "Metal Claw", "Feint Attack", "Hone Claws"]
+    }
+  },
+  "Arbok": {
+    "Lvl 28 Eclipse Admin Gabe": {
+      "slot": 1, "level": 28, "ability": "Guts", "item": "Flame Orb", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Crunch", "Poison Jab", "Ice Fang", "Fire Fang"]
+    }
+  },
+  "Wugtrio": {
+    "Lvl 29 Eclipse Admin Gabe": {
+      "slot": 2, "level": 29, "ability": "Technician", "item": "Expert Belt", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Triple Dive", "Bulldoze", "Rock Tomb", "Aqua Jet"]
+    }
+  },
+  "Solrock": {
+    "Lvl 30 Eclipse Admin Gabe": {
+      "slot": 3, "level": 30, "ability": "Levitate", "item": "Leftovers", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":4,"at":252,"df":0,"sa":0,"sd":0,"sp":252},
+      "moves": ["Zen Headbutt", "Rock Slide", "Rock Polish", "Acrobatics"]
     }
   },
   "Pelipper": {
@@ -219,6 +229,62 @@ var TRAINER_SETS_SV = {
       "moves": ["Waterfall", "Earthquake", "Ice Punch", "Rock Slide"]
     }
   },
+    "Vaporeon": {
+    "Lvl 36 Jake & Tess B2B (Route 9)": {
+      "slot": 0, "level": 36, "ability": "Water Absorb", "item": "Leftovers", "nature": "Modest",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":248,"at":0,"df":0,"sa":252,"sd":8,"sp":0},
+      "moves": ["Scald", "Flip Turn", "Aurora Beam", "Heal Bell"]
+    }
+  },
+  "Lucario": {
+    "Lvl 36 Jake & Tess B2B (Route 9)": {
+      "slot": 1, "level": 36, "ability": "Iron Fist", "item": "Expert Belt", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Brick Break", "Bullet Punch", "Bone Rush", "Swords Dance"]
+    }
+  },
+  "Talonflame": {
+    "Lvl 36 Jake & Tess B2B (Route 9)": {
+      "slot": 2, "level": 36, "ability": "Gale Wings", "item": "Heavy-Duty Boots", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Roost", "Flare Blitz", "Aerial Ace", "Quick Attack"]
+    }
+  },
+  "Gogoat": {
+    "Lvl 36 Jake & Tess B2B (Route 9)": {
+      "slot": 3, "level": 36, "ability": "Sap Sipper", "item": "Life Orb", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":240,"at":248,"df":0,"sa":0,"sd":20,"sp":0},
+      "moves": ["Bulk Up", "Seed Bomb", "Aerial Ace", "Earthquake"]
+    }
+  },
+  "Gabite": {
+    "Lvl 33 Jake & Tess B2B (Route 9)": {
+      "slot": 4, "level": 33, "ability": "Rough Skin", "item": "Expert Belt", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Swords Dance", "Dragon Claw", "Rock Tomb", "Stomping Tantrum"]
+    }
+  },
+  "Shelgon": {
+    "Lvl 33 Jake & Tess B2B (Route 9)": {
+      "slot": 5, "level": 33, "ability": "Rock Head", "item": "Life Orb", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":4,"at":252,"df":0,"sa":0,"sd":0,"sp":252},
+      "moves": ["Dragon Claw", "Dragon Dance", "Brick Break", "Fire Fang"]
+    }
+  },
+  "Axew": {
+    "Lvl 33 Jake & Tess B2B (Route 9)": {
+      "slot": 6, "level": 33, "ability": "Mold Breaker", "item": "Choice Scarf", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Dragon Claw", "Iron Head", "Crunch", "Aqua Tail"]
+    }
+  },
   "Archeops": {
     "Lvl 45 Gym Leader Stephen": {
       "slot": 0, "level": 45, "ability": "Adrenaline", "item": "Power Herb", "nature": "Timid",
@@ -235,7 +301,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Earthquake", "Facade", "Thunder Fang", "Knock Off"]
     }
   },
-  "Talonflame": {
+  "Talonflame#2": {
     "Lvl 47 Gym Leader Stephen": {
       "slot": 2, "level": 47, "ability": "Gale Wings", "item": "Charti Berry", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -267,6 +333,98 @@ var TRAINER_SETS_SV = {
       "moves": ["Boomburst", "Hurricane", "Heat Wave", "Hidden Power Fighting"]
     }
   },
+    "Venusaur": {
+    "Lvl 50 Professor Cypress (Anthian Park)": {
+      "slot": 0, "level": 50, "ability": "Overgrow", "item": "Black Sludge", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Leaf Storm", "Sludge Bomb", "Sleep Powder", "Synthesis"]
+    }
+  },
+  "Feraligatr": {
+    "Lvl 50 Professor Cypress (Anthian Park)": {
+      "slot": 1, "level": 50, "ability": "Sheer Force", "item": "Life Orb", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Dragon Dance", "Liquidation", "Ice Punch", "Crunch"]
+    }
+  },
+  "Typhlosion": {
+    "Lvl 50 Professor Cypress (Anthian Park)": {
+      "slot": 2, "level": 50, "ability": "Blaze", "item": "Choice Scarf", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Flamethrower", "Energy Ball", "Earth Power", "Discharge"]
+    }
+  },
+  "Meganium": {
+    "Lvl 50 Professor Cypress (Anthian Park)": {
+      "slot": 3, "level": 50, "ability": "Triage", "item": "Leftovers", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
+      "moves": ["Synthesis", "Giga Drain", "Draining Kiss", "Psychic"]
+    }
+  },
+  "Blastoise": {
+    "Lvl 50 Professor Cypress (Anthian Park)": {
+      "slot": 4, "level": 50, "ability": "Bulletproof", "item": "White Herb", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Shell Smash", "Scald", "Aura Sphere", "Ice Beam"]
+    }
+  },
+  "Charizard": {
+    "Lvl 50 Professor Cypress (Anthian Park)": {
+      "slot": 5, "level": 50, "ability": "Blaze", "item": "Heavy-Duty Boots", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Dragon Dance", "Aerial Ace", "Flare Blitz", "Earthquake"]
+    }
+  },
+  "Electrode": {
+    "Lvl 40 Admin Tyler": {
+      "slot": 0, "level": 40, "ability": "Static", "item": "Focus Sash", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Explosion"]
+    },
+    "Lvl 40 Admin Tyler [2]": {
+      "slot": 1, "level": 40, "ability": "Static", "item": "Focus Sash", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Explosion"]
+    },
+    "Lvl 40 Admin Tyler [3]": {
+      "slot": 2, "level": 40, "ability": "Static", "item": "Focus Sash", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Explosion"]
+    }
+  },
+  "Annihilape": {
+    "Lvl 40 Admin Tyler": {
+      "slot": 3, "level": 40, "ability": "Defiant", "item": "Focus Sash", "nature": "Jolly",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":4,"sa":0,"sd":0,"sp":252},
+      "moves": ["Final Gambit"]
+    }
+  },
+  "Hatterene": {
+    "Lvl 40 Admin Tyler": {
+      "slot": 4, "level": 40, "ability": "Magic Bounce", "item": "Focus Sash", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
+      "moves": ["Misty Explosion"]
+    }
+  },
+  "Blacephalon": {
+    "Lvl 40 Admin Tyler": {
+      "slot": 5, "level": 40, "ability": "Beast Boost", "item": "Focus Sash", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+      "moves": ["Mind Blown"]
+    }
+  }, 
   "Hippowdon": {
     "Lvl 55 Gym Leader Prince Ryan (Doubles)": {
       "slot": 0, "level": 55, "ability": "Sand Stream", "item": "Eject Pack", "nature": "Sassy",
@@ -363,6 +521,54 @@ var TRAINER_SETS_SV = {
       "moves": ["Solar Beam", "Fire Blast", "Temper Flare", "Stomping Tantrum"]
     }
   },
+   "Garchomp": {
+    "Lvl 60 Jake (Route 14)": {
+      "slot": 0, "level": 60, "ability": "Rough Skin", "item": "Rocky Helmet", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Stealth Rock", "Earthquake", "Toxic", "Dragon Tail"]
+    }
+  },
+  "Gogoat#2": {
+    "Lvl 61 Jake (Route 14)": {
+      "slot": 1, "level": 61, "ability": "Sap Sipper", "item": "Life Orb", "nature": "Careful",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":4,"df":0,"sa":0,"sd":252,"sp":0},
+      "moves": ["Bulk Up", "Horn Leech", "Milk Drink", "Earthquake"]
+    }
+  },
+  "Talonflame#3": {
+    "Lvl 62 Jake (Route 14)": {
+      "slot": 2, "level": 62, "ability": "Gale Wings", "item": "Heavy-Duty Boots", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Roost", "Flare Blitz", "Brave Bird", "Steel Wing"]
+    }
+  },
+  "Hatterene#2": {
+    "Lvl 63 Jake (Route 14)": {
+      "slot": 3, "level": 63, "ability": "Magic Bounce", "item": "Leftovers", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":4,"sa":252,"sd":0,"sp":0},
+      "moves": ["Calm Mind", "Psyshock", "Draining Kiss", "Mystical Fire"]
+    }
+  },
+  "Lucario#2": {
+    "Lvl 64 Jake (Route 14)": {
+      "slot": 4, "level": 64, "ability": "Iron Fist", "item": "Expert Belt", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Close Combat", "Bullet Punch", "Meteor Mash", "Swords Dance"]
+    }
+  },
+  "Vaporeon#2": {
+    "Lvl 65 Jake (Route 14)": {
+      "slot": 5, "level": 65, "ability": "Water Absorb", "item": "Leftovers", "nature": "Modest",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":248,"at":0,"df":0,"sa":252,"sd":8,"sp":0},
+      "moves": ["Scald", "Flip Turn", "Aurora Beam", "Heal Bell"]
+    }
+  },  
   "Incineroar": {
     "Lvl 74 Gym Leader Zeek (Doubles)": {
       "slot": 0, "level": 74, "ability": "Intimidate", "item": "Eject Button", "nature": "Careful",
@@ -411,6 +617,54 @@ var TRAINER_SETS_SV = {
       "moves": ["Knock Off", "Sucker Punch", "Shadow Claw", "Close Combat"]
     }
   },
+    "Druddigon": {
+    "Lvl 70 Tess (Frostveil)": {
+      "slot": 0, "level": 70, "ability": "Rough Skin", "item": "Rocky Helmet", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":248,"df":0,"sa":0,"sd":8,"sp":0},
+      "moves": ["Stealth Rock", "Glare", "Dragon Tail", "Earthquake"]
+    }
+  },
+  "Haxorus": {
+    "Lvl 70 Tess (Frostveil)": {
+      "slot": 1, "level": 70, "ability": "Mold Breaker", "item": "Lum Berry", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Dragon Dance", "Outrage", "Earthquake", "Poison Jab"]
+    }
+  },
+  "Hydreigon": {
+    "Lvl 70 Tess (Frostveil)": {
+      "slot": 2, "level": 70, "ability": "Levitate", "item": "Choice Specs", "nature": "Timid",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Draco Meteor", "Dark Pulse", "Fire Blast", "U-turn"]
+    }
+  },
+  "Flygon": {
+    "Lvl 70 Tess (Frostveil)": {
+      "slot": 3, "level": 70, "ability": "Sheer Force", "item": "Life Orb", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Quiver Dance", "Earth Power", "Dragon Pulse", "Bug Buzz"]
+    }
+  },
+  "Garchomp#2": {
+    "Lvl 70 Tess (Frostveil)": {
+      "slot": 4, "level": 70, "ability": "Sand Veil", "item": "Leftovers", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Swords Dance", "Fire Fang", "Scale Shot", "Earthquake"]
+    }
+  },
+  "Salamence": {
+    "Lvl 70 Tess (Frostveil)": {
+      "slot": 5, "level": 70, "ability": "Intimidate", "item": "Salamencite", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Dragon Dance", "Facade", "Roost", "Earthquake"]
+    }
+  },
   "Mismagius": {
     "Lvl 83 Gym Leader Captain B (Doubles)": {
       "slot": 0, "level": 83, "ability": "Dazzling", "item": "Life Orb", "nature": "Timid",
@@ -427,7 +681,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Eruption", "Earth Power", "Shadow Ball", "Energy Ball"]
     }
   },
-  "Annihilape": {
+  "Annihilape#2": {
     "Lvl 83 Gym Leader Captain B (Doubles)": {
       "slot": 2, "level": 83, "ability": "Defiant", "item": "Leftovers", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -471,12 +725,14 @@ var BASE_EXP_YIELD = {
 var TRAINER_EXP_CONFIG = { playerLevel: 80, trainerMultiplier: 1.5 };
 
 // Merge into the main set dex so the dropdown picks them up.
+// Keys like "Electrike#2" are treated as "Electrike" (the #N just keeps JS keys unique).
 (function () {
   if (typeof SETDEX_SV === "undefined") { console.error("trainers.js must load after gen9.js"); return; }
-  Object.keys(TRAINER_SETS_SV).forEach(function (species) {
+  Object.keys(TRAINER_SETS_SV).forEach(function (key) {
+    var species = key.replace(/\s*#\d+$/, "");
     SETDEX_SV[species] = SETDEX_SV[species] || {};
-    Object.keys(TRAINER_SETS_SV[species]).forEach(function (setName) {
-      SETDEX_SV[species][setName] = TRAINER_SETS_SV[species][setName];
+    Object.keys(TRAINER_SETS_SV[key]).forEach(function (setName) {
+      SETDEX_SV[species][setName] = TRAINER_SETS_SV[key][setName];
     });
   });
 })();
