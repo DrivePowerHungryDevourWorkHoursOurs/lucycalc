@@ -737,7 +737,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Wicked Blow", "Close Combat", "U-turn", "Poison Jab"]
     }
   },
-    "Lucario#2": {
+    "Lucario#4": {
     "Lvl 80 Boss Deven (Optional, Tinbell Tower)": {
       "slot": 5, "level": 80, "ability": "Iron Fist", "item": "Lucarionite", "nature": "Timid",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
@@ -769,7 +769,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Bulk Up", "Horn Leech", "Milk Drink", "Earthquake"]
     }
   },
-  "Talonflame#3": {
+  "Talonflame#4": {
     "Lvl 77 Jake (Eclipse Base)": {
       "slot": 2, "level": 77, "ability": "Gale Wings", "item": "Heavy-Duty Boots", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -777,7 +777,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Roost", "Flare Blitz", "Brave Bird", "U-turn"]
     }
   },
-  "Hatterene": {
+  "Hatterene#3": {
     "Lvl 78 Jake (Eclipse Base)": {
       "slot": 3, "level": 78, "ability": "Magic Bounce", "item": "Leftovers", "nature": "Modest",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
@@ -833,7 +833,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Eruption", "Energy Ball", "Earth Power", "Discharge"]
     }
   },
-  "Blastoise": {
+  "Blastoise#2": {
     "Lvl 79 Professor Cypress (Demon's Tomb)": {
       "slot": 3, "level": 79, "ability": "Bulletproof", "item": "White Herb", "nature": "Modest",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
