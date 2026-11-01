@@ -146,6 +146,10 @@ function calculateRBYGSC(gen, attacker, defender, move, field) {
             at = Math.floor(at / 2);
             desc.isBurned = true;
         }
+        if (!isPhysical && attacker.hasStatus('frb')) {
+            at = Math.floor(at / 2);
+            desc.isFrostbitten = true;
+        }
     }
     if (move.named('Explosion', 'Self-Destruct')) {
         df = Math.floor(df / 2);

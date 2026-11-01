@@ -212,6 +212,11 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         !attacker.hasAbility('Guts') &&
         !(move.named('Facade') && gen.num === 6);
     desc.isBurned = applyBurn;
+    var applyFrostbite = attacker.hasStatus('frb') &&
+        move.category === 'Special' &&
+        !attacker.hasAbility('Guts') &&
+        !(move.named('Facade') && gen.num === 6);
+    desc.isFrostbitten = applyFrostbite;
     var finalMods = calculateFinalModsBWXY(gen, attacker, defender, move, field, desc, isCritical, typeEffectiveness);
     var finalMod = (0, util_2.chainMods)(finalMods, 41, 131072);
     var isSpread = field.gameType !== 'Singles' &&
@@ -227,7 +232,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
     var damage = [];
     for (var i = 0; i < 16; i++) {
         damage[i] =
-            (0, util_2.getFinalDamage)(baseDamage, i, typeEffectiveness, applyBurn, stabMod, finalMod);
+            (0, util_2.getFinalDamage)(baseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, finalMod);
     }
     result.damage = childDamage ? [damage, childDamage] : damage;
     desc.attackBoost =
@@ -260,7 +265,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
             var newFinalMod = (0, util_2.chainMods)(newFinalMods, 41, 131072);
             var damageArray = [];
             for (var i = 0; i < 16; i++) {
-                var newFinalDamage = (0, util_2.getFinalDamage)(newBaseDamage, i, typeEffectiveness, applyBurn, stabMod, newFinalMod);
+                var newFinalDamage = (0, util_2.getFinalDamage)(newBaseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, newFinalMod);
                 damageArray[i] = newFinalDamage;
             }
             damageMatrix[times] = damageArray;
@@ -506,7 +511,7 @@ function calculateBPModsBWXY(gen, attacker, defender, move, field, desc, basePow
         bpMods.push(gen.num > 5 ? 5325 : 6144);
         desc.attackerItem = attacker.item;
     }
-    if ((move.named('Facade') && attacker.hasStatus('brn', 'par', 'psn', 'tox')) ||
+    if ((move.named('Facade') && attacker.hasStatus('brn', 'frb', 'par', 'psn', 'tox')) ||
         (move.named('Brine') && defender.curHP() <= defender.maxHP() / 2) ||
         (move.named('Venoshock') && defender.hasStatus('psn', 'tox'))) {
         bpMods.push(8192);

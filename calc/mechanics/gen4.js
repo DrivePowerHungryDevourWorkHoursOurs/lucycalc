@@ -196,6 +196,10 @@ var typeEffectiveness = type1Effectiveness * type2Effectiveness;
         baseDamage = Math.floor(baseDamage * 0.5);
         desc.isBurned = true;
     }
+    if (attacker.hasStatus('frb') && !isPhysical && !attacker.hasAbility('Guts')) {
+        baseDamage = Math.floor(baseDamage * 0.5);
+        desc.isFrostbitten = true;
+    }
     baseDamage = calculateFinalModsDPP(baseDamage, attacker, move, field, desc, isCritical);
     var stabMod = 1;
     if (move.hasType.apply(move, __spreadArray([], __read(attacker.types), false))) {
@@ -276,6 +280,10 @@ var typeEffectiveness = type1Effectiveness * type2Effectiveness;
                 baseDamage_1 = Math.floor(baseDamage_1 * 0.5);
                 desc.isBurned = true;
             }
+            if (attacker.hasStatus('frb') && !isPhysical && !attacker.hasAbility('Guts')) {
+                baseDamage_1 = Math.floor(baseDamage_1 * 0.5);
+                desc.isFrostbitten = true;
+            }
             baseDamage_1 = calculateFinalModsDPP(baseDamage_1, attacker, move, field, desc, isCritical);
             var damageArray = [];
             for (var i = 0; i < 16; i++) {
@@ -317,7 +325,7 @@ function calculateBasePowerDPP(gen, attacker, defender, move, field, desc, hit) 
             desc.moveBP = basePower;
             break;
         case 'Facade':
-            if (attacker.hasStatus('par', 'psn', 'tox', 'brn')) {
+            if (attacker.hasStatus('par', 'psn', 'tox', 'brn', 'frb')) {
                 basePower = move.bp * 2;
                 desc.moveBP = basePower;
             }

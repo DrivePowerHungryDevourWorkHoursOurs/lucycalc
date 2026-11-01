@@ -231,6 +231,10 @@ export function calculateDPP(
     baseDamage = Math.floor(baseDamage * 0.5);
     desc.isBurned = true;
   }
+  if (attacker.hasStatus('frb') && !isPhysical && !attacker.hasAbility('Guts')) {
+    baseDamage = Math.floor(baseDamage * 0.5);
+    desc.isFrostbitten = true;
+  }
 
   baseDamage = calculateFinalModsDPP(baseDamage, attacker, move, field, desc, isCritical);
 
@@ -323,6 +327,10 @@ export function calculateDPP(
         baseDamage = Math.floor(baseDamage * 0.5);
         desc.isBurned = true;
       }
+      if (attacker.hasStatus('frb') && !isPhysical && !attacker.hasAbility('Guts')) {
+        baseDamage = Math.floor(baseDamage * 0.5);
+        desc.isFrostbitten = true;
+      }
       baseDamage = calculateFinalModsDPP(baseDamage, attacker, move, field, desc, isCritical);
 
       const damageArray = [];
@@ -375,7 +383,7 @@ export function calculateBasePowerDPP(
     desc.moveBP = basePower;
     break;
   case 'Facade':
-    if (attacker.hasStatus('par', 'psn', 'tox', 'brn')) {
+    if (attacker.hasStatus('par', 'psn', 'tox', 'brn', 'frb')) {
       basePower = move.bp * 2;
       desc.moveBP = basePower;
     }

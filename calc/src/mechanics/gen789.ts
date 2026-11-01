@@ -658,6 +658,12 @@ if (move.named('Mud Bomb', 'Mud Shot', 'Mud-Slap')) {
     !attacker.hasAbility('Flare Boost') &&
     !move.named('Facade');
   desc.isBurned = applyBurn;
+  const applyFrostbite =
+    attacker.hasStatus('frb') &&
+    move.category === 'Special' &&
+    !attacker.hasAbility('Guts') &&
+    !move.named('Facade');
+  desc.isFrostbitten = applyFrostbite;
   const finalMods = calculateFinalModsSMSSSV(
     gen,
     attacker,
@@ -697,7 +703,7 @@ if (move.named('Mud Bomb', 'Mud Shot', 'Mud-Slap')) {
   const damage = [];
   for (let i = 0; i < 16; i++) {
     damage[i] =
-      getFinalDamage(baseDamage, i, typeEffectiveness, applyBurn, stabMod, finalMod, protect);
+      getFinalDamage(baseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, finalMod, protect);
   }
   result.damage = childDamage ? [damage, childDamage] : damage;
 
@@ -779,7 +785,7 @@ if (move.named('Mud Bomb', 'Mud Shot', 'Mud-Slap')) {
           newBaseDamage,
           i,
           typeEffectiveness,
-          applyBurn,
+          applyBurn || applyFrostbite,
           stabMod,
           newFinalMod,
           protect
@@ -1108,7 +1114,7 @@ export function calculateBPModsSMSSSV(
     resistedKnockOffDamage = true;
   }
 
-  if ((move.named('Facade') && attacker.hasStatus('brn', 'par', 'psn', 'tox')) ||
+  if ((move.named('Facade') && attacker.hasStatus('brn', 'frb', 'par', 'psn', 'tox')) ||
     (move.named('Brine') && defender.curHP() <= defender.maxHP() / 2) ||
     (move.named('Venoshock') && defender.hasStatus('psn', 'tox')) ||
     (move.named('Lash Out') && (countBoosts(gen, attacker.boosts) < 0))

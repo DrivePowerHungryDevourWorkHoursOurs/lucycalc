@@ -337,6 +337,12 @@ export function calculateBWXY(
     !attacker.hasAbility('Guts') &&
     !(move.named('Facade') && gen.num === 6);
   desc.isBurned = applyBurn;
+  const applyFrostbite =
+    attacker.hasStatus('frb') &&
+    move.category === 'Special' &&
+    !attacker.hasAbility('Guts') &&
+    !(move.named('Facade') && gen.num === 6);
+  desc.isFrostbitten = applyFrostbite;
 
   const finalMods = calculateFinalModsBWXY(
     gen,
@@ -365,7 +371,7 @@ export function calculateBWXY(
   const damage: number[] = [];
   for (let i = 0; i < 16; i++) {
     damage[i] =
-      getFinalDamage(baseDamage, i, typeEffectiveness, applyBurn, stabMod, finalMod);
+      getFinalDamage(baseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, finalMod);
   }
   result.damage = childDamage ? [damage, childDamage] : damage;
 
@@ -429,7 +435,7 @@ export function calculateBWXY(
           newBaseDamage,
           i,
           typeEffectiveness,
-          applyBurn,
+          applyBurn || applyFrostbite,
           stabMod,
           newFinalMod
         );
@@ -730,7 +736,7 @@ export function calculateBPModsBWXY(
     desc.attackerItem = attacker.item;
   }
 
-  if ((move.named('Facade') && attacker.hasStatus('brn', 'par', 'psn', 'tox')) ||
+  if ((move.named('Facade') && attacker.hasStatus('brn', 'frb', 'par', 'psn', 'tox')) ||
       (move.named('Brine') && defender.curHP() <= defender.maxHP() / 2) ||
       (move.named('Venoshock') && defender.hasStatus('psn', 'tox'))) {
     bpMods.push(8192);

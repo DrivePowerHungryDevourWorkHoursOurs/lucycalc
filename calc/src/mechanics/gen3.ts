@@ -234,7 +234,7 @@ export function calculateBasePowerADV(
     desc.moveBP = bp;
     break;
   case 'Facade':
-    if (attacker.hasStatus('par', 'psn', 'tox', 'brn')) {
+    if (attacker.hasStatus('par', 'psn', 'tox', 'brn', 'frb')) {
       bp = move.bp * 2;
       desc.moveBP = bp;
     }
@@ -388,6 +388,10 @@ function calculateFinalModsADV(
   if (attacker.hasStatus('brn') && isPhysical && !attacker.hasAbility('Guts')) {
     baseDamage = Math.floor(baseDamage / 2);
     desc.isBurned = true;
+  }
+  if (attacker.hasStatus('frb') && !isPhysical && !attacker.hasAbility('Guts')) {
+    baseDamage = Math.floor(baseDamage / 2);
+    desc.isFrostbitten = true;
   }
 
   if (!isCritical) {

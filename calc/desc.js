@@ -526,6 +526,12 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
             texts.push('burn damage');
         }
     }
+    else if (defender.hasStatus('frb')) {
+        if (!defender.hasAbility('Magic Guard')) {
+            damage -= Math.floor(defender.maxHP() / (gen.num < 2 || gen.num > 6 ? 16 : 8));
+            texts.push('frostbite damage');
+        }
+    }
     else if ((defender.hasStatus('slp') || defender.hasAbility('Comatose')) &&
         attacker.hasAbility('Bad Dreams') &&
         !defender.hasAbility('Magic Guard')) {
@@ -767,6 +773,9 @@ function buildDescription(description, attacker, defender) {
     output = appendIfSet(output, description.rivalry);
     if (description.isBurned) {
         output += 'burned ';
+    }
+    if (description.isFrostbitten) {
+        output += 'frostbitten ';
     }
     if (description.alliesFainted) {
         output += Math.min(5, description.alliesFainted) +
