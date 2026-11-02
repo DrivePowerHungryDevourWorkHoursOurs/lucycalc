@@ -1573,6 +1573,7 @@ $(".gen").change(function () {
 
 // Per-side default sets. A side with no entry uses the original default (first valid set in the list).
 var DEFAULT_SET_IDS = {
+	p1: "Abomasnow (Blank Set)",
 	p2: "Eevee (Lvl 5 Rival Jake (Lab))"
 };
 
