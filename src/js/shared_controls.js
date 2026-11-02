@@ -1874,17 +1874,39 @@ function loadDefaultLists() {
 			var pageSize = 30;
 			var results = [];
 			var options = getSetOptions();
+			var terms = query.term ? query.term.toUpperCase().split(" ").filter(Boolean) : [];
+			var isRandoms = $("#randoms").prop("checked");
+			// A term matches the start of a word (after a space, hyphen or open bracket)
+			function wordStart(text, term) {
+				return text.indexOf(term) === 0 || text.indexOf(" " + term) >= 0 ||
+					text.indexOf("-" + term) >= 0 || text.indexOf("(" + term) >= 0;
+			}
+			var header = null, headerPushed = false, speciesMatches = false;
 			for (var i = 0; i < options.length; i++) {
 				var option = options[i];
 				var pokeName = option.pokemon.toUpperCase();
-				if (!query.term || query.term.toUpperCase().split(" ").every(function (term) {
-					return pokeName.indexOf(term) === 0 || pokeName.indexOf("-" + term) >= 0 || pokeName.indexOf(" " + term) >= 0;
-				})) {
-					if ($("#randoms").prop("checked")) {
-						if (option.id) results.push(option);
-					} else {
+				if (isRandoms) {
+					if (option.id && (!terms.length || terms.every(function (term) { return wordStart(pokeName, term); }))) {
 						results.push(option);
 					}
+					continue;
+				}
+				if (!option.set) {
+					// Species heading. If the species itself matches, it and all its sets are shown.
+					header = option;
+					speciesMatches = !terms.length || terms.every(function (term) { return wordStart(pokeName, term); });
+					headerPushed = speciesMatches;
+					if (speciesMatches) results.push(option);
+					continue;
+				}
+				if (speciesMatches) {
+					results.push(option);
+				} else if (terms.every(function (term) {
+					// otherwise every search word must match the species name OR the set name (e.g. a trainer)
+					return wordStart(pokeName, term) || wordStart(option.set.toUpperCase(), term);
+				})) {
+					if (!headerPushed && header) { results.push(header); headerPushed = true; }
+					results.push(option);
 				}
 			}
 			query.callback({
