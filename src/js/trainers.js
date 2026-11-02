@@ -402,7 +402,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Annihilape": {
-    "Lvl 40 Admin Tyler": {
+    "Lvl 40 Eclipse Admin Tyler": {
       "slot": 3, "level": 40, "ability": "Defiant", "item": "Focus Sash", "nature": "Jolly",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":252,"at":0,"df":4,"sa":0,"sd":0,"sp":252},
