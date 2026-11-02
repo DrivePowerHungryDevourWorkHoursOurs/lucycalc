@@ -382,19 +382,19 @@ var TRAINER_SETS_SV = {
     }
   },
   "Electrode": {
-    "Lvl 40 Admin Tyler": {
+    "Lvl 40 Eclipse Admin Tyler": {
       "slot": 0, "level": 40, "ability": "Static", "item": "Focus Sash", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
       "moves": ["Explosion"]
     },
-    "Lvl 40 Admin Tyler [2]": {
+    "Lvl 40 Eclipse Admin Tyler [2]": {
       "slot": 1, "level": 40, "ability": "Static", "item": "Focus Sash", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
       "moves": ["Explosion"]
     },
-    "Lvl 40 Admin Tyler [3]": {
+    "Lvl 40 Eclipse Admin Tyler [3]": {
       "slot": 2, "level": 40, "ability": "Static", "item": "Focus Sash", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -410,7 +410,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Hatterene": {
-    "Lvl 40 Admin Tyler": {
+    "Lvl 40 Eclipse Admin Tyler": {
       "slot": 4, "level": 40, "ability": "Magic Bounce", "item": "Focus Sash", "nature": "Modest",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
@@ -418,7 +418,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Blacephalon": {
-    "Lvl 40 Admin Tyler": {
+    "Lvl 40 Eclipse Admin Tyler": {
       "slot": 5, "level": 40, "ability": "Beast Boost", "item": "Focus Sash", "nature": "Timid",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
