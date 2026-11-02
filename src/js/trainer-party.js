@@ -344,6 +344,35 @@ $(function () {
       position: "absolute", top: "128px", right: "38px", width: "48px", height: "48px",
       objectFit: "contain", imageRendering: "pixelated", pointerEvents: "none", visibility: "hidden"
     }).appendTo($box);
+    // "Add to Box": saves whatever is currently in this side's fields as that species' "Box" set
+    var $addBtn = $('<button type="button" class="tp-add-box" title="Save the current set to your Box">Add to Box</button>')
+      .appendTo($box);
+    var addBtnTimer = null;
+    $addBtn.on("click", function () {
+      var species = currentSpecies(parseSelected());
+      if (!species) return;
+      var set = readEdits({});
+      set.isCustomSet = true;
+      var existed = readBox().some(function (e) { return e.species === species; });
+      var customsets = {};
+      try { customsets = JSON.parse(localStorage.customsets || "{}"); } catch (e) {}
+      customsets[species] = customsets[species] || {};
+      customsets[species][BOX_NAME] = set;
+      if (typeof updateDex === "function") {
+        updateDex(customsets); // the calc's own import code: fills every SETDEX_* and saves localStorage.customsets
+      } else {
+        allDexes().forEach(function (dex) {
+          dex[species] = dex[species] || {};
+          dex[species][BOX_NAME] = set;
+        });
+        try { localStorage.customsets = JSON.stringify(customsets); } catch (e) {}
+      }
+      $("#p1 #importedSetsOptions, #p2 #importedSetsOptions").css("display", "inline");
+      boxRefreshers.forEach(function (f) { f(); });
+      clearTimeout(addBtnTimer);
+      $addBtn.text(existed ? "Updated!" : "Added!");
+      addBtnTimer = setTimeout(function () { $addBtn.text("Add to Box"); }, 1200);
+    });
     var $panel = $('<div class="trainer-party" hidden></div>').appendTo($box);
     // Appended after the trainer panel, so it automatically sits below the trainer team
     var $boxPanel = $('<div class="trainer-party box-party" hidden></div>').appendTo($box);
