@@ -195,6 +195,36 @@ $(function () {
     } catch (e) {}
   }
 
+  // A Box Pokémon changed form (e.g. Charizard -> Charizard-Mega-X): move its "Box" set to the new
+  // species, keeping its place in the Player Party / Box order. Replaces an existing Box set of the new form.
+  function renameBoxEntry(oldSp, newSp, set) {
+    function strip(dex) {
+      if (!dex || !dex[oldSp] || !(BOX_NAME in dex[oldSp])) return;
+      delete dex[oldSp][BOX_NAME];
+      if (!Object.keys(dex[oldSp]).length) delete dex[oldSp];
+    }
+    allDexes().forEach(strip);
+    var customsets = {};
+    try { customsets = JSON.parse(localStorage.customsets || "{}"); } catch (e) {}
+    strip(customsets);
+    customsets[newSp] = customsets[newSp] || {};
+    customsets[newSp][BOX_NAME] = set;
+    if (typeof updateDex === "function") {
+      updateDex(customsets); // fills every SETDEX_* and saves localStorage.customsets
+    } else {
+      allDexes().forEach(function (dex) {
+        dex[newSp] = dex[newSp] || {};
+        dex[newSp][BOX_NAME] = set;
+      });
+      try { localStorage.customsets = JSON.stringify(customsets); } catch (e) {}
+    }
+    [PARTY_KEY, ORDER_KEY].forEach(function (key) {
+      var seen = {};
+      saveList(key, loadList(key).map(function (sp) { return sp === oldSp ? newSp : sp; })
+        .filter(function (sp) { if (seen[sp]) return false; seen[sp] = true; return true; }));
+    });
+  }
+
   // ---- Export Box -> pokepast.es ----
   var STAT_LABEL = { hp: "HP", at: "Atk", df: "Def", sa: "SpA", sd: "SpD", sp: "Spe" };
   var STAT_ORDER = ["hp", "at", "df", "sa", "sd", "sp"];
@@ -695,17 +725,32 @@ $(function () {
       if (moves.length) set.moves = moves;
       return set;
     }
-    var syncBase = null, syncWait = 0, syncKey = null;
-    function syncBoxSet(key) {
+    var syncBase = null, syncWait = 0, syncSel = null, formePending = null;
+    function syncBoxSet() {
       var sel = parseSelected();
-      if (!sel || sel.setName !== BOX_NAME) { syncBase = null; syncKey = null; return; }
-      if (key !== syncKey) { syncKey = key; syncBase = null; syncWait = 2; return; } // let the calc finish filling in the fields
+      if (!sel || sel.setName !== BOX_NAME) { syncBase = null; syncSel = null; formePending = null; return; }
+      var selVal = $selector.val();
+      if (selVal !== syncSel) { syncSel = selVal; syncBase = null; syncWait = 2; formePending = null; return; } // let the calc finish filling in the fields
       var stored = null;
       readBox().forEach(function (e) { if (e.species === sel.species) stored = e.set; });
       if (!stored) return;
       var updated = readEdits(stored);
       var fp = JSON.stringify(updated);
       if (syncWait > 0) { syncWait--; syncBase = fp; return; }
+
+      // The Forme dropdown was changed: the Box Pokémon becomes that form
+      var cur = currentSpecies(sel);
+      if (cur && cur !== sel.species) {
+        if (formePending !== cur) { formePending = cur; return; } // wait one tick so the calc finishes updating ability etc.
+        formePending = null;
+        renameBoxEntry(sel.species, cur, updated);
+        loadIntoSide({ species: cur, setName: BOX_NAME });
+        boxRefreshers.forEach(function (f) { f(); });
+        console.log("trainer-party: Box Pokemon changed form", sel.species, "->", cur);
+        return;
+      }
+      formePending = null;
+
       if (fp !== syncBase) {
         syncBase = fp;
         saveBoxSet(sel.species, updated);
@@ -722,7 +767,7 @@ $(function () {
         (boxSide === sideId ? JSON.stringify(readBox()) : "");
       if (bKey !== lastBoxKey) { lastBoxKey = bKey; renderBox(); }
       updateItem();
-      syncBoxSet(key);
+      syncBoxSet();
     }
     boxRefreshers.push(function () { lastBoxKey = null; check(); });
     $selector.on("change", check);
