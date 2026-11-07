@@ -555,11 +555,10 @@ function getFinalDamage(baseAmount, i, effectiveness, isBurned, stabMod, finalMo
     if (isBurned)
         damageAmount = Math.floor(damageAmount / 2);
 
-    console.log("UNSEEN FIST DEBUG", {
-        protect: protect,
-        ignoreProtect: ignoreProtect,
-        reductionApplied: protect && !ignoreProtect
-    });
+console.log("UNSEEN FIST DEBUG:", protect, ignoreProtect);
+
+if (protect && !ignoreProtect)
+    damageAmount = pokeRound(OF32(damageAmount * 1024) / 4096);
 
 
     if (protect) 
