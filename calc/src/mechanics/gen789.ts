@@ -679,7 +679,7 @@ if (move.named('Mud Bomb', 'Mud Shot', 'Mud-Slap')) {
   if (field.defenderSide.isProtected) {
     if (attacker.isDynamaxed &&
     !(move.name === 'G-Max One Blow' || move.name === 'G-Max Rapid Flow') ||
-    !attacker.isDynamaxed && (attacker.hasAbility('Unseen Fist', 'Piercing Drill') ||
+    !attacker.isDynamaxed && (attacker.hasAbility('Piercing Drill') ||
     (move.isZ && attacker.item && attacker.item.includes(' Z')))) {
       protect = true;
       desc.isProtected = true;
