@@ -547,15 +547,15 @@ function isQPActive(pokemon, field) {
         (pokemon.boostedStat !== 'auto'));
 }
 exports.isQPActive = isQPActive;
-function getFinalDamage(baseAmount, i, effectiveness, isBurned, stabMod, finalMod, protect) {
+function getFinalDamage(baseAmount, i, effectiveness, isBurned, stabMod, finalMod, protect, ignoreProtect) {
     var damageAmount = Math.floor(OF32(baseAmount * (85 + i)) / 100);
     if (stabMod !== 4096)
         damageAmount = OF32(damageAmount * stabMod) / 4096;
     damageAmount = Math.floor(OF32(pokeRound(damageAmount) * effectiveness));
     if (isBurned)
         damageAmount = Math.floor(damageAmount / 2);
-    if (protect) 
-        damageAmount = pokeRound(OF32(damageAmount * 1024) / 4096);
+if (protect && !ignoreProtect)
+    damageAmount = pokeRound(OF32(damageAmount * 1024) / 4096);
     return OF16(pokeRound(Math.max(1, OF32(damageAmount * finalMod) / 4096)));
 }
 exports.getFinalDamage = getFinalDamage;

@@ -467,7 +467,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field) {
     if (field.defenderSide.isProtected) {
         if (attacker.isDynamaxed &&
             !(move.name === 'G-Max One Blow' || move.name === 'G-Max Rapid Flow') ||
-            !attacker.isDynamaxed && (attacker.hasAbility('Piercing Drill') ||
+            !attacker.isDynamaxed && (attacker.hasAbility('Unseen Fist', 'Piercing Drill') ||
                 (move.isZ && attacker.item && attacker.item.includes(' Z')))) {
             protect = true;
             desc.isProtected = true;
@@ -487,7 +487,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field) {
     var damage = [];
     for (var i = 0; i < 16; i++) {
         damage[i] =
-            (0, util_2.getFinalDamage)(baseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, finalMod, protect);
+            (0, util_2.getFinalDamage)(baseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, finalMod, protect, attacker.hasAbility('Unseen Fist') && move.flags.contac);
     }
     result.damage = childDamage ? [damage, childDamage] : damage;
     if (move.timesUsed > 1 || move.hits > 1) {
@@ -520,7 +520,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field) {
             var newFinalMod = (0, util_2.chainMods)(newFinalMods, 41, 131072);
             var damageArray = [];
             for (var i = 0; i < 16; i++) {
-                var newFinalDamage = (0, util_2.getFinalDamage)(newBaseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, newFinalMod, protect);
+                var newFinalDamage = (0, util_2.getFinalDamage)(newBaseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, newFinalMod, protect, attacker.hasAbility('Unseen Fist') && move.flags.contac);
                 damageArray[i] = newFinalDamage;
             }
             damageMatrix[times] = damageArray;
