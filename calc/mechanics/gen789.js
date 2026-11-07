@@ -487,7 +487,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field) {
     var damage = [];
     for (var i = 0; i < 16; i++) {
         damage[i] =
-            (0, util_2.getFinalDamage)(baseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, finalMod, protect, attacker.hasAbility('Unseen Fist') && move.flags.contac);
+            (0, util_2.getFinalDamage)(baseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, finalMod, protect, attacker.hasAbility('Unseen Fist') && move.flags.contact);
     }
     result.damage = childDamage ? [damage, childDamage] : damage;
     if (move.timesUsed > 1 || move.hits > 1) {
@@ -520,7 +520,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field) {
             var newFinalMod = (0, util_2.chainMods)(newFinalMods, 41, 131072);
             var damageArray = [];
             for (var i = 0; i < 16; i++) {
-                var newFinalDamage = (0, util_2.getFinalDamage)(newBaseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, newFinalMod, protect, attacker.hasAbility('Unseen Fist') && move.flags.contac);
+                var newFinalDamage = (0, util_2.getFinalDamage)(newBaseDamage, i, typeEffectiveness, applyBurn || applyFrostbite, stabMod, newFinalMod, protect, attacker.hasAbility('Unseen Fist') && move.flags.contact);
                 damageArray[i] = newFinalDamage;
             }
             damageMatrix[times] = damageArray;
