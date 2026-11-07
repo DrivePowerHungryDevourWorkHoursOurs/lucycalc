@@ -1,11 +1,13 @@
 // Refreshes the fallback tables in rc_overrides.js from the dex.
-// Usage (Node 18+):  node scripts/sync_rc.js [path/to/rc_overrides.js]
+// Usage (Node 18+):  node scripts/sync_rc.js   (optionally pass a path to rc_overrides.js)
 // Optional: run on a schedule (e.g. GitHub Action) and commit the result.
 const fs = require('fs');
 const vm = require('vm');
+const path = require('path');
 
 const DEX_URL = 'https://dex.pbblegacy.com/data/pokedex.js';
-const target = process.argv[2] || 'rc_overrides.js';
+// Defaults to <project>/src/js/rc_overrides.js no matter where it is run from.
+const target = process.argv[2] || path.join(__dirname, '..', 'src', 'js', 'rc_overrides.js');
 const STAT = { hp: 'hp', atk: 'at', def: 'df', spa: 'sa', spd: 'sd', spe: 'sp' };
 
 (async () => {
