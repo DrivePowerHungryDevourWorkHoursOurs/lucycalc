@@ -554,8 +554,16 @@ function getFinalDamage(baseAmount, i, effectiveness, isBurned, stabMod, finalMo
     damageAmount = Math.floor(OF32(pokeRound(damageAmount) * effectiveness));
     if (isBurned)
         damageAmount = Math.floor(damageAmount / 2);
-if (protect && !ignoreProtect)
-    damageAmount = pokeRound(OF32(damageAmount * 1024) / 4096);
+
+    console.log("UNSEEN FIST DEBUG", {
+        protect: protect,
+        ignoreProtect: ignoreProtect,
+        reductionApplied: protect && !ignoreProtect
+    });
+
+
+    if (protect) 
+        damageAmount = pokeRound(OF32(damageAmount * 1024) / 4096);
     return OF16(pokeRound(Math.max(1, OF32(damageAmount * finalMod) / 4096)));
 }
 exports.getFinalDamage = getFinalDamage;
