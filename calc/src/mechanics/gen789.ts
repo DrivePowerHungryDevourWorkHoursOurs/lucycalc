@@ -1449,7 +1449,7 @@ export function calculateAtModsSMSSSV(
     atMods.push(4915);
     desc.attackerAbility = attacker.ability;
   } else if ((attacker.hasAbility('Adrenaline') && attacker.curHP() <= attacker.maxHP() / 2)) {
-        atMods.push(8192);
+        atMods.push(6144);
         desc.attackerAbility = attacker.ability;
     } else if (attacker.hasAbility('Flash Fire') && attacker.abilityOn && move.hasType('Fire')) {
     atMods.push(6144);
