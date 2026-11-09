@@ -27,7 +27,7 @@ html {
     color: #333333;
 }
 body {
-    background: linear-gradient(to bottom, rgba(77, 93, 140, 0.6), rgba(138, 77, 140, 0.2) 80px, transparent 160px, transparent);
+    background: linear-gradient(to bottom, rgba(138, 77, 140, 0.6), rgba(138, 77, 140, 0.2) 80px, transparent 160px, transparent);
 }
 
 a {
