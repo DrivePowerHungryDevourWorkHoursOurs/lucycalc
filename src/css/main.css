@@ -74,8 +74,8 @@ header {
 .nav a, .nav a:visited,
 .dark .nav a, .dark .nav a:visited {
     color: white;
-    background: #3a4f88;
-    background: linear-gradient(to bottom, #4c63a3, #273661);
+    background: #883a7b;
+    background: linear-gradient(to bottom, #994ca3, #5f2761);
     box-shadow: 0.5px 1px 2px rgba(255, 255, 255, 0.45), inset 0.5px 1px 1px rgba(255, 255, 255, 0.5);
     border: 1px solid #222c4a;
     text-shadow: black 0px -1px 0;
