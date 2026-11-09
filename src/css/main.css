@@ -7,7 +7,7 @@
     --text: #333333;
     --background: #f0f0f0;
     --fieldset-color: #F1F4F9;
-    --accent: #d558fb;
+    --accent: #5897fb;
     --border: #AAAAAA;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 a {
-    color: #0073aa;
+    color: #d558fb;
 }
 a:visited {
     color: #8000aa;
