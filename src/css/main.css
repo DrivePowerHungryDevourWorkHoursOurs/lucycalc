@@ -27,11 +27,11 @@ html {
     color: #333333;
 }
 body {
-    background: linear-gradient(to bottom, rgba(77, 93, 140, 0.6), rgba(77, 93, 140, 0.2) 80px, transparent 160px, transparent);
+    background: linear-gradient(to bottom, rgba(213, 88, 251, 0.8), rgba(77, 93, 140, 0.2) 80px, transparent 160px, transparent);
 }
 
 a {
-    color: #d558fb;
+    color: #0073aa;
 }
 a:visited {
     color: #8000aa;
