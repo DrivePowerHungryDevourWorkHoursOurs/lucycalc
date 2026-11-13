@@ -16,7 +16,7 @@ var ITEM_BAG_CONFIG = {
   // 2) These items are never shown (applied after onlyShow).
   //    e.g. hide: ["Black Glasses", "Pink Bow", "Polkadot Bow"],
   hide: ["Pink Bow", "Polkadot Bow",  function (n) { return /Apple$/.test(n) }, function (n) { return /^Fossilized/.test(n); }, function (n) { return /Fossil$/.test(n); }, function (n) { return /Memory$/.test(n); }, function (n) { return /Ball$/.test(n) && n !== "Snowball"; }, function (n) { return /Stone$/.test(n) && n !== "Hard Stone"; }, function (n) { return /^TR\d/.test(n); }, function (n) { return /Sweet$/.test(n); },
-    "Vile Vial", "Berserk Gene", "Berry", "Bitter Berry", "Burnt Berry", "Crucibellite", "Gold Berry", "Ice Berry", "Mint Berry", "Miracle Berry", "Mystery Berry", "PRZ Cure Berry", "PSN Cure Berry", "Galarica Cuff", "Galarica Wreath", "Mail", "Bottle Cap", "Gold Bottle Cap", "Pretty Feather", "Prism Scale",  "Auspicious Armor", "Malicious Armor", "Metal Alloy",  function (n) { return /izer$/.test(n); },  function (n) { return /Teacup$/.test(n); },  function (n) { return /Pot$/.test(n); }, "Destiny Knot", "Rare Bone"
+    "Vile Vial", "Berserk Gene", "Berry", "Bitter Berry", "Burnt Berry", "Crucibellite", "Gold Berry", "Ice Berry", "Mint Berry", "Miracle Berry", "Mystery Berry", "PRZ Cure Berry", "PSN Cure Berry", "Galarica Cuff", "Galarica Wreath", "Mail", "Bottle Cap", "Gold Bottle Cap", "Pretty Feather", "Prism Scale",  "Auspicious Armor", "Malicious Armor", "Metal Alloy",  function (n) { return /izer$/.test(n); },  function (n) { return /Teacup$/.test(n); },  function (n) { return /Pot$/.test(n); }, "Destiny Knot", "Rare Bone", "Old Amber"
 ],
   // 3) Your own sections, in your own order. If this is non-empty it REPLACES the automatic
   //    sections (onlyShow/hide still apply on top). Leave as [] to use the automatic ones.
@@ -80,7 +80,13 @@ $(function () {
   ];
   var COMMON_ITEMS = [
     "Choice Band", "Choice Specs", "Choice Scarf", "Life Orb", "Leftovers", "Eviolite", "Focus Sash",
-    "Assault Vest", "Rocky Helmet", "Heavy-Duty Boots", "Black Sludge", "Expert Belt", "Iron Ball"
+    "Assault Vest", "Rocky Helmet", "Heavy-Duty Boots", "Black Sludge", "Expert Belt", "Iron Ball",
+    "Wide Lens", "Zoom Lens", "Berry Juice", "Air Balloon"
+
+  ];
+  var STAT_BERRIES = [
+    "Salac Berry", "Petaya Berry", "Apicot Berry", "Lansat Berry", "Starf Berry", "Ganlon Berry",
+    "Liechi Berry", "Maranga Berry", "Kee Berry"
 
   ];
   // [title, test(name)] — the first matching section wins, so order matters.
@@ -91,13 +97,14 @@ $(function () {
     ["Common Items", function (n) { return COMMON_ITEMS.indexOf(n) >= 0; }],
     ["Plates", function (n) { return / Plate$/.test(n); }],
     ["Berries", function (n) { return /Berry$/.test(n); }],
+    ["Stat Boosting Berries", function (n) { return STAT_BERRIES.indexOf(n) >= 0; }],
     ["Mega Stones", function (n) { return /ite( [XYZ])?$/.test(n) && n !== "Eviolite"; }],
     ["Z-Crystals", function (n) { return /ium Z$/.test(n); }],
     ["Held Item", function () { return true; }]
   ];
   // Display order (matches the RnB layout, with the extras at the end)
   var SECTION_ORDER = ["Type Boost Damage", "Common Items", "Held Item", "Berries", "Plates", "Gems",
-    "Damage Reducing Berries", "Mega Stones", "Z-Crystals"];
+    "Damage Reducing Berries", "Stat Boosting Berries", "Mega Stones", "Z-Crystals"];
 
   function buildSections() {
     var cfg = ITEM_BAG_CONFIG || {};
