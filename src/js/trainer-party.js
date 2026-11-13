@@ -375,7 +375,7 @@ $(function () {
       objectFit: "contain", imageRendering: "pixelated", pointerEvents: "none", visibility: "hidden"
     }).appendTo($box);
     // "Add to Box": saves whatever is currently in this side's fields as that species' "Box" set
-    var $addBtn = $('<button type="button" class="tp-add-box" title="Save the current set to your Box">Add to Box</button>')
+    var $addBtn = $('<button type="button" class="tp-add-box" title="Save the current set to your Box">Save to Box</button>')
       .appendTo($box);
     var addBtnTimer = null;
     $addBtn.on("click", function () {
