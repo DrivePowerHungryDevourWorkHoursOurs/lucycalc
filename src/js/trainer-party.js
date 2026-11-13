@@ -401,7 +401,7 @@ $(function () {
       boxRefreshers.forEach(function (f) { f(); });
       clearTimeout(addBtnTimer);
       $addBtn.text(existed ? "Updated!" : "Added!");
-      addBtnTimer = setTimeout(function () { $addBtn.text("Add to Box"); }, 1200);
+      addBtnTimer = setTimeout(function () { $addBtn.text("Save to Box"); }, 1200);
     });
     var $panel = $('<div class="trainer-party" hidden></div>').appendTo($box);
     // Appended after the trainer panel, so it automatically sits below the trainer team
