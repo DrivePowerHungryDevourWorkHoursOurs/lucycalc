@@ -19,8 +19,9 @@ var ITEM_BAG_CONFIG = {
 
   // 2) These items are never shown (applied after onlyShow).
   //    e.g. hide: ["Black Glasses", "Pink Bow", "Polkadot Bow"],
-  hide: ["Pink Bow", "Polkadot Bow", "Armor Fossil", "Dome Fossil", "Old Amber", "Root Fossil", "Claw Fossil", "Skull Fossil", function (n) { return /Memory$/.test(n); } ],
-
+  hide: ["Pink Bow", "Polkadot Bow", function (n) { return /Fossil$/.test(n); } , function (n) { return /Memory$/.test(n); } , function (n) { return /Ball$/.test(n) && n !== "Snowball"; }, function (n) { return /Stone$/.test(n) && n !== "Hard Stone"; }, function (n) { return /^TR\d/.test(n); }, function (n) { return /Sweet$/.test(n); },
+    "Vile Vial", "Beserk Gene", "Berry", "Bitter Berry", "Burnt Berry", "Crucibellite", "Gold Berry", "Ice Berry", "Mint Berry", "Miracle Berry", "Mystery Berry", "PRZ Cure Berry", "PSN Cure Berry", "Galarica Cuff", "Galarica Wreath" 
+],
   // 3) Your own sections, in your own order. If this is non-empty it REPLACES the automatic
   //    sections (onlyShow/hide still apply on top). Leave as [] to use the automatic ones.
   //    e.g. customSections: [
@@ -87,7 +88,7 @@ $(function () {
     ["Damage Reducing Berries", function (n) { return RESIST_BERRIES.indexOf(n) >= 0; }],
     ["Plates", function (n) { return / Plate$/.test(n); }],
     ["Berries", function (n) { return /Berry$/.test(n); }],
-    ["Mega Stones", function (n) { return /ite( [XY])?$/.test(n) && n !== "Eviolite"; }],
+    ["Mega Stones", function (n) { return /ite( [XYZ])?$/.test(n) && n !== "Eviolite"; }],
     ["Z-Crystals", function (n) { return /ium Z$/.test(n); }],
     ["Held Item", function () { return true; }]
   ];
