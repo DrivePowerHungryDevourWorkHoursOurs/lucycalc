@@ -96,8 +96,8 @@ $(function () {
     ["Gems", function (n) { return / Gem$/.test(n); }],
     ["Common Items", function (n) { return COMMON_ITEMS.indexOf(n) >= 0; }],
     ["Plates", function (n) { return / Plate$/.test(n); }],
-    ["Berries", function (n) { return /Berry$/.test(n); }],
     ["Stat Boosting Berries", function (n) { return STAT_BERRIES.indexOf(n) >= 0; }],
+    ["Berries", function (n) { return /Berry$/.test(n); }],
     ["Mega Stones", function (n) { return /ite( [XYZ])?$/.test(n) && n !== "Eviolite"; }],
     ["Z-Crystals", function (n) { return /ium Z$/.test(n); }],
     ["Held Item", function () { return true; }]
