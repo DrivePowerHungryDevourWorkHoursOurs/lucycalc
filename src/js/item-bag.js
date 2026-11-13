@@ -6,6 +6,31 @@
 // Load AFTER jQuery and the calc's own scripts (shared_controls.js, trainer-party.js).
 // It reads the calc's global `items` list, so it follows the selected generation automatically.
 // All CSS is injected from here, so nothing needs adding to main.css.
+
+// =====================================================================================
+//  EDIT THIS to choose which items show in the bag.  Names must match the calc's item
+//  names exactly (e.g. "Choice Band", "Never-Melt Ice", "Fightinium Z").
+//  Leave everything empty to show every item the calc has.
+// =====================================================================================
+var ITEM_BAG_CONFIG = {
+  // 1) Only these items are shown (empty list = no restriction).
+  //    e.g. onlyShow: ["Leftovers", "Choice Band", "Choice Specs", "Life Orb", "White Herb"],
+  onlyShow: [],
+
+  // 2) These items are never shown (applied after onlyShow).
+  //    e.g. hide: ["Black Glasses", "Pink Bow", "Polkadot Bow"],
+  hide: ["Pink Bow", "Polkadot Bow", "Armor Fossil", "Dome Fossil", "Old Amber", "Root Fossil", "Claw Fossil", "Skull Fossil", function (n) { return /Memory$/.test(n); } ],
+
+  // 3) Your own sections, in your own order. If this is non-empty it REPLACES the automatic
+  //    sections (onlyShow/hide still apply on top). Leave as [] to use the automatic ones.
+  //    e.g. customSections: [
+  //      ["Choice Items", ["Choice Band", "Choice Specs", "Choice Scarf"]],
+  //      ["Berries",      ["Sitrus Berry", "Lum Berry"]],
+  //      ["Other",        ["Leftovers", "Life Orb", "White Herb"]]
+  //    ],
+  customSections: []
+};
+
 $(function () {
   // ---- icons ----------------------------------------------------------------------------
   var LOCAL_BASES = [
@@ -49,7 +74,7 @@ $(function () {
     "Black Belt", "Black Glasses", "Charcoal", "Dragon Fang", "Fairy Feather", "Hard Stone",
     "Magnet", "Metal Coat", "Miracle Seed", "Mystic Water", "Never-Melt Ice", "Poison Barb",
     "Sharp Beak", "Silk Scarf", "Silver Powder", "Soft Sand", "Spell Tag", "Twisted Spoon",
-    "Odd Incense", "Rock Incense", "Rose Incense", "Sea Incense", "Wave Incense", "Pink Bow", "Polkadot Bow"
+    "Odd Incense", "Rock Incense", "Rose Incense", "Sea Incense", "Wave Incense"
   ];
   var RESIST_BERRIES = [
     "Occa Berry", "Passho Berry", "Wacan Berry", "Rindo Berry", "Yache Berry", "Chople Berry",
@@ -71,10 +96,34 @@ $(function () {
     "Damage Reducing Berries", "Mega Stones", "Z-Crystals"];
 
   function buildSections() {
-    var list = (typeof items !== "undefined" && items) ? items.slice() : [];
+    var cfg = ITEM_BAG_CONFIG || {};
+    var all = (typeof items !== "undefined" && items) ? items.slice() : [];
+    all = all.filter(function (n) { return n && !/^\(?none\)?$/i.test(n); });
+
+    // onlyShow / hide from the config block at the top of this file
+    var list = all.filter(function (n) {
+      if (cfg.onlyShow && cfg.onlyShow.length && cfg.onlyShow.indexOf(n) < 0) return false;
+    if (cfg.hide && cfg.hide.some(function (rule) {
+      return typeof rule === "function" ? rule(n) : rule === n;
+  })) return false;
+      return true;
+    });
+
+    // Your own sections
+    if (cfg.customSections && cfg.customSections.length) {
+      return cfg.customSections.map(function (sec) {
+        var names = sec[1].filter(function (n) {
+          var ok = list.indexOf(n) >= 0;
+          if (!ok && all.indexOf(n) < 0 && window.console) console.warn("item-bag: unknown item in customSections:", n);
+          return ok;
+        });
+        return { title: sec[0], names: names };
+      }).filter(function (sec) { return sec.names.length; });
+    }
+
+    // Automatic sections
     var buckets = {};
     list.forEach(function (name) {
-      if (!name || /^\(?none\)?$/i.test(name)) return;
       for (var i = 0; i < SECTIONS.length; i++) {
         if (SECTIONS[i][1](name)) { (buckets[SECTIONS[i][0]] = buckets[SECTIONS[i][0]] || []).push(name); return; }
       }
@@ -163,8 +212,8 @@ $(function () {
     $body.empty();
     var current = $target ? ($target.val() || "") : "";
 
-    // First section starts with the "no item" tile
     var sections = buildSections();
+    if (!sections.length) sections = [{ title: "Items", names: [] }];   // still show the "none" tile
     sections.forEach(function (sec, idx) {
       var $sec = $('<div class="ib-section"></div>').appendTo($body);
       $('<h4></h4>').text(sec.title).appendTo($sec);
