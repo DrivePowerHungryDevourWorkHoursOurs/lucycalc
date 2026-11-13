@@ -103,7 +103,7 @@ $(function () {
     ["Held Item", function () { return true; }]
   ];
   // Display order (matches the RnB layout, with the extras at the end)
-  var SECTION_ORDER = ["Type Boost Damage", "Common Items", "Held Item", "Berries", "Plates", "Gems",
+  var SECTION_ORDER = ["Common Items", "Type Boost Damage", "Held Item", "Berries", "Plates", "Gems",
     "Damage Reducing Berries", "Stat Boosting Berries", "Mega Stones", "Z-Crystals"];
 
   function buildSections() {
