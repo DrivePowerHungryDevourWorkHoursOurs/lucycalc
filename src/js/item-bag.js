@@ -7,11 +7,7 @@
 // It reads the calc's global `items` list, so it follows the selected generation automatically.
 // All CSS is injected from here, so nothing needs adding to main.css.
 
-// =====================================================================================
-//  EDIT THIS to choose which items show in the bag.  Names must match the calc's item
-//  names exactly (e.g. "Choice Band", "Never-Melt Ice", "Fightinium Z").
-//  Leave everything empty to show every item the calc has.
-// =====================================================================================
+
 var ITEM_BAG_CONFIG = {
   // 1) Only these items are shown (empty list = no restriction).
   //    e.g. onlyShow: ["Leftovers", "Choice Band", "Choice Specs", "Life Orb", "White Herb"],
@@ -19,8 +15,8 @@ var ITEM_BAG_CONFIG = {
 
   // 2) These items are never shown (applied after onlyShow).
   //    e.g. hide: ["Black Glasses", "Pink Bow", "Polkadot Bow"],
-  hide: ["Pink Bow", "Polkadot Bow", function (n) { return /Fossil$/.test(n); } , function (n) { return /Memory$/.test(n); } , function (n) { return /Ball$/.test(n) && n !== "Snowball"; }, function (n) { return /Stone$/.test(n) && n !== "Hard Stone"; }, function (n) { return /^TR\d/.test(n); }, function (n) { return /Sweet$/.test(n); },
-    "Vile Vial", "Beserk Gene", "Berry", "Bitter Berry", "Burnt Berry", "Crucibellite", "Gold Berry", "Ice Berry", "Mint Berry", "Miracle Berry", "Mystery Berry", "PRZ Cure Berry", "PSN Cure Berry", "Galarica Cuff", "Galarica Wreath" 
+  hide: ["Pink Bow", "Polkadot Bow",  function (n) { return /Apple$/.test(n) }, function (n) { return /^Fossilized/.test(n); }, function (n) { return /Fossil$/.test(n); }, function (n) { return /Memory$/.test(n); }, function (n) { return /Ball$/.test(n) && n !== "Snowball"; }, function (n) { return /Stone$/.test(n) && n !== "Hard Stone"; }, function (n) { return /^TR\d/.test(n); }, function (n) { return /Sweet$/.test(n); },
+    "Vile Vial", "Berserk Gene", "Berry", "Bitter Berry", "Burnt Berry", "Crucibellite", "Gold Berry", "Ice Berry", "Mint Berry", "Miracle Berry", "Mystery Berry", "PRZ Cure Berry", "PSN Cure Berry", "Galarica Cuff", "Galarica Wreath", "Mail", "Bottle Cap", "Gold Bottle Cap", "Pretty Feather", "Prism Scale",  "Auspicious Armor", "Malicious Armor", "Metal Alloy",  function (n) { return /izer$/.test(n); },  function (n) { return /Teacup$/.test(n); },  function (n) { return /Pot$/.test(n); }, "Destiny Knot", "Rare Bone"
 ],
   // 3) Your own sections, in your own order. If this is non-empty it REPLACES the automatic
   //    sections (onlyShow/hide still apply on top). Leave as [] to use the automatic ones.
@@ -82,10 +78,17 @@ $(function () {
     "Kebia Berry", "Shuca Berry", "Coba Berry", "Payapa Berry", "Tanga Berry", "Charti Berry",
     "Kasib Berry", "Haban Berry", "Colbur Berry", "Babiri Berry", "Roseli Berry", "Chilan Berry"
   ];
+  var COMMON_ITEMS = [
+    "Choice Band", "Choice Specs", "Choice Scarf", "Life Orb", "Leftovers", "Eviolite", "Focus Sash",
+    "Assault Vest", "Rocky Helmet", "Heavy-Duty Boots", "Black Sludge", "Expert Belt", "Iron Ball"
+
+  ];
   // [title, test(name)] — the first matching section wins, so order matters.
   var SECTIONS = [
     ["Type Boost Damage", function (n) { return TYPE_BOOST.indexOf(n) >= 0; }],
     ["Damage Reducing Berries", function (n) { return RESIST_BERRIES.indexOf(n) >= 0; }],
+    ["Gems", function (n) { return / Gem$/.test(n); }],
+    ["Common Items", function (n) { return COMMON_ITEMS.indexOf(n) >= 0; }],
     ["Plates", function (n) { return / Plate$/.test(n); }],
     ["Berries", function (n) { return /Berry$/.test(n); }],
     ["Mega Stones", function (n) { return /ite( [XYZ])?$/.test(n) && n !== "Eviolite"; }],
@@ -93,7 +96,7 @@ $(function () {
     ["Held Item", function () { return true; }]
   ];
   // Display order (matches the RnB layout, with the extras at the end)
-  var SECTION_ORDER = ["Type Boost Damage", "Held Item", "Berries", "Plates",
+  var SECTION_ORDER = ["Type Boost Damage", "Common Items", "Held Item", "Berries", "Plates", "Gems",
     "Damage Reducing Berries", "Mega Stones", "Z-Crystals"];
 
   function buildSections() {
