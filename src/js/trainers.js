@@ -1145,7 +1145,57 @@ var TRAINER_SETS_SV = {
       "moves": ["Iron Head", "Leech Life", "Liquidation", "Swords Dance"]
     }
   },
+
+  "Reshiram": {
+    "Lvl 100 Res (Victory Road, Doubles)": {
+      "slot": 0, "level": 100, "ability": "Turboblaze", "item": "Assault Vest", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":4,"sa":252,"sd":0,"sp":0},
+      "moves": ["Fusion Flare", "Draco Meteor", "Earth Power", "Psychic"]
+    }
+  },
+  "Kyurem-Black": {
+    "Lvl 100 Res (Victory Road, Doubles)": {
+      "slot": 1, "level": 100, "ability": "Teravolt", "item": "Loaded Dice", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Fusion Bolt", "Icicle Spear", "Scale Shot", "Dragon Dance"]
+    }
+  },
+  "Skarmory": {
+    "Lvl 100 Res (Victory Road, Doubles)": {
+      "slot": 2, "level": 100, "ability": "Sturdy", "item": "Skarmorite", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Brave Bird", "Iron Head", "Drill Run", "Tailwind"]
+    }
+  },
+  "Urshifu-Rapid-Strike": {
+    "Lvl 100 Res (Victory Road, Doubles)": {
+      "slot": 3, "level": 100, "ability": "Unseen Fist", "item": "Focus Sash", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Surging Strikes", "Close Combat", "Aqua Jet", "U-turn"]
+    }
+  },
+  "Flutter Mane": {
+    "Lvl 100 Res (Victory Road, Doubles)": {
+      "slot": 4, "level": 100, "ability": "Protosynthesis", "item": "Life Orb", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Shadow Ball", "Moonblast", "Power Gem", "Thunderbolt"]
+    }
+  },
+  "Iron Treads": {
+    "Lvl 100 Res (Victory Road, Doubles)": {
+      "slot": 5, "level": 100, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Earthquake", "High Horsepower", "Rock Slide", "Iron Head"]
+    }
+  },
 };
+
 
 // Optional: base experience yield per species (lowercase id, no spaces/punctuation).
 // Leave empty and the EXP lines are simply hidden. Fill from your game's data.
