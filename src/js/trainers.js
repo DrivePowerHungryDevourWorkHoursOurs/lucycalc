@@ -1089,6 +1089,54 @@ var TRAINER_SETS_SV = {
       "moves": ["Waterfall", "Earthquake", "Ice Punch", "Superpower"]
     }
   },
+   "Iron Hands": {
+    "Lvl 100 Mr Tah (Victory Road)": {
+      "slot": 0, "level": 100, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Brave",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
+      "evs": {"hp":248,"at":252,"df":0,"sa":0,"sd":8,"sp":0},
+      "moves": ["Drain Punch", "Wild Charge", "Ice Punch", "Fake Out"]
+    }
+  },
+  "Bronzong": {
+    "Lvl 100 Mr Tah (Victory Road)": {
+      "slot": 1, "level": 100, "ability": "Drizzle", "item": "Damp Rock", "nature": "Relaxed",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
+      "evs": {"hp":252,"at":0,"df":252,"sa":0,"sd":4,"sp":0},
+      "moves": ["Gyro Ball", "Weather Ball", "Trick Room", "Ally Switch"]
+    }
+  },
+  "Vikavolt": {
+    "Lvl 100 Mr Tah (Victory Road)": {
+      "slot": 2, "level": 100, "ability": "Lightning Rod", "item": "Iron Ball", "nature": "Quiet",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
+      "moves": ["Bug Buzz", "Thunder", "Guillotine", "Energy Ball"]
+    }
+  },
+  "Wailord": {
+    "Lvl 100 Mr Tah (Victory Road)": {
+      "slot": 3, "level": 100, "ability": "Berserk", "item": "Sitrus Berry", "nature": "Quiet",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":0},
+      "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
+      "moves": ["Water Spout", "Weather Ball", "Ice Beam", "Soak"]
+    }
+  },
+  "Porygon2": {
+    "Lvl 100 Mr Tah (Victory Road)": {
+      "slot": 4, "level": 100, "ability": "Download", "item": "Eviolite", "nature": "Bold",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":0,"df":188,"sa":0,"sd":68,"sp":0},
+      "moves": ["Tri Attack", "Thunder", "Trick Room", "Recover"]
+    }
+  },
+  "Golisopod-Mega": {
+    "Lvl 100 Mr Tah (Victory Road)": {
+      "slot": 5, "level": 100, "ability": "Tough Claws", "item": "Golisopite", "nature": "Brave",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
+      "evs": {"hp":252,"at":252,"df":0,"sa":0,"sd":4,"sp":0},
+      "moves": ["Iron Head", "Leech Life", "Liquidation", "Swords Dance"]
+    }
+  },
 };
 
 // Optional: base experience yield per species (lowercase id, no spaces/punctuation).
