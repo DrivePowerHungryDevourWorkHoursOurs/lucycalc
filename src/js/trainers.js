@@ -1090,7 +1090,7 @@ var TRAINER_SETS_SV = {
     }
   },
    "Iron Hands": {
-    "Lvl 100 Mr Tah (Victory Road)": {
+    "Lvl 100 Mr Tah (Victory Road, Doubles)": {
       "slot": 0, "level": 100, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Brave",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
       "evs": {"hp":248,"at":252,"df":0,"sa":0,"sd":8,"sp":0},
@@ -1098,7 +1098,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Bronzong": {
-    "Lvl 100 Mr Tah (Victory Road)": {
+    "Lvl 100 Mr Tah (Victory Road, Doubles)": {
       "slot": 1, "level": 100, "ability": "Drizzle", "item": "Damp Rock", "nature": "Relaxed",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
       "evs": {"hp":252,"at":0,"df":252,"sa":0,"sd":4,"sp":0},
@@ -1106,7 +1106,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Vikavolt": {
-    "Lvl 100 Mr Tah (Victory Road)": {
+    "Lvl 100 Mr Tah (Victory Road, Doubles)": {
       "slot": 2, "level": 100, "ability": "Lightning Rod", "item": "Iron Ball", "nature": "Quiet",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
@@ -1114,7 +1114,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Wailord": {
-    "Lvl 100 Mr Tah (Victory Road)": {
+    "Lvl 100 Mr Tah (Victory Road, Doubles)": {
       "slot": 3, "level": 100, "ability": "Berserk", "item": "Sitrus Berry", "nature": "Quiet",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":0},
       "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
@@ -1122,7 +1122,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Porygon2": {
-    "Lvl 100 Mr Tah (Victory Road)": {
+    "Lvl 100 Mr Tah (Victory Road, Doubles)": {
       "slot": 4, "level": 100, "ability": "Download", "item": "Eviolite", "nature": "Bold",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":252,"at":0,"df":188,"sa":0,"sd":68,"sp":0},
@@ -1130,7 +1130,7 @@ var TRAINER_SETS_SV = {
     }
   },
     "Golisopod": {
-    "Lvl 100 Mr Tah (Victory Road)": {
+    "Lvl 100 Mr Tah (Victory Road, Doubles)": {
       "slot": 5, "level": 100, "ability": "Emergency Exit", "item": "Golisopite", "nature": "Brave",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
       "evs": {"hp":252,"at":252,"df":0,"sa":0,"sd":4,"sp":0},
@@ -1138,7 +1138,7 @@ var TRAINER_SETS_SV = {
     }
   },
   "Golisopod-Mega": {
-    "Lvl 100 Mr Tah (Victory Road)": {
+    "Lvl 100 Mr Tah (Victory Road, Doubles)": {
       "slot": 6, "level": 100, "ability": "Tough Claws", "item": "Golisopite", "nature": "Brave",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
       "evs": {"hp":252,"at":252,"df":0,"sa":0,"sd":4,"sp":0},
