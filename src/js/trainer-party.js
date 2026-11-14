@@ -539,31 +539,31 @@ $(function () {
       catch (err) { console.error("trainer-party: the calc threw while loading", $selector.val(), err); }
       $selector.data("select2-change-triggered", false);
     }
-    // The calc crashes on a Box set with no ability (Forme change handler), so make sure each has one
+    // The calc's loader throws on a Box set with no `moves` array (selectMovesFromRandomOptions reads .length),
+    // and its Forme handler throws on one with no ability. Make sure every Box set has both.
     function ensureBoxAbility(species) {
       var dex = (typeof pokedex !== "undefined") ? pokedex[species] : null;
       var fallback = dex && dex.abilities && dex.abilities[0];
-      if (!fallback) return;
+      function heal(s) {
+        var changed = false;
+        if (s && !Array.isArray(s.moves)) { s.moves = []; changed = true; }
+        if (s && !s.ability && fallback) { s.ability = fallback; changed = true; }
+        return changed;
+      }
       var fixed = false;
-      allDexes().forEach(function (d) {
-        var s = d && d[species] && d[species][BOX_NAME];
-        if (s && !s.ability) { s.ability = fallback; fixed = true; }
-      });
+      allDexes().forEach(function (d) { if (d && d[species] && heal(d[species][BOX_NAME])) fixed = true; });
       if (!fixed) return;
       try {
         var saved = JSON.parse(localStorage.customsets || "{}");
-        if (saved[species] && saved[species][BOX_NAME] && !saved[species][BOX_NAME].ability) {
-          saved[species][BOX_NAME].ability = fallback;
-          localStorage.customsets = JSON.stringify(saved);
-        }
+        if (saved[species] && heal(saved[species][BOX_NAME])) localStorage.customsets = JSON.stringify(saved);
       } catch (e) {}
     }
 
     // Sometimes the calc ignores the change and the previous Pokemon stays on screen under the new label.
     // Check that the fields actually hold this set's first move; if not, fire the change again.
     function verifyLoaded(entry, full, attempt) {
-      var want = entry.set && entry.set.moves && entry.set.moves[0];
-      if (!want || attempt >= 4) return;
+      if (!entry.set || attempt >= 4) return;
+      var want = (entry.set.moves && entry.set.moves[0]) || "(No Move)";
       setTimeout(function () {
         if ($selector.val() !== full) return; // user moved on
         var got = ($box.find(".move-selector").first().val() || "").trim();
@@ -850,7 +850,7 @@ $(function () {
         var m = ($(this).val() || "").trim();
         if (m && !/^\(no move\)$/i.test(m)) moves.push(m);
       });
-      if (moves.length) set.moves = moves;
+      set.moves = moves; // may be []: the calc's loader crashes on a set with no moves array at all
       return set;
     }
     // Only genuine user input may write to a Box set. Programmatic field changes (the calc filling in
