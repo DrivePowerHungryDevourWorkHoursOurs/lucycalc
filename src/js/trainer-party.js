@@ -311,7 +311,7 @@ $(function () {
   // ---- sprites ----
   // Regional forms are hyphenated ("geodude-alola"), base species are not ("hooh"), so try both,
   // in the pixel set first and the dex set (covers newer forms) second.
-  function spriteUrls(species) {
+  function showdownUrls(species) {
     var name = String(species);
     var plain = toID(name);
     var ids = [];
@@ -329,21 +329,89 @@ $(function () {
     });
     return urls;
   }
+
+  // ---- PokeAPI sprites (github.com/PokeAPI/sprites) ----
+  // Files there are named by Pokédex / form number, not by name, so a name -> number table is
+  // fetched from pokeapi.co once (and cached in localStorage). Folders can be changed here:
+  var PA_ROOT = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
+  var PA_FRONT = [PA_ROOT + "versions/generation-v/black-white/"];                // gen 5 front sprites
+  var PA_BOX_PARTY = [PA_ROOT + "versions/generation-viii/icons/"];               // Box & Party icons
+  var PA_CHAMPIONS = [PA_ROOT + "versions/generation-ix/champions/",              // Champions (community models)
+                      PA_ROOT + "versions/generation-ix/champions/icons/"];
+  var PA_IDS_KEY = "tp-pokeapi-ids-v1";
+  var paIds = {}, paReady = false, paRetry = [];
+  function paFinish(map) {
+    paIds = map;
+    paReady = true;
+    try { if (Object.keys(map).length > 1000) localStorage.setItem(PA_IDS_KEY, JSON.stringify(map)); } catch (e) {}
+    var q = paRetry; paRetry = [];
+    q.forEach(function (f) { f(); }); // sprites that failed before the table arrived try again
+  }
+  (function loadPokeapiIds() {
+    try {
+      var cached = JSON.parse(localStorage.getItem(PA_IDS_KEY) || "null");
+      if (cached && Object.keys(cached).length > 1000) { paIds = cached; paReady = true; return; }
+    } catch (e) {}
+    var species = null, forms = null, pending = 2;
+    function idOf(url) { var m = /\/(\d+)\/?$/.exec(url); return m ? +m[1] : null; }
+    function collect(data, into) {
+      ((data && data.results) || []).forEach(function (r) { var id = idOf(r.url); if (id) into[r.name] = id; });
+      return into;
+    }
+    function done() {
+      if (--pending) return;
+      var map = {};
+      Object.keys(species || {}).forEach(function (k) { map[k] = species[k]; }); // base species
+      Object.keys(forms || {}).forEach(function (k) { map[k] = forms[k]; });     // forms win (charizard-mega-x ...)
+      paFinish(map);
+    }
+    $.getJSON("https://pokeapi.co/api/v2/pokemon-species?limit=3000").done(function (d) { species = collect(d, {}); }).always(done);
+    $.getJSON("https://pokeapi.co/api/v2/pokemon?limit=3000").done(function (d) { forms = collect(d, {}); }).always(done);
+  })();
+  function pokeapiId(species) {
+    var name = String(species);
+    var slug = name.toLowerCase().replace(/[.'’:]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    var cands = [slug, toID(name)];
+    for (var i = 0; i < cands.length; i++) if (paIds[cands[i]]) return paIds[cands[i]];
+    return null;
+  }
+  function pokeapiUrls(species, bases) {
+    var id = pokeapiId(species);
+    return id ? bases.map(function (b) { return b + id + ".png"; }) : [];
+  }
+
+  // Large sprite: Showdown first, then PokeAPI gen 5 front. Names ending in "megaz" skip Showdown.
+  function spriteUrls(species) {
+    var pa = pokeapiUrls(species, PA_FRONT);
+    return /megaz$/.test(toID(species)) ? pa : showdownUrls(species).concat(pa);
+  }
   // Party cards use the small sprites from github.com/May8th1995/sprites (flat folder,
-  // files named exactly like the species, e.g. "Geodude-Alola.png"), then fall back to Showdown.
+  // files named exactly like the species, e.g. "Geodude-Alola.png"), then PokeAPI Box & Party icons,
+  // then PokeAPI Champions icons, then Showdown.
   var MINISPRITE_BASE = "https://raw.githubusercontent.com/May8th1995/sprites/master/";
   function partySpriteUrls(species) {
-    return [MINISPRITE_BASE + encodeURIComponent(species) + ".png"].concat(spriteUrls(species));
+    return [MINISPRITE_BASE + encodeURIComponent(species) + ".png"]
+      .concat(pokeapiUrls(species, PA_BOX_PARTY.concat(PA_CHAMPIONS)), showdownUrls(species));
   }
+  // `urls` is an array, or a function returning one (re-evaluated if the PokeAPI table loads late)
+  var spriteSeq = 0;
   function loadSprite($img, urls) {
-    var i = 0;
-    $img.off("error").css("visibility", "visible");
+    var getUrls = typeof urls === "function" ? urls : function () { return urls; };
+    var list = getUrls(), i = 0, token = ++spriteSeq;
+    $img.data("tp-token", token).off("error").css("visibility", "visible");
+    function fail() {
+      $img.css("visibility", "hidden");
+      if (!paReady && typeof urls === "function") {
+        paRetry.push(function () { if ($img.data("tp-token") === token) loadSprite($img, urls); });
+      }
+    }
     $img.on("error", function () {
       i++;
-      if (i < urls.length) $img.attr("src", urls[i]);
-      else $img.css("visibility", "hidden");
+      if (i < list.length) $img.attr("src", list[i]);
+      else fail();
     });
-    $img.attr("src", urls[0]);
+    if (!list.length) { fail(); return; }
+    $img.attr("src", list[0]);
   }
 
   // Shrink a name's font until its longest unbreakable chunk fits inside the card.
@@ -471,14 +539,14 @@ $(function () {
     function updateSprite(sel) {
       var sp = currentSpecies(sel);
       if (!sp) { lastSpecies = null; $sprite.css("visibility", "hidden"); return; }
-      if (sp !== lastSpecies) { lastSpecies = sp; loadSprite($sprite, spriteUrls(sp)); }
+      if (sp !== lastSpecies) { lastSpecies = sp; loadSprite($sprite, function () { return spriteUrls(sp); }); }
     }
 
     function buildCard(e, exp, active, showItem) {
       var $card = $('<div class="tp-card"></div>')
         .toggleClass("tp-active", active)
         .attr("title", e.species + " (" + e.setName + ")" + ((e.set.moves || []).length ? "\n" + e.set.moves.join(", ") : ""));
-      loadSprite($('<img class="tp-icon" alt="">').appendTo($card), partySpriteUrls(e.species));
+      loadSprite($('<img class="tp-icon" alt="">').appendTo($card), function () { return partySpriteUrls(e.species); });
       $('<div class="tp-name"></div>').text(e.species)
         .css({ wordBreak: "normal", overflowWrap: "normal" })
         .appendTo($card);
