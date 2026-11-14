@@ -806,18 +806,30 @@ $(function () {
       if (moves.length) set.moves = moves;
       return set;
     }
-    var syncBase = null, syncWait = 0, syncSel = null, formePending = null;
-    function syncBoxSet() {
+    var syncBase = null, syncSel = null, formePending = null, syncStable = 0, syncLastFp = null;
+    function resetSync() { syncBase = null; syncSel = null; formePending = null; syncStable = 0; syncLastFp = null; }
+    function syncBoxSet(fromTimer) {
       var sel = parseSelected();
-      if (!sel || sel.setName !== BOX_NAME) { syncBase = null; syncSel = null; formePending = null; return; }
+      if (!sel || sel.setName !== BOX_NAME) { resetSync(); return; }
       var selVal = $selector.val();
-      if (selVal !== syncSel) { syncSel = selVal; syncBase = null; syncWait = 2; formePending = null; return; } // let the calc finish filling in the fields
+      // A different set was selected: start a new "settling" phase
+      if (selVal !== syncSel) { resetSync(); syncSel = selVal; return; }
       var stored = null;
       readBox().forEach(function (e) { if (e.species === sel.species) stored = e.set; });
-      if (!stored) return;
+      if (!stored) { syncBase = null; syncStable = 0; syncLastFp = null; return; }
       var updated = readEdits(stored);
       var fp = JSON.stringify(updated);
-      if (syncWait > 0) { syncWait--; syncBase = fp; return; }
+
+      // Settling: the calc fills the fields in several steps (and fires change events while doing it),
+      // so reading them too early mixes the previous Pokemon's moves/EVs/etc. into this one's saved set.
+      // Only treat the fields as loaded once they have stopped changing across two timer ticks;
+      // event-driven calls never count towards this.
+      if (syncBase === null) {
+        if (!fromTimer) return;
+        if (fp === syncLastFp) { if (++syncStable >= 2) syncBase = fp; }
+        else { syncLastFp = fp; syncStable = 0; }
+        return;
+      }
 
       // The Forme dropdown was changed: the Box Pokémon becomes that form
       var cur = currentSpecies(sel);
@@ -840,7 +852,8 @@ $(function () {
     }
 
     var lastKey = null, lastBoxKey = null;
-    function check() {
+    function check(fromTimer) {
+      fromTimer = fromTimer === true; // event handlers pass an event object, which must not count
       var sel = parseSelected();
       var key = ($selector.val() || "") + "|" + (currentSpecies(sel) || "");
       if (key !== lastKey) { lastKey = key; saveLastSet(sel); render(); }
@@ -848,13 +861,13 @@ $(function () {
         (boxSide === sideId ? JSON.stringify(readBox()) : "");
       if (bKey !== lastBoxKey) { lastBoxKey = bKey; renderBox(); }
       updateItem();
-      syncBoxSet();
+      syncBoxSet(fromTimer);
     }
     boxRefreshers.push(function () { lastBoxKey = null; check(); });
     $selector.on("change", check);
     $box.on("change", "select.forme", check);
     $box.on("change", "select.item", check);
-    setInterval(check, 300); // fallback if the dropdown doesn't fire change events
+    setInterval(function () { check(true); }, 300); // fallback if the dropdown doesn't fire change events; also drives the settle phase in syncBoxSet
 
     // Restore this side's last trainer/Box set (before the first check(), so a default set can't overwrite it)
     var savedTrainer = null;
