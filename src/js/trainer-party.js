@@ -371,10 +371,21 @@ $(function () {
   function pokeapiId(species) {
     var name = String(species);
     var slug = name.toLowerCase().replace(/[.'’:]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-    var cands = [slug, toID(name)];
+    var cands = [slug, toID(name),
+      slug.replace(/-f(-|$)/, "-female$1"), slug.replace(/-m(-|$)/, "-male$1")]; // Meowstic-F-Mega -> meowstic-female-mega
     for (var i = 0; i < cands.length; i++) if (paIds[cands[i]]) return paIds[cands[i]];
     return null;
   }
+  // Newer Mega forms the Showdown sprite folders don't have: these try PokeAPI first.
+  var PA_FIRST = {};
+  ["clefable", "victreebel", "starmie", "dragonite", "meganium", "feraligatr", "skarmory", "chimecho",
+   "froslass", "emboar", "excadrill", "chandelure", "golurk", "chesnaught", "delphox", "greninja",
+   "floette", "floetteeternal", "meowstic", "meowsticf", "meowsticm", "drampa", "hawlucha",
+   "crabominable", "golisopod", "baxcalibur", "scovillain", "glimmora"].forEach(function (b) {
+    PA_FIRST[b + "mega"] = true;
+  });
+  ["absol", "garchomp", "lucario"].forEach(function (b) { PA_FIRST[b + "megaz"] = true; });
+  function paFirst(species) { var id = toID(species); return !!PA_FIRST[id] || /megaz$/.test(id); }
   function pokeapiUrls(species, bases) {
     var id = pokeapiId(species);
     return id ? bases.map(function (b) { return b + id + ".png"; }) : [];
@@ -383,15 +394,17 @@ $(function () {
   // Large sprite: Showdown first, then PokeAPI gen 5 front. Names ending in "megaz" skip Showdown.
   function spriteUrls(species) {
     var pa = pokeapiUrls(species, PA_FRONT);
-    return /megaz$/.test(toID(species)) ? pa : showdownUrls(species).concat(pa);
+    if (/megaz$/.test(toID(species))) return pa;
+    return paFirst(species) ? pa.concat(showdownUrls(species)) : showdownUrls(species).concat(pa);
   }
   // Party cards use the small sprites from github.com/May8th1995/sprites (flat folder,
   // files named exactly like the species, e.g. "Geodude-Alola.png"), then PokeAPI Box & Party icons,
   // then PokeAPI Champions icons, then Showdown.
   var MINISPRITE_BASE = "https://raw.githubusercontent.com/May8th1995/sprites/master/";
   function partySpriteUrls(species) {
-    return [MINISPRITE_BASE + encodeURIComponent(species) + ".png"]
-      .concat(pokeapiUrls(species, PA_BOX_PARTY.concat(PA_CHAMPIONS)), showdownUrls(species));
+    var may = [MINISPRITE_BASE + encodeURIComponent(species) + ".png"];
+    var pa = pokeapiUrls(species, PA_BOX_PARTY.concat(PA_CHAMPIONS));
+    return (paFirst(species) ? pa.concat(may) : may.concat(pa)).concat(showdownUrls(species));
   }
   // `urls` is an array, or a function returning one (re-evaluated if the PokeAPI table loads late)
   var spriteSeq = 0;
