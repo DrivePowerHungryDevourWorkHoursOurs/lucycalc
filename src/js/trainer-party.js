@@ -167,6 +167,7 @@ $(function () {
   // moveset_import.js copies every imported set into all of these, so edits/removals must hit all of them
   function allDexes() {
     var d = [];
+    try { if (typeof SETDEX_CUSTOM !== "undefined") d.push(SETDEX_CUSTOM); } catch (e) {}
     try { if (typeof SETDEX_CHAMPIONS !== "undefined") d.push(SETDEX_CHAMPIONS); } catch (e) {}
     try { if (typeof SETDEX_RBY !== "undefined") d.push(SETDEX_RBY); } catch (e) {}
     try { if (typeof SETDEX_GSC !== "undefined") d.push(SETDEX_GSC); } catch (e) {}
@@ -510,6 +511,7 @@ $(function () {
     }
 
     function loadIntoSide(entry) {
+      userTs = 0;
       var full = entry.species + " (" + entry.setName + ")";
       var hasSelect2 = !!$selector.data("select2");
       if (hasSelect2) $selector.select2("data", { id: full, text: full });
@@ -806,6 +808,22 @@ $(function () {
       if (moves.length) set.moves = moves;
       return set;
     }
+    // Only genuine user input may write to a Box set. Programmatic field changes (the calc filling in
+    // a freshly loaded set, loading a card, a stale Forme dropdown...) are never allowed to be saved,
+    // which is what let one Pokemon's data leak into another's Box set.
+    var userTs = 0, USER_WINDOW = 2000;
+    function isUserTarget(t) {
+      var $t = $(t);
+      if ($t.closest(".trainer-party").length) return false; // cards / nav buttons only load sets
+      return $t.closest($box).length > 0 || $t.closest(".select2-drop, .select2-drop-mask").length > 0;
+    }
+    ["pointerdown", "mousedown", "touchstart", "keydown", "input", "change", "wheel"].forEach(function (n) {
+      document.addEventListener(n, function (ev) {
+        if (ev.isTrusted && isUserTarget(ev.target)) userTs = Date.now();
+      }, true);
+    });
+    function recentUserEdit() { return Date.now() - userTs < USER_WINDOW; }
+
     var syncBase = null, syncSel = null, formePending = null, syncStable = 0, syncLastFp = null;
     function resetSync() { syncBase = null; syncSel = null; formePending = null; syncStable = 0; syncLastFp = null; }
     function syncBoxSet(fromTimer) {
@@ -813,7 +831,7 @@ $(function () {
       if (!sel || sel.setName !== BOX_NAME) { resetSync(); return; }
       var selVal = $selector.val();
       // A different set was selected: start a new "settling" phase
-      if (selVal !== syncSel) { resetSync(); syncSel = selVal; return; }
+      if (selVal !== syncSel) { resetSync(); syncSel = selVal; userTs = 0; return; }
       var stored = null;
       readBox().forEach(function (e) { if (e.species === sel.species) stored = e.set; });
       if (!stored) { syncBase = null; syncStable = 0; syncLastFp = null; return; }
@@ -825,6 +843,7 @@ $(function () {
       // Only treat the fields as loaded once they have stopped changing across two timer ticks;
       // event-driven calls never count towards this.
       if (syncBase === null) {
+        userTs = 0; // nothing typed while a set is still loading counts as an edit
         if (!fromTimer) return;
         if (fp === syncLastFp) { if (++syncStable >= 2) syncBase = fp; }
         else { syncLastFp = fp; syncStable = 0; }
@@ -834,6 +853,7 @@ $(function () {
       // The Forme dropdown was changed: the Box Pokémon becomes that form
       var cur = currentSpecies(sel);
       if (cur && cur !== sel.species) {
+        if (!recentUserEdit()) { formePending = null; return; } // not caused by the user: ignore
         if (formePending !== cur) { formePending = cur; return; } // wait one tick so the calc finishes updating ability etc.
         formePending = null;
         renameBoxEntry(sel.species, cur, updated);
@@ -846,6 +866,7 @@ $(function () {
 
       if (fp !== syncBase) {
         syncBase = fp;
+        if (!recentUserEdit()) return; // fields changed without the user touching them: never save
         saveBoxSet(sel.species, updated);
         console.log("trainer-party: saved Box set for", sel.species, updated);
       }
