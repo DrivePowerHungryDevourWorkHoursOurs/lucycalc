@@ -465,6 +465,9 @@ $(function () {
       if (!species) return;
       var set = readEdits({});
       set.isCustomSet = true;
+      if (!set.ability && typeof pokedex !== "undefined" && pokedex[species] && pokedex[species].abilities) {
+        set.ability = pokedex[species].abilities[0]; // the calc's Forme handler throws on a set without one
+      }
       var existed = readBox().some(function (e) { return e.species === species; });
       var customsets = {};
       try { customsets = JSON.parse(localStorage.customsets || "{}"); } catch (e) {}
@@ -511,21 +514,63 @@ $(function () {
     }
 
     function loadIntoSide(entry) {
-      userTs = 0;
+      userTs = 0; formeTs = 0;
       var full = entry.species + " (" + entry.setName + ")";
+      if (entry.setName === BOX_NAME) ensureBoxAbility(entry.species);
       var hasSelect2 = !!$selector.data("select2");
       if (hasSelect2) $selector.select2("data", { id: full, text: full });
       $selector.val(full);
       // Select2 re-runs the calc's default-selection function on every change event, which
       // resets the label to the default set. Its own flag tells it to skip that.
-      $selector.data("select2-change-triggered", true);
-      $selector.trigger("change");
-      $selector.data("select2-change-triggered", false);
+      fireSetChange();
       if (hasSelect2) {
         setTimeout(function () {
           $selector.select2("container").find(".select2-chosen").text(full);
         }, 0);
       }
+      verifyLoaded(entry, full, 0);
+    }
+
+    // The calc's set-change handler throws part-way if anything it reads is missing (e.g. a Forme species whose
+    // set has no ability). An uncaught throw aborted the rest of this script and left the old Pokemon on screen.
+    function fireSetChange() {
+      $selector.data("select2-change-triggered", true);
+      try { $selector.trigger("change"); }
+      catch (err) { console.error("trainer-party: the calc threw while loading", $selector.val(), err); }
+      $selector.data("select2-change-triggered", false);
+    }
+    // The calc crashes on a Box set with no ability (Forme change handler), so make sure each has one
+    function ensureBoxAbility(species) {
+      var dex = (typeof pokedex !== "undefined") ? pokedex[species] : null;
+      var fallback = dex && dex.abilities && dex.abilities[0];
+      if (!fallback) return;
+      var fixed = false;
+      allDexes().forEach(function (d) {
+        var s = d && d[species] && d[species][BOX_NAME];
+        if (s && !s.ability) { s.ability = fallback; fixed = true; }
+      });
+      if (!fixed) return;
+      try {
+        var saved = JSON.parse(localStorage.customsets || "{}");
+        if (saved[species] && saved[species][BOX_NAME] && !saved[species][BOX_NAME].ability) {
+          saved[species][BOX_NAME].ability = fallback;
+          localStorage.customsets = JSON.stringify(saved);
+        }
+      } catch (e) {}
+    }
+
+    // Sometimes the calc ignores the change and the previous Pokemon stays on screen under the new label.
+    // Check that the fields actually hold this set's first move; if not, fire the change again.
+    function verifyLoaded(entry, full, attempt) {
+      var want = entry.set && entry.set.moves && entry.set.moves[0];
+      if (!want || attempt >= 4) return;
+      setTimeout(function () {
+        if ($selector.val() !== full) return; // user moved on
+        var got = ($box.find(".move-selector").first().val() || "").trim();
+        if (got === want) return;
+        fireSetChange();
+        verifyLoaded(entry, full, attempt + 1);
+      }, 150);
     }
 
     // Put this side back on the calc's default set for it (getFirstValidSetOption / DEFAULT_SET_IDS
@@ -823,6 +868,11 @@ $(function () {
       }, true);
     });
     function recentUserEdit() { return Date.now() - userTs < USER_WINDOW; }
+    // A form change must come from the user actually using the Forme dropdown (a real DOM event),
+    // never from a stale dropdown left over when the calc hasn't swapped the set in yet.
+    var formeTs = 0;
+    $box.on("change", "select.forme", function (ev) { if (ev.originalEvent && ev.originalEvent.isTrusted) formeTs = Date.now(); });
+    function recentFormeEdit() { return Date.now() - formeTs < USER_WINDOW; }
 
     var syncBase = null, syncSel = null, formePending = null, syncStable = 0, syncLastFp = null;
     function resetSync() { syncBase = null; syncSel = null; formePending = null; syncStable = 0; syncLastFp = null; }
@@ -853,7 +903,7 @@ $(function () {
       // The Forme dropdown was changed: the Box Pokémon becomes that form
       var cur = currentSpecies(sel);
       if (cur && cur !== sel.species) {
-        if (!recentUserEdit()) { formePending = null; return; } // not caused by the user: ignore
+        if (!recentFormeEdit()) { formePending = null; return; } // not a user change of the Forme dropdown: ignore
         if (formePending !== cur) { formePending = cur; return; } // wait one tick so the calc finishes updating ability etc.
         formePending = null;
         renameBoxEntry(sel.species, cur, updated);
