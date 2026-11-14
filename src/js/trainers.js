@@ -1129,9 +1129,17 @@ var TRAINER_SETS_SV = {
       "moves": ["Tri Attack", "Thunder", "Trick Room", "Recover"]
     }
   },
+    "Golisopod": {
+    "Lvl 100 Mr Tah (Victory Road)": {
+      "slot": 5, "level": 100, "ability": "Emergency Exit", "item": "Golisopite", "nature": "Brave",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
+      "evs": {"hp":252,"at":252,"df":0,"sa":0,"sd":4,"sp":0},
+      "moves": ["Iron Head", "Leech Life", "Liquidation", "Swords Dance"]
+    }
+  },
   "Golisopod-Mega": {
     "Lvl 100 Mr Tah (Victory Road)": {
-      "slot": 5, "level": 100, "ability": "Tough Claws", "item": "Golisopite", "nature": "Brave",
+      "slot": 6, "level": 100, "ability": "Tough Claws", "item": "Golisopite", "nature": "Brave",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
       "evs": {"hp":252,"at":252,"df":0,"sa":0,"sd":4,"sp":0},
       "moves": ["Iron Head", "Leech Life", "Liquidation", "Swords Dance"]
