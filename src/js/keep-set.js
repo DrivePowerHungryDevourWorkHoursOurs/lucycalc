@@ -102,9 +102,10 @@ $(function () {
 
 	// ---- UI ---------------------------------------------------------------------------------
 	$("<style>").text([
-		".keep-set-wrap{display:block;margin:4px 0 4px 2px;font-size:12px;white-space:nowrap}",
-		".keep-set-wrap input{vertical-align:middle;margin:0 3px 0 0}",
-		".keep-set-wrap label{cursor:pointer}"
+		// main.css forces ".poke-info span" to 2.5em wide and ".poke-info label" to 6em wide, so override both.
+		".poke-info .keep-set-wrap{display:block;width:auto;margin:4px 0 4px 2px;font-size:12px;white-space:nowrap}",
+		".poke-info .keep-set-wrap input{vertical-align:middle;margin:0 3px 0 0}",
+		".poke-info .keep-set-wrap label{display:inline;width:auto;cursor:pointer}"
 	].join("\n")).appendTo("head");
 
 	$(".poke-info").each(function () {
@@ -114,15 +115,25 @@ $(function () {
 		if (!side || !$sel.length || $info.find(".keep-set-wrap").length) return;
 
 		var id = "keepSet-" + side;
-		var $wrap = $('<span class="keep-set-wrap" title="When on, picking a different Pok\u00e9mon keeps this set\u2019s level, EVs, IVs, nature, item and moves (useful for evolving)"></span>');
+		var $wrap = $('<div class="keep-set-wrap" title="When on, picking a different Pok\u00e9mon keeps this set\u2019s level, EVs, IVs, nature, item and moves"></div>');
 		var $box = $('<input type="checkbox">').attr("id", id).prop("checked", store(side)).appendTo($wrap);
 		$("<label></label>").attr("for", id).text("Keep set when swapping Pok\u00e9mon").appendTo($wrap);
 		$box.on("change", function () { store(side, this.checked); });
 
-		// Own line directly under the set dropdown; pushes "Only show imported sets" / "Clear Imported Sets" down.
-		var $imp = $sel.next("span");   // the imported-sets block, when present
-		if ($imp.length) $imp.before($wrap);
-		else $sel.after($wrap);
+		// Layout: [Only show imported sets] / [Keep set toggle] / [Clear Imported Sets].
+		// The imported-sets block is hidden until sets are imported, so the toggle sits just under the
+		// dropdown while it is hidden and moves inside the block (above its button) once it shows.
+		var $imp = $sel.next("span");
+		function place() {
+			var showInside = $imp.length && $imp.css("display") !== "none" && $imp.children("button").length;
+			var wantParent = showInside ? $imp[0] : $sel.parent()[0];
+			if ($wrap[0].parentNode === wantParent) return;
+			if (showInside) $imp.children("button").first().before($wrap);
+			else if ($imp.length) $imp.before($wrap);
+			else $sel.after($wrap);
+		}
+		place();
+		setInterval(place, 400);
 	});
 
 	// ---- behaviour ------------------------------------------------------------------------------
