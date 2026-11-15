@@ -8,7 +8,7 @@ var RC_ABILITY_OVERRIDES = {"Bulbasaur":{"1":"Poison Touch"},"Ivysaur":{"1":"Poi
 // Live sync with https://dex.pbblegacy.com/
 // On page load the calc loads the dex's data files and applies them directly,
 // so the calc follows dex updates automatically (Pokemon stats/types/abilities
-// from pokedex.js, move data from moves.js). If the dex can't be reached
+// from pokedex.js, move data from movedex.js). If the dex can't be reached
 // (offline, blocked, slow) the calc uses the RC_*_OVERRIDES tables above for
 // Pokemon and its own built-in moves.js data for moves.
 // scripts/sync_rc.js can refresh the Pokemon fallback tables from the dex.
@@ -68,7 +68,12 @@ var RC_MOVES_LIVE = null;    // dex Movedex (BattleMovedex) once loaded
 
 	function nonEmpty(o) { return o && Object.keys(o).length ? o : null; }
 	load('pokedex.js', function (ex) { RC_LIVE = nonEmpty(ex.BattlePokedex); });
-	load('moves.js', function (ex) { RC_MOVES_LIVE = nonEmpty(ex.BattleMovedex || ex.BattleMoves); });
+	load('movedex.js', function (ex) {
+		// Expected export is BattleMovedex; fall back to whatever the file exports.
+		var data = ex.BattleMovedex || ex.BattleMoves;
+		if (!data) { var ks = Object.keys(ex); if (ks.length === 1) data = ex[ks[0]]; }
+		RC_MOVES_LIVE = nonEmpty(data);
+	});
 })();
 
 function applyRCLive(speciesTable) {
