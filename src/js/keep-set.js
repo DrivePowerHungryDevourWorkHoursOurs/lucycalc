@@ -103,8 +103,9 @@ $(function () {
 	// ---- UI ---------------------------------------------------------------------------------
 	$("<style>").text([
 		// main.css forces ".poke-info span" to 2.5em wide and ".poke-info label" to 6em wide, so override both.
-		".poke-info .keep-set-wrap{display:block;width:auto;margin:4px 0 4px 2px;font-size:12px;white-space:nowrap}",
-		".poke-info .keep-set-wrap input{vertical-align:middle;margin:0 3px 0 0}",
+		".poke-info .keep-set-wrap{display:block;width:auto;margin:0;white-space:nowrap}",
+		// same box margins and spacing as the "Only show imported sets" checkbox, so the two line up
+		".poke-info .keep-set-wrap input{margin:3px 3px 3px 4px}",
 		".poke-info .keep-set-wrap label{display:inline;width:auto;cursor:pointer}"
 	].join("\n")).appendTo("head");
 
@@ -117,6 +118,7 @@ $(function () {
 		var id = "keepSet-" + side;
 		var $wrap = $('<div class="keep-set-wrap" title="When on, picking a different Pok\u00e9mon keeps this set\u2019s level, EVs, IVs, nature, item and moves"></div>');
 		var $box = $('<input type="checkbox">').attr("id", id).prop("checked", store(side)).appendTo($wrap);
+		$wrap.append(" ");   // same gap after the checkbox as the imported-sets line
 		$("<label></label>").attr("for", id).text("Keep set when swapping Pok\u00e9mon").appendTo($wrap);
 		$box.on("change", function () { store(side, this.checked); });
 
