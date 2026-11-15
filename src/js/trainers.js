@@ -125,36 +125,36 @@ var TRAINER_SETS_SV = {
       "moves": ["Charge Beam", "Rock Polish", "Ancient Power", "Confusion"]
     }
   },
-     "Torkoal": {
+  "Carkol": {
     "Lvl 22 Gym Leader Sebastian": {
-      "slot": 0, "level": 22, "ability": "Drought", "item": "Heat Rock", "nature": "Bold",
+      "slot": 0, "level": 22, "ability": "Steam Engine", "item": "Eviolite", "nature": "Mild",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
-      "evs": {hp:244,at:248,df:0,sa:16,sd:0,sp:0},
-      "moves": ["Stealth Rock", "Rapid Spin", "Lava Plume ", "Body Press"] 
+      "evs": {"hp":184,"at":0,"df":0,"sa":112,"sd":136,"sp":76},
+      "moves": ["Ancient Power", "Heat Wave", "Dig", "Stealth Rock"]
     }
   },
-      "Fletchinder#2": {
+  "Houndour": {
     "Lvl 23 Gym Leader Sebastian": {
-      "slot": 1, "level": 23, "ability": "Gale Wings", "item": "Heavy-Duty Boots", "nature": "Modest",
-      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
-      "evs": {hp:248,at:0,df:0,sa:252,sd:8,sp:0},
-      "moves": ["Will-o-Wisp", "Roost", "Wing Attack", "Overheat"] 
+      "slot": 1, "level": 23, "ability": "Intimidate", "item": "Scope Lens", "nature": "Mild",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":30,"sd":31,"sp":31},
+      "evs": {"hp":12,"at":0,"df":4,"sa":248,"sd":0,"sp":244},
+      "moves": ["Dark Pulse", "Overheat", "Sludge Bomb", "Hidden Power [Grass]"]
     }
   },
-      "Numel": {
+  "Sunflora": {
     "Lvl 24 Gym Leader Sebastian": {
-      "slot": 2, "level": 24, "ability": "Solar Power", "item": "Eviolite", "nature": "Modest",
-      "ivs": {"hp":31,"at":1,"df":30,"sa":30,"sd":31,"sp":31},
-      "evs": {hp:252,at:0,df:0,sa:252,sd:4,sp:0},
-      "moves": ["Overheat", "Mud Bomb", "Lava Plume", "Hidden Power Grass"] 
+      "slot": 2, "level": 24, "ability": "Seed Sower", "item": "Eject Button", "nature": "Mild",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":248,"at":20,"df":0,"sa":236,"sd":0,"sp":4},
+      "moves": ["Mega Drain", "Grassy Glide", "Overheat", "Snarl"]
     }
   },
-      "Quilava": {
+  "Torracat": {
     "Lvl 25 Gym Leader Sebastian": {
-      "slot": 3, "level": 25, "ability": "Blaze", "item": "Charcoal", "nature": "Timid",
+      "slot": 3, "level": 25, "ability": "Guts", "item": "Toxic Orb", "nature": "Impish",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
-      "evs": {hp:0,at:0,df:0,sa:252,sd:4,sp:252},
-      "moves": ["Overheat", "Energy Ball", "Extrasensory", "Incinerate"] 
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Fire Fang", "Double Kick", "Fake Out", "Parting Shot"]
     }
   },
     "Sneasel": {
