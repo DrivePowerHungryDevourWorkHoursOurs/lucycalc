@@ -1170,9 +1170,17 @@ var TRAINER_SETS_SV = {
       "moves": ["Brave Bird", "Iron Head", "Drill Run", "Tailwind"]
     }
   },
+    "Skarmory-Mega": {
+    "Lvl 100 Res (Victory Road, Doubles)": {
+      "slot": 3, "level": 100, "ability": "Tough Claws", "item": "Skarmorite", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Brave Bird", "Iron Head", "Drill Run", "Tailwind"]
+    }
+  },
   "Urshifu-Rapid-Strike": {
     "Lvl 100 Res (Victory Road, Doubles)": {
-      "slot": 3, "level": 100, "ability": "Unseen Fist", "item": "Focus Sash", "nature": "Jolly",
+      "slot": 4, "level": 100, "ability": "Unseen Fist", "item": "Focus Sash", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
       "moves": ["Surging Strikes", "Close Combat", "Aqua Jet", "U-turn"]
@@ -1180,7 +1188,7 @@ var TRAINER_SETS_SV = {
   },
   "Flutter Mane": {
     "Lvl 100 Res (Victory Road, Doubles)": {
-      "slot": 4, "level": 100, "ability": "Protosynthesis", "item": "Life Orb", "nature": "Timid",
+      "slot": 5, "level": 100, "ability": "Protosynthesis", "item": "Life Orb", "nature": "Timid",
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
       "moves": ["Shadow Ball", "Moonblast", "Power Gem", "Thunderbolt"]
@@ -1188,7 +1196,7 @@ var TRAINER_SETS_SV = {
   },
   "Iron Treads": {
     "Lvl 100 Res (Victory Road, Doubles)": {
-      "slot": 5, "level": 100, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Jolly",
+      "slot": 6, "level": 100, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
       "moves": ["Earthquake", "High Horsepower", "Rock Slide", "Iron Head"]
