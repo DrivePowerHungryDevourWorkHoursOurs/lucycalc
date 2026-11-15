@@ -102,7 +102,7 @@ $(function () {
 
 	// ---- UI ---------------------------------------------------------------------------------
 	$("<style>").text([
-		".keep-set-wrap{display:inline-block;vertical-align:bottom;margin:2px 0 4px 8px;font-size:12px;white-space:nowrap}",
+		".keep-set-wrap{display:block;margin:4px 0 4px 2px;font-size:12px;white-space:nowrap}",
 		".keep-set-wrap input{vertical-align:middle;margin:0 3px 0 0}",
 		".keep-set-wrap label{cursor:pointer}"
 	].join("\n")).appendTo("head");
@@ -114,13 +114,15 @@ $(function () {
 		if (!side || !$sel.length || $info.find(".keep-set-wrap").length) return;
 
 		var id = "keepSet-" + side;
-		var $wrap = $('<span class="keep-set-wrap" title="When on, picking a different Pok\u00e9mon keeps this set\u2019s level, EVs, IVs, nature, item and moves"></span>');
+		var $wrap = $('<span class="keep-set-wrap" title="When on, picking a different Pok\u00e9mon keeps this set\u2019s level, EVs, IVs, nature, item and moves (useful for evolving)"></span>');
 		var $box = $('<input type="checkbox">').attr("id", id).prop("checked", store(side)).appendTo($wrap);
 		$("<label></label>").attr("for", id).text("Keep set when swapping Pok\u00e9mon").appendTo($wrap);
 		$box.on("change", function () { store(side, this.checked); });
 
-		var $imp = $sel.next("span");   // the "Only show imported sets" block, when present
-		($imp.length ? $imp : $sel).after($wrap);
+		// Own line directly under the set dropdown; pushes "Only show imported sets" / "Clear Imported Sets" down.
+		var $imp = $sel.next("span");   // the imported-sets block, when present
+		if ($imp.length) $imp.before($wrap);
+		else $sel.after($wrap);
 	});
 
 	// ---- behaviour ------------------------------------------------------------------------------
