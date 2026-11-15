@@ -1421,7 +1421,7 @@ export function calculateAtModsSMSSSV(
     (attacker.named('Cherrim', 'Cherrim-Sunshine')  &&
      attacker.hasAbility('Flower Gift') &&
      field.hasWeather('Sun', 'Harsh Sunshine') &&
-     move.category === 'Special')) {
+     move.category === 'Physical')) {
     atMods.push(6144);
     desc.attackerAbility = attacker.ability;
     desc.weather = field.weather;
@@ -1483,7 +1483,7 @@ export function calculateAtModsSMSSSV(
     field.attackerSide.isFlowerGift &&
     !attacker.hasAbility('Flower Gift') &&
     field.hasWeather('Sun', 'Harsh Sunshine') &&
-    move.category === 'Special') {
+    move.category === 'Physical') {
     atMods.push(6144);
     desc.weather = field.weather;
     desc.isFlowerGiftAttacker = true;
