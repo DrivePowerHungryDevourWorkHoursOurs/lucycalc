@@ -777,7 +777,19 @@ $(function () {
           boxRefreshers.forEach(function (f) { f(); });
         }).appendTo($right);
       // Set the level of every Pokemon in the Box and the Player Party at once
-      $('<button type="button" class="tp-box-level" title="Set the level of every Pok\u00e9mon in the Box and Player Party"></button>').text("Lv")
+      // Rare Candy icon for the button; tries the local folder first, then GitHub, then falls back to the text "Lv"
+      var lvSrcs = ["img/Items/RARECANDY.png",
+        "https://raw.githubusercontent.com/DrivePowerHungryDevourWorkHoursOurs/lucycalc/main/src/img/Items/RARECANDY.png"];
+      var lvTry = 0;
+      var $lvImg = $('<img alt="Lv" draggable="false">').css({ width: "24px", height: "24px", objectFit: "contain",
+        imageRendering: "pixelated", display: "block", margin: "0 auto", pointerEvents: "none" });
+      $lvImg.on("error", function () {
+        lvTry++;
+        if (lvTry < lvSrcs.length) $lvImg.attr("src", lvSrcs[lvTry]);
+        else $lvImg.replaceWith(document.createTextNode("Lv"));
+      });
+      $lvImg.attr("src", lvSrcs[0]);
+      $('<button type="button" class="tp-box-level" title="Set the level of every Pok\u00e9mon in the Box and Player Party"></button>').append($lvImg)
         .on("click", function () {
           var all = readBox();
           if (!all.length) { alert("The box is empty."); return; }
