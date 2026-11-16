@@ -819,7 +819,13 @@ $(function () {
       var $bedBtn = $right.find(".tp-box-clear"), $lvBtn = $right.find(".tp-box-level");
       function matchLvSize() {
         var w = $bedBtn.outerWidth(), h = $bedBtn.outerHeight();
-        if (w && h) imp($lvBtn, { "box-sizing": "border-box", width: w + "px", height: h + "px", padding: "0", "min-width": "0" });
+        if (!(w && h)) return;
+        // Same outer size as the bed button; the icon is centred and always smaller than the inside of the box
+        imp($lvBtn, { "box-sizing": "border-box", width: w + "px", height: h + "px", padding: "0", "min-width": "0",
+          display: "flex", "align-items": "center", "justify-content": "center", overflow: "hidden", "line-height": "0" });
+        var sz = Math.max(10, Math.min(w, h) - 12); // 2px border each side plus a little breathing room
+        imp($lvImg, { width: sz + "px", height: sz + "px", "max-width": "100%", "max-height": "100%", margin: "0", padding: "0",
+          display: "block", "object-fit": "contain", flex: "none" });
       }
       matchLvSize();
       setTimeout(matchLvSize, 0); // again once the panel is laid out, in case it was still hidden above
