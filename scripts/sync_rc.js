@@ -28,7 +28,7 @@ const STAT = { hp: 'hp', atk: 'at', def: 'df', spa: 'sa', spd: 'sd', spe: 'sp' }
 		for (const k in STAT) if (typeof e.baseStats[k] === 'number') stats[e.name][STAT[k]] = e.baseStats[k];
 		if (e.types) types[e.name] = e.types;
 		const ab = e.abilities || {};
-		abil[e.name] = { 0: ab['0'] || null, 1: ab['1'] || null };
+		abil[e.name] = { 0: ab['0'] || null, 1: ab['1'] || null, H: ab['H'] || null };
 	}
 	if (skipped.length) console.log('Skipped ' + skipped.length + ' entries without stats: ' + skipped.slice(0, 10).join(', ') + (skipped.length > 10 ? ', ...' : ''));
 

@@ -24,10 +24,22 @@ $(function () {
 		return base;
 	}
 
+	function toId(n) { return String(n).toLowerCase().replace(/[^a-z0-9]+/g, ""); }
+
+	// The calc's own species data only keeps ability 1 (plus whatever rc_overrides adds), so no hidden ability
+	// there. The dex data that rc_overrides.js loads (RC_LIVE) has all three slots, so prefer that.
+	function abilitiesFor(name) {
+		if (typeof RC_LIVE !== "undefined" && RC_LIVE && typeof gen !== "undefined" && gen === 9) {
+			var live = RC_LIVE[toId(name)];
+			if (live && live.abilities) return live.abilities;
+		}
+		var sp = (typeof pokedex !== "undefined") ? pokedex[name] : null;
+		return sp && sp.abilities;
+	}
+
 	// The Pokemon's real abilities, in slot order: [{label: "1", name: "Overgrow"}, ...]
 	function slotsFor($info) {
-		var sp = (typeof pokedex !== "undefined") ? pokedex[speciesName($info)] : null;
-		var ab = sp && sp.abilities;
+		var ab = abilitiesFor(speciesName($info));
 		if (!ab) return [];
 		return SLOTS.filter(function (s) { return ab[s[1]]; })
 			.map(function (s) { return { label: s[0], name: ab[s[1]] }; });
