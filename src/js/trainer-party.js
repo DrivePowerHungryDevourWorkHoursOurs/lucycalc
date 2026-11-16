@@ -70,6 +70,7 @@ $(function () {
   // Last set loaded on each side (a trainer set or a "Box" set) is remembered across refreshes
   var LAST_KEY_PREFIX = "tp-last-trainer-";
   var sideDefaultLoaders = []; // each side registers a function that puts it back on its default set
+  var sideBoxReloaders = [];   // each side registers a function that reloads its loaded Box Pokemon (after a bulk edit)
   function resetSavedTrainers() {
     ["p1", "p2"].forEach(function (id) {
       try { localStorage.removeItem(LAST_KEY_PREFIX + id); } catch (e) {}
@@ -583,6 +584,13 @@ $(function () {
     }
 
     sideDefaultLoaders.push(loadDefaultSet);
+    sideBoxReloaders.push(function () {
+      // If a Box Pokemon is currently loaded on this side, reload it so its fields show the bulk-edited values
+      var sel = parseSelected();
+      if (!sel || sel.setName !== BOX_NAME) return;
+      if (!readBox().some(function (e) { return e.species === sel.species; })) return;
+      loadIntoSide({ species: sel.species, setName: BOX_NAME });
+    });
 
     // The Forme dropdown changes the actual species without changing the set label,
     // so prefer it when it is showing.
@@ -768,6 +776,29 @@ $(function () {
           resetSavedTrainers();  // after the load, since loading a set re-saves it
           boxRefreshers.forEach(function (f) { f(); });
         }).appendTo($right);
+      // Set the level of every Pokemon in the Box and the Player Party at once
+      $('<button type="button" class="tp-box-level" title="Set the level of every Pok\u00e9mon in the Box and Player Party"></button>').text("Lv")
+        .on("click", function () {
+          var all = readBox();
+          if (!all.length) { alert("The box is empty."); return; }
+          var input = prompt("Set the level of all " + all.length + " Pok\u00e9mon in the Box and Player Party to (1-100):",
+            String(all[0].set.level || 100));
+          if (input === null) return;
+          var lv = parseInt(input, 10);
+          if (isNaN(lv) || lv < 1 || lv > 100 || String(lv) !== String(input).trim()) {
+            alert("Enter a whole number from 1 to 100.");
+            return;
+          }
+          disarm();
+          all.forEach(function (e) {
+            var set = $.extend(true, {}, e.set);
+            set.level = lv;
+            saveBoxSet(e.species, set);
+          });
+          sideBoxReloaders.forEach(function (f) { f(); });
+          boxRefreshers.forEach(function (f) { f(); });
+          console.log("trainer-party: set the level of " + all.length + " Box Pokemon to " + lv);
+        }).css({ fontWeight: "bold", fontSize: "11px" }).appendTo($right);
       makeBoxToggle().css("marginLeft", "0").appendTo($right);
       imp($right, { width: "auto", flex: "0 0 auto", "min-width": "0", "white-space": "nowrap" });
       imp($right.find("button"), { width: "auto", "min-width": "0", margin: "0", flex: "none", float: "none", position: "static" });

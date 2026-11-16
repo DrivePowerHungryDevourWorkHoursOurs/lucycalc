@@ -116,7 +116,7 @@ $(function () {
 		if (!side || !$sel.length || $info.find(".keep-set-wrap").length) return;
 
 		var id = "keepSet-" + side;
-		var $wrap = $('<div class="keep-set-wrap" title="When on, picking a different Pok\u00e9mon keeps this set\u2019s level, EVs, IVs, nature, item and moves"></div>');
+		var $wrap = $('<div class="keep-set-wrap" title="When on, picking a different Pok\u00e9mon keeps this set\u2019s level, EVs, IVs, nature, item and moves (useful for evolving)"></div>');
 		var $box = $('<input type="checkbox">').attr("id", id).prop("checked", store(side)).appendTo($wrap);
 		$wrap.append(" ");   // same gap after the checkbox as the imported-sets line
 		$("<label></label>").attr("for", id).text("Keep set when swapping Pok\u00e9mon").appendTo($wrap);
