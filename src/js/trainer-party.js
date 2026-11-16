@@ -820,12 +820,13 @@ $(function () {
       function matchLvSize() {
         var w = $bedBtn.outerWidth(), h = $bedBtn.outerHeight();
         if (!(w && h)) return;
-        // Same outer size as the bed button; the icon is centred and always smaller than the inside of the box
+        // Same outer size as the bed button; the icon keeps its full 24px size, centred, then nudged up a little
+        var LV_ICON_SIZE = 24, LV_ICON_NUDGE_UP = 3; // px - change these to taste
         imp($lvBtn, { "box-sizing": "border-box", width: w + "px", height: h + "px", padding: "0", "min-width": "0",
-          display: "flex", "align-items": "center", "justify-content": "center", overflow: "hidden", "line-height": "0" });
-        var sz = Math.max(10, Math.min(w, h) - 12); // 2px border each side plus a little breathing room
-        imp($lvImg, { width: sz + "px", height: sz + "px", "max-width": "100%", "max-height": "100%", margin: "0", padding: "0",
-          display: "block", "object-fit": "contain", flex: "none" });
+          display: "flex", "align-items": "center", "justify-content": "center", overflow: "visible", "line-height": "0" });
+        imp($lvImg, { width: LV_ICON_SIZE + "px", height: LV_ICON_SIZE + "px", "max-width": "none", "max-height": "none",
+          margin: "0", padding: "0", display: "block", "object-fit": "contain", flex: "none",
+          position: "relative", top: "-" + LV_ICON_NUDGE_UP + "px" });
       }
       matchLvSize();
       setTimeout(matchLvSize, 0); // again once the panel is laid out, in case it was still hidden above
