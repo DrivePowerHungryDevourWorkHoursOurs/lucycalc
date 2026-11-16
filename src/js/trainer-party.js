@@ -820,8 +820,9 @@ $(function () {
       function matchLvSize() {
         var w = $bedBtn.outerWidth(), h = $bedBtn.outerHeight();
         if (!(w && h)) return;
-        // Same outer size as the bed button; the icon keeps its full 24px size, centred, then nudged up a little
-        var LV_ICON_SIZE = 24, LV_ICON_NUDGE_UP = 3; // px - change these to taste
+        // Same outer size as the bed button; the icon is centred, then nudged up a little
+        var LV_ICON_SIZE = 21, LV_ICON_NUDGE_UP = 1; // px - change these to taste
+        LV_ICON_SIZE = Math.min(LV_ICON_SIZE, Math.min(w, h) - 6); // never bigger than the inside of the box
         imp($lvBtn, { "box-sizing": "border-box", width: w + "px", height: h + "px", padding: "0", "min-width": "0",
           display: "flex", "align-items": "center", "justify-content": "center", overflow: "visible", "line-height": "0" });
         imp($lvImg, { width: LV_ICON_SIZE + "px", height: LV_ICON_SIZE + "px", "max-width": "none", "max-height": "none",
