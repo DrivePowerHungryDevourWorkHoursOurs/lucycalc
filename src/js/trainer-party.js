@@ -798,11 +798,19 @@ $(function () {
           sideBoxReloaders.forEach(function (f) { f(); });
           boxRefreshers.forEach(function (f) { f(); });
           console.log("trainer-party: set the level of " + all.length + " Box Pokemon to " + lv);
-        }).css({ fontWeight: "bold", fontSize: "11px" }).appendTo($right);
+        }).css({ fontWeight: "bold", fontSize: "13px" }).appendTo($right);
       makeBoxToggle().css("marginLeft", "0").appendTo($right);
       imp($right, { width: "auto", flex: "0 0 auto", "min-width": "0", "white-space": "nowrap" });
       imp($right.find("button"), { width: "auto", "min-width": "0", margin: "0", flex: "none", float: "none", position: "static" });
       imp($right.find("select"), { width: "92px", "min-width": "0", "max-width": "92px", margin: "0", flex: "none", float: "none", position: "static" });
+      // Make the Lv button exactly the same size as the bed button next to it
+      var $bedBtn = $right.find(".tp-box-clear"), $lvBtn = $right.find(".tp-box-level");
+      function matchLvSize() {
+        var w = $bedBtn.outerWidth(), h = $bedBtn.outerHeight();
+        if (w && h) imp($lvBtn, { "box-sizing": "border-box", width: w + "px", height: h + "px", padding: "0", "min-width": "0" });
+      }
+      matchLvSize();
+      setTimeout(matchLvSize, 0); // again once the panel is laid out, in case it was still hidden above
 
       var $scroll = $('<div class="tp-box-scroll tp-drop"></div>').data("zone", "box").appendTo($boxPanel);
       fillGrid(makeGrid($scroll), layout.box, total
