@@ -1153,7 +1153,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Earthquake", "Wild Charge", "Ice Spinner", "Stealth Rock"]
     }
   },
-  "Samurott-Hisui": {
+  "Samurott-Hisui#2": {
     "Lvl 95 Articunofan (VR Singles)": {
       "slot": 1, "level": 95, "ability": "Sharpness", "item": "Assault Vest", "nature": "Adamant",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -1257,7 +1257,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Nasty Plot", "Shadow Ball", "Hidden Power [Fighting]", "Will-O-Wisp"]
     }
   },
-   "Landorus-Therian": {
+   "Landorus-Therian#2": {
     "Lvl 95 Nacho (VR Singles)": {
       "slot": 0, "level": 95, "ability": "Intimidate", "item": "Focus Sash", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -1265,7 +1265,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Stealth Rock", "Taunt", "Earthquake", "Explosion"]
     }
   },
-    "Salamence": {
+    "Salamence#2": {
     "Lvl 95 Nacho (VR Singles)": {
       "slot": 1, "level": 95, "ability": "Intimidate", "item": "Salamencite", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -1273,7 +1273,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Dragon Dance", "Return", "Roost", "Earthquake"]
     }
   },
-  "Salamence-Mega": {
+  "Salamence-Mega#2": {
     "Lvl 95 Nacho (VR Singles)": {
       "slot": 2, "level": 95, "ability": "Aerilate", "item": "Salamencite", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -1297,7 +1297,7 @@ var TRAINER_SETS_SV = {
       "moves": ["Oblivion Wing", "Dark Pulse", "Sucker Punch", "Focus Blast"]
     }
   },
-  "Archeops": {
+  "Archeops#2": {
     "Lvl 95 Nacho (VR Singles)": {
       "slot": 5, "level": 95, "ability": "Adrenaline", "item": "Flying Gem", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -1311,6 +1311,54 @@ var TRAINER_SETS_SV = {
       "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
       "moves": ["Nasty Plot", "Hurricane", "Focus Blast", "Heat Wave"]
+    }
+  },
+    "Araquanid": {
+    "Lvl 95 Gimmick (VR Singles)": {
+      "slot": 0, "level": 95, "ability": "Water Bubble", "item": "Focus Sash", "nature": "Relaxed",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":248,"at":8,"df":252,"sa":0,"sd":0,"sp":0},
+      "moves": ["Liquidation", "Sticky Web", "Magic Coat", "Toxic"]
+    }
+  },
+  "Cinderace#2": {
+    "Lvl 95 Gimmick (VR Singles)": {
+      "slot": 1, "level": 95, "ability": "Blaze", "item": "Focus Sash", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Court Change", "Gunk Shot", "Pyro Ball", "Mega Kick"]
+    }
+  },
+  "Kingambit": {
+    "Lvl 95 Gimmick (VR Singles)": {
+      "slot": 2, "level": 95, "ability": "Defiant", "item": "Black Glasses", "nature": "Brave",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
+      "evs": {"hp":252,"at":252,"df":0,"sa":0,"sd":4,"sp":0},
+      "moves": ["Iron Head", "Knock Off", "Sucker Punch", "Swords Dance"]
+    }
+  },
+  "Gothitelle": {
+    "Lvl 95 Gimmick (VR Singles)": {
+      "slot": 3, "level": 95, "ability": "Competitive", "item": "Mental Herb", "nature": "Quiet",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":0},
+      "evs": {"hp":248,"at":0,"df":0,"sa":252,"sd":8,"sp":0},
+      "moves": ["Trick Room", "Focus Blast", "Psychic", "Shadow Ball"]
+    }
+  },
+  "Empoleon": {
+    "Lvl 95 Gimmick (VR Singles)": {
+      "slot": 4, "level": 95, "ability": "Competitive", "item": "Assault Vest", "nature": "Quiet",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":0},
+      "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
+      "moves": ["Hydro Pump", "Flash Cannon", "Grass Knot", "Ice Beam"]
+    }
+  },
+  "Serperior": {
+    "Lvl 95 Gimmick (VR Singles)": {
+      "slot": 5, "level": 95, "ability": "Contrary", "item": "Normalium Z", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Leaf Storm", "Dragon Pulse", "Hyper Beam", "Hidden Power [Ground]"]
     }
   },
 };
