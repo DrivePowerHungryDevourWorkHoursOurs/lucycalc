@@ -1234,7 +1234,7 @@ var TRAINER_SETS_SV = {
     }
   },
     "Skarmory": {
-    "Lvl 95 Nacho (VR Singles)": {
+    "Lvl 95 Elmo (VR Singles)": {
       "slot": 4, "level": 95, "ability": "Weak Armor", "item": "Skarmorite", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -1361,6 +1361,1278 @@ var TRAINER_SETS_SV = {
       "moves": ["Leaf Storm", "Dragon Pulse", "Hyper Beam", "Hidden Power [Ground]"]
     }
   },
+   "Deoxys-Attack": {
+    "Lvl 95 Nico (VR Singles)": {
+      "slot": 0, "level": 95, "ability": "Pressure", "item": "Focus Sash", "nature": "Hasty",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":4,"df":0,"sa":252,"sd":0,"sp":252},
+      "moves": ["Stealth Rock", "Superpower", "Psycho Boost", "Knock Off"]
+    }
+  },
+  "Raging Bolt": {
+    "Lvl 95 Nico (VR Singles)": {
+      "slot": 1, "level": 95, "ability": "Protosynthesis", "item": "Booster Energy", "nature": "Modest",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+      "moves": ["Calm Mind", "Dragon Hammer", "Thunderbolt", "Thunderclap"]
+    }
+  },
+  "Landorus-Therian#3": {
+    "Lvl 95 Nico (VR Singles)": {
+      "slot": 2, "level": 95, "ability": "Intimidate", "item": "Flyinium Z", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Swords Dance", "Earthquake", "Fly", "Stone Edge"]
+    }
+  },
+  "Marshadow": {
+    "Lvl 95 Nico (VR Singles)": {
+      "slot": 3, "level": 95, "ability": "Technician", "item": "Focus Sash", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":4,"at":252,"df":0,"sa":0,"sd":0,"sp":252},
+      "moves": ["Rock Tomb", "Close Combat", "Spectral Thief", "Shadow Sneak"]
+    }
+  },
+  "Flutter Mane": {
+    "Lvl 95 Nico (VR Singles)": {
+      "slot": 4, "level": 95, "ability": "Protosynthesis", "item": "Booster Energy", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+      "moves": ["Moonblast", "Shadow Ball", "Mystical Fire", "Calm Mind"]
+    }
+  },
+  "Kingambit#2": {
+    "Lvl 95 Nico (VR Singles)": {
+      "slot": 5, "level": 95, "ability": "Supreme Overlord", "item": "Chople Berry", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":252,"at":252,"df":0,"sa":0,"sd":4,"sp":0},
+      "moves": ["Swords Dance", "Kowtow Cleave", "Sucker Punch", "Iron Head"]
+    }
+  },
+    "Excadrill#2": {
+    "Lvl 95 Doodle (VR Singles)": {
+      "slot": 0, "level": 95, "ability": "Mold Breaker", "item": "Focus Sash", "nature": "Jolly",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Stealth Rock", "Rapid Spin", "Earthquake", "Poison Jab"]
+    }
+  },
+  "Archaludon": {
+    "Lvl 95 Doodle (VR Singles)": {
+      "slot": 1, "level": 95, "ability": "Stamina", "item": "Assault Vest", "nature": "Modest",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":188,"at":0,"df":0,"sa":252,"sd":0,"sp":68},
+      "moves": ["Draco Meteor", "Electro Shot", "Flash Cannon", "Body Press"]
+    }
+  },
+  "Pelipper#3": {
+    "Lvl 95 Doodle (VR Singles)": {
+      "slot": 2, "level": 95, "ability": "Drizzle", "item": "Damp Rock", "nature": "Relaxed",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
+      "evs": {"hp":248,"at":0,"df":252,"sa":0,"sd":8,"sp":0},
+      "moves": ["Scald", "Hurricane", "U-turn", "Roost"]
+    }
+  },
+  "Zapdos#2": {
+    "Lvl 95 Doodle (VR Singles)": {
+      "slot": 3, "level": 95, "ability": "Static", "item": "Heavy-Duty Boots", "nature": "Timid",
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
+      "moves": ["Hurricane", "Thunder", "Weather Ball", "Roost"]
+    }
+  },
+    "Swampert#3": {
+    "Lvl 95 Doodle (VR Singles)": {
+      "slot": 4, "level": 95, "ability": "Swift Swim", "item": "Swampertite", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Flip Turn", "Mega Kick", "Liquidation", "Earthquake"]
+    }
+  },
+  "Swampert-Mega#2": {
+    "Lvl 95 Doodle (VR Singles)": {
+      "slot": 5, "level": 95, "ability": "Swift Swim", "item": "Swampertite", "nature": "Adamant",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+      "moves": ["Flip Turn", "Mega Kick", "Liquidation", "Earthquake"]
+    }
+  },
+  "Greninja": {
+    "Lvl 95 Doodle (VR Singles)": {
+      "slot": 6, "level": 95, "ability": "Battle Bond", "item": "Waterium Z", "nature": "Timid",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Hydro Pump", "Dark Pulse", "Ice Beam", "Water Shuriken"]
+    }
+  },
+  "Greninja-Ash": {
+    "Lvl 95 Doodle (VR Singles)": {
+      "slot": 7, "level": 95, "ability": "Battle Bond", "item": "Waterium Z", "nature": "Timid",
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+      "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+      "moves": ["Hydro Pump", "Dark Pulse", "Ice Beam", "Water Shuriken"]
+    }
+  },
+"Ribombee": {
+  "Lvl 95 RuudDude (VR Singles)": {
+    "slot": 0, "level": 95, "ability": "Shield Dust", "item": "Focus Sash", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Bug Buzz", "Moonblast", "Sticky Web", "Stun Spore"]
+  }
+},
+"Nidoking": {
+  "Lvl 95 RuudDude (VR Singles)": {
+    "slot": 1, "level": 95, "ability": "Sheer Force", "item": "Life Orb", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Sludge Wave", "Earth Power", "Ice Beam", "Thunderbolt"]
+  }
+},
+"Gyarados": {
+  "Lvl 95 RuudDude (VR Singles)": {
+    "slot": 2, "level": 95, "ability": "Moxie", "item": "Wacan Berry", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":8,"sa":0,"sd":0,"sp":248},
+    "moves": ["Waterfall", "Ice Fang", "Power Whip", "Dragon Dance"]
+  }
+},
+"Serperior#2": {
+  "Lvl 95 RuudDude (VR Singles)": {
+    "slot": 3, "level": 95, "ability": "Contrary", "item": "Leftovers", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":30,"sd":31,"sp":30},
+    "evs": {"hp":48,"at":0,"df":0,"sa":212,"sd":0,"sp":248},
+    "moves": ["Leaf Storm", "Dragon Pulse", "Hidden Power [Fire]", "Substitute"]
+  }
+},
+"Hoopa-Unbound": {
+  "Lvl 95 RuudDude (VR Singles)": {
+    "slot": 4, "level": 95, "ability": "Frisk", "item": "Assault Vest", "nature": "Hasty",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":12,"sd":0,"sp":244},
+    "moves": ["Psychic Noise", "Hyperspace Fury", "Drain Punch", "Thunderbolt"]
+  }
+},
+"Lucario#5": {
+  "Lvl 95 RuudDude (VR Singles)": {
+    "slot": 5, "level": 95, "ability": "Justified", "item": "Lucarionite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":4,"sa":0,"sd":0,"sp":252},
+    "moves": ["Close Combat", "Iron Tail", "Stone Edge", "Swords Dance"]
+  }
+},
+"Lucario-Mega#3": {
+  "Lvl 95 RuudDude (VR Singles)": {
+    "slot": 5, "level": 95, "ability": "Adaptability", "item": "Lucarionite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":4,"sa":0,"sd":0,"sp":252},
+    "moves": ["Close Combat", "Iron Tail", "Stone Edge", "Swords Dance"]
+  }
+},
+"Banette": {
+  "Lvl 95 SR (VR Singles)": {
+    "slot": 0, "level": 95, "ability": "Insomnia", "item": "Banettite", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Encore", "Destiny Bond", "Poltergeist", "Shadow Sneak"]
+  }
+},
+"Banette-Mega": {
+  "Lvl 95 SR (VR Singles)": {
+    "slot": 1, "level": 95, "ability": "Prankster", "item": "Banettite", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Encore", "Destiny Bond", "Poltergeist", "Shadow Sneak"]
+  }
+},
+"Cinderace#3": {
+  "Lvl 95 SR (VR Singles)": {
+    "slot": 2, "level": 95, "ability": "Libero", "item": "Heavy-Duty Boots", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Court Change", "Pyro Ball", "High Jump Kick", "U-turn"]
+  }
+},
+"Kyurem-Black": {
+  "Lvl 95 SR (VR Singles)": {
+    "slot": 3, "level": 95, "ability": "Teravolt", "item": "Loaded Dice", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Dragon Dance", "Icicle Spear", "Scale Shot", "Roost"]
+  }
+},
+"Magearna-Original": {
+  "Lvl 95 SR (VR Singles)": {
+    "slot": 4, "level": 95, "ability": "Soul-Heart", "item": "Weakness Policy", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
+    "moves": ["Shift Gear", "Calm Mind", "Draining Kiss", "Stored Power"]
+  }
+},
+"Arceus-Ground": {
+  "Lvl 95 SR (VR Singles)": {
+    "slot": 5, "level": 95, "ability": "Multitype", "item": "Earth Plate", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Dragon Dance", "Earthquake", "Rock Climb", "Recover"]
+  }
+},
+"Terapagos": {
+  "Lvl 95 SR (VR Singles)": {
+    "slot": 6, "level": 95, "ability": "Tera Shift", "item": "Normalium Z", "nature": "Modest",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Rapid Spin", "Tera Starstorm", "Calm Mind", "Flamethrower"]
+  }
+},
+"Kyogre-Primal": {
+  "Lvl 95 Jahim (VR Doubles)": {
+    "slot": 0, "level": 95, "ability": "Primordial Sea", "item": "Blue Orb", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
+    "moves": ["Origin Pulse", "Thunder", "Ice Beam", "Hydro Pump"]
+  }
+},
+"Urshifu-Rapid-Strike": {
+  "Lvl 95 Jahim (VR Doubles)": {
+    "slot": 1, "level": 95, "ability": "Unseen Fist", "item": "Choice Scarf", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Surging Strikes", "Close Combat", "Zen Headbutt", "U-turn"]
+  }
+},
+"Chien-Pao": {
+  "Lvl 95 Jahim (VR Doubles)": {
+    "slot": 2, "level": 95, "ability": "Sword of Ruin", "item": "Focus Sash", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Icicle Crash", "Crunch", "Sacred Sword", "Sucker Punch"]
+  }
+},
+"Salamence#3": {
+  "Lvl 95 Jahim (VR Doubles)": {
+    "slot": 3, "level": 95, "ability": "Intimidate", "item": "Salamencite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Double-Edge", "Dragon Claw", "Temper Flare", "Tailwind"]
+  }
+},
+"Salamence-Mega#3": {
+  "Lvl 95 Jahim (VR Doubles)": {
+    "slot": 3, "level": 95, "ability": "Aerilate", "item": "Salamencite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Double-Edge", "Dragon Claw", "Temper Flare", "Tailwind"]
+  }
+},
+"Rillaboom": {
+  "Lvl 95 Jahim (VR Doubles)": {
+    "slot": 4, "level": 95, "ability": "Grassy Surge", "item": "Assault Vest", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":200,"df":0,"sa":0,"sd":0,"sp":56},
+    "moves": ["Fake Out", "Grassy Glide", "Wood Hammer", "High Horsepower"]
+  }
+},
+"Zacian-Crowned": {
+  "Lvl 95 Jahim (VR Doubles)": {
+    "slot": 5, "level": 95, "ability": "Intrepid Sword", "item": "Rusted Sword", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Behemoth Blade", "Play Rough", "Close Combat", "Wild Charge"]
+  }
+},
+"Groudon-Primal": {
+  "Lvl 95 Obama Prism (VR Doubles)": {
+    "slot": 0, "level": 95, "ability": "Desolate Land", "item": "Red Orb", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":4,"at":252,"df":0,"sa":0,"sd":0,"sp":252},
+    "moves": ["Precipice Blades", "Heat Crash", "High Horsepower", "Stone Edge"]
+  }
+},
+"Flutter Mane#2": {
+  "Lvl 95 Obama Prism (VR Doubles)": {
+    "slot": 1, "level": 95, "ability": "Protosynthesis", "item": "Booster Energy", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":4,"sa":0,"sd":0,"sp":252},
+    "moves": ["Moonblast", "Icy Wind", "Shadow Ball", "Taunt"]
+  }
+},
+"Urshifu#2": {
+  "Lvl 95 Obama Prism (VR Doubles)": {
+    "slot": 2, "level": 95, "ability": "Unseen Fist", "item": "Focus Sash", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":4,"at":252,"df":0,"sa":0,"sd":0,"sp":252},
+    "moves": ["Wicked Blow", "Close Combat", "U-turn", "Sucker Punch"]
+  }
+},
+"Zapdos#3": {
+  "Lvl 95 Obama Prism (VR Doubles)": {
+    "slot": 3, "level": 95, "ability": "Static", "item": "Sitrus Berry", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":4,"sa":0,"sd":0,"sp":252},
+    "moves": ["Volt Switch", "Tailwind", "Hurricane", "Thunder Wave"]
+  }
+},
+"Delphox": {
+  "Lvl 95 Obama Prism (VR Doubles)": {
+    "slot": 4, "level": 95, "ability": "Magician", "item": "Delphoxite", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Heat Wave", "Fire Blast", "Psychic", "Focus Blast"]
+  }
+},
+"Delphox-Mega": {
+  "Lvl 95 Obama Prism (VR Doubles)": {
+    "slot": 4, "level": 95, "ability": "Levitate", "item": "Delphoxite", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Heat Wave", "Fire Blast", "Psychic", "Focus Blast"]
+  }
+},
+"Eternatus": {
+  "Lvl 95 Obama Prism (VR Doubles)": {
+    "slot": 5, "level": 95, "ability": "Pressure", "item": "Dragonium Z", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+    "moves": ["Dynamax Cannon", "Fire Blast", "Sludge Bomb", "Draco Meteor"]
+  }
+},
+"Salamence#4": {
+  "Lvl 95 Eco (VR Doubles)": {
+    "slot": 0, "level": 95, "ability": "Intimidate", "item": "Salamencite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":76,"at":176,"df":4,"sa":0,"sd":0,"sp":252},
+    "moves": ["Double-Edge", "Dragon Claw", "Temper Flare", "Tailwind"]
+  }
+},
+"Salamence-Mega#4": {
+  "Lvl 95 Eco (VR Doubles)": {
+    "slot": 1, "level": 95, "ability": "Aerilate", "item": "Salamencite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":76,"at":176,"df":4,"sa":0,"sd":0,"sp":252},
+    "moves": ["Double-Edge", "Dragon Claw", "Temper Flare", "Tailwind"]
+  }
+},
+"Flutter Mane#3": {
+  "Lvl 95 Eco (VR Doubles)": {
+    "slot": 2, "level": 95, "ability": "Protosynthesis", "item": "Booster Energy", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+    "moves": ["Shadow Ball", "Moonblast", "Mystical Fire", "Icy Wind"]
+  }
+},
+"Dondozo": {
+  "Lvl 95 Eco (VR Doubles)": {
+    "slot": 3, "level": 95, "ability": "Unaware", "item": "Assault Vest", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":48,"at":220,"df":44,"sa":0,"sd":60,"sp":136},
+    "moves": ["Wave Crash", "Order Up", "Earthquake", "Heavy Slam"]
+  }
+},
+"Tatsugiri-Stretchy": {
+  "Lvl 95 Eco (VR Doubles)": {
+    "slot": 4, "level": 95, "ability": "Commander", "item": "Focus Sash", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Hydro Pump", "Dragon Pulse", "Icy Wind", "Taunt"]
+  }
+},
+"Rhydon#2": {
+  "Lvl 95 Eco (VR Doubles)": {
+    "slot": 5, "level": 95, "ability": "Sap Sipper", "item": "Eviolite", "nature": "Brave",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
+    "evs": {"hp":172,"at":252,"df":0,"sa":0,"sd":84,"sp":0},
+    "moves": ["Rock Slide", "High Horsepower", "Heavy Slam", "Brick Break"]
+  }
+},
+"Sneasler#2": {
+  "Lvl 95 Eco (VR Doubles)": {
+    "slot": 6, "level": 95, "ability": "Unburden", "item": "Focus Sash", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Dire Claw", "Close Combat", "Fake Out", "Rock Slide"]
+  }
+},
+"Miraidon": {
+  "Lvl 95 MikuSnow (VR Doubles)": {
+    "slot": 0, "level": 95, "ability": "Hadron Engine", "item": "Eject Pack", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":76,"at":0,"df":0,"sa":180,"sd":0,"sp":252},
+    "moves": ["Electro Drift", "Volt Switch", "Draco Meteor", "Dragon Cheer"]
+  }
+},
+"Ogerpon-Wellspring": {
+  "Lvl 95 MikuSnow (VR Doubles)": {
+    "slot": 1, "level": 95, "ability": "Water Absorb", "item": "Wellspring Mask", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":188,"at":124,"df":0,"sa":0,"sd":0,"sp":196},
+    "moves": ["Ivy Cudgel", "Wood Hammer", "Follow Me", "Encore"]
+  }
+},
+"Metagross": {
+  "Lvl 95 MikuSnow (VR Doubles)": {
+    "slot": 2, "level": 95, "ability": "Clear Body", "item": "Metagrossite", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":188,"df":84,"sa":0,"sd":0,"sp":236},
+    "moves": ["Heavy Slam", "Bullet Punch", "Psychic Fangs", "Body Press"]
+  }
+},
+"Metagross-Mega": {
+  "Lvl 95 MikuSnow (VR Doubles)": {
+    "slot": 3, "level": 95, "ability": "Tough Claws", "item": "Metagrossite", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":188,"df":84,"sa":0,"sd":0,"sp":236},
+    "moves": ["Heavy Slam", "Bullet Punch", "Psychic Fangs", "Body Press"]
+  }
+},
+"Landorus": {
+  "Lvl 95 MikuSnow (VR Doubles)": {
+    "slot": 4, "level": 95, "ability": "Sheer Force", "item": "Life Orb", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Sandsear Storm", "Earth Power", "Sludge Bomb", "Stealth Rock"]
+  }
+},
+"Chi-Yu": {
+  "Lvl 95 MikuSnow (VR Doubles)": {
+    "slot": 5, "level": 95, "ability": "Beads of Ruin", "item": "Darkinium Z", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
+    "moves": ["Overheat", "Heat Wave", "Dark Pulse", "Psychic"]
+  }
+},
+"Calyrex-Shadow": {
+  "Lvl 95 MikuSnow (VR Doubles)": {
+    "slot": 6, "level": 95, "ability": "As One (Spectrier)", "item": "Choice Specs", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
+    "moves": ["Astral Barrage", "Psyshock", "Pollen Puff", "Trick"]
+  }
+},
+"Dragapult": {
+  "Lvl 95 Osha (VR Doubles)": {
+    "slot": 0, "level": 95, "ability": "Clear Body", "item": "Focus Sash", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Surf", "Draco Meteor", "Dragon Cheer", "Shadow Ball"]
+  }
+},
+"Volcanion": {
+  "Lvl 95 Osha (VR Doubles)": {
+    "slot": 1, "level": 95, "ability": "Steam Engine", "item": "Absorb Bulb", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":184,"at":0,"df":0,"sa":252,"sd":4,"sp":68},
+    "moves": ["Heat Wave", "Steam Eruption", "Energy Ball", "Earth Power"]
+  }
+},
+"Garchomp#5": {
+  "Lvl 95 Osha (VR Doubles)": {
+    "slot": 2, "level": 95, "ability": "Rough Skin", "item": "Garchompite Z", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Surf", "Draco Meteor", "Power Gem", "Earth Power"]
+  }
+},
+"Garchomp-Mega-Z": {
+  "Lvl 95 Osha (VR Doubles)": {
+    "slot": 3, "level": 95, "ability": "Levitate", "item": "Garchompite Z", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Surf", "Draco Meteor", "Power Gem", "Earth Power"]
+  }
+},
+"Tapu Bulu": {
+  "Lvl 95 Osha (VR Doubles)": {
+    "slot": 4, "level": 95, "ability": "Grassy Surge", "item": "Assault Vest", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":248,"at":252,"df":0,"sa":0,"sd":8,"sp":0},
+    "moves": ["Horn Leech", "Play Rough", "Rock Slide", "High Horsepower"]
+  }
+},
+"Sneasler#3": {
+  "Lvl 95 Osha (VR Doubles)": {
+    "slot": 5, "level": 95, "ability": "Unburden", "item": "Grassy Seed", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Close Combat", "Dire Claw", "Fake Out", "Coaching"]
+  }
+},
+"Samurott-Hisui#3": {
+  "Lvl 95 Osha (VR Doubles)": {
+    "slot": 6, "level": 95, "ability": "Sharpness", "item": "Life Orb", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Ceaseless Edge", "Razor Shell", "Sacred Sword", "Sucker Punch"]
+  }
+},
+"Ting-Lu": {
+  "Lvl 95 Percy (VR Singles)": {
+    "slot": 0, "level": 95, "ability": "Vessel of Ruin", "item": "Red Card", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":20,"at":252,"df":0,"sa":0,"sd":0,"sp":236},
+    "moves": ["Earthquake", "Ruination", "Spikes", "Taunt"]
+  }
+},
+"Torkoal": {
+  "Lvl 95 Percy (VR Singles)": {
+    "slot": 1, "level": 95, "ability": "Drought", "item": "Eject Pack", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":248,"at":0,"df":0,"sa":252,"sd":8,"sp":0},
+    "moves": ["Overheat", "Solar Beam", "Earth Power", "Stealth Rock"]
+  }
+},
+"Celesteela": {
+  "Lvl 95 Percy (VR Singles)": {
+    "slot": 2, "level": 95, "ability": "Beast Boost", "item": "Power Herb", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Air Slash", "Meteor Beam", "Fire Blast", "Autotomize"]
+  }
+},
+"Raging Bolt#2": {
+  "Lvl 95 Percy (VR Singles)": {
+    "slot": 3, "level": 95, "ability": "Protosynthesis", "item": "Dragonium Z", "nature": "Modest",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Thunderclap", "Thunderbolt", "Draco Meteor", "Solar Beam"]
+  }
+},
+"Flutter Mane#4": {
+  "Lvl 95 Percy (VR Singles)": {
+    "slot": 4, "level": 95, "ability": "Protosynthesis", "item": "Life Orb", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Shadow Ball", "Moonblast", "Mystical Fire", "Pain Split"]
+  }
+},
+"Heatran": {
+  "Lvl 95 Percy (VR Singles)": {
+    "slot": 5, "level": 95, "ability": "Flash Fire", "item": "Quick Claw", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Eruption", "Magma Storm", "Solar Beam", "Earth Power"]
+  }
+},
+"Torkoal#3": {
+  "Lvl 95 might dragon (VR Singles)": {
+    "slot": 0, "level": 95, "ability": "Drought", "item": "Heat Rock", "nature": "Bold",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":248,"at":0,"df":252,"sa":0,"sd":8,"sp":0},
+    "moves": ["Lava Plume", "Body Press", "Stealth Rock", "Rapid Spin"]
+  }
+},
+"Venusaur#3": {
+  "Lvl 95 might dragon (VR Singles)": {
+    "slot": 1, "level": 95, "ability": "Chlorophyll", "item": "Life Orb", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Growth", "Giga Drain", "Weather Ball", "Sludge Bomb"]
+  }
+},
+"Great Tusk": {
+  "Lvl 95 might dragon (VR Singles)": {
+    "slot": 2, "level": 95, "ability": "Protosynthesis", "item": "Leftovers", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":4,"df":0,"sa":0,"sd":0,"sp":252},
+    "moves": ["Headlong Rush", "Ice Spinner", "Rapid Spin", "Bulk Up"]
+  }
+},
+"Victini": {
+  "Lvl 95 might dragon (VR Singles)": {
+    "slot": 3, "level": 95, "ability": "Victory Star", "item": "Choice Band", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["V-create", "U-turn", "Bolt Strike", "Brick Break"]
+  }
+},
+"Raging Bolt#3": {
+  "Lvl 95 might dragon (VR Singles)": {
+    "slot": 4, "level": 95, "ability": "Protosynthesis", "item": "Dragonium Z", "nature": "Modest",
+    "ivs": {"hp":31,"at":20,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Volt Switch", "Weather Ball", "Draco Meteor", "Thunderclap"]
+  }
+},
+"Hatterene#4": {
+  "Lvl 95 might dragon (VR Singles)": {
+    "slot": 5, "level": 95, "ability": "Magic Bounce", "item": "Eject Button", "nature": "Bold",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":204,"sa":0,"sd":0,"sp":52},
+    "moves": ["Nuzzle", "Psychic Noise", "Pain Split", "Healing Wish"]
+  }
+},
+"Altaria": {
+  "Lvl 95 kidd0 (VR Singles)": {
+    "slot": 0, "level": 95, "ability": "Natural Cure", "item": "Altarianite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":40,"at":252,"df":0,"sa":0,"sd":0,"sp":216},
+    "moves": ["Frustration", "Dragon Dance", "Earthquake", "Sing"]
+  }
+},
+"Altaria-Mega": {
+  "Lvl 95 kidd0 (VR Singles)": {
+    "slot": 1, "level": 95, "ability": "Pixilate", "item": "Altarianite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":40,"at":252,"df":0,"sa":0,"sd":0,"sp":216},
+    "moves": ["Frustration", "Dragon Dance", "Earthquake", "Sing"]
+  }
+},
+"Glimmora": {
+  "Lvl 95 kidd0 (VR Singles)": {
+    "slot": 2, "level": 95, "ability": "Toxic Debris", "item": "Power Herb", "nature": "Timid",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+    "moves": ["Meteor Beam", "Sludge Bomb", "Earth Power", "Mortal Spin"]
+  }
+},
+"Iron Crown": {
+  "Lvl 95 kidd0 (VR Singles)": {
+    "slot": 3, "level": 95, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Timid",
+    "ivs": {"hp":31,"at":20,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":84,"at":0,"df":0,"sa":172,"sd":0,"sp":252},
+    "moves": ["Calm Mind", "Stored Power", "Iron Defense", "Focus Blast"]
+  }
+},
+"Emboar": {
+  "Lvl 95 kidd0 (VR Singles)": {
+    "slot": 4, "level": 95, "ability": "Moxie", "item": "Leftovers", "nature": "Impish",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":236,"at":68,"df":204,"sa":0,"sd":0,"sp":0},
+    "moves": ["Bulk Up", "Flame Charge", "Close Combat", "Thunder Punch"]
+  }
+},
+"Landorus-Therian#4": {
+  "Lvl 95 kidd0 (VR Singles)": {
+    "slot": 5, "level": 95, "ability": "Intimidate", "item": "Rocky Helmet", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":248,"at":0,"df":8,"sa":0,"sd":0,"sp":252},
+    "moves": ["Stealth Rock", "U-turn", "Earthquake", "Taunt"]
+  }
+},
+"Meowscarada#2": {
+  "Lvl 95 kidd0 (VR Singles)": {
+    "slot": 6, "level": 95, "ability": "Protean", "item": "Choice Band", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Flower Trick", "Knock Off", "U-turn", "Triple Axel"]
+  }
+},
+"Dragapult#2": {
+  "Lvl 95 AgencyIsOwn (VR Singles)": {
+    "slot": 0, "level": 95, "ability": "Cursed Body", "item": "Light Clay", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":4,"df":0,"sa":0,"sd":0,"sp":252},
+    "moves": ["Dragon Darts", "Curse", "Light Screen", "Reflect"]
+  }
+},
+"Gliscor#2": {
+  "Lvl 95 AgencyIsOwn (VR Singles)": {
+    "slot": 1, "level": 95, "ability": "Poison Heal", "item": "Toxic Orb", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Earthquake", "Facade", "Stone Edge", "Swords Dance"]
+  }
+},
+"Iron Valiant": {
+  "Lvl 95 AgencyIsOwn (VR Singles)": {
+    "slot": 2, "level": 95, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Spirit Break", "Close Combat", "Knock Off", "Swords Dance"]
+  }
+},
+"Kyurem": {
+  "Lvl 95 AgencyIsOwn (VR Singles)": {
+    "slot": 3, "level": 95, "ability": "Pressure", "item": "Loaded Dice", "nature": "Naive",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":200,"df":0,"sa":56,"sd":0,"sp":252},
+    "moves": ["Freeze-Dry", "Icicle Spear", "Earth Power", "Dragon Dance"]
+  }
+},
+"Cresselia": {
+  "Lvl 95 AgencyIsOwn (VR Singles)": {
+    "slot": 4, "level": 95, "ability": "Levitate", "item": "Kee Berry", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":80,"sa":176,"sd":0,"sp":0},
+    "moves": ["Stored Power", "Moonblast", "Lunar Blessing", "Calm Mind"]
+  }
+},
+"Darkrai": {
+  "Lvl 95 AgencyIsOwn (VR Singles)": {
+    "slot": 5, "level": 95, "ability": "Bad Dreams", "item": "Darkranite", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Dark Pulse", "Focus Blast", "Sludge Bomb", "Calm Mind"]
+  }
+},
+"Darkrai-Mega": {
+  "Lvl 95 AgencyIsOwn (VR Singles)": {
+    "slot": 6, "level": 95, "ability": "Bad Dreams", "item": "Darkranite", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Dark Pulse", "Focus Blast", "Sludge Bomb", "Calm Mind"]
+  }
+},
+"Zapdos-Galar": {
+  "Lvl 95 NVL (VR Doubles)": {
+    "slot": 0, "level": 95, "ability": "Defiant", "item": "Covert Cloak", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Thunderous Kick", "Brave Bird", "Coaching", "Tailwind"]
+  }
+},
+"Iron Treads#2": {
+  "Lvl 95 NVL (VR Doubles)": {
+    "slot": 1, "level": 95, "ability": "Quark Drive", "item": "Assault Vest", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Earthquake", "High Horsepower", "Hard Press", "Rock Slide"]
+  }
+},
+"Milotic": {
+  "Lvl 95 NVL (VR Doubles)": {
+    "slot": 2, "level": 95, "ability": "Competitive", "item": "Sawsbuck Coffee", "nature": "Bold",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":252,"sa":0,"sd":4,"sp":0},
+    "moves": ["Muddy Water", "Moonblast", "Recover", "Dragon Cheer"]
+  }
+},
+"Iron Leaves": {
+  "Lvl 95 NVL (VR Doubles)": {
+    "slot": 3, "level": 95, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":96,"at":160,"df":0,"sa":0,"sd":0,"sp":252},
+    "moves": ["Leaf Blade", "Psyblade", "Ally Switch", "Coaching"]
+  }
+},
+"Charizard#4": {
+  "Lvl 95 NVL (VR Doubles)": {
+    "slot": 4, "level": 95, "ability": "Blaze", "item": "Charizardite X", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":104,"at":252,"df":0,"sa":0,"sd":0,"sp":152},
+    "moves": ["Flare Blitz", "Dragon Claw", "Rock Slide", "Tailwind"]
+  }
+},
+"Charizard-Mega-X#2": {
+  "Lvl 95 NVL (VR Doubles)": {
+    "slot": 5, "level": 95, "ability": "Tough Claws", "item": "Charizardite X", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":104,"at":252,"df":0,"sa":0,"sd":0,"sp":152},
+    "moves": ["Flare Blitz", "Dragon Claw", "Rock Slide", "Tailwind"]
+  }
+},
+"Calyrex-Shadow#2": {
+  "Lvl 95 NVL (VR Doubles)": {
+    "slot": 6, "level": 95, "ability": "As One (Spectrier)", "item": "Ghost Gem", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+    "moves": ["Astral Barrage", "Psychic", "Future Sight", "Ally Switch"]
+  }
+},
+"Reshiram": {
+  "Lvl 95 Res (VR Doubles)": {
+    "slot": 0, "level": 95, "ability": "Turboblaze", "item": "Choice Scarf", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Fusion Flare", "Draco Meteor", "Dragon Pulse", "Earth Power"]
+  }
+},
+"Kyurem-Black#2": {
+  "Lvl 95 Res (VR Doubles)": {
+    "slot": 1, "level": 95, "ability": "Teravolt", "item": "Icium Z", "nature": "Naive",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":4,"sd":0,"sp":252},
+    "moves": ["Draco Meteor", "Dragon Claw", "Freeze Shock", "Fusion Bolt"]
+  }
+},
+"Iron Jugulis": {
+  "Lvl 95 Res (VR Doubles)": {
+    "slot": 2, "level": 95, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Dark Pulse", "Hurricane", "Tailwind", "Dragon Cheer"]
+  }
+},
+"Chandelure": {
+  "Lvl 95 Res (VR Doubles)": {
+    "slot": 3, "level": 95, "ability": "Flame Body", "item": "Chandelurite", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Shadow Ball", "Overheat", "Heat Wave", "Energy Ball"]
+  }
+},
+"Chandelure-Mega": {
+  "Lvl 95 Res (VR Doubles)": {
+    "slot": 4, "level": 95, "ability": "Shadow Tag", "item": "Chandelurite", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Shadow Ball", "Overheat", "Heat Wave", "Energy Ball"]
+  }
+},
+"Slowking-Galar": {
+  "Lvl 95 Res (VR Doubles)": {
+    "slot": 5, "level": 95, "ability": "Curious Medicine", "item": "Quick Claw", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
+    "moves": ["Psychic Noise", "Acid Spray", "Ice Beam", "Thunder Wave"]
+  }
+},
+"Mamoswine#2": {
+  "Lvl 95 Res (VR Doubles)": {
+    "slot": 6, "level": 95, "ability": "Intimidate", "item": "Assault Vest", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":252,"df":0,"sa":0,"sd":4,"sp":0},
+    "moves": ["Icicle Crash", "Ice Shard", "Headlong Rush", "Knock Off"]
+  }
+},
+"Iron Hands": {
+  "Lvl 95 Mr Tah (VR Doubles)": {
+    "slot": 0, "level": 95, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Brave",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
+    "evs": {"hp":248,"at":252,"df":0,"sa":0,"sd":8,"sp":0},
+    "moves": ["Drain Punch", "Wild Charge", "Ice Punch", "Fake Out"]
+  }
+},
+"Bronzong": {
+  "Lvl 95 Mr Tah (VR Doubles)": {
+    "slot": 1, "level": 95, "ability": "Drizzle", "item": "Damp Rock", "nature": "Relaxed",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
+    "evs": {"hp":252,"at":0,"df":252,"sa":0,"sd":4,"sp":0},
+    "moves": ["Gyro Ball", "Weather Ball", "Trick Room", "Ally Switch"]
+  }
+},
+"Vikavolt": {
+  "Lvl 95 Mr Tah (VR Doubles)": {
+    "slot": 2, "level": 95, "ability": "Lightning Rod", "item": "Iron Ball", "nature": "Quiet",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
+    "moves": ["Bug Buzz", "Thunder", "Air Slash", "Energy Ball"]
+  }
+},
+"Wailord": {
+  "Lvl 95 Mr Tah (VR Doubles)": {
+    "slot": 3, "level": 95, "ability": "Berserk", "item": "Sitrus Berry", "nature": "Quiet",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":0},
+    "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
+    "moves": ["Water Spout", "Weather Ball", "Ice Beam", "Soak"]
+  }
+},
+"Porygon2": {
+  "Lvl 95 Mr Tah (VR Doubles)": {
+    "slot": 4, "level": 95, "ability": "Download", "item": "Eviolite", "nature": "Bold",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":188,"sa":0,"sd":68,"sp":0},
+    "moves": ["Tri Attack", "Thunder", "Trick Room", "Recover"]
+  }
+},
+"Golisopod": {
+  "Lvl 95 Mr Tah (VR Doubles)": {
+    "slot": 5, "level": 95, "ability": "Emergency Exit", "item": "Golisopite", "nature": "Brave",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
+    "evs": {"hp":252,"at":252,"df":0,"sa":0,"sd":4,"sp":0},
+    "moves": ["Iron Head", "Leech Life", "Liquidation", "Drill Run"]
+  }
+},
+"Golisopod-Mega": {
+  "Lvl 95 Mr Tah (VR Doubles)": {
+    "slot": 6, "level": 95, "ability": "Tough Claws", "item": "Golisopite", "nature": "Brave",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":0},
+    "evs": {"hp":252,"at":252,"df":0,"sa":0,"sd":4,"sp":0},
+    "moves": ["Iron Head", "Leech Life", "Liquidation", "Drill Run"]
+  }
+},
+"Archaludon#2": {
+  "Lvl 95 Tess (VR Singles)": {
+    "slot": 0, "level": 95, "ability": "Sturdy", "item": "Power Herb", "nature": "Modest",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Flash Cannon", "Dragon Pulse", "Electro Shot", "Stealth Rock"]
+  }
+},
+"Salamence#5": {
+  "Lvl 95 Tess (VR Singles)": {
+    "slot": 1, "level": 95, "ability": "Moxie", "item": "Focus Sash", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":4,"sa":0,"sd":0,"sp":252},
+    "moves": ["Aerial Ace", "Earthquake", "Temper Flare", "Dragon Dance"]
+  }
+},
+"Gouging Fire": {
+  "Lvl 95 Tess (VR Singles)": {
+    "slot": 2, "level": 95, "ability": "Protosynthesis", "item": "Dragonium Z", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Flare Blitz", "Outrage", "Bulldoze", "Dragon Dance"]
+  }
+},
+"Dragapult#3": {
+  "Lvl 95 Tess (VR Singles)": {
+    "slot": 3, "level": 95, "ability": "Clear Body", "item": "Life Orb", "nature": "Hasty",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":128,"df":0,"sa":128,"sd":0,"sp":252},
+    "moves": ["Dragon Darts", "Shadow Ball", "Fire Blast", "Steel Wing"]
+  }
+},
+"Garchomp#6": {
+  "Lvl 95 Tess (VR Singles)": {
+    "slot": 4, "level": 95, "ability": "Rough Skin", "item": "Garchompite Z", "nature": "Timid",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
+    "moves": ["Dragon Pulse", "Fire Blast", "Earth Power", "Nasty Plot"]
+  }
+},
+"Garchomp-Mega-Z#2": {
+  "Lvl 95 Tess (VR Singles)": {
+    "slot": 5, "level": 95, "ability": "Levitate", "item": "Garchompite Z", "nature": "Timid",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
+    "moves": ["Dragon Pulse", "Fire Blast", "Earth Power", "Nasty Plot"]
+  }
+},
+"Miraidon#2": {
+  "Lvl 95 Tess (VR Singles)": {
+    "slot": 6, "level": 95, "ability": "Hadron Engine", "item": "White Herb", "nature": "Timid",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Electro Drift", "Volt Switch", "Draco Meteor", "Overheat"]
+  }
+},
+"Avalugg-Hisui": {
+  "Lvl 100 Shades (Ice E4 Singles)": {
+    "slot": 0, "level": 100, "ability": "Sturdy", "item": "Custap Berry", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":248,"at":252,"df":0,"sa":0,"sd":8,"sp":0},
+    "moves": ["Mountain Gale", "Headlong Rush", "Rapid Spin", "Stealth Rock"]
+  }
+},
+"Chien-Pao#2": {
+  "Lvl 100 Shades (Ice E4 Singles)": {
+    "slot": 1, "level": 100, "ability": "Sword of Ruin", "item": "Focus Sash", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Crunch", "Icicle Crash", "Ice Shard", "Sacred Sword"]
+  }
+},
+"Iron Bundle": {
+  "Lvl 100 Shades (Ice E4 Singles)": {
+    "slot": 2, "level": 100, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Timid",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Ice Beam", "Freeze-Dry", "Hydro Pump", "Taunt"]
+  }
+},
+"Articuno#2": {
+  "Lvl 100 Shades (Ice E4 Singles)": {
+    "slot": 3, "level": 100, "ability": "Mountaineer", "item": "Occa Berry", "nature": "Timid",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Ice Beam", "Freeze-Dry", "Earth Power", "Calm Mind"]
+  }
+},
+"Baxcalibur": {
+  "Lvl 100 Shades (Ice E4 Singles)": {
+    "slot": 4, "level": 100, "ability": "Thermal Exchange", "item": "Baxcalibrite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Glaive Rush", "Icicle Crash", "Earthquake", "Dragon Dance"]
+  }
+},
+"Baxcalibur-Mega": {
+  "Lvl 100 Shades (Ice E4 Singles)": {
+    "slot": 5, "level": 100, "ability": "Thermal Exchange", "item": "Baxcalibrite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Glaive Rush", "Icicle Crash", "Earthquake", "Dragon Dance"]
+  }
+},
+"Calyrex-Ice": {
+  "Lvl 100 Shades (Ice E4 Singles)": {
+    "slot": 6, "level": 100, "ability": "As One (Glastrier)", "item": "Icium Z", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":248,"at":252,"df":0,"sa":0,"sd":8,"sp":0},
+    "moves": ["Glacial Lance", "Close Combat", "High Horsepower", "Swords Dance"]
+  }
+},
+"Togekiss": {
+  "Lvl 100 Infrared (Fairy E4 Doubles)": {
+    "slot": 0, "level": 100, "ability": "Serene Grace", "item": "Psychic Seed", "nature": "Bold",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":252,"sa":4,"sd":0,"sp":0},
+    "moves": ["Air Slash", "Fire Blast", "Tailwind", "Follow Me"]
+  }
+},
+"Tapu Lele": {
+  "Lvl 100 Infrared (Fairy E4 Doubles)": {
+    "slot": 1, "level": 100, "ability": "Psychic Surge", "item": "Focus Sash", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Psychic", "Moonblast", "Nature's Madness", "Focus Blast"]
+  }
+},
+"Iron Valiant#2": {
+  "Lvl 100 Infrared (Fairy E4 Doubles)": {
+    "slot": 2, "level": 100, "ability": "Quark Drive", "item": "Life Orb", "nature": "Naive",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":4,"sd":0,"sp":252},
+    "moves": ["Spirit Break", "Close Combat", "Knock Off", "Expanding Force"]
+  }
+},
+"Milotic#2": {
+  "Lvl 100 Infrared (Fairy E4 Doubles)": {
+    "slot": 3, "level": 100, "ability": "Competitive", "item": "Fairium Z", "nature": "Bold",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":252,"sa":4,"sd":0,"sp":0},
+    "moves": ["Scald", "Moonblast", "Icy Wind", "Recover"]
+  }
+},
+"Diancie#2": {
+  "Lvl 100 Infrared (Fairy E4 Doubles)": {
+    "slot": 4, "level": 100, "ability": "Clear Body", "item": "Diancite", "nature": "Hasty",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":4,"df":0,"sa":252,"sd":0,"sp":252},
+    "moves": ["Diamond Storm", "Moonblast", "Earth Power", "Mystical Fire"]
+  }
+},
+"Diancie-Mega#2": {
+  "Lvl 100 Infrared (Fairy E4 Doubles)": {
+    "slot": 5, "level": 100, "ability": "Clear Body", "item": "Diancite", "nature": "Hasty",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":4,"df":0,"sa":252,"sd":0,"sp":252},
+    "moves": ["Diamond Storm", "Moonblast", "Earth Power", "Mystical Fire"]
+  }
+},
+"Zacian-Crowned#2": {
+  "Lvl 100 Infrared (Fairy E4 Doubles)": {
+    "slot": 6, "level": 100, "ability": "Intrepid Sword", "item": "Rusted Sword", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Behemoth Blade", "Play Rough", "Sacred Sword", "Crunch"]
+  }
+},
+"Great Tusk#2": {
+  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+    "slot": 0, "level": 100, "ability": "Protosynthesis", "item": "Focus Sash", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Headlong Rush", "Close Combat", "Ice Spinner", "Stealth Rock"]
+  }
+},
+"Iron Hands#2": {
+  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+    "slot": 1, "level": 100, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Careful",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":248,"at":8,"df":0,"sa":0,"sd":252,"sp":0},
+    "moves": ["Close Combat", "Thunder Punch", "Ice Punch", "Heavy Slam"]
+  }
+},
+"Marshadow#2": {
+  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+    "slot": 2, "level": 100, "ability": "Technician", "item": "Life Orb", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Poltergeist", "Shadow Sneak", "Close Combat", "Bulk Up"]
+  }
+},
+"Okidogi": {
+  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+    "slot": 3, "level": 100, "ability": "Toxic Chain", "item": "Assault Vest", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":240,"at":252,"df":0,"sa":0,"sd":0,"sp":16},
+    "moves": ["Gunk Shot", "Close Combat", "Knock Off", "Ice Punch"]
+  }
+},
+"Barbaracle": {
+  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+    "slot": 4, "level": 100, "ability": "Striker", "item": "Barbaracite", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Stone Edge", "Mega Kick", "Knock Off", "Shell Smash"]
+  }
+},
+"Barbaracle-Mega": {
+  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+    "slot": 5, "level": 100, "ability": "Striker", "item": "Barbaracite", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Stone Edge", "Mega Kick", "Knock Off", "Shell Smash"]
+  }
+},
+"Koraidon": {
+  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+    "slot": 6, "level": 100, "ability": "Orichalcum Pulse", "item": "Fightinium Z", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Close Combat", "Flare Blitz", "Iron Head", "Swords Dance"]
+  }
+},
+"Skarmory#2": {
+  "Lvl 100 Vlad (Steel E4 Doubles)": {
+    "slot": 0, "level": 100, "ability": "Infiltrator", "item": "Skarmorite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Iron Head", "Brave Bird", "Drill Run", "Tailwind"]
+  }
+},
+"Skarmory-Mega#2": {
+  "Lvl 100 Vlad (Steel E4 Doubles)": {
+    "slot": 1, "level": 100, "ability": "Tough Claws", "item": "Skarmorite", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Iron Head", "Brave Bird", "Drill Run", "Tailwind"]
+  }
+},
+"Heatran#2": {
+  "Lvl 100 Vlad (Steel E4 Doubles)": {
+    "slot": 2, "level": 100, "ability": "Flash Fire", "item": "Focus Sash", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
+    "moves": ["Magma Storm", "Earth Power", "Flash Cannon", "Power Gem"]
+  }
+},
+"Gholdengo": {
+  "Lvl 100 Vlad (Steel E4 Doubles)": {
+    "slot": 3, "level": 100, "ability": "Good as Gold", "item": "Steelium Z", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
+    "moves": ["Make It Rain", "Shadow Ball", "Focus Blast", "Power Gem"]
+  }
+},
+"Genesect-Douse": {
+  "Lvl 100 Vlad (Steel E4 Doubles)": {
+    "slot": 4, "level": 100, "ability": "Download", "item": "Douse Drive", "nature": "Hasty",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Techno Blast", "Iron Head", "Ice Beam", "Flare Blitz"]
+  }
+},
+"Goodra-Hisui": {
+  "Lvl 100 Vlad (Steel E4 Doubles)": {
+    "slot": 5, "level": 100, "ability": "Gooey", "item": "Assault Vest", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":4,"sa":252,"sd":0,"sp":0},
+    "moves": ["Dragon Pulse", "Flash Cannon", "Ice Beam", "Thunderbolt"]
+  }
+},
+"Zamazenta-Crowned": {
+  "Lvl 100 Vlad (Steel E4 Doubles)": {
+    "slot": 6, "level": 100, "ability": "Dauntless Shield", "item": "Rusted Shield", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":4,"sa":0,"sd":0,"sp":252},
+    "moves": ["Body Press", "Wild Charge", "Behemoth Bash", "Stone Edge"]
+  }
+},
+"Kabutops#2": {
+  "Lvl 100 Champion Brad (Singles)": {
+    "slot": 0, "level": 100, "ability": "Anger Shell", "item": "Focus Sash", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
+    "moves": ["Stone Axe", "Wave Crash", "Rapid Spin", "Taunt"]
+  }
+},
+"Shaymin-Sky#2": {
+  "Lvl 100 Champion Brad (Singles)": {
+    "slot": 1, "level": 100, "ability": "Serene Grace", "item": "Life Orb", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Seed Flare", "Air Slash", "Earth Power", "Dazzling Gleam"]
+  }
+},
+"Floette-Eternal": {
+  "Lvl 100 Champion Brad (Singles)": {
+    "slot": 2, "level": 100, "ability": "Flower Veil", "item": "Floettite", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+    "moves": ["Light of Ruin", "Psychic", "Hidden Power [Ground]", "Endeavor"]
+  }
+},
+"Floette-Mega": {
+  "Lvl 100 Champion Brad (Singles)": {
+    "slot": 3, "level": 100, "ability": "Flower Veil", "item": "Floettite", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
+    "moves": ["Light of Ruin", "Psychic", "Hidden Power [Ground]", "Endeavor"]
+  }
+},
+"Roaring Moon#2": {
+  "Lvl 100 Champion Brad (Singles)": {
+    "slot": 4, "level": 100, "ability": "Protosynthesis", "item": "Dragonium Z", "nature": "Jolly",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":252,"df":4,"sa":0,"sd":0,"sp":252},
+    "moves": ["Outrage", "Knock Off", "Iron Head", "Dragon Dance"]
+  }
+},
+"Calyrex-Shadow#3": {
+  "Lvl 100 Champion Brad (Singles)": {
+    "slot": 5, "level": 100, "ability": "As One (Spectrier)", "item": "Colbur Berry", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
+    "moves": ["Astral Barrage", "Psychic", "Pollen Puff", "Nasty Plot"]
+  }
+},
+"Groudon-Primal#2": {
+  "Lvl 100 Champion Brad (Singles)": {
+    "slot": 6, "level": 100, "ability": "Desolate Land", "item": "Red Orb", "nature": "Naive",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":8,"df":0,"sa":248,"sd":0,"sp":252},
+    "moves": ["Precipice Blades", "Fire Blast", "Solar Beam", "Ancient Power"]
+  }
+},
+"Deoxys-Speed": {
+  "Lvl 100 Champion Lando (Singles)": {
+    "slot": 0, "level": 100, "ability": "Pressure", "item": "Light Clay", "nature": "Timid",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":248,"at":0,"df":0,"sa":8,"sd":0,"sp":252},
+    "moves": ["Psycho Boost", "Light Screen", "Reflect", "Taunt"]
+  }
+},
+"Ursaluna-Bloodmoon": {
+  "Lvl 100 Champion Lando (Singles)": {
+    "slot": 1, "level": 100, "ability": "Mind's Eye", "item": "Normalium Z", "nature": "Modest",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":252,"at":0,"df":0,"sa":252,"sd":4,"sp":0},
+    "moves": ["Blood Moon", "Earth Power", "Moonlight", "Calm Mind"]
+  }
+},
+"Iron Crown#2": {
+  "Lvl 100 Champion Lando (Singles)": {
+    "slot": 2, "level": 100, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Timid",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":84,"at":0,"df":0,"sa":172,"sd":0,"sp":252},
+    "moves": ["Tachyon Cutter", "Psychic", "Focus Blast", "Calm Mind"]
+  }
+},
+"Darkrai#2": {
+  "Lvl 100 Champion Lando (Singles)": {
+    "slot": 3, "level": 100, "ability": "Bad Dreams", "item": "Darkranite", "nature": "Modest",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":196,"at":0,"df":0,"sa":252,"sd":0,"sp":60},
+    "moves": ["Dark Pulse", "Thunder", "Ice Beam", "Nasty Plot"]
+  }
+},
+"Darkrai-Mega#2": {
+  "Lvl 100 Champion Lando (Singles)": {
+    "slot": 4, "level": 100, "ability": "Bad Dreams", "item": "Darkranite", "nature": "Modest",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":196,"at":0,"df":0,"sa":252,"sd":0,"sp":60},
+    "moves": ["Dark Pulse", "Thunder", "Ice Beam", "Nasty Plot"]
+  }
+},
+"Kyogre-Primal#2": {
+  "Lvl 100 Champion Lando (Singles)": {
+    "slot": 5, "level": 100, "ability": "Primordial Sea", "item": "Blue Orb", "nature": "Hasty",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":4,"df":0,"sa":252,"sd":0,"sp":252},
+    "moves": ["Origin Pulse", "Liquidation", "Thunder", "Blizzard"]
+  }
+},
+"Xerneas": {
+  "Lvl 100 Champion Lando (Singles)": {
+    "slot": 6, "level": 100, "ability": "Fairy Aura", "item": "Power Herb", "nature": "Modest",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":88,"sa":252,"sd":0,"sp":168},
+    "moves": ["Moonblast", "Focus Blast", "Thunder", "Geomancy"]
+  }
+},
 };
 
 
