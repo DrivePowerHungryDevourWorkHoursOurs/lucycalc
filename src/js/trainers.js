@@ -940,7 +940,7 @@ var TRAINER_SETS_SV = {
   "Zapdos": {
     "Lvl 87 Gym Leader Chad Rematch (Optional)": {
       "slot": 2, "level": 87, "ability": "Static", "item": "Rocky Helmet", "nature": "Bold",
-      "ivs": {"hp":31,"at":31,"df":30,"sa":31,"sd":31,"sp":31},
+      "ivs": {"hp":31,"at":0,"df":30,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":252,"at":0,"df":184,"sa":0,"sd":0,"sp":72},
       "moves": ["Discharge", "Heat Wave", "Hidden Power [Ice]", "Roost"]
     }
@@ -1252,7 +1252,7 @@ var TRAINER_SETS_SV = {
   "Spectrier": {
     "Lvl 100 Elmo (VR Singles)": {
       "slot": 5, "level": 100, "ability": "Grim Neigh", "item": "Life Orb", "nature": "Timid",
-      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "ivs": {"hp":31,"at":0,"df":30,"sa":30,"sd":30,"sp":30},
       "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
       "moves": ["Nasty Plot", "Shadow Ball", "Hidden Power [Fighting]", "Will-O-Wisp"]
     }
@@ -1284,7 +1284,7 @@ var TRAINER_SETS_SV = {
   "Shaymin-Sky": {
     "Lvl 100 Nacho (VR Singles)": {
       "slot": 3, "level": 100, "ability": "Serene Grace", "item": "Focus Sash", "nature": "Timid",
-      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "ivs": {"hp":31,"at":0,"df":30,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
       "moves": ["Seed Flare", "Air Slash", "Earth Power", "Hidden Power [Ice]"]
     }
@@ -1356,7 +1356,7 @@ var TRAINER_SETS_SV = {
   "Serperior": {
     "Lvl 100 Gimmick (VR Singles)": {
       "slot": 5, "level": 100, "ability": "Contrary", "item": "Normalium Z", "nature": "Timid",
-      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "ivs": {"hp":31,"at":0,"df":31,"sa":30,"sd":30,"sp":31},
       "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
       "moves": ["Leaf Storm", "Dragon Pulse", "Hyper Beam", "Hidden Power [Ground]"]
     }
@@ -2540,7 +2540,7 @@ var TRAINER_SETS_SV = {
 "Floette-Eternal": {
   "Lvl 100 Champion Brad (Singles)": {
     "slot": 2, "level": 100, "ability": "Flower Veil", "item": "Floettite", "nature": "Timid",
-    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "ivs": {"hp":31,"at":0,"df":31,"sa":30,"sd":30,"sp":31},
     "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
     "moves": ["Light of Ruin", "Psychic", "Hidden Power [Ground]", "Endeavor"]
   }
@@ -2548,7 +2548,7 @@ var TRAINER_SETS_SV = {
 "Floette-Mega": {
   "Lvl 100 Champion Brad (Singles)": {
     "slot": 3, "level": 100, "ability": "Flower Veil", "item": "Floettite", "nature": "Timid",
-    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "ivs": {"hp":31,"at":0,"df":31,"sa":30,"sd":30,"sp":31},
     "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
     "moves": ["Light of Ruin", "Psychic", "Hidden Power [Ground]", "Endeavor"]
   }
