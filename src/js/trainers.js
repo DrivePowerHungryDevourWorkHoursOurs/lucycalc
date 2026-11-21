@@ -2298,7 +2298,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Avalugg-Hisui": {
-  "Lvl 100 Shades (Ice E4 Singles)": {
+  "Lvl 100 Sleepy (Ice E4 Singles)": {
     "slot": 0, "level": 100, "ability": "Sturdy", "item": "Custap Berry", "nature": "Adamant",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":248,"at":252,"df":0,"sa":0,"sd":8,"sp":0},
@@ -2306,7 +2306,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Chien-Pao#2": {
-  "Lvl 100 Shades (Ice E4 Singles)": {
+  "Lvl 100 Sleepy (Ice E4 Singles)": {
     "slot": 1, "level": 100, "ability": "Sword of Ruin", "item": "Focus Sash", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -2314,7 +2314,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Iron Bundle": {
-  "Lvl 100 Shades (Ice E4 Singles)": {
+  "Lvl 100 Sleepy (Ice E4 Singles)": {
     "slot": 2, "level": 100, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Timid",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
@@ -2322,7 +2322,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Articuno#2": {
-  "Lvl 100 Shades (Ice E4 Singles)": {
+  "Lvl 100 Sleepy (Ice E4 Singles)": {
     "slot": 3, "level": 100, "ability": "Mountaineer", "item": "Occa Berry", "nature": "Timid",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
@@ -2330,7 +2330,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Baxcalibur": {
-  "Lvl 100 Shades (Ice E4 Singles)": {
+  "Lvl 100 Sleepy (Ice E4 Singles)": {
     "slot": 4, "level": 100, "ability": "Thermal Exchange", "item": "Baxcalibrite", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -2338,7 +2338,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Baxcalibur-Mega": {
-  "Lvl 100 Shades (Ice E4 Singles)": {
+  "Lvl 100 Sleepy (Ice E4 Singles)": {
     "slot": 5, "level": 100, "ability": "Thermal Exchange", "item": "Baxcalibrite", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -2346,7 +2346,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Calyrex-Ice": {
-  "Lvl 100 Shades (Ice E4 Singles)": {
+  "Lvl 100 Sleepy (Ice E4 Singles)": {
     "slot": 6, "level": 100, "ability": "As One (Glastrier)", "item": "Icium Z", "nature": "Adamant",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":248,"at":252,"df":0,"sa":0,"sd":8,"sp":0},
@@ -2410,7 +2410,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Great Tusk#2": {
-  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+  "Lvl 100 Glow (Fighting E4 Singles)": {
     "slot": 0, "level": 100, "ability": "Protosynthesis", "item": "Focus Sash", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -2418,7 +2418,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Iron Hands#2": {
-  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+  "Lvl 100 Glow (Fighting E4 Singles)": {
     "slot": 1, "level": 100, "ability": "Quark Drive", "item": "Booster Energy", "nature": "Careful",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":248,"at":8,"df":0,"sa":0,"sd":252,"sp":0},
@@ -2426,7 +2426,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Marshadow#2": {
-  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+  "Lvl 100 Glow (Fighting E4 Singles)": {
     "slot": 2, "level": 100, "ability": "Technician", "item": "Life Orb", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -2434,7 +2434,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Okidogi": {
-  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+  "Lvl 100 Glow (Fighting E4 Singles)": {
     "slot": 3, "level": 100, "ability": "Toxic Chain", "item": "Assault Vest", "nature": "Adamant",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":240,"at":252,"df":0,"sa":0,"sd":0,"sp":16},
@@ -2442,7 +2442,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Barbaracle": {
-  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+  "Lvl 100 Glow (Fighting E4 Singles)": {
     "slot": 4, "level": 100, "ability": "Striker", "item": "Barbaracite", "nature": "Adamant",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -2450,7 +2450,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Barbaracle-Mega": {
-  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+  "Lvl 100 Glow (Fighting E4 Singles)": {
     "slot": 5, "level": 100, "ability": "Striker", "item": "Barbaracite", "nature": "Adamant",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -2458,7 +2458,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Koraidon": {
-  "Lvl 100 Gaunt (Fighting E4 Singles)": {
+  "Lvl 100 Glow (Fighting E4 Singles)": {
     "slot": 6, "level": 100, "ability": "Orichalcum Pulse", "item": "Fightinium Z", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -2466,7 +2466,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Skarmory#2": {
-  "Lvl 100 Vlad (Steel E4 Doubles)": {
+  "Lvl 100 Desire (Steel E4 Doubles)": {
     "slot": 0, "level": 100, "ability": "Infiltrator", "item": "Skarmorite", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -2474,7 +2474,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Skarmory-Mega#2": {
-  "Lvl 100 Vlad (Steel E4 Doubles)": {
+  "Lvl 100 Desire (Steel E4 Doubles)": {
     "slot": 1, "level": 100, "ability": "Tough Claws", "item": "Skarmorite", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
@@ -2482,7 +2482,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Heatran#2": {
-  "Lvl 100 Vlad (Steel E4 Doubles)": {
+  "Lvl 100 Desire (Steel E4 Doubles)": {
     "slot": 2, "level": 100, "ability": "Flash Fire", "item": "Focus Sash", "nature": "Modest",
     "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
@@ -2490,7 +2490,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Gholdengo": {
-  "Lvl 100 Vlad (Steel E4 Doubles)": {
+  "Lvl 100 Desire (Steel E4 Doubles)": {
     "slot": 3, "level": 100, "ability": "Good as Gold", "item": "Steelium Z", "nature": "Modest",
     "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
@@ -2498,7 +2498,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Genesect-Douse": {
-  "Lvl 100 Vlad (Steel E4 Doubles)": {
+  "Lvl 100 Desire (Steel E4 Doubles)": {
     "slot": 4, "level": 100, "ability": "Download", "item": "Douse Drive", "nature": "Hasty",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
@@ -2506,7 +2506,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Goodra-Hisui": {
-  "Lvl 100 Vlad (Steel E4 Doubles)": {
+  "Lvl 100 Desire (Steel E4 Doubles)": {
     "slot": 5, "level": 100, "ability": "Gooey", "item": "Assault Vest", "nature": "Modest",
     "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":252,"at":0,"df":4,"sa":252,"sd":0,"sp":0},
@@ -2514,7 +2514,7 @@ var TRAINER_SETS_SV = {
   }
 },
 "Zamazenta-Crowned": {
-  "Lvl 100 Vlad (Steel E4 Doubles)": {
+  "Lvl 100 Desire (Steel E4 Doubles)": {
     "slot": 6, "level": 100, "ability": "Dauntless Shield", "item": "Rusted Shield", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":4,"sa":0,"sd":0,"sp":252},
