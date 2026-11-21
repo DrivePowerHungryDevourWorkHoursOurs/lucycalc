@@ -1286,7 +1286,7 @@ var TRAINER_SETS_SV = {
       "slot": 3, "level": 100, "ability": "Serene Grace", "item": "Focus Sash", "nature": "Timid",
       "ivs": {"hp":31,"at":0,"df":30,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
-      "moves": ["Seed Flare", "Air Slash", "Earth Power", "Hidden Power [Ice]"]
+      "moves": ["Seed Flare", "Air Slash", "Earth Power", "Hidden Power Ice"]
     }
   },
   "Yveltal": {
