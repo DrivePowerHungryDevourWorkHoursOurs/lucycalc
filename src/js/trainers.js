@@ -940,7 +940,7 @@ var TRAINER_SETS_SV = {
   "Zapdos": {
     "Lvl 87 Gym Leader Chad Rematch (Optional)": {
       "slot": 2, "level": 87, "ability": "Static", "item": "Rocky Helmet", "nature": "Bold",
-      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":30},
       "evs": {"hp":252,"at":0,"df":184,"sa":0,"sd":0,"sp":72},
       "moves": ["Discharge", "Heat Wave", "Hidden Power Ice", "Roost"]
     }
