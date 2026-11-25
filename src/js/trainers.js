@@ -138,7 +138,7 @@ var TRAINER_SETS_SV = {
       "slot": 1, "level": 23, "ability": "Intimidate", "item": "Scope Lens", "nature": "Mild",
       "ivs": {"hp":31,"at":0,"df":31,"sa":30,"sd":31,"sp":31},
       "evs": {"hp":12,"at":0,"df":4,"sa":248,"sd":0,"sp":244},
-      "moves": ["Dark Pulse", "Overheat", "Sludge Bomb", "Hidden Power [Grass]"]
+      "moves": ["Dark Pulse", "Overheat", "Sludge Bomb", "Hidden Power Grass"]
     }
   },
   "Sunflora": {
@@ -940,9 +940,9 @@ var TRAINER_SETS_SV = {
   "Zapdos": {
     "Lvl 87 Gym Leader Chad Rematch (Optional)": {
       "slot": 2, "level": 87, "ability": "Static", "item": "Rocky Helmet", "nature": "Bold",
-      "ivs": {"hp":31,"at":0,"df":30,"sa":31,"sd":31,"sp":31},
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":252,"at":0,"df":184,"sa":0,"sd":0,"sp":72},
-      "moves": ["Discharge", "Heat Wave", "Hidden Power [Ice]", "Roost"]
+      "moves": ["Discharge", "Heat Wave", "Hidden Power Ice", "Roost"]
     }
   },
   "Electivire": {
@@ -966,7 +966,7 @@ var TRAINER_SETS_SV = {
       "slot": 5, "level": 90, "ability": "Motor Drive", "item": "Manectite", "nature": "Modest",
       "ivs": {"hp":31,"at":0,"df":30,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
-      "moves": ["Volt Switch", "Flamethrower", "Thunderbolt", "Hidden Power [Ice]"]
+      "moves": ["Volt Switch", "Flamethrower", "Thunderbolt", "Hidden Power Ice"]
     }
   },
     "Manectric-Mega": {
@@ -974,7 +974,7 @@ var TRAINER_SETS_SV = {
       "slot": 5, "level": 90, "ability": "Intimidate", "item": "Manectite", "nature": "Modest",
       "ivs": {"hp":31,"at":0,"df":30,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
-      "moves": ["Volt Switch", "Flamethrower", "Thunderbolt", "Hidden Power [Ice]"]
+      "moves": ["Volt Switch", "Flamethrower", "Thunderbolt", "Hidden Power Ice"]
     }
   },
     "Torkoal#2": {
@@ -1134,7 +1134,7 @@ var TRAINER_SETS_SV = {
       "slot": 5, "level": 100, "ability": "Inner Focus", "item": "Galladite", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
-      "moves": ["Swords Dance", "Sacred Sword", "Psycho Cut", "Night Slash"]
+      "moves": ["Swords Dance", "Close Combat", "Psycho Cut", "Knock Off"]
     }
   },
   "Gallade-Mega": {
@@ -1142,7 +1142,7 @@ var TRAINER_SETS_SV = {
       "slot": 6, "level": 100, "ability": "Inner Focus", "item": "Galladite", "nature": "Jolly",
       "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
-      "moves": ["Swords Dance", "Sacred Sword", "Psycho Cut", "Night Slash"]
+      "moves": ["Swords Dance", "Close Combat", "Psycho Cut", "Knock Off"]
     }
   },
     "Iron Treads": {
@@ -1252,9 +1252,9 @@ var TRAINER_SETS_SV = {
   "Spectrier": {
     "Lvl 100 Elmo (VR Singles)": {
       "slot": 5, "level": 100, "ability": "Grim Neigh", "item": "Life Orb", "nature": "Timid",
-      "ivs": {"hp":31,"at":0,"df":30,"sa":30,"sd":30,"sp":30},
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
-      "moves": ["Nasty Plot", "Shadow Ball", "Hidden Power [Fighting]", "Will-O-Wisp"]
+      "moves": ["Nasty Plot", "Shadow Ball", "Hidden Power Fighting", "Will-O-Wisp"]
     }
   },
    "Landorus-Therian#2": {
@@ -1284,7 +1284,7 @@ var TRAINER_SETS_SV = {
   "Shaymin-Sky": {
     "Lvl 100 Nacho (VR Singles)": {
       "slot": 3, "level": 100, "ability": "Serene Grace", "item": "Focus Sash", "nature": "Timid",
-      "ivs": {"hp":31,"at":0,"df":30,"sa":31,"sd":31,"sp":31},
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
       "moves": ["Seed Flare", "Air Slash", "Earth Power", "Hidden Power Ice"]
     }
@@ -1356,9 +1356,9 @@ var TRAINER_SETS_SV = {
   "Serperior": {
     "Lvl 100 Gimmick (VR Singles)": {
       "slot": 5, "level": 100, "ability": "Contrary", "item": "Normalium Z", "nature": "Timid",
-      "ivs": {"hp":31,"at":0,"df":31,"sa":30,"sd":30,"sp":31},
+      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
       "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
-      "moves": ["Leaf Storm", "Dragon Pulse", "Hyper Beam", "Hidden Power [Ground]"]
+      "moves": ["Leaf Storm", "Dragon Pulse", "Hyper Beam", "Hidden Power Ground"]
     }
   },
    "Deoxys-Attack": {
@@ -1500,9 +1500,9 @@ var TRAINER_SETS_SV = {
 "Serperior#2": {
   "Lvl 100 RuudDude (VR Singles)": {
     "slot": 3, "level": 100, "ability": "Contrary", "item": "Leftovers", "nature": "Timid",
-    "ivs": {"hp":31,"at":0,"df":31,"sa":30,"sd":31,"sp":30},
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":48,"at":0,"df":0,"sa":212,"sd":0,"sp":248},
-    "moves": ["Leaf Storm", "Dragon Pulse", "Hidden Power [Fire]", "Substitute"]
+    "moves": ["Leaf Storm", "Dragon Pulse", "Hidden Power Fire", "Substitute"]
   }
 },
 "Hoopa-Unbound": {
@@ -2540,17 +2540,17 @@ var TRAINER_SETS_SV = {
 "Floette-Eternal": {
   "Lvl 100 Champion Brad (Singles)": {
     "slot": 2, "level": 100, "ability": "Flower Veil", "item": "Floettite", "nature": "Timid",
-    "ivs": {"hp":31,"at":0,"df":31,"sa":30,"sd":30,"sp":31},
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
-    "moves": ["Light of Ruin", "Psychic", "Hidden Power [Ground]", "Endeavor"]
+    "moves": ["Light of Ruin", "Psychic", "Hidden Power Ground", "Endeavor"]
   }
 },
 "Floette-Mega": {
   "Lvl 100 Champion Brad (Singles)": {
     "slot": 3, "level": 100, "ability": "Flower Veil", "item": "Floettite", "nature": "Timid",
-    "ivs": {"hp":31,"at":0,"df":31,"sa":30,"sd":30,"sp":31},
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
-    "moves": ["Light of Ruin", "Psychic", "Hidden Power [Ground]", "Endeavor"]
+    "moves": ["Light of Ruin", "Psychic", "Hidden Power Ground", "Endeavor"]
   }
 },
 "Roaring Moon#2": {
